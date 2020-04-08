@@ -1,2 +1,3 @@
 # applied_database
-repository for applied discipline
+
+repository for database applied discipline
