@@ -1,0 +1,158 @@
+html,
+body {
+  background-image: url("http://getwallpapers.com/wallpaper/full/a/5/d/544750.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  height: 100%;
+  font-family: "Numans", sans-serif;
+}
+
+.container {
+  height: 100%;
+  align-content: center;
+  color: white;
+}
+
+.card {
+  height: 380px;
+  margin-top: auto;
+  margin-bottom: auto;
+  width: 400px;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+.row {
+  margin-top: 50px;
+  margin-bottom: 50px;
+}
+
+.masthead-text {
+  height: 300px;
+}
+
+.form-control {
+  height: 45px;
+}
+
+.login-or {
+  position: relative;
+  font-size: 18px;
+  color: #aaa;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+.span-or {
+  display: block;
+  position: absolute;
+  left: 50%;
+  top: -2px;
+  margin-left: -25px;
+  background-color: #fff;
+  width: 50px;
+  text-align: center;
+}
+
+.hr-or {
+  background-color: #cdcdcd;
+  height: 1px;
+  margin-top: 0px;
+  margin-bottom: 0px;
+}
+
+#login-dp {
+  min-width: 250px;
+  padding: 14px 14px 0;
+  overflow: hidden;
+}
+#login-dp .help-block {
+  font-size: 12px;
+}
+
+#login-dp .social-buttons {
+  margin: 12px 0;
+}
+#login-dp .social-buttons a {
+  width: 49%;
+}
+#login-dp .form-group {
+  margin-bottom: 10px;
+}
+
+.btn-primary {
+  border: none;
+  color: black;
+  background-color: #ffc312;
+}
+
+.btn-primary:hover {
+  color: black;
+  background-color: white;
+}
+
+@media (max-width: 768px) {
+  #login-dp {
+    background-color: inherit;
+    color: #fff;
+  }
+  #login-dp .bottom {
+    background-color: inherit;
+    border-top: 0 none;
+  }
+}
+
+.progress {
+  height: 5px;
+}
+
+.form-horizontal {
+  padding: 25px 20px;
+  border-radius: 5px;
+}
+
+.modal {
+  text-align: center;
+  padding: 0 !important;
+}
+
+.modal:before {
+  content: "";
+  display: inline-block;
+  height: 100%;
+  vertical-align: middle;
+  margin-right: -4px;
+}
+
+.modal-dialog {
+  display: inline-block;
+  text-align: left;
+  vertical-align: middle;
+}
+
+.divider {
+  position: absolute;
+  height: 2px;
+  width: 100%;
+  top: 10px;
+  z-index: -5;
+}
+
+.ex-account {
+  position: relative;
+}
+
+select:hover {
+  color: #444645;
+  background: #ddd;
+}
+
+.block-help {
+  font-weight: 300;
+}
+
+.mar-top-bot-50 {
+  margin-top: 50px;
+  margin-bottom: 50px;
+}
