@@ -1,10 +1,9 @@
 <?php
-
 class User { 
   private $name;
   private $email;
   private $pass;
-  private $date;
+  private $registerDate;
 
   public function setName($name) {
     $this->name = $name;
@@ -30,12 +29,12 @@ class User {
     return $this->pass;
   }
 
-  public function setDate($date) {
-    $this->date = $date;
+  public function setRegisterDate($registerDate) {
+    $this->registerDate = $registerDate;
   }
 
-  public function getDate() {
-    return $this->date;
+  public function getRegisterDate() {
+    return $this->registerDate;
   }
 }
 

@@ -1,14 +1,30 @@
 <?php
-require_once("./Controller/UserController.php");
-require_once("./Model/User.php");
-// registerUser registerPass registerEmail
+require_once("Controller/UserController.php");
+require_once("Model/User.php");
+$userController = new UserController();
+
 $msg = "";
 if (filter_input(INPUT_POST, "registerEmail", FILTER_SANITIZE_STRING)) {
   $user = new User();
   $user->setName(filter_input(INPUT_POST, "registerUser", FILTER_SANITIZE_STRING));
   $user->setEmail(filter_input(INPUT_POST, "registerEmail", FILTER_SANITIZE_STRING));
   $user->setPass(filter_input(INPUT_POST, "registerPass", FILTER_SANITIZE_STRING));
-  $user->setDate(date("Y-m-d H:i:s"));
+  $user->setRegisterDate(date("Y-m-d H:i:s"));
+  $result = $userController->register($user);
+  switch ($result) {
+    case 1:
+      $msg = "<div class='alert alert-success'>User successfully registered</div>";
+      break;
+    case -1:
+      $msg = "<div class='alert alert-warning'>User is already registered</div>";
+      break;
+    case -2:
+      $msg = "<div class='alert alert-warning'>Invalid data</div>";
+      break;
+    case -10:
+      $msg = "<div class='alert alert-danger'>There was an error when trying to register</div>";
+      break;
+  }
 }
 ?>
 
@@ -38,13 +54,13 @@ if (filter_input(INPUT_POST, "registerEmail", FILTER_SANITIZE_STRING)) {
                 <div class="input-group-prepend">
                   <span class="input-group-text"><i class="fas fa-user"></i></span>
                 </div>
-                <input type="text" name="registerUser" class="form-control" placeholder="username">
+                <input type="text" name="registerUser" class="form-control" placeholder="Username">
               </div>
               <div class="input-group form-group">
                 <div class="input-group-prepend">
                   <span class="input-group-text"><i class="fas fa-key"></i></span>
                 </div>
-                <input type="password" name="registerPass" class="form-control" placeholder="password">
+                <input type="password" name="registerPass" class="form-control" placeholder="Password">
               </div>
               <div class="input-group form-group">
                 <div class="input-group-prepend">
@@ -54,6 +70,9 @@ if (filter_input(INPUT_POST, "registerEmail", FILTER_SANITIZE_STRING)) {
               </div>
               <div class="form-group">
                 <button name="btnRegister" class="btn btn-block btn-primary">Register</button>
+              </div>
+              <div>
+                <?=$msg;?>
               </div>
             </form>
           </div>
@@ -66,9 +85,6 @@ if (filter_input(INPUT_POST, "registerEmail", FILTER_SANITIZE_STRING)) {
         </div>
       </div>
     </div>
-  </div>
-  <div class="alert alert-danger">
-    Test
   </div>
 </body>
 
