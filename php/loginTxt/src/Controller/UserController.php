@@ -1,5 +1,5 @@
 <?php
-  require_once("../DAO/userDAO.php");
+  require_once("../DAO/UserDAO.php");
   class UserController {
 
     private $userDAO;
@@ -15,4 +15,3 @@
       return $this->userDAO->register($user);
     }
   }
-?>

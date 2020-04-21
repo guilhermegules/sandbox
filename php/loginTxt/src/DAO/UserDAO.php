@@ -13,7 +13,7 @@ class UserDAO {
       if (!$this->verifyFile($fileName)) {
         $completeDirectory = $this->dir . "/" . $fileName;
         $fopen = fopen($completeDirectory, "w");
-        $str = "{$user->getName()};{$user->getEmail()};{$user->getPass()};{$user->getData()};";
+        $str = "{$user->getName()};{$user->getEmail()};{$user->getPass()};{$user->getDate()};";
         if(fwrite($fopen, $str)) {
           fclose($fopen);
           return 1; //Cadastro bem sucedido

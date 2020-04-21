@@ -4,7 +4,7 @@ class User {
   private $name;
   private $email;
   private $pass;
-  private $data;
+  private $date;
 
   public function setName($name) {
     $this->name = $name;
@@ -30,12 +30,12 @@ class User {
     return $this->pass;
   }
 
-  public function setData($data) {
-    $this->data = $data;
+  public function setDate($date) {
+    $this->date = $date;
   }
 
-  public function getData() {
-    return $this->data;
+  public function getDate() {
+    return $this->date;
   }
 }
 
