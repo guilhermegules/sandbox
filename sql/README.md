@@ -1,3 +1,3 @@
-# applied_database
+# Banco de dados aplicado
 
-repository for database applied discipline
+Repositório para a disciplina de banco de dados aplicado
