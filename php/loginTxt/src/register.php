@@ -8,7 +8,7 @@ if (filter_input(INPUT_POST, "registerEmail", FILTER_SANITIZE_STRING)) {
   $user = new User();
   $user->setName(filter_input(INPUT_POST, "registerUser", FILTER_SANITIZE_STRING));
   $user->setEmail(filter_input(INPUT_POST, "registerEmail", FILTER_SANITIZE_STRING));
-  $user->setPass(filter_input(INPUT_POST, "registerPass", FILTER_SANITIZE_STRING));
+  $user->setPass(md5(filter_input(INPUT_POST, "registerPass", FILTER_SANITIZE_STRING)));
   $user->setRegisterDate(date("Y-m-d H:i:s"));
   $result = $userController->register($user);
   switch ($result) {

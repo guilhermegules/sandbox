@@ -18,13 +18,13 @@ class UserDAO
         $str = "{$user->getName()};{$user->getEmail()};{$user->getPass()};{$user->getRegisterDate()};";
         if (fwrite($fopen, $str)) {
           fclose($fopen);
-          return 1; //Cadastro bem sucedido
+          return 1;
         } else {
           fclose($fopen);
-          return -10; // Erro ao cadastrar
+          return -10;
         }
       } else {
-        return -1; //Já cadastrado
+        return -1;
       }
     } catch (Exception $exception) {
       if ($this->debug) {
@@ -33,8 +33,25 @@ class UserDAO
     }
   }
 
-  public function getUser(string $email) {
-    if($this->verifyFile($email)) {
+  public function auth(string $email, string $pass)
+  {
+    $fileName = "{$email}.txt";
+    if ($this->verifyFile($fileName)) {
+
+      $user = $this->getUser($fileName);
+      if ($user->getPass() == md5($pass)) {
+        return $user;
+      } else {
+        return null;
+      }
+    } else {
+      return null;
+    }
+  }
+
+  public function getUser(string $email)
+  {
+    if ($this->verifyFile($email)) {
       $completeDirectory = $this->dir . "/" . $email;
       $fopen = fopen($completeDirectory, "r");
       $file = fread($fopen, filesize($completeDirectory));
@@ -46,9 +63,10 @@ class UserDAO
       $user->setPass($arr[2]);
       $user->setRegisterDate($arr[3]);
       fclose($fopen);
-      return true;
+      return $user;
+    } else {
+      return null;
     }
-    return false;
   }
 
   private function verifyFile(string $fileName)

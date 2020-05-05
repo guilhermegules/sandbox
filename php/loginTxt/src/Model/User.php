@@ -22,7 +22,7 @@ class User {
   }
 
   public function setPass($pass) {
-    $this->pass = md5($pass);
+    $this->pass = $pass;
   }
 
   public function getPass() {
