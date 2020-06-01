@@ -1,7 +1,7 @@
-import { ListTemplate } from "./models/ListTemplate.js";
-import { Formatter } from "./interfaces/Formatter.js";
-import { Payment } from "./models/Payment.js";
-import { Invoice } from "./models/Invoice.js";
+import { ListTemplate } from './models/ListTemplate';
+import { Formatter } from "./interfaces/Formatter";
+import { Payment } from "./models/Payment";
+import { Invoice } from "./models/Invoice";
 
 const ul = document.querySelector("ul")!;
 const list = new ListTemplate(ul);

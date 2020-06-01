@@ -1,4 +1,5 @@
 import { Formatter } from "./../interfaces/Formatter";
+
 export class ListTemplate {
   constructor(private container: HTMLUListElement) {}
 
