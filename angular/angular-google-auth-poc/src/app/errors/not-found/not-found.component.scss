@@ -1,0 +1,10 @@
+@import "../../helpers/mixins/_mixins";
+
+.error-404 {
+  @include display(flex, center, center, column);
+  margin-top: 5em;
+}
+
+h2 {
+  padding: 1em;
+}

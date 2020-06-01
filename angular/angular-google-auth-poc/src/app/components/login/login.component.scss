@@ -1,0 +1,23 @@
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  margin-top: 2em;
+}
+
+.button {
+  color: whitesmoke;
+  background-color: rgb(75, 74, 184);
+  font-weight: bold;
+  width: 10em;
+  height: 2.5em;
+  border: none;
+  border-radius: 0.2em;
+  cursor: pointer;
+  transition: 0.5s;
+  &:hover {
+    background-color: rgb(38, 36, 138);
+    transition: 0.5s;
+  }
+}

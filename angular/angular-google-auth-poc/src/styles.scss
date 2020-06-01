@@ -1,1 +1,26 @@
 /* You can add global styles to this file, and also import other style files */
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+
+* {
+  font-family: 'Roboto', sans-serif;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  color: #333;
+}
+
+body {
+  background-color: #f4f4f4;
+}
+
+a {
+  font-weight: bold;
+  color: rgb(93, 184, 93);
+  transition: 0.5s;
+  text-decoration: none;
+  font-size: 25px;
+  &:hover {
+    color: rgb(74, 151, 74);
+    transition: 0.5s;
+  }
+}
