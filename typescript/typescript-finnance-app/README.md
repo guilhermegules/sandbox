@@ -3,7 +3,9 @@
   <img src="./assets/typescript-webpack.jpeg">
 </p>
 
-App to agroup all learnings of typescript
+App to agroup some learnings of typescript
+- interfaces;
+- types;
 
 ## Run application
 - `npm run serve`
