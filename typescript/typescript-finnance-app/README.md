@@ -1,12 +1,16 @@
 ## Finnance app
 
-> App build with typescript
+<img src="./assets/typescript-webpack.jpeg">
 
 App to agroup all learnings of typescript
 
-- To build app `tsc`;
-- And run `index.html` on browser;
+## Run application
+- `npm run serve`
 
-# TODO add webpack for build and optimization
+## Build application
+- `npm run build`
 
-TODO add template gif
+<h2 align="center">Layout Demo</h2>]
+<p align="center">
+  <img src="./assets/layout-demo.gif">
+</p>
