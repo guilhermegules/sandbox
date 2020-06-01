@@ -1,3 +1,4 @@
-*.js
+public/*.js
 public/models/
 public/interfaces/
+node_modules
