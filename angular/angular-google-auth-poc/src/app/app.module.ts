@@ -7,13 +7,11 @@ import { FormsModule } from '@angular/forms';
 import { environment } from './../environments/environment';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { SuperSecretComponent } from './components/super-secret/super-secret.component';
 import { LoginComponent } from './components/login/login.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    SuperSecretComponent,
     LoginComponent,
   ],
   imports: [

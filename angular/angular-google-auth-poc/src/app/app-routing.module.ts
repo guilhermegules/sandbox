@@ -5,10 +5,16 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
 const routes: Routes = [
-  { path: 'secret', component: SuperSecretComponent, canActivate: [AuthGuard] },
+  {
+    path: 'secret',
+    loadChildren: () =>
+      import('./components/super-secret/super-secret.module').then(
+        (module) => module.SuperSecretModule
+      ),
+  },
   {
     path: '',
-    component: LoginComponent,
+    component: LoginComponent
   },
   {
     path: '**',
