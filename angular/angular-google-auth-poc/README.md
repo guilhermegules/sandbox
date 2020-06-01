@@ -13,3 +13,8 @@ Go in `Develop` tab then `Sign-in method` and enable `Google`;
 
 ## Run application
 - `npm start`;
+
+<h2 align="center">Demo</h2>
+<p align="center">
+  <img src="./src/assets/demo.gif">
+</p>
