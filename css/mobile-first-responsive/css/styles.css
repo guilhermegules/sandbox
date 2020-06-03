@@ -1,5 +1,108 @@
+@import "./_variables.css";
+
+@font-face {
+  font-family: "Rubik Regular";
+  src: url("../assets/fonts/Rubik-Regular.ttf");
+}
+
 * {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
+}
+
+
+
+body {
+  background: var(--secondary);
+  overflow-x: hidden;
+  font-family: "Rubik Regular";
+}
+
+h1,
+h2,
+h3,
+h4 {
+  color: var(--title-color);
+  font-weight: normal;
+}
+
+p,
+a,
+li {
+  color: var(--text-color);
+}
+
+h1,
+h3 {
+  font-size: 1.2em;
+}
+
+h2 {
+  font-size: 1.6em;
+}
+
+h4 {
+  font-size: 1.1em;
+}
+
+.leading {
+  font-size: 1.1em;
+}
+
+p,
+a,
+ul,
+li {
+  text-decoration: none;
+}
+
+li {
+  list-style-type: none;
+}
+
+.button {
+  background: none;
+  border: 2px solid var(--primary);
+  color: var(--primary);
+  padding: 6px 12px;
+  border-radius: 20px;
+  text-transform: uppercase;
+  box-shadow: 1px 2px 3px var(--box-shadow-color);
+  display: inline-block;
+  transition: 0.2s;
+}
+
+.button:hover {
+  transition: 0.2s;
+  color: var(--button-hover-color);
+  background: var(--primary);
+}
+
+input,
+textarea {
+  background: var(--form-background-color);
+  padding: 10px 16px;
+  border-radius: 20px;
+  border: 2px solid var(--form-border-color);
+  color: var(--form-text-color);
+}
+
+/* small tablet styles */
+@media screen and (min-width: 620px) {
+
+}
+
+/* Large tablets and Laptop styles */
+@media screen and (min-width: 960px) {
+  body {
+    font-size: 18px;
+  }
+}
+
+/* Desktop styles */
+@media screen and (min-width: 1200px) {
+  body {
+    font-size: 20px;
+  }
 }
