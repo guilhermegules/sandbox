@@ -1,17 +1,10 @@
 @import "./_variables.css";
+@import "./reset.css";
 
 @font-face {
   font-family: "Rubik Regular";
   src: url("../assets/fonts/Rubik-Regular.ttf");
 }
-
-* {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-}
-
-
 
 body {
   background: var(--secondary);
@@ -50,15 +43,13 @@ h4 {
   font-size: 1.1em;
 }
 
-p,
-a,
-ul,
-li {
-  text-decoration: none;
-}
-
-li {
-  list-style-type: none;
+input,
+textarea {
+  background: var(--form-background-color);
+  padding: 10px 16px;
+  border-radius: 20px;
+  border: 2px solid var(--form-border-color);
+  color: var(--form-text-color);
 }
 
 .button {
@@ -79,18 +70,48 @@ li {
   background: var(--primary);
 }
 
-input,
-textarea {
-  background: var(--form-background-color);
-  padding: 10px 16px;
-  border-radius: 20px;
-  border: 2px solid var(--form-border-color);
-  color: var(--form-text-color);
+.navigation {
+  margin: 0 20px;
+}
+
+.navigation ul {
+  display: none;
+}
+
+.navigation h1 {
+  grid-column: 1/4;
+  grid-row: 1;
+  padding-bottom: 10px;
+  border-bottom: 3px solid var(--primary);
+}
+
+#welcome {
+  padding: 0 20px 20px 20px;
+}
+
+.welcome-text {
+  grid-column: 1/6;
+}
+
+.welcome-text a {
+  margin: 20px 0;
+}
+
+.welcome-image {
+  grid-column: 6/9;
+}
+
+.welcome-image img {
+  width: 200%;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(8, 1fr);
 }
 
 /* small tablet styles */
 @media screen and (min-width: 620px) {
-
 }
 
 /* Large tablets and Laptop styles */
