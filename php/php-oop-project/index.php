@@ -23,7 +23,9 @@
     }
 
     public function setEmail($email) {
-      $this->email = $email;
+      if(strpos($email, '@') > -1) {
+        $this->email = $email;
+      }
     }
 
     public function setUsername($username) {
