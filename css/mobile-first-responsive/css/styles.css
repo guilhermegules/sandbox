@@ -194,6 +194,25 @@ footer {
   background-position: top center;
 }
 
+footer .copyright {
+  grid-column: 1/3;
+  font-size: 0.8em;
+}
+
+footer .social {
+  grid-column: 7/9;
+  display: flex;
+  justify-content: flex-end;
+}
+
+footer li {
+  margin: 0 6px;
+}
+
+footer img {
+  width: 20px;
+}
+
 .grid {
   display: grid;
   grid-template-columns: repeat(8, 1fr);
