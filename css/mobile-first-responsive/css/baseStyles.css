@@ -1,4 +1,52 @@
-@import "./css/_variables.css";
+@import "./_variables.css";
+@import "./reset.css";
+
+@font-face {
+  font-family: "Rubik Regular";
+  src: url("../assets/fonts/Rubik-Regular.ttf");
+}
+
+body {
+  background: var(--secondary);
+  overflow-x: hidden;
+  font-family: "Rubik Regular";
+}
+
+h1,
+h2,
+h3,
+h4 {
+  color: var(--title-color);
+  font-weight: normal;
+}
+
+p,
+a,
+li {
+  color: var(--text-color);
+}
+
+h1,
+h3 {
+  font-size: 1.2em;
+}
+
+h2 {
+  font-size: 1.6em;
+}
+
+h4 {
+  font-size: 1.1em;
+}
+
+input,
+textarea {
+  background: var(--form-background-color);
+  padding: 10px 16px;
+  border-radius: 20px;
+  border: 2px solid var(--form-border-color);
+  color: var(--form-text-color);
+}
 
 .leading {
   font-size: 1.1em;
@@ -152,7 +200,7 @@ footer .copyright {
 }
 
 footer .social {
-  grid-column: 7/9;
+  grid-column: 6/9;
   display: flex;
   justify-content: flex-end;
 }
