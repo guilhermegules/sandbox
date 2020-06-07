@@ -19,7 +19,7 @@
     }
 
     public function getUsername() {
-      return $this->email;
+      return $this->username;
     }
 
     public function setEmail($email) {
@@ -33,9 +33,23 @@
     }
   }
 
-  $userOne = new User('GuilhermeGM', 'guilhermegules@gmail.com');
-  $userTwo = new User('Pedro', 'Pedro@gmail.com');
+  class AdminUser extends User {
+    
+    public $level;
 
+    public function __construct($username, $email, $level) {
+      $this->level = $level;
+      parent::__construct($username, $email);
+    }
+  }
+
+  $userOne = new User('GuilhermeGM', 'guilhermegules@gmail.com');
+  $userTwo = new User('Pedro', 'pedro@gmail.com');
+  $userThree = new AdminUser('João', 'joao@gmail.com', 5);
+
+  echo $userThree->getUsername() . "<br>";
+  echo $userThree->getEmail() . "<br>";
+  echo $userThree->level . "<br>";
   // print_r(get_class_vars('User')); method to get class vars
   // print_r(get_class_methods('User')); method to get class methods
 ?>
