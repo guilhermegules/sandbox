@@ -1,1 +1,26 @@
-<p>book works!</p>
+<div class="row">
+  <div class="col-4">
+    <img
+      [src]="book.image"
+      [alt]="book.description"
+      class="img-thumbnail book-image"
+    />
+  </div>
+  <div class="col-8">
+    <div class="row">
+      <h2 class="book-title">{{ book.title }}</h2>
+    </div>
+    <div class="row">
+      <h4 class="book-price">{{ book.price | currency: "USD":"symbol" }}</h4>
+    </div>
+    <div class="row">
+      <h4 class="book-upvotes">Upvotes: {{ book.upvotes }}</h4>
+    </div>
+    <div class="row">
+      <h4 class="book-description">Description: {{ book.description }}</h4>
+    </div>
+    <div class="row">
+      <button (click)="upvote()" class="btn btn-primary upvote">Upvote</button>
+    </div>
+  </div>
+</div>
