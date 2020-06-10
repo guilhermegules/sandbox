@@ -79,9 +79,23 @@ describe('BookComponent', () => {
     expect(component.votesCounter()).toBeLessThan(votes + 1);
   });
 
-  it('upvote invokes the component function', () => {
+  it('should upvote invokes the component function', () => {
     const spy = spyOn(component, 'upvote');
     const button = nativeElement.querySelector('button.upvote');
+    button.dispatchEvent(new Event('click'));
+    expect(spy).toHaveBeenCalled();
+  });
+
+  it('should emit addToCart event', () => {
+    component.addToCart.subscribe(event => {
+      expect(event).toEqual(component.book);
+    });
+    component.sendToCart();
+  });
+
+  it('should call to a function sendToCart wehn clicked', () => {
+    const spy = spyOn(component, 'sendToCart');
+    const button = nativeElement.querySelector('button.send-to-cart');
     button.dispatchEvent(new Event('click'));
     expect(spy).toHaveBeenCalled();
   });
