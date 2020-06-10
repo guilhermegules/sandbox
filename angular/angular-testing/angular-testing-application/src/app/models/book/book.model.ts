@@ -29,8 +29,8 @@ export class BookModel implements BookInterface {
           book.upvotes
         );
       }
-      return null;
     }
+    return null;
   }
 
   public save() {
