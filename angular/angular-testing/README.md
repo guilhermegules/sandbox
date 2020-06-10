@@ -1,4 +1,7 @@
-## Angular testing Repo
+<h2 align="center">Angular testing Repo</h2>
+<p align="center">
+    <img src="./images/angular-jasmine-karma.png" />
+</p>
 
 > Testing can show the presence of bugs, but never their absence - Edsger Dijkstra
 
