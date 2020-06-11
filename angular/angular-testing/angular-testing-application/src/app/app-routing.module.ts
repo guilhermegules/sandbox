@@ -1,7 +1,8 @@
-import { BookEditComponent } from './components/book-edit/book-edit.component';
-import { BookComponent } from './components/book/book.component';
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
+
+import { BookComponent } from './components/book/book.component';
+import { BookEditComponent } from './components/book-edit/book-edit.component';
 import { BooksListComponent } from './components/books-list/books-list.component';
 
 const routes: Routes = [
