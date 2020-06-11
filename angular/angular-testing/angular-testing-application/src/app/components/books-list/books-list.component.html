@@ -1,0 +1,12 @@
+<section class="row" *ngFor="let book of books">
+  <div class="col-3">
+    <img [src]="book.image" alt="book image" class="img-fluid" />
+  </div>
+  <div class="col-5">
+    {{ book.title }}
+  </div>
+
+  <div class="col-3">
+    <a routerLink="books/{{book.title}}/edit"></a>
+  </div>
+</section>
