@@ -33,13 +33,25 @@ export class BookModel implements BookInterface {
     return null;
   }
 
+  public static query() {
+    const books: BookModel[] = JSON.parse(localStorage.getItem('books') || '[]');
+    const bookModels: BookModel[] = [];
+    for (const book of books) {
+      bookModels.push(new BookModel(
+        book.image, book.title, book.description, book.price, book.upvotes));
+    }
+    return bookModels;
+  }
+
   public save() {
     const books: BookModel[] = JSON.parse(
       localStorage.getItem('books') || '[]'
     );
 
     books.forEach((item, index) => {
-      if (item.title === this.title) { books.splice(index, 1); }
+      if (item.title === this.title) {
+        books.splice(index, 1);
+      }
     });
     books.push(this);
     localStorage.setItem('books', JSON.stringify(books));
