@@ -7,13 +7,17 @@ import { AppComponent } from './app.component';
 import { BookComponent } from './components/book/book.component';
 import { BooksListComponent } from './components/books-list/books-list.component';
 import { BookEditComponent } from './components/book-edit/book-edit.component';
+import { TreeComponent } from './components/tree/tree.component';
+import { InitDirective } from './directives/init.directive';
 
 @NgModule({
   declarations: [
     AppComponent,
     BookComponent,
     BooksListComponent,
-    BookEditComponent
+    BookEditComponent,
+    TreeComponent,
+    InitDirective
   ],
   imports: [
     BrowserModule,

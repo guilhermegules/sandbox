@@ -4,6 +4,8 @@ export interface BookInterface {
   description: string;
   price: number;
   upvotes: number;
+  genre?: object;
+  category?: string;
 }
 
 export class BookModel implements BookInterface {
@@ -12,7 +14,9 @@ export class BookModel implements BookInterface {
     public title: string,
     public description: string,
     public price: number,
-    public upvotes: number = 0
+    public upvotes: number = 0,
+    public genre: object = {},
+    public category: string = 'not defined'
   ) {}
 
   public static find(title: string) {
@@ -26,7 +30,9 @@ export class BookModel implements BookInterface {
           book.title,
           book.description,
           book.price,
-          book.upvotes
+          book.upvotes,
+          book.genre,
+          book.category
         );
       }
     }
@@ -34,11 +40,22 @@ export class BookModel implements BookInterface {
   }
 
   public static query() {
-    const books: BookModel[] = JSON.parse(localStorage.getItem('books') || '[]');
+    const books: BookModel[] = JSON.parse(
+      localStorage.getItem('books') || '[]'
+    );
     const bookModels: BookModel[] = [];
     for (const book of books) {
-      bookModels.push(new BookModel(
-        book.image, book.title, book.description, book.price, book.upvotes));
+      bookModels.push(
+        new BookModel(
+          book.image,
+          book.title,
+          book.description,
+          book.price,
+          book.upvotes,
+          book.genre,
+          book.category
+        )
+      );
     }
     return bookModels;
   }
