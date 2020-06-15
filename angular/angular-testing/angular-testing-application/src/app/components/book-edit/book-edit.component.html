@@ -123,7 +123,7 @@
 </section>
 
 <!-- TEMPLATE DRIVEN FORM JUST FOR TEST -->
-<form #templateForm="ngForm">
+<form *ngIf="activeForm === 'templateDriven'" #templateForm="ngForm">
   <div class="row mt-3">
     <div class="col-6">
       Template-Driven Form
@@ -132,106 +132,109 @@
 
   <div class="row">
     <div class="col-12 form-group title-group">
-      <label for="title">Title</label>
+      <label for="templateTitle">Title</label>
       <input
-        type="text"
         [(ngModel)]="book.title"
-        name="title"
-        id="title"
+        name="templateTitle"
+        type="text"
+        id="templateTitle"
         class="title form-control"
-        #title="ngModel"
+        #templateTitle="ngModel"
         minlength="3"
         required
       />
       <div
-        *ngIf="title.invalid && (title.dirty || title.touched)"
+        *ngIf="!templateTitle.valid && (templateTitle.dirty || templateTitle.touched)"
         class="invalid-feedback"
         style="display: block;"
       >
-        <div *ngIf="title?.errors?.required">
+        <div *ngIf="templateTitle?.errors?.required">
           Title is required.
         </div>
-        <div *ngIf="title.errors.minlength">
+        <div *ngIf="templateTitle?.errors?.minlength">
           Title must be at least 3 characters long.
         </div>
       </div>
     </div>
 
     <div class="col-12 form-group">
-      <label for="image">Image</label>
+      <label for="templateImage">Image URL</label>
       <input
-        type="text"
         [(ngModel)]="book.image"
-        name="image"
-        id="image"
+        name="templateImage"
+        type="text"
+        id="templateImage"
         class="image form-control"
-        #image="ngModel"
+        #templateImage="ngModel"
         required
       />
       <div
-        *ngIf="image.invalid && (image.dirty || image.touched)"
+        *ngIf="!templateImage.valid && (templateImage.dirty || templateImage.touched)"
         class="invalid-feedback"
         style="display: block;"
       >
-        <div *ngIf="image?.errors?.required">
+        <div *ngIf="templateImage?.errors?.required">
           Image URL is required.
         </div>
       </div>
     </div>
 
     <div class="col-12 form-group">
-      <label for="description">Description</label>
+      <label for="templateDescription">Description</label>
       <textarea
         [(ngModel)]="book.description"
-        #description="ngModel"
-        name="description"
+        #templateDescription="ngModel"
+        name="templateDescription"
         class="description form-control"
       ></textarea>
     </div>
 
     <div class="col-12 form-group price-group">
-      <label for="price">Price</label>
+      <label for="templatePrice">Price</label>
 
       <input
         [(ngModel)]="book.price"
         pattern="^\d+(,\d{3})*(\.\d*)?$"
-        name="price"
-        id="price"
+        name="templatePrice"
+        id="templatePrice"
         type="text"
         class="price"
-        #price="ngModel"
+        #templatePrice="ngModel"
         required
       />
       <div
-        *ngIf="!price.valid && (price.dirty || price.touched)"
+        *ngIf="!templatePrice.valid && (templatePrice.dirty || templatePrice.touched)"
         class="invalid-feedback"
         style="display: block;"
       >
-        <div *ngIf="price.errors.required">
+        <div *ngIf="templatePrice.errors.required">
           Please set the price
         </div>
-        <div *ngIf="price.errors.pattern">
+        <div *ngIf="templatePrice.errors.pattern">
           Please follow the format, for example 1000,000.15
         </div>
       </div>
     </div>
   </div>
-  <button type="submit" class="btn btn-primary">Edit</button>
+  <button type="submit" class="btn btn-primary">Edit!</button>
 </form>
 
+<!-- Dynamic Form -->
 <form
   *ngIf="activeForm === 'dynamicForm'"
   [formGroup]="bookEditDynamic"
   (ngSubmit)="submitTemplateForm()"
   #dynamicForm="ngForm"
 >
-  Dynamic Form
+  Dynamic form
   <app-tree
     [(questions)]="question"
     [(objectToFill)]="book"
     [(form)]="bookEditDynamic"
   ></app-tree>
+
   <button type="submit" class="btn btn-primary">Submit</button>
+
   <div class="row">
     <pre>{{ book | json }}</pre>
   </div>
