@@ -11,12 +11,6 @@
     </div>
 
     <div class="col-4">
-      <a [routerLink]="" (click)="activeForm = 'templateDriven'"
-        >Template Form</a
-      >
-    </div>
-
-    <div class="col-4">
       <a [routerLink]="" (click)="activeForm = 'dynamicForm'">Dynamic Form</a>
     </div>
   </div>
@@ -121,103 +115,6 @@
     </button>
   </form>
 </section>
-
-<!-- TEMPLATE DRIVEN FORM JUST FOR TEST -->
-<form *ngIf="activeForm === 'templateDriven'" #templateForm="ngForm">
-  <div class="row mt-3">
-    <div class="col-6">
-      Template-Driven Form
-    </div>
-  </div>
-
-  <div class="row">
-    <div class="col-12 form-group title-group">
-      <label for="templateTitle">Title</label>
-      <input
-        [(ngModel)]="book.title"
-        name="templateTitle"
-        type="text"
-        id="templateTitle"
-        class="title form-control"
-        #templateTitle="ngModel"
-        minlength="3"
-        required
-      />
-      <div
-        *ngIf="!templateTitle.valid && (templateTitle.dirty || templateTitle.touched)"
-        class="invalid-feedback"
-        style="display: block;"
-      >
-        <div *ngIf="templateTitle?.errors?.required">
-          Title is required.
-        </div>
-        <div *ngIf="templateTitle?.errors?.minlength">
-          Title must be at least 3 characters long.
-        </div>
-      </div>
-    </div>
-
-    <div class="col-12 form-group">
-      <label for="templateImage">Image URL</label>
-      <input
-        [(ngModel)]="book.image"
-        name="templateImage"
-        type="text"
-        id="templateImage"
-        class="image form-control"
-        #templateImage="ngModel"
-        required
-      />
-      <div
-        *ngIf="!templateImage.valid && (templateImage.dirty || templateImage.touched)"
-        class="invalid-feedback"
-        style="display: block;"
-      >
-        <div *ngIf="templateImage?.errors?.required">
-          Image URL is required.
-        </div>
-      </div>
-    </div>
-
-    <div class="col-12 form-group">
-      <label for="templateDescription">Description</label>
-      <textarea
-        [(ngModel)]="book.description"
-        #templateDescription="ngModel"
-        name="templateDescription"
-        class="description form-control"
-      ></textarea>
-    </div>
-
-    <div class="col-12 form-group price-group">
-      <label for="templatePrice">Price</label>
-
-      <input
-        [(ngModel)]="book.price"
-        pattern="^\d+(,\d{3})*(\.\d*)?$"
-        name="templatePrice"
-        id="templatePrice"
-        type="text"
-        class="price"
-        #templatePrice="ngModel"
-        required
-      />
-      <div
-        *ngIf="!templatePrice.valid && (templatePrice.dirty || templatePrice.touched)"
-        class="invalid-feedback"
-        style="display: block;"
-      >
-        <div *ngIf="templatePrice.errors.required">
-          Please set the price
-        </div>
-        <div *ngIf="templatePrice.errors.pattern">
-          Please follow the format, for example 1000,000.15
-        </div>
-      </div>
-    </div>
-  </div>
-  <button type="submit" class="btn btn-primary">Edit!</button>
-</form>
 
 <!-- Dynamic Form -->
 <form

@@ -1,4 +1,14 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { DiscountFormatterPipe } from './../../pipes/discount-formatter.pipe';
+import { BookComponent } from './../book/book.component';
+import { TestingModule } from './../../testing/testing.module';
+import { CartServiceMock, cartList } from './../../mock/cart.service.mock';
+import { CartService } from './../../services/cart.service';
+import {
+  async,
+  ComponentFixture,
+  TestBed,
+  fakeAsync,
+} from '@angular/core/testing';
 
 import { BooksListComponent } from './books-list.component';
 
@@ -8,9 +18,10 @@ describe('BooksListComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ BooksListComponent ]
-    })
-    .compileComponents();
+      declarations: [BooksListComponent, BookComponent, DiscountFormatterPipe],
+      imports: [TestingModule],
+      providers: [{ provide: CartService, useClass: CartServiceMock }],
+    }).compileComponents();
   }));
 
   beforeEach(() => {
@@ -19,7 +30,14 @@ describe('BooksListComponent', () => {
     fixture.detectChanges();
   });
 
-  it('should create', () => {
-    expect(component).toBeTruthy();
-  });
+  // it('should create', () => {
+  //   expect(component).toBeTruthy();
+  // });
+
+  // describe('Books Cart', () => {
+  //   it('should display the cart after rendering', fakeAsync(() => {
+  //     fixture.detectChanges();
+  //     expect(component.cart).toEqual(cartList);
+  //   }));
+  // });
 });

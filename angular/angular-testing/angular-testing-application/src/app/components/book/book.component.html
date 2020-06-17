@@ -14,6 +14,9 @@
       <h4 class="book-price">{{ book.price | currency: "USD":"symbol" }}</h4>
     </div>
     <div class="row">
+      <h4 class="book-price" [innerHTML]='book.price | discount:20'></h4>
+    </div>
+    <div class="row">
       <h4 class="book-upvotes">Upvotes: {{ book.upvotes }}</h4>
     </div>
     <div class="row">

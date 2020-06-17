@@ -4,7 +4,7 @@ export interface BookInterface {
   description: string;
   price: number;
   upvotes: number;
-  genre?: object;
+  genre?: string;
   category?: string;
 }
 
@@ -15,7 +15,7 @@ export class BookModel implements BookInterface {
     public description: string,
     public price: number,
     public upvotes: number = 0,
-    public genre: object = {},
+    public genre: string = 'not defined',
     public category: string = 'not defined'
   ) {}
 
@@ -58,6 +58,12 @@ export class BookModel implements BookInterface {
       );
     }
     return bookModels;
+  }
+
+  getData(): object {
+    const result = {};
+    Object.keys(this).map(key => result[key] = this[key]);
+    return result;
   }
 
   public save() {

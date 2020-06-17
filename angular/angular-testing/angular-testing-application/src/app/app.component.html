@@ -1,11 +1,5 @@
 <section class="container">
   <h1>Welcome to {{ title }}</h1>
-  <div class="row">
-    <pre>{{ cart | json }}</pre>
-  </div>
-  <div class="row">
-    <app-book [book]="book" (addToCart)="addToCart($event)"></app-book>
-  </div>
 </section>
 <section class="container">
   <router-outlet></router-outlet>

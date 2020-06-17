@@ -1,3 +1,4 @@
+import { TestingModule } from './../../testing/testing.module';
 import { FormChildren } from './../../models/form/form';
 import { InitDirective } from './../../directives/init.directive';
 import { TreeComponent } from './../tree/tree.component';
@@ -25,7 +26,7 @@ describe('BookEditComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       declarations: [BookEditComponent, TreeComponent, InitDirective],
-      imports: [RouterTestingModule, ReactiveFormsModule, FormsModule],
+      imports: [TestingModule],
     }).compileComponents();
   }));
 
@@ -89,79 +90,4 @@ describe('BookEditComponent', () => {
     const bookFromStorage = BookModel.find(component.book.title);
     expect(bookFromStorage).toEqual(component.book);
   }));
-
-  describe('Template driven form', () => {
-    it('should have a title error if less then 3 symbols provided', fakeAsync(() => {
-      component.activeForm = 'templateDriven';
-      fixture.detectChanges();
-      const form = component.templateForm.form;
-      tick();
-      form.setValue({
-        templateTitle: 'te',
-        templateImage: 'http://test.com',
-        templateDescrption: 'none',
-        templatePrice: 100,
-      });
-      form.controls.title2.markAsTouched();
-      fixture.detectChanges();
-      expect(form.controls.title2.errors).toBeTruthy();
-      expect(nativeElement.querySelector('.title-group').textContent).toContain(
-        'Title must be at least 3 characters long.'
-      );
-    }));
-
-    it('should have price error if incorrect value provided', fakeAsync(() => {
-      component.activeForm = 'templateDriven';
-      fixture.detectChanges();
-      const form = component.templateForm.form;
-      tick();
-      form.setValue({
-        templateTitle: 'test',
-        templateImage: 'http://test.com',
-        templateDescription: 'none',
-        templatePrice: '$100'
-      });
-      form.controls.title2.markAsTouched();
-      fixture.detectChanges();
-      expect(form.controls.price2.errors).toBeTruthy();
-
-      form.controls.price2.setValue('100');
-      expect(form.get('price2')).toBeTruthy();
-    }));
-  });
-
-  describe('Dynamic forms', () => {
-    it('should have dynamic form working', fakeAsync(() => {
-      component.activeForm = 'dynamicForm';
-      fixture.detectChanges();
-      const form = component.bookEditDynamic;
-      const elements: FormChildren[] = component.question.children;
-      const object: any = {};
-
-      for (const el of elements) {
-        if (el.type === 'input') {
-          const value = faker.lorem.sentence();
-          form.get(el.paramName).setValue(value);
-          object[el.paramName] = value;
-        }
-        if (el.type === 'select') {
-          const option =
-            el.options[Math.floor(Math.random() * el.options.length)];
-          component.book[el.paramName] = option.paramName;
-          fixture.detectChanges();
-          object[el.paramName] = option.paramName;
-        }
-        if (el.type === 'checkbox') {
-          form.controls[el.paramName].setValue(true);
-          object[el.paramName] = true;
-        }
-      }
-      const button = fixture.debugElement.query(By.css('button[type="submit"]'))
-        .nativeElement;
-
-      button.click();
-      const bookFromStorage = BookModel.find(object.title);
-      expect<any>(bookFromStorage).toEqual(component.book);
-    }));
-  });
 });
