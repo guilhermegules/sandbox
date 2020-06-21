@@ -11,3 +11,7 @@ li {
 li {
   list-style-type: none;
 }
+
+textarea {
+  resize: vertical;
+}

@@ -39,11 +39,15 @@ h4 {
   font-size: 1.1em;
 }
 
+button, a {
+  cursor: pointer;
+}
+
 input,
 textarea {
   background: var(--form-background-color);
   padding: 10px 16px;
-  border-radius: 20px;
+  border-radius: 8px;
   border: 2px solid var(--form-border-color);
   color: var(--form-text-color);
 }
