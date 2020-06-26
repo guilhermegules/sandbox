@@ -8,21 +8,23 @@ import { Router } from '@angular/router';
   styleUrls: ['./products.component.scss'],
 })
 export class ProductsComponent implements OnInit {
-  constructor(private router: Router, private headerService: HeaderService) {}
-
-  ngOnInit(): void {
-    this.initHeaderService();
-  }
-
-  navigateToProductCreate(): void {
-    this.router.navigate(['/products/create']);
-  }
-
-  initHeaderService(): void {
+  constructor(private router: Router, private headerService: HeaderService) {
     this.headerService.setHeaderData = {
       title: 'Produtos',
       icon: 'storefront',
       route: '/products',
     };
+  }
+
+  ngOnInit(): void {
+    // this.headerService.setHeaderData = {
+    //   title: 'Produtos',
+    //   icon: 'storefront',
+    //   route: '/products',
+    // };
+  }
+
+  navigateToProductCreate(): void {
+    this.router.navigate(['/products/create']);
   }
 }

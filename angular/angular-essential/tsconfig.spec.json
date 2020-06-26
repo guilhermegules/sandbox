@@ -6,9 +6,7 @@
       "jest",
       "node"
     ],
-    "target": "es6",
-    "esModuleInterop": true,
-    "emitDecoratorMetadata": true
+    "target": "es6"
   },
   "files": [
     "src/test.ts",

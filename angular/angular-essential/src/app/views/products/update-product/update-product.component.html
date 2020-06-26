@@ -1,12 +1,12 @@
 <mat-card>
   <mat-card-title>Alterar Produto</mat-card-title>
-  <div class="form-group" [formGroup]="productUpdateForm">
+  <div class="form-group">
     <mat-form-field>
-      <input  matInput placeholder="Nome" formControlName="name"/>
+      <input [(ngModel)]="product.name" matInput placeholder="Nome" />
     </mat-form-field>
 
     <mat-form-field>
-      <input matInput placeholder="Preço" formControlName="price" />
+      <input [(ngModel)]="product.price" matInput placeholder="Preço" />
     </mat-form-field>
   </div>
 

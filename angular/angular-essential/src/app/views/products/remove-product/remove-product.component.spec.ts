@@ -1,33 +1,22 @@
-import { Router, ActivatedRoute } from '@angular/router';
-import { Spectator, createComponentFactory } from '@ngneat/spectator';
+import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { ProductService } from './../../../services/product/product.service';
-import { FormTestingModule } from './../../../../testing/form-testing.module';
-import { TestingModule } from './../../../../testing/testing.module';
 import { RemoveProductComponent } from './remove-product.component';
 
 describe('RemoveProductComponent', () => {
   let component: RemoveProductComponent;
-  let spectator: Spectator<RemoveProductComponent>;
-  let router: Router;
-  let route: ActivatedRoute;
-  let productService: ProductService;
+  let fixture: ComponentFixture<RemoveProductComponent>;
 
-  const createComponent = createComponentFactory({
-    component: RemoveProductComponent,
-    imports: [TestingModule, FormTestingModule],
-    shallow: true
-  });
+  beforeEach(async(() => {
+    TestBed.configureTestingModule({
+      declarations: [ RemoveProductComponent ]
+    })
+    .compileComponents();
+  }));
 
   beforeEach(() => {
-    spectator = createComponent();
-    component = spectator.component;
-
-    productService = spectator.inject(ProductService);
-    router = spectator.inject(Router);
-    route = spectator.inject(ActivatedRoute);
-
-    spectator.detectChanges();
+    fixture = TestBed.createComponent(RemoveProductComponent);
+    component = fixture.componentInstance;
+    fixture.detectChanges();
   });
 
   it('should create', () => {
