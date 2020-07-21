@@ -119,10 +119,6 @@
           }
         }
       }
-    }
-  },
-  "defaultProject": "angular-interceptor-poc",
-  "cli": {
-    "analytics": false
-  }
+    }},
+  "defaultProject": "angular-interceptor-poc"
 }
