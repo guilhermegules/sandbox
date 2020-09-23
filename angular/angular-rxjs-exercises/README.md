@@ -1,27 +1,24 @@
 # AngularRxjsExercises
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 10.0.2.
+> Exercises for understanting some operators
 
-## Development server
+### Running:
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+- `npm install` install all dependencies;
+- `npm start` run application;
 
-## Code scaffolding
+#### Combine operators - operators for combine Observable requests
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+- `zip` - Can accept more than two Observables, they must all wait for each other;
+- `forkJoin` - Can be called `final destination operator` because if our observables are not complete that means `.next()` can complete for `forkJoin` just `.complete()` in our observables can complete with this guy;
 
-## Build
+### Exercises explained (pt-br):
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
+1. Chame dois serviços HTTP em paralelo utilizando o operador ZIP. Chame dois serviços HTTP em paralelo utilizando o operador forkJoin. Qual a diferença entre os dois? Fechar observable
 
-## Running unit tests
+2. Crie um component pai Crie um component filho Consuma o observable no componente filho getMultiValueObservable counter.service dando console.log no valor que vier
+   Crie um botão no component pai que a cada clique alterna entre mostrar o component filho e esconder o component filho, utilize ngIf pra isso O que acontece com o console.log? Resolva o problema
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+3. Consuma um getAll que retorne um observable com N instâncias de uma classe. Crie a classe pra essa instância também.
 
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+4. Crie um serviço que utilize Subject, depois mude para Behavior e por ultimo use o replaySubject pra ver e entender a diferença entre eles
