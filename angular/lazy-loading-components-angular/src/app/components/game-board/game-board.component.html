@@ -1,0 +1,17 @@
+<mat-toolbar color="primary">
+  <span>{{ title | uppercase }}</span>
+</mat-toolbar>
+
+<button
+  *ngIf="!quizStarted"
+  mat-raised-button
+  color="primary"
+  class="quiz-button"
+  (click)="startQuiz()"
+>
+  Start
+</button>
+
+<section class="quiz-card-container">
+  <ng-container #quizContainer></ng-container>
+</section>

@@ -1,0 +1,29 @@
+<mat-card class="quiz__card" *ngIf="question">
+  <mat-card-header>
+    <div mat-card-avatar class="quiz__header--image"></div>
+    <mat-card-title>Which city is this?</mat-card-title>
+    <mat-card-subtitle>Click on the correct answer below</mat-card-subtitle>
+  </mat-card-header>
+  <img
+    [src]="questionImageUrl"
+    [alt]="question.correctAnswer"
+    class="image"
+    mat-card-image
+  />
+  <mat-card-actions class="quiz__answer">
+    <button
+      [disabled]="answeredCorrectly !== undefined"
+      *ngFor="let selection of question.possibleSelections"
+      mat-stroked-button
+      color="primary"
+      [ngClass]="{
+        correct: answeredCorrectly && selection === question.correctAnswer,
+        wrong:
+          answeredCorrectly === false && selection === question.correctAnswer
+      }"
+      (click)="answer(selection)"
+    >
+      {{ selection }}
+    </button>
+  </mat-card-actions>
+</mat-card>
