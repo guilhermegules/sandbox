@@ -2,7 +2,6 @@
 
 > Repository for training and study about webpack
 
-
 ## Useful Articles:
 
 - [Why Frontend Developers Need to be Webpack Experts](https://blog.bitsrc.io/why-frontend-developers-need-to-be-webpack-experts-32e734b6f04a)
