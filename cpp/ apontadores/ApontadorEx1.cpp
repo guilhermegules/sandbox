@@ -1,17 +1,14 @@
 #include <stdio.h>
 #include <conio.h>
 
-
-
 int main(){
-
-int *m, cont=100, q;
-m = &cont; //m recebe o endereço de cont
-q = *m; //q recebe o valor apontado por m
-printf("m = %d\n", m); //imprime o endereço de cont
-printf("*m = %d\n", *m); //imprime o conteúdo da variável apontada pelo ponteiro
-printf("&m = %d\n", &m); //imprime o endereço de m
-printf("cont = %d\n", cont); //imprime o conteúdo de cont
-printf("&cont = %d\n", &cont); //imprime o endereço da variável cont
-printf("q = %d\n", q); //Imprime o conteúdo da variável q
+  int *m, cont=100, q;
+  m = &cont; //m recebe o endereï¿½o de cont
+  q = *m; //q recebe o valor apontado por m
+  printf("m = %d\n", m); //imprime o endereï¿½o de cont
+  printf("*m = %d\n", *m); //imprime o conteï¿½do da variï¿½vel apontada pelo ponteiro
+  printf("&m = %d\n", &m); //imprime o endereï¿½o de m
+  printf("cont = %d\n", cont); //imprime o conteï¿½do de cont
+  printf("&cont = %d\n", &cont); //imprime o endereï¿½o da variï¿½vel cont
+  printf("q = %d\n", q); //Imprime o conteï¿½do da variï¿½vel q
 }

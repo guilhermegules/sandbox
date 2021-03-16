@@ -6,10 +6,10 @@ main(){
 	int cod;
 	
 	do{
-		printf ("Você deseja \n 1-calcular a media do aluno \n 2-sair do programa \n");
+		printf ("Vocï¿½ deseja \n 1-calcular a media do aluno \n 2-sair do programa \n");
 		scanf ("%i", &cod);
-		if (cod !=1 ) && (cod !=2){
-		printf ("")
+		if ((cod != 1 ) && (cod != 2)) {
+		  printf ("");
 		}
 		switch (cod){
 			case 1: 
@@ -18,7 +18,7 @@ main(){
 				printf ("\n Digite a segunda nota do doutor ");
 				scanf (" %f", &nota2);
 				media=((nota + nota2)/2);
-				printf ("A nota média do consagrado: %f", media);
+				printf ("A nota mï¿½dia do consagrado: %f", media);
 				break;
 			case 2: 
 				printf ("Programa encerrado!");
