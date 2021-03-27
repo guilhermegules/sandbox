@@ -1,0 +1,8 @@
+*
+
+!.vscode
+!*.c
+!.gitignore
+!*.json
+!*.md
+!sum-matrices
