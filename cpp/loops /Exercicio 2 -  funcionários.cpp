@@ -1,15 +1,14 @@
 #include <stdio.h>
-#include <conio.h>
 #include <string.h> 
 
 main(){
 	/*
-	Algoritmo que permita a entrada de diversos nomes de funcion·rios e valores de
-	sal·rio, ao final o seu programa deve exibir:
-	1. O n˙mero de funcion·rios da empresa;
+	Algoritmo que permita a entrada de diversos nomes de funcion√°rios e valores de
+	sal√°rio, ao final o seu programa deve exibir:
+	1. O n√∫mero de funcion√°rios da empresa;
 	2. O total gasto com a folha de pagamento;
-	3. O sal·rio mÈdio dos funcion·rios;
-	4. O nome da pessoa que recebe o maior sal·rio.
+	3. O sal√°rio m√©dio dos funcion√°rios;
+	4. O nome da pessoa que recebe o maior sal√°rio.
 	
 	Quando 0 for digitado o programa deve encerrar
 	*/

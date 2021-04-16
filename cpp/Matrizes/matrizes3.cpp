@@ -11,8 +11,10 @@ main(){
 		printf("Digite um valor: ");
 		scanf("%i", &m[i][j]);
 	}
+
 	for(j=0; j<2;j++){
 		soma = soma + m[j][1];
 	}
+  
 	printf("%i", soma);
 }

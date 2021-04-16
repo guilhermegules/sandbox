@@ -1,26 +1,23 @@
-//Crie uma função em linguagem C que receba 2 números e retorne o maior valor.
+// Crie uma funÃ§Ã£o em linguagem C que receba 2 nÃºmeros e retorne o maior valor.
 
 #include <stdio.h>
-#include <conio.h>
 
 int maior(int a, int b);
 
-
-//Função
+//FunÃ§Ã£o
 int maior(int a, int b){
-	int res=0;
-	if(a>b){
+	int res = 0;
+	if(a > b) {
 		res = a;
-	}
-	else{
+	}	else {
 		res=b;
 	}
+
 	return res;
-	
 }
+
 //Programa principal
 int main(){
-	
 	int num1, num2;
 	
 	printf("Digite um valor:\n");
@@ -29,6 +26,5 @@ int main(){
 	scanf("%d", &num2);
 	
 	printf("Maior numero: %d", maior(num1, num2));
-
 }
 

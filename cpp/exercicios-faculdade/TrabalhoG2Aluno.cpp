@@ -1,7 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-#include <conio.h>
 #include <locale.h>
 #define tam 5;
 main() {
@@ -14,20 +13,20 @@ main() {
 	float nota2;
 	float media;
 	};
-	struct aluno aluno; //variável struct de aluno 
+	struct aluno aluno; //variï¿½vel struct de aluno 
 	char cadastro[10];
 	printf("\t\t\tCadastro de Aluno\n\n\n");
 	
-	int i, j; // váriaveis de indice
+	int i, j; // vï¿½riaveis de indice
 	int opcao = 0;
 	
 	while(opcao > 4 || opcao < 1) {
 		menu:
-		printf("\nOque você deseja? \n1-Inserir \n2-Lista \n3-Pesquisar \n4-Excluir \n");
+		printf("\nOque vocï¿½ deseja? \n1-Inserir \n2-Lista \n3-Pesquisar \n4-Excluir \n");
 		scanf("%i", &opcao);
 		system("cls");
 		if(opcao > 4 || opcao < 1) {
-			printf("Opção inválida digite novamente!\n");
+			printf("Opï¿½ï¿½o invï¿½lida digite novamente!\n");
 		}
 	}
 	
@@ -36,7 +35,7 @@ main() {
 		case 1:
 			printf("\t\t\tInserir\n\n");
 		for(i = 0; i<2; i++) {
-			printf("\nDigite o número acadêmico do aluno: ");
+			printf("\nDigite o nï¿½mero acadï¿½mico do aluno: ");
 			scanf("%d", &aluno.numero_academico);
 			cadastro[i] = aluno.numero_academico;
 			printf("\nDigite o nome do aluno: ");
@@ -52,7 +51,7 @@ main() {
 			aluno.media = (aluno.nota1 + aluno.nota1) / 2;
 			cadastro[i] = aluno.media;
 		}
-			printf("Inserção feita com sucesso!!\n");
+			printf("Inserï¿½ï¿½o feita com sucesso!!\n");
 			system("cls");
 			system("pause");
 			goto menu;
@@ -61,13 +60,13 @@ main() {
 		case 2:
 			printf("\t\t\tListar\n\n");
 			for(i = 0; i<2; i++) {
-					printf("Número do acadêmico aluno: %d\n", cadastro[i]);
+					printf("Nï¿½mero do acadï¿½mico aluno: %d\n", cadastro[i]);
 					printf("Nome do aluno: %s\n" , cadastro[i]);
 					printf("Primeira nota: %.2f\n",	cadastro[i]);
 					printf("Segunda nota: %.2f\n", cadastro[i]);
-					printf("Média do aluno: %.2f\n", cadastro[i]);
+					printf("Mï¿½dia do aluno: %.2f\n", cadastro[i]);
 			}
-			printf("\nVocê deseja voltar \n1-Sim \n2-Encerrar programa");
+			printf("\nVocï¿½ deseja voltar \n1-Sim \n2-Encerrar programa");
 			scanf("%i", &opcao);
 			
 			if(opcao == 1) {
@@ -81,7 +80,7 @@ main() {
 		
 		case 3:
 			printf("Pesquisar");
-			printf("Oque você deseja pesquisar? \n1-Número do aluno \n2-Nome do aluno \n3-Média do aluno");
+			printf("Oque vocï¿½ deseja pesquisar? \n1-Nï¿½mero do aluno \n2-Nome do aluno \n3-Mï¿½dia do aluno");
 		break;
 		
 		case 4:
@@ -90,18 +89,18 @@ main() {
 		break;	
 		
 	}
-	/*Com estas informações solicita-se que desenvolva um programa com um menu mínimo que tenha as seguintes informações:
+	/*Com estas informaï¿½ï¿½es solicita-se que desenvolva um programa com um menu mï¿½nimo que tenha as seguintes informaï¿½ï¿½es:
  
-	a. INSERIR – Inserir dados de um único aluno na primeira posição livre encontrada em um vetor de struct. Sua função deverá receber como parâmetro no mínimo o vetor onde serão inseridos os dados e
-	uma variável que indique o tamanho do vetor em questão. Como retorno da função espera-se 0 para uma inserção com sucesso, e 1 quando não for possível realizar inserção.
+	a. INSERIR ï¿½ Inserir dados de um ï¿½nico aluno na primeira posiï¿½ï¿½o livre encontrada em um vetor de struct. Sua funï¿½ï¿½o deverï¿½ receber como parï¿½metro no mï¿½nimo o vetor onde serï¿½o inseridos os dados e
+	uma variï¿½vel que indique o tamanho do vetor em questï¿½o. Como retorno da funï¿½ï¿½o espera-se 0 para uma inserï¿½ï¿½o com sucesso, e 1 quando nï¿½o for possï¿½vel realizar inserï¿½ï¿½o.
 	
-	b. LISTAR – Deverá listar os dados de todos alunos cadastrados. Para isto deve ser construída um procediento que exiba todas as posições ocupadas de um determinado vetor de struct. Este procedimento
-	deverá receber como parâmetro pelo menos o vetor e o tamanho deste vetor e exibir todos dados armazenados no vetor.
+	b. LISTAR ï¿½ Deverï¿½ listar os dados de todos alunos cadastrados. Para isto deve ser construï¿½da um procediento que exiba todas as posiï¿½ï¿½es ocupadas de um determinado vetor de struct. Este procedimento
+	deverï¿½ receber como parï¿½metro pelo menos o vetor e o tamanho deste vetor e exibir todos dados armazenados no vetor.
 	
-	c. PESQUISAR – A pesquisa deve ser realizada através de uma função específica que receba como parâmetro o vetor de dados, o tamanho deste vetor, e o nome a ser consultado neste vetor. O retorno será
-	a posição onde este nome for encontrado, ou no caso de não encontrar a informação no vetor, deverá retornar -1.
+	c. PESQUISAR ï¿½ A pesquisa deve ser realizada atravï¿½s de uma funï¿½ï¿½o especï¿½fica que receba como parï¿½metro o vetor de dados, o tamanho deste vetor, e o nome a ser consultado neste vetor. O retorno serï¿½
+	a posiï¿½ï¿½o onde este nome for encontrado, ou no caso de nï¿½o encontrar a informaï¿½ï¿½o no vetor, deverï¿½ retornar -1.
 	
-	d. EXCLUIR – Seu programa deverá permitir que o usuário solicite a exclusão de um cadastro através do nome. Para isto deve haver um procedimento responsável por excluir um determinado registro do struct. Seu procedimento para exclusão deverá receber a struct específica a ser excluída. Para isso, antes de passar o struct como parâmetro na chamada do procedimento Excluir, você deve utilizar a função
-	Pesquisa (letra c), e realizar o processo de exclusão dos dados. NÃO DEVERÁ SER PASSADO O VETOR INTEIRO COMO PARÂMETRO!*/
+	d. EXCLUIR ï¿½ Seu programa deverï¿½ permitir que o usuï¿½rio solicite a exclusï¿½o de um cadastro atravï¿½s do nome. Para isto deve haver um procedimento responsï¿½vel por excluir um determinado registro do struct. Seu procedimento para exclusï¿½o deverï¿½ receber a struct especï¿½fica a ser excluï¿½da. Para isso, antes de passar o struct como parï¿½metro na chamada do procedimento Excluir, vocï¿½ deve utilizar a funï¿½ï¿½o
+	Pesquisa (letra c), e realizar o processo de exclusï¿½o dos dados. Nï¿½O DEVERï¿½ SER PASSADO O VETOR INTEIRO COMO PARï¿½METRO!*/
 
 }

@@ -1,5 +1,5 @@
 #include <stdio.h>
-#include <conio.h>
+
 main(){
 	float area, altura, base;
 	int condicao;

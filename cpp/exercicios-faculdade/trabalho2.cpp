@@ -1,13 +1,12 @@
-/*2) Escreva um programa que receba o estoque atual de três produtos, armazenados em quatro armazéns, e
-coloque esses dados em uma matriz 5x3. Considerando que a última linha dessa matriz contém o custo de cada
-produto, o programa deverá calcular e mostrar:
-a. A quantidade de itens armazenados em cada armazém;
-b. Qual armazém possui maior estoque do produto 2;
-c. Qual armazém possui menor estoque;
+/*2) Escreva um programa que receba o estoque atual de trÃ¡s produtos, armazenados em quatro armazÃ©ns, e
+coloque esses dados em uma matriz 5x3. Considerando que a Ãºltima linha dessa matriz contÃ©m o custo de cada
+produto, o programa deverÃ¡ calcular e mostrar:
+a. A quantidade de itens armazenados em cada armazï¿½m;
+b. Qual armazÃ©m possui maior estoque do produto 2;
+c. Qual armazÃ©m possui menor estoque;
 d. Qual o custo total de cada produto (total de cada produto x valor do produto);
-e. Qual o custo total de cada armazém (montante que cada armazém tem em produtos).*/
+e. Qual o custo total de cada armazÃ©m (montante que cada armazÃ©m tem em produtos).*/
 #include <stdio.h>
-#include <conio.h>
 #include <stdlib.h>
 #include <locale.h>
 
@@ -28,7 +27,7 @@ main(){
 	
 		for(j=0; j<3; j++){
 	for(i=0; i<4; i++){
-		printf("estoque do produto %i - é %i do armazem %i \n", j, ordem[j][i], i);	
+		printf("estoque do produto %i - ï¿½ %i do armazem %i \n", j, ordem[j][i], i);	
 		
 
 	}

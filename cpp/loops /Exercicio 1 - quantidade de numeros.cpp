@@ -1,8 +1,7 @@
 #include <stdio.h>
-#include <conio.h>
 
 main(){
-	//Algoritmo para ler a quantidade de números inseridos
+	//Algoritmo para ler a quantidade de nÃºmeros inseridos
 	
 	int num1, num_negativo, num_par, total;
 	

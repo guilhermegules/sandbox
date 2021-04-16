@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <locale.h>
-/*-------------Protótipos-------------*/
+/*-------------ProtÃ³tipos-------------*/
 float calculoPeso(float kilo, int quantidade);
 void cabecalho(void);
 /*------------------------------------*/
@@ -21,15 +21,15 @@ float calculoPeso(float kilo, int quantidade) {
 int main(){
 	
 	setlocale(LC_ALL, "Portuguese");
-	FILE *pont_arq1; // cria variável ponteiro para o arquivo
-	char palavra[20]; // variável do tipo string
+	FILE *pont_arq1; // cria variï¿½vel ponteiro para o arquivo
+	char palavra[20]; // variï¿½vel do tipo string
 	int opcao1, opcao2, item;
 	char nome[50];
 	char vercadast[50];
 	int quant=0, SN, x, ler, j, inicio;
 	const int TAM = 5;
 	float peso = 0;
-	float resultado; //Declaração de variavel armazenando função
+	float resultado; //Declaraï¿½ï¿½o de variavel armazenando funï¿½ï¿½o
 		
 	cabecalho();
 	
@@ -49,11 +49,11 @@ int main(){
 	cabecalho();
 	printf("Digite seu nome:\n%s\n", nome);
 	do{
-		printf("\t\tESCOLHA UMA OPÇÃO\n");
+		printf("\t\tESCOLHA UMA OPï¿½ï¿½O\n");
 		printf("1:Inicia transporte.\n2:Cadastrar.\n0:Sair\n");
 		scanf("%i", &opcao1);
 		if(opcao1>=3||opcao1<0){
-			printf("Opção incorreta! Digite novamente.\n");
+			printf("Opï¿½ï¿½o incorreta! Digite novamente.\n");
 		}
 	}while(opcao1>=3||opcao1<0);
 	if(opcao1==0){
@@ -78,7 +78,7 @@ int main(){
 					printf("1:Cadastrar novamente.\n0:Voltar.\n");
 					scanf("%i", &SN);
 					if(SN<0||SN>1){
-						printf("Opção incorreta! Digite novamente.");
+						printf("Opï¿½ï¿½o incorreta! Digite novamente.");
 					}
 				}while(SN<0||SN>1);
 				if(SN==0){
@@ -105,10 +105,10 @@ int main(){
 					printf("\t\tTRANSPORTE\n");
 					do{
 						printf("Escolha o item:\n");
-						printf("1-Componentes eletrônicos\n2-Painel\n3-Cofre\n");
+						printf("1-Componentes eletrï¿½nicos\n2-Painel\n3-Cofre\n");
 						scanf("%i", &item);
 						if(item>3||item<=0){
-							printf("Seleção de itens incorreta! Digite novamente.\n");
+							printf("Seleï¿½ï¿½o de itens incorreta! Digite novamente.\n");
 						}
 					}while(item>3||item<=0);
 					if(item==1) { //Definindo peso para os itens
@@ -125,7 +125,7 @@ int main(){
 						printf("Digite a quantidade:\n");
 						scanf("%i", &quant);
 						if(quant<=0){
-							printf("Quantidade de produtos inválida! Digite novamente\n");
+							printf("Quantidade de produtos invï¿½lida! Digite novamente\n");
 							}
 						}
 					resultado = calculoPeso(peso, quant);
@@ -243,7 +243,7 @@ int main(){
 						printf("\nDigite 0 para voltar.\n");
 						scanf("%i", &op);
 						if(op!=0) {
-							printf("Opção inválida, Digite novamente!");
+							printf("Opï¿½ï¿½o invï¿½lida, Digite novamente!");
 						} else if (op==0) {
 							goto volta;	
 						}

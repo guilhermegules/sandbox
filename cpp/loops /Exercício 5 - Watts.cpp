@@ -1,14 +1,13 @@
-#include <conio.h>
 #include <stdio.h>
 
 main(){
 	
-	/*5) Escreva um programa em C que receba o valor do salário mínimo, uma lista contendo a quantidade de
-	quilowatts gasta por consumidor e o tipo de consumidor (1 – residencial, 2 – comercial, 3 – industrial) e
+	/*5) Escreva um programa em C que receba o valor do salï¿½rio mï¿½nimo, uma lista contendo a quantidade de
+	quilowatts gasta por consumidor e o tipo de consumidor (1 ï¿½ residencial, 2 ï¿½ comercial, 3 ï¿½ industrial) e
 	que calcule e mostre:
-	h. O valor de cada quilowatt, sabendo que o quilowatt custa 1/20 do salário mínimo.
-	i. O valor a ser pago por cada consumidor (conta final mais o acréscimo). O acréscimo para consumidores
-	do tipo 1 é de 5%, do tipo 2 é de 10% e do tipo 3 é de 15% sobre o valor gasto.
+	h. O valor de cada quilowatt, sabendo que o quilowatt custa 1/20 do salï¿½rio mï¿½nimo.
+	i. O valor a ser pago por cada consumidor (conta final mais o acrï¿½scimo). O acrï¿½scimo para consumidores
+	do tipo 1 ï¿½ de 5%, do tipo 2 ï¿½ de 10% e do tipo 3 ï¿½ de 15% sobre o valor gasto.
 	j. O faturamento geral da empresa.
 	k. A quantidade de consumidores que pagam entre R$ 500,00 e R$ 1000,00 de conta.
 	Termine a entrada de dados com quantidade de quilowatts igual a 0.*/

@@ -1,13 +1,12 @@
 #include <stdio.h>
-#include <conio.h>
 #define tam 20
 
-/*7. Escreva um programa que leia um vetor de 20 posições inteiras e o coloque em ordem crescente,
-utilizando a seguinte estratégia:
-a. Selecione o elemento do vetor de 20 posições que apresenta o menor valor;
+/*7. Escreva um programa que leia um vetor de 20 posiï¿½ï¿½es inteiras e o coloque em ordem crescente,
+utilizando a seguinte estratï¿½gia:
+a. Selecione o elemento do vetor de 20 posiï¿½ï¿½es que apresenta o menor valor;
 b. Troque este elemento pelo primeiro;
-c. Repita estas operações envolvendo agora apenas os 19 elementos restantes (trocando o de
-menor valor com a segunda posição), depois os 17, os 16 e assim por diante, até restar um único
+c. Repita estas operaï¿½ï¿½es envolvendo agora apenas os 19 elementos restantes (trocando o de
+menor valor com a segunda posiï¿½ï¿½o), depois os 17, os 16 e assim por diante, atï¿½ restar um ï¿½nico
 elemento, o maior deles.*/
 
 main(){

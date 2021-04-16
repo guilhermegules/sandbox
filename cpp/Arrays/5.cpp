@@ -1,5 +1,4 @@
 #include <stdio.h>
-#include <conio.h>
 #define tam 2
 
 main(){

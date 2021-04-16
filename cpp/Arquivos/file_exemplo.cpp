@@ -1,15 +1,14 @@
-/*Controle de viagens aéreas: o sistema deve permitir ao usuário
-cadastrar e consultar voos, a partir de um menu de opções.
-A opção de cadastro deve ler um conjunto de dados composto por 
-número do voo, origem e destino, permitindo que o usuário encerre
-esse processo digitando 0 (zero) para o número do voo. 
-A opção consultar deverá ler o número do voo e apresentar origem 
-e destino (ou uma mensagem informando que o voo não foi encontrado, quando for 
-o caso), permitindo que o usuário faça quantas consultas quiser. 
-Por fim, a opção listar voos deverá apresentar a lista de todos os voos cadastrados.*/
+/*Controle de viagens aï¿½reas: o sistema deve permitir ao usuï¿½rio
+cadastrar e consultar voos, a partir de um menu de opï¿½ï¿½es.
+A opï¿½ï¿½o de cadastro deve ler um conjunto de dados composto por 
+nï¿½mero do voo, origem e destino, permitindo que o usuï¿½rio encerre
+esse processo digitando 0 (zero) para o nï¿½mero do voo. 
+A opï¿½ï¿½o consultar deverï¿½ ler o nï¿½mero do voo e apresentar origem 
+e destino (ou uma mensagem informando que o voo nï¿½o foi encontrado, quando for 
+o caso), permitindo que o usuï¿½rio faï¿½a quantas consultas quiser. 
+Por fim, a opï¿½ï¿½o listar voos deverï¿½ apresentar a lista de todos os voos cadastrados.*/
 
 #include <stdio.h>
-#include <conio.h>
 #include <stdlib.h>
 
 main() {
@@ -21,7 +20,7 @@ main() {
 	
 	if(aeroporto == NULL){
 		
-		printf("ERRO! voo não cadastrado\n");	
+		printf("ERRO! voo nÃ£o cadastrado\n");	
 	}
 	printf("Digite o nome do voo: ");
 	printf("\n");
@@ -35,5 +34,4 @@ main() {
 	
 	fclose(aeroporto);
 	printf("Dados gravados com sucesso!");
-	getch();
 }

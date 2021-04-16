@@ -1,5 +1,4 @@
 #include <stdio.h>
-#include <conio.h>
 #define tam 30
 
 int main()
