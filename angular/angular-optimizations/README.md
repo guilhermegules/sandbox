@@ -29,4 +29,24 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
 ## What we wanna optimize?
 
 - Loading time - the moment when the user requests the page in the browser until the moment when it is ready to be used by him.
+  - Bundling;
+  - Minification and tree shaking;
+  - Template optimization;
+  - Tree-shakeable providers;
+  - AoT;
+  - Compression;
+  - Pre loading of resources;
+  - Lazy loading of resources;
+  - Cache;
+  - App shell;
+  - Service workers;
 - Execution time - Improved navigation and rendering time for elements in the DOM
+  - Use of _enableProdMode_;
+  - Ahead-of-time compile;
+  - Web workers;
+  - Server side rendering;
+  - DetectionChange;
+  - Pure pipes;
+  - _trackBy_ in \*ngFor
+  - reduce amount of elements in the DOM;
+  - Template optimization
