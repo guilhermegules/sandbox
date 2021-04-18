@@ -37,16 +37,17 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
   - Compression;
   - Pre loading of resources;
   - Lazy loading of resources;
+  - Server side rendering;
   - Cache;
-  - App shell;
-  - Service workers;
+  - App shell - (concept) try to return the max of the static content for the client;
+  - Service workers.
 - Execution time - Improved navigation and rendering time for elements in the DOM
   - Use of _enableProdMode_;
   - Ahead-of-time compile;
   - Web workers;
   - Server side rendering;
-  - DetectionChange;
-  - Pure pipes;
-  - _trackBy_ in \*ngFor
+  - changeDetection - Looking for components tree them render the component again;
+  - Pure pipes - Treat data in the template;
+  - _trackBy_ in \*ngFor;
   - reduce amount of elements in the DOM;
-  - Template optimization
+  - Template optimization.
