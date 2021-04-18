@@ -1,0 +1,18 @@
+<table>
+  <tr>
+    <th>index</th>
+    <th>fork</th>
+    <th>forks</th>
+    <th>name</th>
+    <th>updated At</th>
+  </tr>
+  <tbody>
+    <tr *ngFor="let item of items; let i = index">
+      <td>{{ i }}</td>
+      <td>{{ item.fork }}</td>
+      <td>{{ item.forks }}</td>
+      <td>{{ item.name }}</td>
+      <td>{{ item.updatedAt }}</td>
+    </tr>
+  </tbody>
+</table>

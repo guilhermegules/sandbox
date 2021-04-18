@@ -1,19 +1,25 @@
 import { NgModule } from '@angular/core';
-import { RouterModule, Routes } from '@angular/router';
+import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
 
 const routes: Routes = [
   {
     path: '',
-    loadChildren: () => import('./modules/home/home.module').then(m => m.HomeModule),
+    pathMatch: 'full',
+    redirectTo: 'home',
   },
   {
     path: 'about',
     loadChildren: () => import('./modules/about/about.module').then(m => m.AboutModule),
   },
+  {
+    path: 'list',
+    loadChildren: () => import('./modules/list/list.module').then(m => m.ListModule),
+  },
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
+  // PreloadAllModules can be used for preload of all modules but without load all the modules lazyloaded
+  imports: [RouterModule.forRoot(routes, { preloadingStrategy: PreloadAllModules })],
   exports: [RouterModule],
 })
 export class AppRoutingModule {}

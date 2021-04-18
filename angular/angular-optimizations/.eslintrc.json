@@ -21,6 +21,10 @@
       }
     ],
     "import/extensions": "off",
-    "arrow-parens": "off"
+    "arrow-parens": "off",
+    "no-unused-vars": "off",
+    "no-useless-constructor": "off",
+    "no-empty-function": "off",
+    "function-paren-newline": "off"
   }
 }
