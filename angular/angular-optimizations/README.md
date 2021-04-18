@@ -55,3 +55,4 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
 ## Useful info
 
 - [Angular Performance Checklist](https://github.com/mgechev/angular-performance-checklist/blob/master/README.pt-BR.md)
+- [Angular preloading](https://www.digitalocean.com/community/tutorials/angular-preloading)
