@@ -6,5 +6,6 @@
 !*.json
 !*.md
 !fork
+!figure-search
 !merge-sort
 !multiply-matrix
