@@ -34,3 +34,5 @@ The Linux Kernel will provide an abstraction layer between the device hardware a
 ## Useful links:
 
 - [Android docs architecture](https://developer.android.com/topic/libraries/architecture)
+- [GSI - Generic System Image](https://developer.android.com/topic/generic-system-image?hl=pt-br)
+- [Dynamic System Updates (DSU)](https://developer.android.com/topic/dsu?hl=pt-br)
