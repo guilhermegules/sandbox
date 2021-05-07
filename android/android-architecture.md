@@ -31,6 +31,30 @@ The Linux Kernel will provide an abstraction layer between the device hardware a
     - **Network Stack**: It effectively handles the network communication.
     - **Driver Model**: It ensures that the application works properly on the device and hardware manufacturers responsible for building their drivers into the Linux build.
 
+## Best practices for app security
+
+- Apply secure communication
+- Offer the correct ones
+- Store data securely
+- Keep services and dependencies up to date
+
+## Safety Tips
+
+- Data storage
+  - Use internal storage
+  - Use external storage
+  - Use content providers
+- Use licensing
+
+## Security with data
+
+- Work with data more securely
+- Work with data more securely on other Android versions
+
+## How to protect against security threats with SafetyNet [API]
+
+- Protection against, fake users, malicious apps and more
+
 ## Useful links:
 
 - [Android docs architecture](https://developer.android.com/topic/libraries/architecture)
