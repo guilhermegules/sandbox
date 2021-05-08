@@ -2,6 +2,10 @@
 
 Repository for learning and fun about Android, Java, and Kotlin
 
+## Other files
+
+- [Android Architecture](./android-architecture.md)
+
 ## About Android
 
 - Operating system for mobile devices maintained by Google since 2005;
