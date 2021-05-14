@@ -15,18 +15,10 @@ typedef struct Register Node;
 
 void showArray(int* array, int N, int M) {
 	int i, j;
-  char* displayChar = "";
 
 	for (i = 0; i < N; i++)	{
 		for (j = 0; j < M; j++)	{
-      if(array[i * N + j] == NUMBER) {
-        displayChar = "#";
-      } else if (array[i * N + j] == BORDER) {
-        displayChar = "-";
-      } else {
-        displayChar = ".";
-      }
-			printf(" %c", *displayChar);
+      printf(" %c", array[i * N + j] ? '#' : '.');
 		}
 		printf("\n");
 	}
@@ -130,7 +122,7 @@ int checkNodes(int row, int column, int* array, int N, int M, Node* list) {
 
 
 int main() {
-	int matrix[] = {
+	int array[] = {
 		1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
 		1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
 		0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 0, 0, 0,
@@ -163,12 +155,12 @@ int main() {
 	listHeader->next = NULL;
 
 
-	showArray(matrix, N, M);
+	showArray(array, N, M);
 	
 	int L, C, nodeQuantity = 0, objectQuantity = 0;
 	for (L = 0; L < N; L++)	{
 		for (C = 0; C < M; C++)	{
-			nodeQuantity = checkNodes(L, C, matrix, N, M, listHeader);
+			nodeQuantity = checkNodes(L, C, array, N, M, listHeader);
 
 			if (nodeQuantity > 0) {
         objectQuantity++;
@@ -178,7 +170,7 @@ int main() {
 
   for(int i = 0; i < N; i++) {
     for(int j = 0; j < M; j++) {
-      printf("[%d]", matrix[i * N + j]);
+      printf("[%d]", array[i * N + j]);
     }
     printf("\n");
   }
