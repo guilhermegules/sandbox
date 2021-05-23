@@ -16,3 +16,9 @@ curso de arquitetura de CSS da Alura.
   - bloco\_\_elemento
   - block--modificador
   - bloco\_\_elemento--modificador
+
+## Demo layout
+
+<p align="center">
+  <img src="./fruta-e-fruto-demo.gif" alt="Demo layout"/>
+</p>
