@@ -1,0 +1,62 @@
+<div class="triangle-container">
+  <div class="triangle-down"></div>
+  <div class="triangle-up"></div>
+  <div class="triangle-down-dark"></div>
+  <div class="triangle-up-light"></div>
+</div>
+<style>
+  body {
+    background-color: #f2f2b6;
+  }
+
+  .triangle-container {
+    display: flex;
+    align-items: center;
+    height: 100%;
+    position: relative;
+  }
+
+  .triangle-up {
+    width: 0;
+    height: 0;
+    border-left: 75px solid transparent;
+    border-right: 75px solid transparent;
+    border-bottom: 130px solid #fd4602;
+    z-index: 2;
+    position: absolute;
+    right: 90;
+  }
+
+  .triangle-down {
+    width: 0;
+    height: 0;
+    border-left: 75px solid transparent;
+    border-right: 75px solid transparent;
+    border-top: 130px solid #ff6d00;
+    z-index: 2;
+    position: absolute;
+    left: 30;
+  }
+
+  .triangle-down-dark {
+    width: 0;
+    height: 0;
+    border-left: 75px solid transparent;
+    border-right: 75px solid transparent;
+    border-top: 130px solid #fd4602;
+    position: absolute;
+    left: 55;
+    z-index: 1;
+  }
+
+  .triangle-up-light {
+    width: 0;
+    height: 0;
+    border-left: 75px solid transparent;
+    border-right: 75px solid transparent;
+    border-bottom: 130px solid #ff6d00;
+    position: absolute;
+    right: 70;
+    z-index: 1;
+  }
+</style>
