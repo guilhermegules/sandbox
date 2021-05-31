@@ -20,4 +20,5 @@ Some annotations, study, and pocs for accessibility
 - [Desculpe, não ouvi!](https://desculpenaoouvi.com.br/)
 - [Curso Libras EaD USP - Apresentação](https://eaulas.usp.br/portal/video.action?idItem=6540)
 - [Você sabe o que é Surdez? | Nerdologia](https://www.youtube.com/watch?v=bubbJSVJFRs)
+- [Simulador de leitura de dislexa](http://data.qz.com/2016/dyslexia/)
 
