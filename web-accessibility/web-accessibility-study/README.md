@@ -18,7 +18,10 @@ Some annotations, study, and pocs for accessibility
   - evitar textos muito longos;
   - remover sublinhados e textos inteiros em caixa alta;
   - oferecer correções automáticas ou sugestões.
-- 
+- Lembre-se de pontos como (público com baixa visão):
+  - tomar cuidado com a contraste das cores;
+  - evitar fontes muito pequenas;
+  - evitar passar informações apenas por cor.
 
 ## Links úteis
 
