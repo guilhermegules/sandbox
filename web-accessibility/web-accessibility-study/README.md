@@ -22,6 +22,10 @@ Some annotations, study, and pocs for accessibility
   - tomar cuidado com a contraste das cores;
   - evitar fontes muito pequenas;
   - evitar passar informações apenas por cor.
+- Lembre-se de pontos como (público PCD):
+  - Elementos mais fáceis de serem acertados;
+  - Evitar alertas aleátorios;
+  - Fornecer atalhos.   
 
 ## Links úteis
 
@@ -35,4 +39,6 @@ Some annotations, study, and pocs for accessibility
 - [Do’s And Don’ts Of Designing For Users With Dyslexia](https://www.designmantic.com/blog/infographics/designing-for-users-dyslexia/)
 - [Fonte grátis projetada contra alguns sintomas comuns da dislexia - OpenDyslexic](https://opendyslexic.org/)
 - [WCAG - Contrast Checker](https://contrastchecker.com/)
+- [Browsealoud plugin para auxiliar na acessibilidade](https://www.texthelp.com/en-gb/products/reachdeck/browsealoud-is-now-the-reachdeck-toolbar/)
+- [Prêmio nacional de acessibililidade na Web](http://premio.ceweb.br/)
 
