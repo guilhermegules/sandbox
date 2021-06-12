@@ -1,5 +1,7 @@
 @use "sass:math";
 
+$paragraph-number: 1;
+
 .contact {
   @include flx(justify-content, center);
   align-items: center;
@@ -23,12 +25,11 @@
     font-family: Arial, Helvetica, sans-serif;
   }
 
-  $x: 1;
-  @while $x < 5 {
-    &__p-#{$x} {
-      @include font-size-handler(math.div(40px, $x));
-      padding-top: 5px * $x;
+  @while $paragraph-number < 5 {
+    &__p-#{$paragraph-number} {
+      @include font-size-handler(math.div(40px, $paragraph-number));
+      padding-top: 5px * $paragraph-number;
     }
-    $x: $x + 1;
+    $paragraph-number: $paragraph-number + 1;
   }
 }

@@ -2,6 +2,9 @@
   width: 80%;
   margin: 0 auto 40px;
   font-family: Arial, Helvetica, sans-serif;
+  @include for-phone-only {
+    width: 90%;
+  }
 
   &__title {
     background-color: $light-grey;
@@ -66,6 +69,9 @@
 
   &__img-description {
     width: $img-width;
+    @include for-phone-only {   
+      width: 80%;
+  }
   }
 
   &__txt {

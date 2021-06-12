@@ -1,11 +1,10 @@
 @use "sass:math";
 
-@import "./utils/variables", "./utils/mixins", "./utils/functions";
+@import "./utils/variables", "./utils/mixins", "./utils/functions", "./utils/placeholders";
 @import "header", "footer", "about", "article", "collection", "contact";
 
 .main {
-  display: flex;
-  justify-content: center;
+  @include flx(justify-content, center);
   flex-wrap: wrap;
   font-family: Arial, Helvetica, sans-serif;
 
@@ -137,6 +136,7 @@
       border: 1px solid $light-grey;
       padding: 15px 20px;
     }
+
     &__title {
       background-color: $yellow;
       text-align: center;
@@ -144,26 +144,31 @@
       margin: 0;
       letter-spacing: 1.5px;
     }
+
     &__posts {
       @include reset-list;
     }
+
     &__list {
-      display: flex;
-      justify-content: center;
+      @include flx(justify-content, center);
       flex-wrap: wrap;
       align-items: center;
       padding: 15px 0;
+
       &:not(:last-child) {
         border-bottom: 1px dashed $light-grey;
       }
     }
+
     &__img {
       width: 40%;
     }
+
     &__details {
       width: 50%;
       padding-left: 10px;
     }
+
     &__post-title {
       font-size: 14px;
       color: $purple;
@@ -173,6 +178,7 @@
         @extend %u-decoration;
       }
     }
+
     &__post-date {
       font-size: 12px;
       margin: 5px 0 0 0;

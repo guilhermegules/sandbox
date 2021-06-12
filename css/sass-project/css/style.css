@@ -1,3 +1,43 @@
+/*
+  Function receive size in pixels and convert to rem
+  Default font-size 16px
+*/
+.main .sidebar__post-title, .article .breadcrumb__link {
+  text-decoration: none;
+}
+
+.main .sidebar__post-title:hover, .article .breadcrumb__link:hover {
+  text-decoration: underline;
+}
+
+.main__tag, .main__date, .collection__tag, .collection__date {
+  margin-top: 0;
+}
+
+.main__subtitle {
+  margin-top: 10px;
+}
+
+.contact {
+  margin-top: 20px;
+}
+
+.main__tag, .main__date, .collection__tag, .collection__date {
+  margin-bottom: 0;
+}
+
+.main__subtitle {
+  margin-bottom: 20px;
+}
+
+.main__tag, .main__date, .collection__tag, .collection__date {
+  margin-left: 10px;
+}
+
+.main__tag, .main__date, .collection__tag, .collection__date {
+  margin-right: 10px;
+}
+
 .header {
   font-family: Arial, Helvetica, sans-serif;
 }
@@ -7,7 +47,7 @@
 .header__img {
   max-width: 350px;
 }
-.header .menu__list {
+.header__menu__list {
   display: flex;
   justify-content: center;
   border-top: 1px solid #eaeaeb;
@@ -16,33 +56,33 @@
   margin-right: auto;
 }
 @media (max-width: 767.98px) {
-  .header .menu__list {
+  .header__menu__list {
     width: 90%;
     padding: 15px 0;
     flex-wrap: wrap;
   }
 }
 @media (min-width: 768px) and (max-width: 1199.98px) {
-  .header .menu__list {
+  .header__menu__list {
     width: 80%;
     padding: 20px 0;
   }
 }
 @media (min-width: 1200px) {
-  .header .menu__list {
+  .header__menu__list {
     width: 80%;
     padding: 20px 0;
   }
 }
-.header .menu__links {
+.header__menu__links {
   position: relative;
 }
 @media (max-width: 767.98px) {
-  .header .menu__links {
+  .header__menu__links {
     padding: 5px 0;
   }
 }
-.header .menu__links:not(:last-child)::after {
+.header__menu__links:not(:last-child)::after {
   content: "";
   position: absolute;
   top: 0;
@@ -53,11 +93,11 @@
   width: 1px;
   background-color: #eaeaeb;
 }
-.header .menu__link {
+.header__menu__link {
   padding: 0 25px;
   color: #464646;
 }
-.header .menu__link:hover {
+.header__menu__link:hover {
   color: #a050be;
 }
 
@@ -83,6 +123,11 @@
   margin: 0 auto 40px;
   font-family: Arial, Helvetica, sans-serif;
 }
+@media (max-width: 767.98px) {
+  .about {
+    width: 90%;
+  }
+}
 .about__title {
   background-color: #eaeaeb;
   text-align: center;
@@ -92,26 +137,23 @@
   font-size: 22px;
   color: #464646;
   letter-spacing: 1px;
-  margin-top: 5px;
-  margin-bottom: 10px;
-  margin-left: 0;
-  margin-right: 0;
+  margin: 5px 0 10px;
 }
-.about .breadcrumb {
+.about__breadcrumb {
   display: flex;
   justify-content: center;
   align-items: center;
 }
-.about .breadcrumb__link {
+.about__breadcrumb__link {
   font-size: 12px;
   text-decoration: none;
   color: #464646;
 }
-.about .breadcrumb__link:hover {
+.about__breadcrumb__link:hover {
   text-decoration: underline;
   color: #a050be;
 }
-.about .breadcrumb__img {
+.about__breadcrumb__img {
   width: 10px;
   margin: 8px;
 }
@@ -127,6 +169,16 @@
   text-align: center;
   font-size: 16px;
 }
+@media (max-width: 767.98px) {
+  .about__intro {
+    width: 90%;
+  }
+}
+@media (min-width: 768px) and (max-width: 1199.98px) {
+  .about__intro {
+    width: 80%;
+  }
+}
 .about__split {
   display: flex;
   justify-content: center;
@@ -136,19 +188,35 @@
 .about__img-description {
   width: 45%;
 }
+@media (max-width: 767.98px) {
+  .about__img-description {
+    width: 80%;
+  }
+}
 .about__txt {
   width: calc(100% - 45%);
 }
+@media (max-width: 767.98px) {
+  .about__txt {
+    width: 90%;
+    text-align: center;
+  }
+}
 .about__p {
-  font-size: 14px;
-  padding: 10px 20px;
   color: #464646;
+  padding: 10px 20px;
+  font-size: 14px;
 }
 
 .article {
   width: 80%;
   margin: 0 auto 40px;
   font-family: Arial, Helvetica, sans-serif;
+}
+@media (max-width: 767.98px) {
+  .article {
+    width: 90%;
+  }
 }
 .article__title {
   background-color: #eaeaeb;
@@ -375,42 +443,6 @@
 .contact__p-4 {
   font-size: 10px;
   padding-top: 20px;
-}
-
-.main .sidebar__post-title, .article .breadcrumb__link {
-  text-decoration: none;
-}
-
-.main .sidebar__post-title:hover, .article .breadcrumb__link:hover {
-  text-decoration: underline;
-}
-
-.main__tag, .main__date, .collection__date, .collection__tag {
-  margin-top: 0;
-}
-
-.main__subtitle {
-  margin-top: 10px;
-}
-
-.contact {
-  margin-top: 20px;
-}
-
-.main__tag, .main__date, .collection__date, .collection__tag {
-  margin-bottom: 0;
-}
-
-.main__subtitle {
-  margin-bottom: 20px;
-}
-
-.main__tag, .main__date, .collection__date, .collection__tag {
-  margin-left: 10px;
-}
-
-.main__tag, .main__date, .collection__date, .collection__tag {
-  margin-right: 10px;
 }
 
 .main {

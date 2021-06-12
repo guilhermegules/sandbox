@@ -12,29 +12,3 @@ $layout-margin-size: 10px;
 
 // Utils variables
 $directions: top, bottom, left, right;
-
-%no-decoration {
-  text-decoration: none;
-}
-
-%u-decoration {
-  text-decoration: underline;
-}
-
-@each $direction in $directions {
-  %no-margin-#{$direction} {
-    margin-#{$direction}: 0;
-  }
-
-  %default-margin-#{$direction} {
-    margin-#{$direction}: $layout-margin-size;
-  }
-
-  %double-margin-#{$direction} {
-    margin-#{$direction}: $layout-margin-size * 2;
-  }
-
-  %half-margin-#{$direction} {
-    margin-#{$direction}: math.div($layout-margin-size, 2);
-  }
-}
