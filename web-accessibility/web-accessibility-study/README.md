@@ -38,7 +38,7 @@ Que pessoas cegas ou com baixa visão podem contar com o auxílio de um software
 Vimos, configuramos e aprendemos atalhos do NVDA, leitor de tela escolhido para testar o projeto Apeperia, a fim de deixar seu uso em testes menos maçante para quem não está acostumado com a ferramenta. E também habilitamos seu "exibidor de tela" para não dependermos de ouvir sua leitura.
 Semântica no HTML:
 
-Tomar cuidado com a marcação de conteúdo quando estamos utilizando elementos HTML5. Vale mais por uma <div> do que usar um <aside> ou <details> erroneamente.
+Tomar cuidado com a marcação de conteúdo quando estamos utilizando elementos HTML5. Vale mais por uma `<div>` do que usar um `<aside>` ou `<details>` erroneamente.
 
 **Testes, testes, testes:**
 
@@ -46,7 +46,7 @@ O melhor caminho para deixar nosso projeto inclusivo não é apenas seguir regra
 
 Lembre-se de pontos como:
 
-- evitar mais de um <H1> na página;
+- evitar mais de um `<h1>` na página;
 - usar HTML5 semântico que faça sentido;
 
 ## Links úteis
