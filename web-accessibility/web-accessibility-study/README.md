@@ -48,6 +48,10 @@ Lembre-se de pontos como:
 
 - evitar mais de um `<h1>` na página;
 - usar HTML5 semântico que faça sentido;
+- `alt` nas imagens que possuem função de conteúdo;
+- escrever o `alt` de maneira descritiva, evitando redundâncias;
+- configurar o idioma principal do documento com o atributo lang;
+- colocar o elemento <title> em SVGs que forem inline (código direto no HTML).
 
 ## Links úteis
 
