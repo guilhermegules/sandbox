@@ -51,7 +51,9 @@ Lembre-se de pontos como:
 - `alt` nas imagens que possuem função de conteúdo;
 - escrever o `alt` de maneira descritiva, evitando redundâncias;
 - configurar o idioma principal do documento com o atributo lang;
-- colocar o elemento <title> em SVGs que forem inline (código direto no HTML).
+- colocar o elemento `<title>` em SVGs que forem inline (código direto no HTML).
+- Evitar utilizar `display: none` ou `visibility: hidden` pois essas propriedades escondem os elementos dos leitores de tela
+- Sempre devemos usar devidamente uma `<label>` para cada campo em um formulário. Lembrando de atrelá-los com os atributos for e id
 
 ## Links úteis
 
@@ -67,3 +69,7 @@ Lembre-se de pontos como:
 - [WCAG - Contrast Checker](https://contrastchecker.com/)
 - [Browsealoud plugin para auxiliar na acessibilidade](https://www.texthelp.com/en-gb/products/reachdeck/browsealoud-is-now-the-reachdeck-toolbar/)
 - [Prêmio nacional de acessibililidade na Web](http://premio.ceweb.br/)
+- [Invisible Content Just for Screen Reader Users](https://webaim.org/techniques/css/invisiblecontent/)
+- [Using ARIA](https://www.w3.org/TR/using-aria/#intro)
+- [Basic screen reader commands for accessibility testing](https://www.tpgi.com/basic-screen-reader-commands-for-accessibility-testing/)
+- [Lista com as roles existentes (inglês)](https://www.w3.org/TR/wai-aria/)
