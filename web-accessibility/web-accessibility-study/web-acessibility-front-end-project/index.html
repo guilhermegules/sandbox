@@ -24,10 +24,7 @@
     <link rel="stylesheet" href="css/rodape.css" />
     <link rel="stylesheet" href="css/dialogNewsletter.css" />
 
-    <meta
-      name="viewport"
-      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
-    />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   </head>
   <body>
     <a href="#conteudoPrincipal" class="pularNavegacao">
@@ -593,9 +590,29 @@
           </div>
 
           <video
-            src="img/formacao-java.mp4"
+            src="videos/formacao-java.mp4"
             class="secaoInstitucional-video"
-          ></video>
+            controls
+          >
+            <track
+              src="videos/legenda-portugues-brasil.vtt"
+              kind="subtitles"
+              srclang="pt-br"
+              label="Português (Brasil)"
+            />
+          </video>
+
+          <!--
+            Outra opção pra videos é utilizar o embedded do youtube 
+            <iframe
+            width="560"
+            height="315"
+            src="https://www.youtube.com/embed/liuFhVXAlZw"
+            title="YouTube video player"
+            frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen
+          ></iframe> -->
         </div>
       </section>
       <!--fim .secaoInstitucional-->

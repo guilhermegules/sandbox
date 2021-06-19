@@ -1,6 +1,6 @@
 # WEB accessibility
 
-Some annotations, study, and pocs for accessibility
+> **Acessibilidade não é caridade, é empatia.**
 
 [Protótipo apeperia](<https://www.figma.com/file/9L4RrtcmVe4ldyvHMcyUy8/Apeperia-(projeto-inicial)?node-id=0%3A170>)
 
@@ -46,14 +46,16 @@ O melhor caminho para deixar nosso projeto inclusivo não é apenas seguir regra
 
 Lembre-se de pontos como:
 
-- evitar mais de um `<h1>` na página;
-- usar HTML5 semântico que faça sentido;
+- Evitar mais de um `<h1>` na página;
+- Usar HTML5 semântico que faça sentido;
 - `alt` nas imagens que possuem função de conteúdo;
-- escrever o `alt` de maneira descritiva, evitando redundâncias;
-- configurar o idioma principal do documento com o atributo lang;
-- colocar o elemento `<title>` em SVGs que forem inline (código direto no HTML).
+- Escrever o `alt` de maneira descritiva, evitando redundâncias;
+- Configurar o idioma principal do documento com o atributo lang;
+- Colocar o elemento `<title>` em SVGs que forem inline (código direto no HTML).
 - Evitar utilizar `display: none` ou `visibility: hidden` pois essas propriedades escondem os elementos dos leitores de tela
 - Sempre devemos usar devidamente uma `<label>` para cada campo em um formulário. Lembrando de atrelá-los com os atributos for e id
+- Evitar bloquear o zoom do usuário
+- Em videos priorizar utilização de legendas ou utilizar um embedded
 
 ## Links úteis
 
