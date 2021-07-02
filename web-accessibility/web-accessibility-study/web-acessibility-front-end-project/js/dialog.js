@@ -1,19 +1,27 @@
 // Variáveis
-var btnAbreDialog = document.querySelector('#abreDialog');
-var dialog = document.querySelector('.dialogNewsletter');
-var dialogBody = document.querySelector('.dialogNewsletter-body');
-var dialogOverlay = document.querySelector('.dialogNewsletter-overlay');
+const btnAbreDialog = document.querySelector("#abreDialog");
+const dialog = document.querySelector(".dialogNewsletter");
+const dialogBody = document.querySelector(".dialogNewsletter-body");
+const dialogOverlay = document.querySelector(".dialogNewsletter-overlay");
+const mainContent = document.querySelector("#main");
 
+btnAbreDialog.style.display = "block";
 
 // Quando abrir a dialog...
-btnAbreDialog.addEventListener('click', function() {
-  dialog.classList.add('dialogNewsletter--aberto');
+btnAbreDialog.addEventListener("click", function () {
+  dialog.classList.add("dialogNewsletter--aberto");
+  document.querySelector("#emailNewsLetter").focus();
+  mainContent.inert = true;
 });
 
 function fechandoDialog() {
   document.activeElement.blur();
-  dialog.classList.remove('dialogNewsletter--aberto');     
+  dialog.classList.remove("dialogNewsletter--aberto");
+  mainContent.inert = false;
+  btnAbreDialog.focus();
 }
 
 // Listeners
-document.querySelector('.dialogNewsletter-fechar').addEventListener('click', fechandoDialog);
+document
+  .querySelector(".dialogNewsletter-fechar")
+  .addEventListener("click", fechandoDialog);
