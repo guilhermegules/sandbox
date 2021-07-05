@@ -75,3 +75,6 @@ Lembre-se de pontos como:
 - [Using ARIA](https://www.w3.org/TR/using-aria/#intro)
 - [Basic screen reader commands for accessibility testing](https://www.tpgi.com/basic-screen-reader-commands-for-accessibility-testing/)
 - [Lista com as roles existentes (inglês)](https://www.w3.org/TR/wai-aria/)
+- [Accessibility Patterns for the Web eBay](http://ebay.github.io/mindpatterns/)
+- [How to create a more accessible modal W3C](https://www.w3.org/TR/wai-aria-practices-1.1/#dialog_modal)
+- [Modal Dialog Example W3C](https://www.w3.org/TR/wai-aria-practices-1.1/examples/dialog-modal/dialog.html)

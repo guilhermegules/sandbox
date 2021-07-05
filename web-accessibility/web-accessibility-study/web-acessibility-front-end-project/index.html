@@ -583,7 +583,7 @@
               </p>
             </div>
 
-            <!-- <video
+            <video
               src="videos/formacao-java.mp4"
               class="secaoInstitucional-video"
               controls
@@ -594,12 +594,12 @@
                 srclang="pt-br"
                 label="Português (Brasil)"
               />
-            </video> -->
+            </video>
 
             <!--
               Outra opção pra videos é utilizar o embedded do youtube 
             -->
-            <iframe
+            <!-- <iframe
               width="560"
               height="315"
               src="https://www.youtube.com/embed/liuFhVXAlZw"
@@ -607,7 +607,7 @@
               frameborder="0"
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
               allowfullscreen
-            ></iframe>
+            ></iframe> -->
           </div>
         </section>
         <!--fim .secaoInstitucional-->
@@ -675,7 +675,12 @@
     </div>
 
     <!-- Modal -->
-    <div class="dialogNewsletter" id="dialogNewsletter">
+    <div
+      class="dialogNewsletter"
+      id="dialogNewsletter"
+      role="dialog"
+      aria-labelledby="dialogTitle"
+    >
       <div class="dialogNewsletter-body">
         <h2 class="dialogNewsletter-titulo" id="dialogTitle">News sem spam</h2>
         <h3 class="dialogNewsletter-texto">
@@ -694,7 +699,13 @@
           <button class="dialogNewsletter-btn" type="submit">
             Assinar newsletter
           </button>
-          <button class="dialogNewsletter-fechar" type="button">X</button>
+          <button
+            class="dialogNewsletter-fechar"
+            type="button"
+            aria-label="Fechar janela modal"
+          >
+            Fechar janela modal
+          </button>
         </form>
       </div>
       <div class="dialogNewsletter-overlay"></div>
