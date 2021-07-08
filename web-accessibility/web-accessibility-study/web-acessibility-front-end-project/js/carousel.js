@@ -1,15 +1,41 @@
-var btns = document.querySelectorAll('.listaDeArtigos-slider-item');
+const btns = document.querySelectorAll(".listaDeArtigos-slider-item");
+const news = document.querySelectorAll(".listaDeArtigos-item");
 
-// Percorre todos os botoes controladores
-btns.forEach(function(btn) {
-  btn.addEventListener('click', function() {
-    
+const new0 = document.querySelector("#new0");
+const new1 = document.querySelector("#new1");
+const new2 = document.querySelector("#new2");
 
-    // Remove classe 'ativo' dos outros botoes
-    btns.forEach(function(btnRemoveClass) {
-      btnRemoveClass.classList.remove('listaDeArtigos-slider-item--ativo')
-    })
+new0.style.display = "block";
 
-    this.classList.add('listaDeArtigos-slider-item--ativo')
-  })
-})
+const hideSpan = document.createElement("span");
+hideSpan.classList.add("escondeVisualmente");
+hideSpan.textContent = "(Slide atual)";
+
+btns.forEach(function (btn) {
+  btn.addEventListener("click", function () {
+    // This will prevent the screen will be displaced
+    // btn.href = "javascript:void(0)";
+
+    news.forEach((news) => {
+      news.style.display = "none";
+
+      if (
+        this.getAttribute("data-sliderItem") === news.getAttribute("data-news")
+      ) {
+        news.style.display = "block";
+      }
+    });
+
+    document
+      .querySelector(".listaDeArtigos-slider-item .escondeVisualmente")
+      .remove();
+
+    this.append(hideSpan);
+
+    btns.forEach(function (btnRemoveClass) {
+      btnRemoveClass.classList.remove("listaDeArtigos-slider-item--ativo");
+    });
+
+    this.classList.add("listaDeArtigos-slider-item--ativo");
+  });
+});

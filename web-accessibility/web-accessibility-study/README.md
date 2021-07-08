@@ -78,3 +78,5 @@ Lembre-se de pontos como:
 - [Accessibility Patterns for the Web eBay](http://ebay.github.io/mindpatterns/)
 - [How to create a more accessible modal W3C](https://www.w3.org/TR/wai-aria-practices-1.1/#dialog_modal)
 - [Modal Dialog Example W3C](https://www.w3.org/TR/wai-aria-practices-1.1/examples/dialog-modal/dialog.html)
+- [Carousel working example w3c](https://www.w3.org/WAI/tutorials/carousels/working-example/)
+- [Should I use a carousel](https://shouldiuseacarousel.com/)
