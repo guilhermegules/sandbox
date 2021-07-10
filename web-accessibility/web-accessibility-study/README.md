@@ -83,3 +83,4 @@ Lembre-se de pontos como:
 - [Set custom validity function](https://developer.mozilla.org/en-US/docs/Web/API/HTMLSelectElement/setCustomValidity)
 - [A11Y Style Guide](https://a11y-style-guide.com/style-guide/)
 - [Você sabia que a acessibilidade pode levar seu site ao topo do Google?](https://blog.handtalk.me/acessibilidade-ranking-google/)
+- [Keyboard Accessibility](https://webaim.org/techniques/keyboard/#testing)
