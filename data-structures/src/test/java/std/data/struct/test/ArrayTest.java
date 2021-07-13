@@ -1,4 +1,4 @@
-package test;
+package std.data.struct.test;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -52,5 +52,14 @@ public class ArrayTest {
 
         assertEquals(true, list.have(s1));
         assertEquals(false, list.have(new Student("Invalid")));
+    }
+
+    @Test
+    public void shouldKeepSpaceOnArray() {
+        for(int i = 0; i < 300; i++) {
+            list.add(new Student("Student: " + i));
+        }
+
+        assertEquals(300, list.size());
     }
 }

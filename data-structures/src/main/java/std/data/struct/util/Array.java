@@ -9,11 +9,15 @@ public class Array {
     private int totalOfStudents = 0;
 
     public void add(Student student) {
+        this.keepSpace();
+
         this.students[totalOfStudents] = student;
         this.totalOfStudents++;
     }
 
     public void add(int index, Student student) {
+        this.keepSpace();
+
         if(!validPosition(index)) {
             throw new IllegalArgumentException("Invalid position of array");
         }
@@ -58,6 +62,17 @@ public class Array {
 
     public String toString() {
         return Arrays.toString(students);
+    }
+    
+    private void keepSpace() {
+        if(totalOfStudents != students.length) return;
+
+        Student[] newList = new Student[students.length * 2];
+        for (int i = 0; i < students.length; i++) {
+            newList[i] = students[i];
+        }
+
+        this.students = newList;
     }
 
     private boolean occupiedPosition(int index) {
