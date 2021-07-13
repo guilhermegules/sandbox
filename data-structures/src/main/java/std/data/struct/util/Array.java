@@ -10,6 +10,7 @@ public class Array {
 
     public void add(Student student) {
         this.keepSpace();
+
         this.students[totalOfStudents] = student;
         this.totalOfStudents++;
     }
@@ -62,7 +63,7 @@ public class Array {
     public String toString() {
         return Arrays.toString(students);
     }
-
+    
     private void keepSpace() {
         if(totalOfStudents != students.length) return;
 
