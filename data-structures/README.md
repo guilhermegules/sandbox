@@ -17,7 +17,7 @@
    - This list we name the Linked List. The difference between it and the Vector is that these elements are
      next to each other in memory, while in the Linked list they are in different places, 
      but one points to the other indicating the next.
-   - ![](./images/linked-list.png) 
+   - ![](./linked-list.png) 
    
 ## Questions:
 
