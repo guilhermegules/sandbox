@@ -20,7 +20,11 @@
    - ![](./images/linked-list.png)
    - Double linked list, it's a way to get more performance on our linked list with a double linked list
     we can get the previous cell too, so we can do operations more easily.
-        - ![](./images/double-linked-list.png)  
+        - ![](./images/double-linked-list.png) 
+3. Stack
+    - Data structure to store data pushing to the top of the stack or popping the last inserted element;
+    - Usually have `push`, `pop`, `peek` methods;
+    - A common use case for stacks are the keyboards buffers.
    
 ## Questions:
 
@@ -84,3 +88,27 @@ Sobre o tempo de execução da inserção no início e no fim de uma lista dupla
 
 **R:** Em ambos o tempo é constante. Assim como na lista simplesmente ligada, basta acertar as referências, já
 que a estrutura aramzena o primeiro e último nó
+
+O que é uma pilha?
+
+**R:** Uma estrutura de dados para armazenamos valores, empilhando os mesmos e podendo retirar um por um. Sendo uma estrutura
+LIFO(Last in first out)
+
+Qual é o tempo de execução das operações de inserir e remover um elemento da pilha?
+
+**R:** Tempo constante pois temos uma lista ligada por debaixo dos panos
+
+Simule as seguintes operações na pilha:
+
+- Insira "Mauricio"
+- Insira "Marcelo"
+- Remova
+- Insira "Guilherme"
+- Insira "Paulo"
+- Remova
+- Insira "João"
+
+Qual o estado atual da pilha?
+
+**R:** ["Mauricio", "Guilherme", "João"]
+  
