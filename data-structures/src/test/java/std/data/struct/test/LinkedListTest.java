@@ -1,7 +1,8 @@
-package std.data.struct.util;
+package std.data.struct.test;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import std.data.struct.util.LinkedList;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
@@ -32,7 +33,6 @@ public class LinkedListTest {
 
         linkedList.pop();
 
-        assertEquals(linkedList.get(0), "Guilherme 2");
         assertEquals(linkedList.size(), 2);
     }
 
@@ -44,5 +44,25 @@ public class LinkedListTest {
         linkedList.add("Guilherme 4", 0);
 
         assertEquals(linkedList.get(0), "Guilherme 4");
+    }
+
+    @Test
+    public void shouldGetElementIfItsPresentOnList() {
+        linkedList.addOnFirstPosition("John");
+
+        assertEquals(linkedList.has("John"), true);
+        assertEquals(linkedList.has("Another name"), false);
+    }
+
+    @Test
+    public void shouldRemoveInAnyPosition() {
+        linkedList.addOnFirstPosition("John");
+        linkedList.addOnFirstPosition("John2");
+        linkedList.addOnFirstPosition("John3");
+        linkedList.addOnFirstPosition("John4");
+
+        linkedList.remove(3);
+
+        assertEquals(linkedList.size(), 3);
     }
 }

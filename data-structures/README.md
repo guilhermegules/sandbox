@@ -17,7 +17,10 @@
    - This list we name the Linked List. The difference between it and the Vector is that these elements are
      next to each other in memory, while in the Linked list they are in different places, 
      but one points to the other indicating the next.
-   - ![](./linked-list.png) 
+   - ![](./images/linked-list.png)
+   - Double linked list, it's a way to get more performance on our linked list with a double linked list
+    we can get the previous cell too, so we can do operations more easily.
+        - ![](./images/double-linked-list.png)  
    
 ## Questions:
 
@@ -55,3 +58,29 @@ Comente sobre o tempo de execução da operação de remoção da lista ligada.
 
 **R:** A remoção de uma lista ligada simples leva tempo linear. Afinal, precisamos navegar a lista até achar
 o elemento antes e o depois do elemento a ser removido.
+
+Qual a diferença entre uma lista ligada simples e uma lista duplamente ligada?
+
+**R:** Uma lista duplamente ligada aponta para o elemento anterior, 
+nos dando uma maior facilidade para exclusão de elementos que estão em posições diversas na nossa lista por exemplo.
+Diferente das listas simplesmente ligadas que somente apontam para o próximo elemento.
+
+Como é o tempo de remoção de uma lista duplamente ligada?
+
+**R:** A remoção de uma lista ligada pode ser linear ou constante. Se estivermos com as referências de uma celula que será deletada
+o tempo será constante, pois temos os valores de referencia de `proxima celula` e de `celula anterior`, bastando
+apenas acertar as referências. Mas se precisarmos procurar pelo elemento item a item na lista, o tempo será linear.
+
+Como funciona uma inserção de um elemento no meio de uma lista duplamente ligada?
+
+**R:** A célula `X` para entrar no meio de uma lista duplamente ligada precisa:
+
+- Pegar a celula `anterior` e marcar o `próximo` dela como `X`;
+- Pegar a antiga célula `próximo` da `anterior`, e marcar a anterior dela como `X`;
+- Marcar `anterior` de `X` como a antiga `anterior`;
+- Marcar `próxima` de `X` como a antiga `próxima`.
+
+Sobre o tempo de execução da inserção no início e no fim de uma lista duplamente ligada.
+
+**R:** Em ambos o tempo é constante. Assim como na lista simplesmente ligada, basta acertar as referências, já
+que a estrutura aramzena o primeiro e último nó

@@ -9,13 +9,17 @@ public class LinkedList {
     private int totalOfElements = 0;
 
     public void addOnFirstPosition(Object element) {
-        Cell newCell = new Cell(element, first);
-        this.first = newCell;
-
-        if(this.totalOfElements == 0) {
-            this.last = this.first;
+        if(totalOfElements == 0) {
+            Cell newCell = new Cell(element);
+            this.first = newCell;
+            this.last = newCell;
+            this.totalOfElements++;
+            return;
         }
 
+        Cell newCell = new Cell(element);
+        this.first.setPrevious(newCell);
+        this.first = newCell;
         this.totalOfElements++;
     }
 
@@ -25,11 +29,11 @@ public class LinkedList {
             return;
         }
 
-        Cell newCell = new Cell(element, null);
-        this.last.setNext(newCell);
+        Cell newCell = new Cell(element);
+        this.last.setPrevious(newCell);
+        newCell.setPrevious(this.last);
         this.last = newCell;
         this.totalOfElements++;
-
     }
 
     public void add(Object element, int index) {
@@ -43,9 +47,13 @@ public class LinkedList {
             return;
         }
 
-        Cell previous = this.getCell(index - 1);
-        Cell newCell = new Cell(element, previous.getNext());
-        previous.setNext(newCell);
+        Cell previousCell = this.getCell(index - 1);
+        Cell nextCell = previousCell.getNext();
+        Cell newCell = new Cell(element, previousCell.getNext());
+
+        newCell.setPrevious(previousCell);
+        previousCell.setNext(newCell);
+        nextCell.setPrevious(newCell);
         this.totalOfElements++;
     }
 
@@ -66,8 +74,37 @@ public class LinkedList {
         }
     }
 
+    public void removeLastCell() {
+        if(this.totalOfElements == 1) {
+            this.pop();
+            return;
+        }
+
+        Cell penultimateCell = this.last.getPrevious();
+        penultimateCell.setNext(null);
+        this.last = penultimateCell;
+        this.totalOfElements--;
+    }
+
     public void remove(int index) {
-        // TODO: will be implemented with double linked lists
+        if(index == 0) {
+            this.pop();
+            return;
+        }
+
+        if(index == this.totalOfElements - 1) {
+            this.removeLastCell();
+            return;
+        }
+
+        Cell previous = this.getCell(index - 1);
+        Cell actual = previous.getNext();
+        Cell next = actual.getNext();
+
+        previous.setNext(next);
+        next.setPrevious(previous);
+
+        this.totalOfElements--;
     }
 
     public int size() {
@@ -75,6 +112,16 @@ public class LinkedList {
     }
 
     public boolean has(Object element) {
+        Cell actual = this.first;
+
+        while (actual != null) {
+            if(actual.getElement().equals(element)) {
+                return true;
+            }
+
+            actual = actual.getNext();
+        }
+
         return false;
     }
 
