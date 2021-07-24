@@ -98,7 +98,7 @@ Qual é o tempo de execução das operações de inserir e remover um elemento d
 
 **R:** Tempo constante pois temos uma lista ligada por debaixo dos panos
 
-Simule as seguintes operações na pilha:
+Operações na pilha:
 
 - Insira "Mauricio"
 - Insira "Marcelo"
@@ -111,4 +111,26 @@ Simule as seguintes operações na pilha:
 Qual o estado atual da pilha?
 
 **R:** ["Mauricio", "Guilherme", "João"]
-  
+
+O que é uma fila?
+
+**R:** Uma fila é uma estrutura de dados do tipo FIFO, first in first out. Um bom exemplo seria uma fila da vida real,
+primeias pessoas da fila são as primeiras a serem atendidas
+
+Qual é o tempo de execução de uma fila na adição e remoção?
+
+**R:** Assim como a pilha, o tempo é constante. Se usarmos uma lista ligada por baixo dos panos, adicionar e remover do começo
+leva tempo constante.
+
+Operações em uma fila:
+
+- Insira "Mauricio"
+- Insira "Paulo"
+- Insira "Guilherme"
+- Remova
+- Insira "João"
+- Remova
+
+Qual o estado atual da fila?
+
+**R:** ["Guilherme", "João"]
