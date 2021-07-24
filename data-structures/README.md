@@ -25,6 +25,12 @@
     - Data structure to store data pushing to the top of the stack or popping the last inserted element;
     - Usually have `push`, `pop`, `peek` methods;
     - A common use case for stacks are the keyboards buffers.
+4. Queue
+    - Data structure to store data in line, adding elements on start of the queue, and removing from the end.
+    - <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/34/Fifo_queue.svg/1112px-Fifo_queue.svg.png" width="300px" alt="Queue example"/>
+5. Set
+    - Data structure that not permits duplicate data on our set of data, so we split the data in sections for a handle with each data separately.
+    - We are using array list of linked lists because we need many operations with indexes, array performs better than linked lists on this case 
    
 ## Questions:
 
@@ -110,7 +116,7 @@ Operações na pilha:
 
 Qual o estado atual da pilha?
 
-**R:** ["Mauricio", "Guilherme", "João"]
+**R:** `["Mauricio", "Guilherme", "João"]`
 
 O que é uma fila?
 
@@ -133,4 +139,31 @@ Operações em uma fila:
 
 Qual o estado atual da fila?
 
-**R:** ["Guilherme", "João"]
+**R:** `["Guilherme", "João"]`
+
+Por que a busca em um conjunto é rápida?
+
+**R:** Porque os elementos são guardados de maneira estruturada dentro do conjunto. Por exemplo, ao invés de guardarmos todos os nomes
+em uma mesma lista, temos 26 listas diferentes, uma para cada letra do alfabeto. Então ao buscarmos pelo nome "Mauricio",
+ele varrerpa apenas a lista com os nomes que começam com M.
+
+Essa função de espalhamento, conhecida também como função hash é o segredo. Se ela espalhar bem os dados entre as categorias,
+então a busca em um conjunto será muito eficiente.
+
+O que são conjuntos?
+
+**R:** Conjuntos são estruturas de dados que não permitem dados repetidos. Para garantir que os dados não se repitam, 
+conjuntos fazem usod de funções hash para espalhar bem os dados, em seguida, varrer o conteúdo de maneira eficiente.
+
+Operações abaixo do conjunto:
+
+- Insira "Mauricio"
+- Insira "Mauricio"
+- Insira "Guilherme"
+- Insira "Paulo"
+- Remova "Guilherme"
+
+Qual o estado atual do conjunto?
+
+**R:** O conjunto fica `["Mauricio, "Paulo"]`, conjuntos não aceitam repetições, então, apesar de inserirmos "Mauricio" 
+duas vezes, ele só existe uma vez dentro do conjunto.
