@@ -9,14 +9,14 @@
 - Run `gradle wrapper` to generate gradle-wrapper
 
 1. Array
-    - Simpler structure, called of inline structure
-    - Use indexes for a handle with positions
-    - In Java Arrays need to use predetermined positions number
+    - Simpler structure, called of inline structure;
+    - Use indexes to handle positions;
+    - In Java, Arrays need to use predetermined positions number.
 2. LinkedList
-   - Data structure which knows what the next element
+   - Data structure which knows what the next element;
    - This list we name the Linked List. The difference between it and the Vector is that these elements are
-     next to each other in memory, while in the Linked list they are in different places, 
-     but one points to the other indicating the next.
+     next to each other in memory, while in the Linked list they are in different places;
+     but one points to the other indicating the next;
    - ![](./images/linked-list.png)
    - Double linked list, it's a way to get more performance on our linked list with a double linked list
     we can get the previous cell too, so we can do operations more easily.
@@ -29,8 +29,8 @@
     - Data structure to store data in line, adding elements on start of the queue, and removing from the end.
     - <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/34/Fifo_queue.svg/1112px-Fifo_queue.svg.png" width="300px" alt="Queue example"/>
 5. Set
-    - Data structure that not permits duplicate data on our set of data, so we split the data in sections for a handle with each data separately.
-    - We are using array list of linked lists because we need many operations with indexes, array performs better than linked lists on this case 
+    - Data structure that not permits duplicate data on our set of data, so we split the data in sections for a handle with each data separately;
+    - We are using array list of linked lists because we need many operations with indexes, array performs better than linked lists on this case.
    
 ## Questions:
 
