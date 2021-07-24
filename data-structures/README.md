@@ -165,5 +165,5 @@ Operações abaixo do conjunto:
 
 Qual o estado atual do conjunto?
 
-**R:** O conjunto fica `["Mauricio, "Paulo"]`, conjuntos não aceitam repetições, então, apesar de inserirmos "Mauricio" 
+**R:** O conjunto fica `["Mauricio", "Paulo"]`, conjuntos não aceitam repetições, então, apesar de inserirmos "Mauricio" 
 duas vezes, ele só existe uma vez dentro do conjunto.
