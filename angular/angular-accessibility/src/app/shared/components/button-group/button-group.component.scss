@@ -1,0 +1,27 @@
+:host {
+  .button-group {
+    margin: 10px;
+
+    &__label {
+      margin-right: 0.5rem;
+    }
+
+    &__button {
+      border: 1px solid #aeb6c6;
+      padding: 0.5rem 0.75rem;
+      margin: 0;
+      color: black;
+      background-color: #fff;
+
+      &--yes {
+        @extend .button-group__button;
+        border-radius: 5px 0 0 5px;
+      }
+
+      &--no {
+        @extend .button-group__button;
+        border-radius: 0 5px 5px 0;
+      }
+    }
+  }
+}
