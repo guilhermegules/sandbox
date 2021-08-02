@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { FormBuilder, FormGroup } from '@angular/forms';
+import { YesNoValueEnum } from './core/enum/button-group.enum';
 
 @Component({
   selector: 'app-root',
@@ -6,5 +8,15 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.scss'],
 })
 export class AppComponent {
-  public answer = 'No';
+  public formGroup: FormGroup;
+
+  constructor(private fb: FormBuilder) {
+    this.formGroup = this.fb.group({
+      answer: [YesNoValueEnum.NO],
+    });
+  }
+
+  public submit(): void {
+    console.log(this.formGroup.value);
+  }
 }

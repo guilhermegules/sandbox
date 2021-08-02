@@ -1,8 +1,14 @@
 <main>
   <h1>Form</h1>
 
-  <app-button-group
-    [value]="answer"
-    label="Are you good enough in Angular?"
-  ></app-button-group>
+  <form [formGroup]="formGroup" (ngSubmit)="submit()">
+    <app-button-group
+      formControlName="answer"
+      label="Are you good enough in Angular?"
+    ></app-button-group>
+
+    <button>Submit</button>
+  </form>
+
+  {{ formGroup.value | json }}
 </main>
