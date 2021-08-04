@@ -17,7 +17,7 @@ void exercise2() {
 	int acc = 0;
 
 	printf("Type a number: ");
-	scanf_s("%d", &n);
+	scanf("%d", &n);
 
 	for (int i = 0; i <= n; i++) {
 		acc += i;
@@ -32,7 +32,7 @@ void exercise3() {
 	int odd = 1;
 
 	printf("Type a number to receive all the odds numbers: ");
-	scanf_s("%d", &n);
+	scanf("%d", &n);
 	printf("---------");
 	
 	while (i < n) {
@@ -50,10 +50,10 @@ void exercise4() {
 	int pow = 1;
 
 	printf("Type your number: ");
-	scanf_s("%d", &x);
+	scanf("%d", &x);
 
 	printf("Type a number for elevate your number: ");
-	scanf_s("%d", &n);
+	scanf("%d", &n);
 
 	for (int i = 0; i < n; i++) {
 		pow *= x;
@@ -89,12 +89,52 @@ void exercise5() {
 	printf("\n \t Sold at day: %d \n \t Bigger quantity: %d", disc.sold_date, disc.quantity);
 }
 
+void exercise6() {
+  int n = 10;
+  int studentsGrades[n];
+  int maxGrade = 100;
+  int minGrade = 0;
+  int biggerGrade = 0;
+
+  for(int i = 0; i < n; i++) {
+    studentsGrades[i] = (i + 1) * 2;
+  }
+
+  for(int i = 0; i < n; i++) {
+    if(biggerGrade < studentsGrades[i]) {
+      biggerGrade = studentsGrades[i];
+    }
+  }
+
+  printf("%d", biggerGrade);
+}
+
+void exercise7() {
+  int n = 10;
+  int numbers[n];
+  int evenSum = 0;
+
+  for(int i = 0; i < n; i++) {
+    numbers[i] = i;
+  }
+
+  for(int j = 0; j < n; j++) {
+    if(numbers[j] % 2 == 0) {
+      evenSum += numbers[j];
+    }
+  }
+
+  printf("%d", evenSum);
+}
+
 int main() {
 	// exercise1();
 	// exercise2();
 	// exercise3();
 	// exercise4();
-	exercise5();
+	// exercise5();
+  // exercise6();
+  exercise7();
 
 	return 1;
 }
