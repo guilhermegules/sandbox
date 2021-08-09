@@ -127,6 +127,74 @@ void exercise7() {
   printf("%d", evenSum);
 }
 
+void exercise8() {
+  int n;
+  int nfat = 1;
+
+  printf("\tFactorial calculation!\n");
+  printf("Type a positive integer: ");
+  scanf("%d", &n);
+
+  for(int i = n; i > 1; i--) {
+    nfat *= i;
+  }
+
+  printf("Value of %d != %d\n", n, nfat);
+}
+
+void exercise9() {
+  int i, j, n;
+  int multI = 0;
+  int multJ = 0;
+  int multiplesCount;
+
+  printf("Calculation of n first multiple of i or j!\n");
+  printf("Type the number of multiples: ");
+  scanf("%d", &n);
+  printf("Type two numbers: ");
+  scanf("%d %d", &i, &j);
+
+  printf("The %d firsts multiples of %d or %d are: ", n, i, j);
+
+  for(multiplesCount = 0; multiplesCount < n; multiplesCount++) {
+    if(multI < multJ) {
+      printf(" %d", multI);
+      multI += i;
+    } else {
+      printf(" %d", multJ);
+      if(multI == multJ) {
+        multI += i;
+      }
+
+      multJ += j;
+    }
+  }
+  printf("\n");
+}
+
+void exercise10() {
+  int triangularOperation;
+  int triangularNumber;
+  int i = 1;
+
+  printf("Calculate and return if number is triangular!\n");
+  printf("Type one number: ");
+  scanf("%d", &triangularNumber);
+
+  triangularOperation = i * (i + 1) * (i + 2);
+
+  while(triangularOperation < triangularNumber) {
+    i++;
+    triangularOperation = i * (i + 1) * (i + 2);
+  }
+
+  if(triangularOperation == triangularNumber) {
+    printf("\nIt's triangular!");
+  } else {
+    printf("\nIt's not triangular!");
+  }
+}
+
 int main() {
 	// exercise1();
 	// exercise2();
@@ -134,7 +202,10 @@ int main() {
 	// exercise4();
 	// exercise5();
   // exercise6();
-  exercise7();
+  // exercise7();
+  // exercise8();
+  // exercise9();
+  // exercise10();
 
 	return 1;
 }
