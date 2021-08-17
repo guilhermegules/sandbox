@@ -29,5 +29,5 @@ int main() {
 
   showMatrix(n, m, matrix);
 
-  return 1;
+  return 0;
 }

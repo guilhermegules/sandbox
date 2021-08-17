@@ -64,5 +64,5 @@ int main() {
 
   showMatrix(SIZE_ROWS, SIZE_COLUMNS, numbers);
 
-  return 1;
+  return 0;
 }
