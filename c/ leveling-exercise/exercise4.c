@@ -13,7 +13,7 @@ void showMatrix(int rows, int colums, int matrix[rows][colums]) {
 }
 
 int main() {
-  const int SIZE = 20;
+  const int SIZE = 10;
   int numbers[SIZE][SIZE];
 
   /**
@@ -28,6 +28,10 @@ int main() {
     numbers[row][col] = 0;
 
     if(row == col) {
+      numbers[row][col] = 1;
+    }
+
+    if(col == SIZE - 1 - row) {
       numbers[row][col] = 1;
     }
   }
