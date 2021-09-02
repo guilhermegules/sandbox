@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Aplicações especiais</title>
+  </head>
+  <body>
+    <form action="class.php" method="get">
+      <table width="100%" border="2">
+        <tr>
+          <td>
+            <label for="name">Nome:</label>
+          </td>
+          <td>
+            <input type="text" name="name" id="name" />
+          </td>
+          <td>
+            <!-- Format -->
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <label for="cellphone">Telefone:</label>
+          </td>
+          <td>
+            <input type="text" name="cellphone" id="cellphone" />
+          </td>
+          <td>
+            <!-- Format -->
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <label for="address">Endereço:</label>
+          </td>
+          <td>
+            <input type="text" name="address" id="address" />
+          </td>
+          <td>
+            <!-- Format -->
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <input type="reset" value="Limpar" name="clear" id="clear" />
+          </td>
+          <td>
+            <input type="button" name="button" id="button" value="Botão" />
+          </td>
+          <td>
+            <input
+              type="submit"
+              name="submit-button"
+              id="submit-button"
+              value="Enviar"
+            />
+          </td>
+        </tr>
+      </table>
+    </form>
+
+    <form action="../calculator/calculator.php" method="GET">
+      <p>First number</p>
+      <input name="first-number" type="text" />
+      <p>Operator</p>
+      <input name="operation" type="text" />
+      <p>Second number</p>
+      <input name="second-number" type="text" />
+      <input
+        type="submit"
+        name="submit-button"
+        id="submit-button"
+        value="Enviar"
+      />
+    </form>
+  </body>
+</html>
