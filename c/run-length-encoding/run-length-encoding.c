@@ -71,32 +71,32 @@ int main() {
   int numbers[columns][rows];
 
   do {
-  printf("What do you want to do?\n");
-  printf("\t(1) - Save matrix on file \n \t(2) - Print matrix with random values \n \t(3) - Get value from a existent file \n \t(0) - Finish the program ");
-  scanf("%d", &option);
+    printf("What do you want to do?\n");
+    printf("\t(1) - Save matrix on file \n \t(2) - Print matrix with random values \n \t(3) - Get value from a existent file \n \t(0) - Finish the program ");
+    scanf("%d", &option);
 
-  switch (option) {
-    case 0:
-      printf("Finishing...");
-      break;
-    case 1:
-      populate_matrix(rows, columns, numbers);
-      printf("%d\n%d\n", rows, columns);
-      print_matrix(rows, columns, numbers);
-      save_matrix_file(rows, columns, numbers, "rle.txt");
-      break;
-    case 2:
-      populate_matrix(rows, columns, numbers);
-      print_matrix(rows, columns, numbers);
-      break;
-    case 3:
-      get_matrix_from_file(rows, columns, "rle.txt", numbers);
-      print_matrix(rows, columns, numbers);
-      break;
-    default:
-      printf("Invalid option!");
-      break;
-  }
+    switch (option) {
+      case 0:
+        printf("Finishing...");
+        break;
+      case 1:
+        populate_matrix(rows, columns, numbers);
+        printf("%d\n%d\n", rows, columns);
+        print_matrix(rows, columns, numbers);
+        save_matrix_file(rows, columns, numbers, "rle.txt");
+        break;
+      case 2:
+        populate_matrix(rows, columns, numbers);
+        print_matrix(rows, columns, numbers);
+        break;
+      case 3:
+        get_matrix_from_file(rows, columns, "rle.txt", numbers);
+        print_matrix(rows, columns, numbers);
+        break;
+      default:
+        printf("Invalid option!");
+        break;
+    }
   } while (option != 0);
   
 
