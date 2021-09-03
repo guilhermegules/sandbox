@@ -1,4 +1,4 @@
-# Run Length Enconding algorithm
+# Run Length Encoding algorithm
 
 **Enunciado do trabalho:**
 
