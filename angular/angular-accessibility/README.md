@@ -25,3 +25,11 @@ Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protrac
 ## Further help
 
 To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+
+## NG_VALUE_ACCESSOR
+
+- É um injection token que marca nosso componente para que seja injetado dentra da infraestrutura do FormGroup.
+
+## forwardRef
+
+- É usado quando o token ao qual precisamos nos referir para fins de DI é declarado, mas ainda não definido.
