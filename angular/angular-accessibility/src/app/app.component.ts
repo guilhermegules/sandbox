@@ -12,7 +12,7 @@ export class AppComponent {
 
   constructor(private fb: FormBuilder) {
     this.formGroup = this.fb.group({
-      answer: [YesNoValueEnum.NO],
+      answer: [null],
     });
   }
 
