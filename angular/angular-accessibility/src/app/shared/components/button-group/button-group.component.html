@@ -1,18 +1,29 @@
-<div class="button-group">
-  <span class="button-group__label">{{ label }}</span>
+<div
+  appKeyboardManager
+  class="button-group"
+  role="radiogroup"
+  [attr.aria-labelledby]="id"
+>
+  <label [id]="id" class="button-group__label">{{ label }}</label>
   <button
     class="button-group__button--yes"
+    [attr.aria-checked]="value === OPTIONS.YES"
     [class.button-group__button--pressed]="value === OPTIONS.YES"
     (click)="activate(OPTIONS.YES)"
     type="button"
+    role="radio"
+    [tabindex]="value === OPTIONS.YES || value === null ? 0 : -1"
   >
     Yes
   </button>
   <button
     class="button-group__button--no"
+    [attr.aria-checked]="value === OPTIONS.NO"
     [class.button-group__button--pressed]="value === OPTIONS.NO"
     (click)="activate(OPTIONS.NO)"
     type="button"
+    role="radio"
+    [tabindex]="value === OPTIONS.NO ? 0 : -1"
   >
     No
   </button>
