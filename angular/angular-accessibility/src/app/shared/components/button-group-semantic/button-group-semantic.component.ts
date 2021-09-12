@@ -3,26 +3,27 @@ import {
   EventEmitter,
   forwardRef,
   Input,
+  OnInit,
   Output,
 } from '@angular/core';
 import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
 import { YesNoValueEnum } from 'src/app/core/enum/button-group.enum';
 import { UniqueIdService } from '../../services/unique-id.service';
+import { ButtonGroupComponent } from '../button-group/button-group.component';
 
 @Component({
-  selector: 'app-button-group',
-  templateUrl: './button-group.component.html',
-  styleUrls: ['./button-group.component.scss'],
+  selector: 'app-button-group-semantic',
+  templateUrl: './button-group-semantic.component.html',
+  styleUrls: ['./button-group-semantic.component.scss'],
   providers: [
     {
       provide: NG_VALUE_ACCESSOR,
       multi: true,
-      // Register a component of CSA before component exist
-      useExisting: forwardRef(() => ButtonGroupComponent),
+      useExisting: forwardRef(() => ButtonGroupSemanticComponent),
     },
   ],
 })
-export class ButtonGroupComponent implements ControlValueAccessor {
+export class ButtonGroupSemanticComponent implements ControlValueAccessor {
   @Output()
   public valueChange = new EventEmitter<string>();
 

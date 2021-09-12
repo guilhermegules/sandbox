@@ -33,3 +33,15 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
 ## forwardRef
 
 - É usado quando o token ao qual precisamos nos referir para fins de DI é declarado, mas ainda não definido.
+
+## @ContentChildren
+
+- Usado para obter uma `QueryList` de elementos ou diretivas do conteúdo DOM. Sempre que um elemento filho é adicionado, removido ou movido, a lista de consulta será atualizada e as alterações observáveis ​​na lista de consulta emitirão um novo valor.
+
+## Elementos disabled
+
+- O elemento é completamente ignorado por screen readers, inclusive não pode receber foco através do teclado. **Dica**: se você precisa de um botão que esteja desabilitado mas que ainda possa ganhar foco, utilize o atributo `aria-disabled`. Screen readers irão anunciar o elemento como disabled, mas lembre-se: você precisará garantir que a ação do botão só seja disparada quando ele estiver habilitado novamente, geralmente no método chamado pelo botão.
+
+## NgControl
+
+- Injetando um `ngControl` no construtor de uma diretiva, temos acesso ao form control do form group utilizado, dessa forma conseguimos fazer as manipulações necessárias.

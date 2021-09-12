@@ -2,10 +2,19 @@
   <h1>Form</h1>
 
   <form [formGroup]="formGroup" (ngSubmit)="submit()">
+    <h2>First Version</h2>
     <app-button-group
+      [appDisableControl]="false"
       formControlName="answer"
       label="Are you good enough in Angular?"
     ></app-button-group>
+
+    <h2>Second version Version</h2>
+    <app-button-group-semantic
+      [appDisableControl]="false"
+      formControlName="answerSemantic"
+      label="Are you good enough in Angular?"
+    ></app-button-group-semantic>
 
     <button>Submit</button>
   </form>

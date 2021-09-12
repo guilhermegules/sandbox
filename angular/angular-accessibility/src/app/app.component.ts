@@ -11,12 +11,17 @@ export class AppComponent {
   public formGroup: FormGroup;
 
   constructor(private fb: FormBuilder) {
-    this.formGroup = this.fb.group({
-      answer: [null],
-    });
+    this.initForm();
   }
 
   public submit(): void {
     console.log(this.formGroup.value);
+  }
+
+  public initForm(): void {
+    this.formGroup = this.fb.group({
+      answer: [null],
+      answerSemantic: [null],
+    });
   }
 }

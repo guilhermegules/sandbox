@@ -6,24 +6,30 @@
 >
   <label [id]="id" class="button-group__label">{{ label }}</label>
   <button
-    class="button-group__button--yes"
+    appKeyboardManagedItem
+    [attr.disabled]="disabled || null"
     [attr.aria-checked]="value === OPTIONS.YES"
     [class.button-group__button--pressed]="value === OPTIONS.YES"
+    [tabindex]="value === OPTIONS.YES || value === null ? 0 : -1"
     (click)="activate(OPTIONS.YES)"
+    (focused)="activate(OPTIONS.YES)"
+    class="button-group__button--yes"
     type="button"
     role="radio"
-    [tabindex]="value === OPTIONS.YES || value === null ? 0 : -1"
   >
     Yes
   </button>
   <button
-    class="button-group__button--no"
+    appKeyboardManagedItem
+    [attr.disabled]="disabled || null"
     [attr.aria-checked]="value === OPTIONS.NO"
     [class.button-group__button--pressed]="value === OPTIONS.NO"
+    [tabindex]="value === OPTIONS.NO ? 0 : -1"
     (click)="activate(OPTIONS.NO)"
+    (focused)="activate(OPTIONS.NO)"
+    class="button-group__button--no"
     type="button"
     role="radio"
-    [tabindex]="value === OPTIONS.NO ? 0 : -1"
   >
     No
   </button>
