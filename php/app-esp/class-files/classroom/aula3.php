@@ -20,7 +20,7 @@
   <title>Aula 3</title>
 </head>
 <body>
-  <form action="class3.php" action="GET">
+  <form action="aula3.php" action="GET">
     Nome: <input type="text" name="name" value="<?php echo $name ?>" />
     <br />
     Idade: <input type="text" name="age" value="<?php echo $age ?>" />

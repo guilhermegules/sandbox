@@ -1,0 +1,12 @@
+.row {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  padding: 15px;
+  margin: 15px;
+  width: 35%;
+}
+
+.form-container {
+  margin-bottom: 120px;
+}

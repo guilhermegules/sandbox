@@ -1,0 +1,23 @@
+form {
+  height: auto;
+  margin: 15px;
+}
+
+.register-grid {
+  display: grid;
+  grid-template-columns: 500px 350px;
+  gap: 15px;
+}
+
+.row {
+  display: flex;
+  flex-direction: column;
+}
+
+.row span {
+  margin-bottom: 5px;
+}
+
+.input-group {
+  margin-top: 5px;
+}
