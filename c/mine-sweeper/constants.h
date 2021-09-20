@@ -5,7 +5,7 @@
 
 // Content state
 #define OPENED 0
-#define CLOSED 99
+#define CLOSED 1
 #define FLAG 2
 
 // Cell content
