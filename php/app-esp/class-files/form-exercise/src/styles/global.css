@@ -36,6 +36,12 @@ label {
 
 input {
   height: 30px;
+  padding: 1px 2px;
+}
+
+input,
+textarea {
+  font-family: "Roboto", sans-serif;
 }
 
 input[type="checkbox"],
@@ -52,10 +58,10 @@ input[type="submit"] {
   border: 0;
   height: 40px;
   width: 60px;
-  margin-left: 30px;
   background: rgb(196, 168, 135);
   border: 1px solid rgb(148, 117, 77);
   font-weight: bold;
+  cursor: pointer;
 }
 
 textarea {
@@ -68,4 +74,5 @@ button {
   border-radius: 5px;
   color: white;
   font-weight: bold;
+  cursor: pointer;
 }

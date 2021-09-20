@@ -1,3 +1,7 @@
+h1 {
+  margin: 15px;
+}
+
 form {
   height: auto;
   margin: 15px;
@@ -20,4 +24,16 @@ form {
 
 .input-group {
   margin-top: 5px;
+}
+
+input[type="submit"] {
+  margin: 15px 325px 0 0;
+  align-self: flex-end;
+}
+
+.form-fill {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
 }
