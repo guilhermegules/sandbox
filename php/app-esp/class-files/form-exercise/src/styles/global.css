@@ -8,7 +8,7 @@
 
 body {
   font-family: "Roboto", sans-serif;
-  background: bisque;
+  background: #ffe4c4;
 }
 
 form {
@@ -64,15 +64,12 @@ input[type="submit"] {
   cursor: pointer;
 }
 
-textarea {
-}
-
 button {
   background: rgb(196, 168, 135);
   border: 1px solid rgb(148, 117, 77);
   padding: 10px;
   border-radius: 5px;
-  color: white;
+  color: #ffffff;
   font-weight: bold;
   cursor: pointer;
 }

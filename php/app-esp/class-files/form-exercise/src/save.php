@@ -24,9 +24,9 @@ foreach ($userData as $key => $value) {
           <h3>Browsers:</h3>
       ";
 
-      foreach ($userData['browsers'] as $browserKey => $browser) {
+      foreach ($userData['browsers'] as $browser) {
         $template .= "<p>$browser</p>";
-        setcookie($browserKey, $browser);
+        setcookie($browser, $browser);
       }
 
       $template .= "</div>";

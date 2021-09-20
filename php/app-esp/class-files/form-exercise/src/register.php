@@ -1,3 +1,13 @@
+<?php
+
+session_start();
+
+$username = $_SESSION['login']['name'];
+$sessionId = $_SESSION['login']['sessionId'];
+
+?>
+
+
 <!DOCTYPE html>
 <html lang="pt-BR">
 
@@ -14,6 +24,8 @@
   <form action="./save.php" method="POST">
     <div class="form-fill">
       <h1>Cadastro de novo usuário</h1>
+
+      <h3>Olá <?php echo $username ?>, sua sessão é <?php echo $sessionId ?></h3>
 
       <div class="register-grid">
         <div class="row">
@@ -72,9 +84,9 @@
             <input type="checkbox" name="browsers[]" id="opera" value="opera"><label for="opera">Opera</label></input>
           </div>
         </div>
-      </div>
 
-      <input type="submit" value="Salvar">
+        <input type="submit" value="Salvar">
+      </div>
     </div>
   </form>
 </body>

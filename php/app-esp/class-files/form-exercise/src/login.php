@@ -7,9 +7,11 @@ $password = $_POST['password'] ?? '';
 
 $template = "";
 
-if(userAuth($login, $password)) {
+if (userAuth($login, $password)) {
   session_start();
-  $_SESSION["login"] = $login;
+
+  $_SESSION["login"] = ["name" => $login, "sessionId" => session_id()];
+
   header('Location: ./register.php');
   exit();
 } else {
@@ -25,6 +27,7 @@ if(userAuth($login, $password)) {
 
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -32,7 +35,9 @@ if(userAuth($login, $password)) {
   <link rel="stylesheet" href="./styles/global.css">
   <title>Processo de login</title>
 </head>
+
 <body>
   <?php echo $template ?>
 </body>
+
 </html>
