@@ -198,7 +198,7 @@ int main()
   int boardView[HEIGHT][WIDTH];
 
   // Define the seed of the rand function
-  // srand(time(NULL));
+  srand(time(NULL));
 
   init_board(boardContent, boardView);
 
@@ -222,8 +222,3 @@ int main()
 
   return 0;
 }
-
-/* 
-  - Próximos passos, morrer ao clicar na bomba, morrer
-  - Se clicar em um número apenas essa célula ser aberta
-*/
