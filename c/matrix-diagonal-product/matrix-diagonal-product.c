@@ -58,12 +58,14 @@ void print_numbers(int numbers[HEIGHT][WIDTH])
 
 void insert_numbers_manually(int numbers[HEIGHT][WIDTH])
 {
-  for (int i = 0; i < HEIGHT; i++)
+  int row, column;
+
+  for (int row = 0; row < HEIGHT; row++)
   {
-    for (int j = 0; j < WIDTH; j++)
+    for (int column = 0; column < WIDTH; column++)
     {
       printf("Digite o seu número: ");
-      scanf("%d", &numbers[i][j]);
+      scanf("%d", &numbers[row][column]);
     }
   }
 }
@@ -72,65 +74,66 @@ long product_numbers_helper(int numbers[HEIGHT][WIDTH])
 {
   long product = 1;
   int counter = 1;
+  int row, column;
 
-  for (int i = 0; i < HEIGHT; i++)
+  for (int row = 0; row < HEIGHT; row++)
   {
-    for (int j = 0; j < WIDTH; j++)
+    for (int column = 0; column < WIDTH; column++)
     {
       // Top
-      if (i > 0)
+      if (row > 0)
       {
         counter++;
-        product *= numbers[i - 1][j];
+        product *= numbers[row - 1][column];
       }
 
       // Bottom
-      if (i < (HEIGHT - 1))
+      if (row < (HEIGHT - 1))
       {
         counter++;
-        product *= numbers[i + 1][j];
+        product *= numbers[row + 1][column];
       }
 
       // Right
-      if (j < (WIDTH - 1))
+      if (column < (WIDTH - 1))
       {
         counter++;
-        product *= numbers[i + 1][j];
+        product *= numbers[row + 1][column];
       }
 
       // Left
-      if (j > 0)
+      if (column > 0)
       {
         counter++;
-        product *= numbers[i][j - 1];
+        product *= numbers[row][column - 1];
       }
 
       // Top right diagonal
-      if (i > 0 && j < (WIDTH - 1))
+      if (row > 0 && column < (WIDTH - 1))
       {
         counter++;
-        product *= numbers[i - 1][j + 1];
+        product *= numbers[row - 1][column + 1];
       }
 
       // Top left diagonal
-      if (i > 0 && j > 0)
+      if (row > 0 && column > 0)
       {
         counter++;
-        product *= numbers[i - 1][j - 1];
+        product *= numbers[row - 1][column - 1];
       }
 
       // Bottom right diagonal
-      if (i < (HEIGHT - 1) && j < (WIDTH - 1))
+      if (row < (HEIGHT - 1) && column < (WIDTH - 1))
       {
         counter++;
-        product *= numbers[i + 1][j + 1];
+        product *= numbers[row + 1][column + 1];
       }
 
       // Bottom left diagonal
-      if (i < (HEIGHT - 1) && j > 0)
+      if (row < (HEIGHT - 1) && column > 0)
       {
         counter++;
-        product *= numbers[i + 1][j - 1];
+        product *= numbers[row + 1][column - 1];
       }
 
       if (counter == 4)
