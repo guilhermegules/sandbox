@@ -13,12 +13,22 @@
 
 .header {
   grid-area: header;
+  display: flex;
+  padding: 0 2rem;
+  align-items: center;
 }
 
 .content {
   grid-area: content;
+  padding: 0 2rem;
 }
 
 .footer {
   grid-area: footer;
+
+  background-color: #fdfdfd;
+  color: #333333;
+  font-size: 0.8rem;
+  padding: 1rem;
+  text-align: center;
 }
