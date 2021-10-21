@@ -1,15 +1,15 @@
 <?php
 
-require "./Company.php";
-require "./database/Connection.php";
+// require("./Company.php");
+require("../database/Connection.php");
 
-class Access extends Company
+class Access
 {
   private int $id;
   private string $login;
   private string $password;
   
-  private $connection;
+  private $connectionObject;
   private $result;
   private string $sql = "";
   
@@ -18,24 +18,20 @@ class Access extends Company
     $this->login = $login;
     $this->password = $password;
 
-    // $this->connection = new Connection("193.123.108.138", "iae", "iae", "iae");
+    $this->connectionObject = new Connection("193.123.108.138", "iae", "iae", "iae");
   }
 
   public function login()
   {
-    // $this->sql = "SELECT email, senha 
-    //   FROM acesso 
-    //   WHERE email = '$this->login' AND senha = '$this->password'";
+    $this->sql = "SELECT email, senha 
+      FROM acesso 
+      WHERE email = '$this->login' AND senha = '$this->password'";
 
-    // $this->result = $this->connectionObject->getConnection()->query($this->sql);
+    $this->result = $this->connectionObject->getConnection()->query($this->sql);
 
-    // $this->rowResult = $this->result->fetch_assoc();
+    $this->rowResult = $this->result->fetch_assoc();
 
-    if ($this->rowResult) {
-      return true;
-    }
-
-    return false;
+    return $this->rowResult;
   }
 
   public function getId()
