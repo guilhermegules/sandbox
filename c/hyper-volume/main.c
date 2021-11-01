@@ -2,22 +2,14 @@
 #include <stdlib.h>
 #include <time.h>
 
-/*
-  * Deve ser gerado um conjunto com pelo menos 100 soluções aleatórias, sendo cada
-  * uma representada pela tupla (x, y), onde x e y, por sua vez, podem assumir qualquer valor entre zero e um
-  
-  * O ponto R deve ser posicionado sempre em (1, 1); 
+#define WRITE_FILE "w"
+#define MAX_NUMBER_OF_REGISTERS 100
 
-  * A dominância deve ser relativa a minimização nos dois eixos (ordenadas e abscissas). A
-  * figura 2 mostra uma sugestão de implementação do teste de dominância entre duas
-  * partículas A e B em relação as suas coordenadas (x, y).
-  
-  * O gráfico resultante deve ser plotado pelo aluno, de forma que seja possível
-  * identificar-se claramente quais os pontos correspondentes a soluções não dominadas
-  * e dominadas. 
-*/
-
-#define MAX_NUMBER_OF_REGISTERS 5
+typedef struct Points
+{
+  double x;
+  double y;
+} Point;
 
 double randomNumber()
 {
@@ -35,57 +27,99 @@ void addValues(double *numbers)
   }
 }
 
-double getRPoint(double *numbers)
-{
-  for (int row = 0; row < MAX_NUMBER_OF_REGISTERS; row++)
-  {
-    for (int col = 0; col < MAX_NUMBER_OF_REGISTERS; col++)
-    {
-      if (row == 1 && col == 1)
-      {
-        return numbers[row * MAX_NUMBER_OF_REGISTERS + col];
-      }
-    }
-  }
-}
-
 void printValues(double *numbers)
 {
   for (int row = 0; row < MAX_NUMBER_OF_REGISTERS; row++)
   {
     for (int col = 0; col < MAX_NUMBER_OF_REGISTERS; col++)
     {
-      printf(" %0.4f ", numbers[row * MAX_NUMBER_OF_REGISTERS + col]);
+      printf(" %0.4f; ", numbers[row * MAX_NUMBER_OF_REGISTERS + col]);
     }
     printf("\n");
   }
+}
+
+double dominantCalculation(int NUMBERS_RESULT_COLUMNS, double resultNumbers[MAX_NUMBER_OF_REGISTERS][NUMBERS_RESULT_COLUMNS], double *numbers, FILE *file_p)
+{
+  int row, col;
+  Point pointA;
+  Point pointB;
+
+  // Add values on result number matrix
+  // Following comparing the dominance between values
+  for (row = 0; row < MAX_NUMBER_OF_REGISTERS; row++)
+  {
+    for (col = 0; col < MAX_NUMBER_OF_REGISTERS; col++)
+    {
+      pointA.x = numbers[row * MAX_NUMBER_OF_REGISTERS + col];
+      pointB.x = numbers[row * MAX_NUMBER_OF_REGISTERS + col + 1];
+      pointA.y = numbers[row + 1 * MAX_NUMBER_OF_REGISTERS + col];
+      pointB.y = numbers[row * MAX_NUMBER_OF_REGISTERS + col + 1];
+
+      if (
+          ((pointA.x < pointB.x) && (pointA.y < pointB.y)) ||
+          ((pointA.x < pointB.x) && (pointA.y == pointB.y)) ||
+          ((pointA.x == pointB.x) && (pointA.y < pointB.y)))
+      {
+        resultNumbers[row][0] = pointA.x;
+        resultNumbers[row][1] = pointA.y;
+      }
+
+      if (((pointA.x > pointB.x) && (pointA.y > pointB.y)) ||
+          ((pointA.x > pointB.x) && (pointA.y == pointB.y)) ||
+          ((pointA.x == pointB.x) && (pointA.y > pointB.y)))
+      {
+        resultNumbers[row][0] = pointB.x;
+        resultNumbers[row][1] = pointB.y;
+      }
+    }
+  }
+
+  // Saving result numbers values on file
+  for (row = 0; row < MAX_NUMBER_OF_REGISTERS; row++)
+  {
+    for (col = 0; col < NUMBERS_RESULT_COLUMNS; col++)
+    {
+      fprintf(file_p, " %0.4f; ", resultNumbers[row][col]);
+    }
+    fprintf(file_p, "\n");
+  }
+}
+
+void saveNumbers(char *filename, double *numbers)
+{
+  FILE *file_p = fopen(filename, WRITE_FILE);
+  const int NUMBERS_RESULT_COLUMNS = 2;
+  double numbersResult[MAX_NUMBER_OF_REGISTERS][NUMBERS_RESULT_COLUMNS];
+
+  if (file_p == NULL)
+  {
+    printf("Error opening file\n");
+    exit(EXIT_FAILURE);
+  }
+
+  dominantCalculation(NUMBERS_RESULT_COLUMNS, numbersResult, numbers, file_p);
+
+  fclose(file_p);
 }
 
 int main()
 {
   srand(time(NULL));
 
-  double *numbersX = (double *)malloc(sizeof(double) * MAX_NUMBER_OF_REGISTERS * MAX_NUMBER_OF_REGISTERS);
-  double *numbersY = (double *)malloc(sizeof(double) * MAX_NUMBER_OF_REGISTERS * MAX_NUMBER_OF_REGISTERS);
-  double rPoint = 0;
+  double *numbers = (double *)malloc(sizeof(double) * MAX_NUMBER_OF_REGISTERS * MAX_NUMBER_OF_REGISTERS);
 
-  if (numbersX == NULL)
+  if (numbers == NULL)
   {
-    printf("Error allocating numbersX variable!\n");
+    printf("Error allocating numbers variable!\n");
     exit(EXIT_FAILURE);
   }
 
-  addValues(numbersX);
+  addValues(numbers);
 
-  printValues(numbersX);
+  printValues(numbers);
 
-  addValues(numbersY);
+  saveNumbers("hyper-volume.csv", numbers);
 
-  printValues(numbersY);
-
-  rPoint = getRPoint(numbersX);
-
-  // TODO: fazer validações para definir retornos de pontos nos arquivos
-
-  return 1;
+  return EXIT_SUCCESS;
 }

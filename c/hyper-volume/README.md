@@ -1,5 +1,21 @@
 # Hyper volume calculum
 
+## Instruções:
+
+### Instalação:
+
+- Primeiramente garanta que todas as bibliotecas da linguage C estão instaladas, instale com o seguinte comando `sudo apt install build-essential`;
+  - Verifique se o compilador C `gcc` está instalado `gcc --version`;
+  - Verifique se o `make` está instalado, com o seguinte comando `make -v`;
+- Se o comando acima não garantir a instalação do `make` rode o seguinte comando `sudo apt-get install make`;
+- Instale o pacote do gnuplot com o comando `sudo apt-get install gnuplot`.
+
+### Rodando
+
+- Rode `make build` para gerar o arquivo binario da aplicação;
+- Rode `make run` para rodar a aplicação e gerar o arquivo `.csv`;
+- Rode `make gnuplot` para gerar o arquivo com o gráfico plotado.
+
 ## Resumo
 
 Algoritmos Genéticos são inspirados no princípio  
@@ -41,7 +57,7 @@ humano. Usa técnicas de IA, base de conhecimento
 e raciocínio inferencial.
 
 Podemos caracterizar os Algoritmos
-Genéticos através dos seguintes componentes [2]:
+Genéticos através dos seguintes componentes:
 
 1.  Problema a ser otimizado
 2.  Representação das Soluções de Problema
@@ -59,4 +75,3 @@ Genéticos através dos seguintes componentes [2]:
 - [Eficiência de Pareto](https://pt.wikipedia.org/wiki/Efici%C3%AAncia_de_Pareto)
 - [Pareto Front](https://www.sciencedirect.com/topics/engineering/pareto-front)
 - [Pareto Front Wiki](https://en.wikipedia.org/wiki/Pareto_front)
--
