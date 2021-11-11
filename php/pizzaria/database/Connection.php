@@ -11,10 +11,10 @@ class Connection
   private $connection;
 
   public function __construct(
-    string $host,
-    string $user,
-    string $pass,
-    string $database
+    string $host = "193.123.108.138",
+    string $user = "iae",
+    string $pass = "iae",
+    string $database = "iae"
   ) {
     $this->host = $host;
     $this->user = $user;

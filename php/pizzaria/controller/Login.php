@@ -2,10 +2,25 @@
 
 require("../model/Access.php");
 
-$login = $_POST['login'] ?? '';
-$password = $_POST['password'] ?? '';
+class Login
+{
+  private string $login = '';
+  private string $password = '';
+  private Access $access;
 
-$access = new Access($login, $password);
+  public function __construct()
+  {
+    $this->login = $_POST['login'];
+    $this->password = $_POST['password'];
+    $this->access = new Access($this->login, $this->password);
+  }
 
-echo $access->login() ? "Logado" : "Tente novamente";
+  public function loginRedirect()
+  {
+    echo $this->access->login() ? "Logado" : "Tente novamente";
+  }
+}
 
+$login = new Login();
+
+$login->loginRedirect();
