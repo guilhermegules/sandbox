@@ -1,4 +1,25 @@
-<!--   Core JS Files   -->
+<?php /* Smarty version Smarty-3.1.13, created on 2021-11-18 03:23:58
+         compiled from "/opt/lampp/htdocs/app-esp/php-playground/pizzaria-mvc/view/scripts.tpl" */ ?>
+<?php /*%%SmartyHeaderCode:19874736996195b93e335331-93898436%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
+$_valid = $_smarty_tpl->decodeProperties(array (
+  'file_dependency' => 
+  array (
+    'bfea75e2ba494e70b1fd40a12d34233ea0b06eac' => 
+    array (
+      0 => '/opt/lampp/htdocs/app-esp/php-playground/pizzaria-mvc/view/scripts.tpl',
+      1 => 1637202170,
+      2 => 'file',
+    ),
+  ),
+  'nocache_hash' => '19874736996195b93e335331-93898436',
+  'function' => 
+  array (
+  ),
+  'has_nocache_code' => false,
+  'version' => 'Smarty-3.1.13',
+  'unifunc' => 'content_6195b93e3362b5_81682038',
+),false); /*/%%SmartyHeaderCode%%*/?>
+<?php if ($_valid && !is_callable('content_6195b93e3362b5_81682038')) {function content_6195b93e3362b5_81682038($_smarty_tpl) {?><!--   Core JS Files   -->
 <script src="assets/js/core/jquery.min.js"></script>
 <script src="assets/js/core/popper.min.js"></script>
 <script src="assets/js/core/bootstrap-material-design.min.js"></script>
@@ -40,4 +61,4 @@
 <!-- Control Center for Material Dashboard: parallax effects, scripts for the example pages etc -->
 <script src="assets/js/material-dashboard.js?v=2.1.2" type="text/javascript"></script>
 <!-- Material Dashboard DEMO methods, don't include it in your project! -->
-<script src="assets/demo/demo.js"></script>
+<script src="assets/demo/demo.js"></script><?php }} ?>

@@ -1,0 +1,32 @@
+<?php
+
+require(__DIR__ . "/../model/Access.php");
+require(__DIR__ . "/../external/ViewHandler.php");
+
+class LoginController
+{
+  private string $login;
+  private string $password;
+  private Access $access;
+  private ViewHandler $template;
+
+  public function __construct()
+  {
+    $this->login = $_POST['login'] ?? '';
+    $this->password = $_POST['password'] ?? '';
+    $this->access = new Access($this->login, $this->password);
+    $this->template = new ViewHandler();
+  }
+
+  public function loginRedirect()
+  {
+    if ($this->access->login()) {
+      $this->template->getSmarty()->assign("title", "Dashboard");
+      $this->template->getSmarty()->display('dashboard.tpl');
+      return;
+    }
+
+    $this->template->getSmarty()->assign("title", "Login");
+    $this->template->getSmarty()->display('login.tpl');
+  }
+}

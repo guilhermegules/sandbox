@@ -1,6 +1,6 @@
 <?php
 
-require("../database/Connection.php");
+require(__DIR__ . "/../database/Connection.php");
 
 class Access
 {
@@ -28,7 +28,11 @@ class Access
 
     $this->rowResult = $this->result->fetch_assoc();
 
-    return $this->rowResult;
+    if (empty($this->rowResult['email']) && empty($this->rowResult['senha'])) {
+      return false;
+    }
+
+    return true;
   }
 
   public function getId()

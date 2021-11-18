@@ -1,6 +1,28 @@
-<!DOCTYPE html>
+<?php /* Smarty version Smarty-3.1.13, created on 2021-11-18 03:23:58
+         compiled from "/opt/lampp/htdocs/app-esp/php-playground/pizzaria-mvc/view/dashboard.tpl" */ ?>
+<?php /*%%SmartyHeaderCode:13553279726195b93e2e8b43-32266916%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
+$_valid = $_smarty_tpl->decodeProperties(array (
+  'file_dependency' => 
+  array (
+    'a89e297bdfc7b69317b8ad619f6f21b1dcd539c5' => 
+    array (
+      0 => '/opt/lampp/htdocs/app-esp/php-playground/pizzaria-mvc/view/dashboard.tpl',
+      1 => 1637201355,
+      2 => 'file',
+    ),
+  ),
+  'nocache_hash' => '13553279726195b93e2e8b43-32266916',
+  'function' => 
+  array (
+  ),
+  'has_nocache_code' => false,
+  'version' => 'Smarty-3.1.13',
+  'unifunc' => 'content_6195b93e328808_62961515',
+),false); /*/%%SmartyHeaderCode%%*/?>
+<?php if ($_valid && !is_callable('content_6195b93e328808_62961515')) {function content_6195b93e328808_62961515($_smarty_tpl) {?><!DOCTYPE html>
 <html lang="pt-BR">
-{include file="head.tpl"}
+<?php echo $_smarty_tpl->getSubTemplate ("head.tpl", $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, null, null, array(), 0);?>
+
 
 <body>
   <div class="wrapper">
@@ -704,7 +726,8 @@
       </ul>
     </div>
   </div>
-  {include file="scripts.tpl"}
+  <?php echo $_smarty_tpl->getSubTemplate ("scripts.tpl", $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, null, null, array(), 0);?>
+
   <script>
     $(document).ready(function() {
       $().ready(function() {
@@ -910,4 +933,4 @@
   </script>
 </body>
 
-</html>
+</html><?php }} ?>

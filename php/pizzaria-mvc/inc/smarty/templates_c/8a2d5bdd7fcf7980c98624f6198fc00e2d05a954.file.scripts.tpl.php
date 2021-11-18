@@ -1,4 +1,25 @@
-<!--   Core JS Files   -->
+<?php /* Smarty version Smarty-3.1.13, created on 2021-11-18 02:55:58
+         compiled from "app/view/scripts.tpl" */ ?>
+<?php /*%%SmartyHeaderCode:17042409566195b2ae34d2a1-96806239%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
+$_valid = $_smarty_tpl->decodeProperties(array (
+  'file_dependency' => 
+  array (
+    '8a2d5bdd7fcf7980c98624f6198fc00e2d05a954' => 
+    array (
+      0 => 'app/view/scripts.tpl',
+      1 => 1637191000,
+      2 => 'file',
+    ),
+  ),
+  'nocache_hash' => '17042409566195b2ae34d2a1-96806239',
+  'function' => 
+  array (
+  ),
+  'has_nocache_code' => false,
+  'version' => 'Smarty-3.1.13',
+  'unifunc' => 'content_6195b2ae34de95_09458282',
+),false); /*/%%SmartyHeaderCode%%*/?>
+<?php if ($_valid && !is_callable('content_6195b2ae34de95_09458282')) {function content_6195b2ae34de95_09458282($_smarty_tpl) {?><!--   Core JS Files   -->
 <script src="assets/js/core/jquery.min.js"></script>
 <script src="assets/js/core/popper.min.js"></script>
 <script src="assets/js/core/bootstrap-material-design.min.js"></script>
@@ -38,6 +59,9 @@
 <!--  Notifications Plugin    -->
 <script src="assets/js/plugins/bootstrap-notify.js"></script>
 <!-- Control Center for Material Dashboard: parallax effects, scripts for the example pages etc -->
-<script src="assets/js/material-dashboard.js?v=2.1.2" type="text/javascript"></script>
+<script
+src="assets/js/material-dashboard.js?v=2.1.2"
+type="text/javascript"
+></script>
 <!-- Material Dashboard DEMO methods, don't include it in your project! -->
-<script src="assets/demo/demo.js"></script>
+<script src="assets/demo/demo.js"></script><?php }} ?>

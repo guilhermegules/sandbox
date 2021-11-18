@@ -1,29 +1,29 @@
-<?php /* Smarty version Smarty-3.1.13, created on 2021-11-18 01:04:18
-         compiled from "view/head.tpl" */ ?>
-<?php /*%%SmartyHeaderCode:1653598876618c6718382a84-83847209%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
+<?php /* Smarty version Smarty-3.1.13, created on 2021-11-18 02:55:58
+         compiled from "app/view/head.tpl" */ ?>
+<?php /*%%SmartyHeaderCode:11860680786195b2ae346f09-99547040%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
   'file_dependency' => 
   array (
-    '3508fa6015c07afffb6ad4082a4a111a3b881b5a' => 
+    'd599c62019caa8ff085ce98823422fa201345a37' => 
     array (
-      0 => 'view/head.tpl',
+      0 => 'app/view/head.tpl',
       1 => 1637193857,
       2 => 'file',
     ),
   ),
-  'nocache_hash' => '1653598876618c6718382a84-83847209',
+  'nocache_hash' => '11860680786195b2ae346f09-99547040',
   'function' => 
   array (
   ),
-  'version' => 'Smarty-3.1.13',
-  'unifunc' => 'content_618c67183836d0_64116813',
   'variables' => 
   array (
     'title' => 0,
   ),
   'has_nocache_code' => false,
+  'version' => 'Smarty-3.1.13',
+  'unifunc' => 'content_6195b2ae34aa53_96738669',
 ),false); /*/%%SmartyHeaderCode%%*/?>
-<?php if ($_valid && !is_callable('content_618c67183836d0_64116813')) {function content_618c67183836d0_64116813($_smarty_tpl) {?><head>
+<?php if ($_valid && !is_callable('content_6195b2ae34aa53_96738669')) {function content_6195b2ae34aa53_96738669($_smarty_tpl) {?><head>
   <meta charset="utf-8" />
   <link rel="apple-touch-icon" sizes="76x76" href="assets/img/apple-icon.png">
   <link rel="icon" type="image/png" href="assets/img/favicon.png">

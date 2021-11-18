@@ -1,5 +1,27 @@
-<html lang="pt-BR">
-{include file="head.tpl"}
+<?php /* Smarty version Smarty-3.1.13, created on 2021-11-18 02:55:58
+         compiled from "app/view/login.tpl" */ ?>
+<?php /*%%SmartyHeaderCode:13743770916195b2ae311749-08349704%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
+$_valid = $_smarty_tpl->decodeProperties(array (
+  'file_dependency' => 
+  array (
+    '745229a535d5e84bb1fe680bc43098150802b73e' => 
+    array (
+      0 => 'app/view/login.tpl',
+      1 => 1637197020,
+      2 => 'file',
+    ),
+  ),
+  'nocache_hash' => '13743770916195b2ae311749-08349704',
+  'function' => 
+  array (
+  ),
+  'has_nocache_code' => false,
+  'version' => 'Smarty-3.1.13',
+  'unifunc' => 'content_6195b2ae343495_55077707',
+),false); /*/%%SmartyHeaderCode%%*/?>
+<?php if ($_valid && !is_callable('content_6195b2ae343495_55077707')) {function content_6195b2ae343495_55077707($_smarty_tpl) {?><html lang="pt-BR">
+<?php echo $_smarty_tpl->getSubTemplate ("head.tpl", $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, null, null, array(), 0);?>
+
 
 <body>
   <div class="container">
@@ -35,11 +57,11 @@
             <form action="#" class="signin-form">
               <div class="form-group mb-3">
                 <label class="label" for="name">Username</label>
-                <input type="text" class="form-control" required>
+                <input type="text" class="form-control" placeholder="Username" required>
               </div>
               <div class="form-group mb-3">
                 <label class="label" for="password">Password</label>
-                <input type="password" class="form-control" required>
+                <input type="password" class="form-control" placeholder="Password" required>
               </div>
               <div class="form-group">
                 <button type="submit" class="form-control btn btn-primary submit px-3">Sign In</button>
@@ -61,7 +83,8 @@
       </div>
     </div>
   </div>
-  {include file="scripts.tpl"}
+  <?php echo $_smarty_tpl->getSubTemplate ("scripts.tpl", $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, null, null, array(), 0);?>
+
 </body>
 
-</html>
+</html><?php }} ?>

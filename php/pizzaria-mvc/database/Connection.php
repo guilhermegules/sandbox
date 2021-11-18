@@ -1,6 +1,6 @@
 <?php
 
-require_once("./Database.environment.php");
+require_once(__DIR__ . "/Database.environment.php");
 
 class Connection
 {
