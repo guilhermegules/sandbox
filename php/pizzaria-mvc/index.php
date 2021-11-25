@@ -1,7 +1,7 @@
 <?php
 
-require(__DIR__ . '/controller/LoginController.php');
+require(__DIR__ . "/external/ViewHandler.php");
 
-$login = new LoginController();
-
-$login->loginRedirect();
+$template = new ViewHandler();
+$template->getSmarty()->assign("title", "Login");
+$template->getSmarty()->display('login.tpl');
