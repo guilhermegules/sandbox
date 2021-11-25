@@ -10,7 +10,7 @@ class Access
 
   private $connectionObject;
   private $result;
-  private string $sql;
+  private string $query;
 
   public function __construct(string $login, string $password)
   {
@@ -22,17 +22,17 @@ class Access
 
   public function login()
   {
-    $this->sql = "SELECT email, senha FROM acesso WHERE email = '$this->login' AND senha = '$this->password'";
+    $this->query = "SELECT email, senha, tipo, nome FROM acesso WHERE email = '$this->login' AND senha = '$this->password'";
 
-    $this->result = $this->connectionObject->getConnection()->query($this->sql);
+    $this->result = $this->connectionObject->getConnection()->query($this->query);
 
     $this->rowResult = $this->result->fetch_assoc();
 
     if (empty($this->rowResult['email']) && empty($this->rowResult['senha'])) {
-      return false;
+      return null;
     }
 
-    return true;
+    return $this->rowResult;
   }
 
   public function getId()
