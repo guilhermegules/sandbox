@@ -3,7 +3,7 @@
     {if !!$name}
       <div class="logo">
         <a class="simple-text logo-normal">
-          Bem vindo(a) {$name}
+          Bem vindo(a) {$name|truncate:15}
         </a>
       </div>
 

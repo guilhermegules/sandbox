@@ -8,8 +8,22 @@
 
   <div class="main-panel">
     {include file="navbar.tpl" navbarTitle="Aqui vamos selecionar os melhores ingredientes"}
+
     <div class="content">
       <div class="container-fluid">
+
+        {if $pizzaCount >= 5}
+          <div class="alert alert-success" role="alert">
+            Brinde Coca-Cola grátis!
+          </div>
+        {/if}
+
+        {if $hasBeenSaved}
+          <div class="alert alert-success" role="alert">
+            Pedido realizado com sucesso!
+          </div>
+        {/if}
+
         <div class="row">
           <div class="col-md-12">
             <div class="card">
@@ -34,22 +48,35 @@
                       <select class="form-control" required id="price" name="price">
                         <option selected disabled>Selecione o preço</option>
                         {foreach $prices as $price}
-                          <option value="{$price}">R${$price}</option>
+                          <option value="{$price}">R${$price|string_format:"%.2f"}</option>
                         {/foreach}
                       </select>
                     </div>
                   </div>
 
-                  <div class="form-group">
-                    <button type="submit" class="form-control btn btn-primary submit px-3">Adicionar pizza</button>
+                  <div class="row">
+                    <div class="col-2">
+                      <button type="submit" value="ADD" name="submit"
+                        class="form-control btn btn-primary submit px-3">Adicionar pizza</button>
+                    </div>
+                    <div class="col-2">
+                      <button type="submit" value="SAVE" name="submit"
+                        class="form-control btn btn-primary submit px-3">Finalizar pedido</button>
+                    </div>
                   </div>
                 </form>
 
                 {if $calculatedPrice > 0}
-                  <p>Preço total de: R${$calculatedPrice}</p>
+                  <p class="mt-2">Preço total de: <strong>R$ {$calculatedPrice|string_format:"%.2f"}</strong></p>
                 {/if}
 
-                Contagem de pizzas: {$pizzaCount}
+                <p>Contagem de pizzas: {$pizzaCount}</p>
+
+                {if $pizzaCount >= 15}
+                  <p class="mt-2">{$user} irá ganhar <strong>R$ {$bonus|string_format:"%.2f"}</strong> de comissão
+                  </p>
+                {/if}
+
               </div>
             </div>
           </div>
