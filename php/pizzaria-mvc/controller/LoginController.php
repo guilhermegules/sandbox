@@ -3,8 +3,8 @@
 require(__DIR__ . "/../model/Access.php");
 require(__DIR__ . "/../external/ViewHandler.php");
 
-define("USER_TYPE_ATTENDANT", "user");
-define("USER_TYPE_ADMINISTRATOR", "adm");
+define("USER_TYPE_ATTENDANT", "USER");
+define("USER_TYPE_ADMINISTRATOR", "ADM");
 
 class LoginController
 {
@@ -31,7 +31,7 @@ class LoginController
       $this->template->getSmarty()->assign("title", "Dashboard");
       $this->template->getSmarty()->assign("name", $userData['nome']);
       $this->template->getSmarty()->display('dashboard.tpl');
-      $_SESSION['login'] = ['username' => $userData['nome']];
+      $_SESSION['login'] = ['username' => $userData['nome'], 'id' => $userData['id_usuario']];
       return;
     }
 
