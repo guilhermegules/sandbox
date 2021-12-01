@@ -22,7 +22,7 @@ class Access
 
   public function login()
   {
-    $this->query = "SELECT email, senha, tipo, nome FROM acesso WHERE email = '$this->login' AND senha = '$this->password'";
+    $this->query = "SELECT * FROM guilherme_usuario WHERE email = '$this->login' AND senha = '$this->password'";
 
     $this->result = $this->connectionObject->getConnection()->query($this->query);
 
