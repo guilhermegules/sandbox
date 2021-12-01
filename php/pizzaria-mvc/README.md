@@ -21,3 +21,5 @@
 7. Se atendente vender mais de 15 pizzas deverá receber um bônus de 0,5% sobre total das vendas
 
 8. Em qualquer parte do sistema o usuário poderá efetuar logoff do sistema.
+
+- [Documentação material design](https://demos.creative-tim.com/material-dashboard/docs/2.1/getting-started/introduction.html)
