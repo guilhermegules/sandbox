@@ -19,12 +19,11 @@
     <div class="sidebar-wrapper">
       <ul class="nav">
         <li class="nav-item">
-          <a class="nav-link" href="pizza-request.php">
+          <a class="nav-link" href="{$menuActionFile}">
             <i class="material-icons">
               local_pizza
             </i>
-            <p>Realizar pedido</p>
+            <p>{$menuAction}</p>
           </a>
-      </ul>
     </div>
 </div>

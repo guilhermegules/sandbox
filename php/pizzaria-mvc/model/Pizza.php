@@ -30,4 +30,11 @@ class Pizza
 
     return $this->connection->getConnection()->query($query);
   }
+
+  public function savePizza(float $price, string $type)
+  {
+    $query = "INSERT INTO guilherme_pizza (tipo, preco) VALUES ('$type', $price);";
+
+    return $this->connection->getConnection()->query($query);
+  }
 }

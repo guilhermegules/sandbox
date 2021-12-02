@@ -23,3 +23,12 @@
 8. Em qualquer parte do sistema o usuário poderá efetuar logoff do sistema.
 
 - [Documentação material design](https://demos.creative-tim.com/material-dashboard/docs/2.1/getting-started/introduction.html)
+
+## Usuários de teste
+
+- Tipo usuário:
+  - guilhermegules@gmail.com;
+  - 123
+- Tipo Admin:
+  - admin@gmail.com;
+  - 123;

@@ -30,6 +30,8 @@ class LoginController
     if ($userData['tipo'] === USER_TYPE_ATTENDANT) {
       $this->template->getSmarty()->assign("title", "Dashboard");
       $this->template->getSmarty()->assign("name", $userData['nome']);
+      $this->template->getSmarty()->assign("menuAction", 'Realizar pedido');
+      $this->template->getSmarty()->assign("menuActionFile", 'pizza-request.php');
       $this->template->getSmarty()->display('dashboard.tpl');
       $_SESSION['login'] = ['username' => $userData['nome'], 'id' => $userData['id_usuario']];
       return;
@@ -37,6 +39,10 @@ class LoginController
 
     if ($userData['tipo'] === USER_TYPE_ADMINISTRATOR) {
       $this->template->getSmarty()->assign("title", "Painel do administrador");
+      $this->template->getSmarty()->assign("menuAction", 'Cadastrar pizza');
+      $this->template->getSmarty()->assign("name", null);
+      $this->template->getSmarty()->assign("action", "Deseja cadastrar algo?");
+      $this->template->getSmarty()->assign("menuActionFile", 'pizza-register.php');
       $this->template->getSmarty()->display('admin-panel.tpl');
       return;
     }
