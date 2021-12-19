@@ -158,3 +158,159 @@ Pure functions must:
 - Reducers are pure functions that return the new state
 - Selectors access slices of state
 - Optional effects perform side effects
+
+## Actions
+
+- An object that specifies the `type` of action being dispatched
+- Optionally contains ata or a payload
+
+### Action interface
+
+While we can create simple object actions, using TypeScript we can create classes that implement the Actions interface.
+
+```ts
+
+export enum UserActionTypes {
+  AddUser: '[User] Add user',
+  AddUserFail: '[User] Add user fail',
+  AddUserSuccess: '[User] Add user success'
+}
+
+export class AddUserAction implements Action {
+  type: UserActionTypes.AddUser;
+
+  constructor(public user: Partial<User>) { }
+}
+
+export class AddUserFailAction implements Action {
+  type: UserActionTypes.AddUserFail;
+
+  constructor(public error: Error) { }
+}
+
+export class AddUserSuccess implements Action {
+  type: UserActionTypes.AddUserSuccess;
+
+  constructor(public user: User) { }
+}
+```
+
+## Reducers
+
+- Pure functions
+- Accept the current state and the action to be performed
+- We can default the current state to an initial state
+
+### Example reducer
+
+```ts
+
+export const userReducer(state = initialState, action: Action): State {
+  switch (action.type) {
+    case UserActions.AddUserSuccess {
+      return {
+        ...state,
+        users: [
+          ...state.users,
+          action.user
+        ]
+      }
+    }
+    default:
+      return state
+  }
+};
+```
+
+- We default the `state` argument to some `initialState`
+- Reducer return type is `State`
+- We do not mutate the state object
+- Use spread operator to create shallow clone
+
+## Store
+
+- `dispath()` actions
+- An `Observable` of state
+- An `Observer` of actions
+
+### Dispatching actions
+
+```ts
+export class AddUserComponent {
+  constructor(private store: Store<AppState>) {}
+
+  onSubmit(user: User) {
+    this.store.dispatch(new AddUserAction(user));
+  }
+}
+```
+
+- Inject `Store`
+- Invoke `dispatch()` method
+- New up the `AddUserAction` class specifying the `User`
+- No HTTP service
+- No state changes
+
+### Observing State
+
+```ts
+export class UserListComponent implements OnInit {
+  users: Observable<Array<User>>;
+
+  constructor(private store: Store<AppState>) {}
+
+  ngOnInit() {
+    this.users = this.store.pipe(select(allUsers));
+  }
+}
+```
+
+- `users` is an `Observable` that receive notifications
+- The notification type is an array of `User` objects
+- Inject `Store`
+- Invoke the `pipe()` method on the `store`
+- Use the `select()` operator specifying the `allUsers` selector
+
+### What's a selector?
+
+> Kind of like a stored procedure
+
+- Pure function
+- Enables us to obtain a specific slice of data in the state tree
+- Memoized for performance
+
+### What is memoization?
+
+> An optimization technique to cache expensive functions calls
+
+- Tracks arguments
+- Stores output
+- Previous result is returned when argument match
+
+## Effects
+
+- Perform side effects, often asynchronous
+- Listen for actions
+- Optionally dispatch one or more actions
+- Reactive
+
+```ts
+@Injectable()
+export class UserEffects {
+  @Effect()
+  add: Observable<Action> = this.actions$.pipe(
+    ofType < AddUserAction > UserActionTypes.AddUser,
+    exhaustMap((action) =>
+      this.service.save(action.user).pipe(
+        map((user) => new AddUserSuccess(user)),
+        catchError((error) => of(new AddUserFail(error)))
+      )
+    )
+  );
+}
+```
+
+- The `@Effect` decorator annotates properties in the class that listen for actions
+- Filter for the desired actions using the `ofType()` method
+- Invoke the `pipe()` method with operators to execute when the action of the specified type is dispatched
+- We use the `exhaustMap()` operator to switch streams to the `Observable` that is returned from our service `save()` method, which we `map()` to a new `AddUserSuccess` action or the `AddUserFail` action when an error occurs.
