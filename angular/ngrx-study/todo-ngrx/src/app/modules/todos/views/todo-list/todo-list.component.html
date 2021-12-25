@@ -1,0 +1,32 @@
+<app-todo-form></app-todo-form>
+
+<section class="todo">
+  <mat-card class="todo__card" *ngFor="let item of todos$ | async">
+    <mat-card-header>
+      <mat-card-title>{{ item.title }}</mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+      <p>
+        {{ item.description }}
+      </p>
+    </mat-card-content>
+    <mat-card-actions>
+      <button
+        mat-button
+        color="primary"
+        aria-label="icon button with edit icon"
+      >
+        <mat-icon>edit</mat-icon>
+      </button>
+
+      <button
+        mat-button
+        color="warn"
+        aria-label="icon button with remove icon"
+        (click)="removeTodo(item.id)"
+      >
+        <mat-icon>delete</mat-icon>
+      </button>
+    </mat-card-actions>
+  </mat-card>
+</section>
