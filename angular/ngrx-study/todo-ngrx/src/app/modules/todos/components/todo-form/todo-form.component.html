@@ -1,5 +1,30 @@
-<form [formGroup]="form">
-  <input type="text" formControlName="title" />
-  <input type="text" formControlName="description" />
-  <button type="submit" (click)="addTask()">Add task</button>
+<form [formGroup]="form" class="todo-form">
+  <mat-form-field appearance="fill">
+    <mat-label>Title</mat-label>
+    <input
+      matInput
+      placeholder="My new task"
+      type="text"
+      formControlName="title"
+    />
+  </mat-form-field>
+  <mat-form-field appearance="fill">
+    <mat-label>Description</mat-label>
+    <input
+      matInput
+      placeholder="Task description"
+      type="text"
+      formControlName="description"
+    />
+  </mat-form-field>
+
+  <button
+    class="todo-form__button"
+    type="submit"
+    mat-raised-button
+    color="primary"
+    (click)="addTask()"
+  >
+    Add task
+  </button>
 </form>

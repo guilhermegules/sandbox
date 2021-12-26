@@ -1,0 +1,13 @@
+:host {
+  mat-toolbar {
+    p {
+      margin: 0;
+      margin-left: 15px;
+      cursor: pointer;
+
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+  }
+}

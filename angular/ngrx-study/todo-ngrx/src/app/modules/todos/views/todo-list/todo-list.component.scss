@@ -1,7 +1,20 @@
 :host {
   .todo {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 15px;
+    padding: 20px;
+    overflow: scroll;
+    max-height: 600px;
+
     &__card {
-      max-width: 200px;
+      max-width: 100%;
+
+      ::ng-deep .mat-card-header {
+        .mat-card-header-text {
+          margin: 0;
+        }
+      }
     }
   }
 }

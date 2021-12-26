@@ -1,0 +1,12 @@
+@import "../../../styles/variables.scss";
+
+:host {
+  .footer {
+    position: absolute;
+    bottom: 0;
+    width: calc(100% - 30px);
+    background-color: $primary-color;
+    color: $white;
+    padding: 15px;
+  }
+}
