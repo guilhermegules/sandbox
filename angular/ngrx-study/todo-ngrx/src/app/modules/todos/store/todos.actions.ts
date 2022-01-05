@@ -10,3 +10,8 @@ export const remove = createAction(
   '[Todo List] Remove one item from list',
   props<{ id: number }>()
 );
+
+export const edit = createAction(
+  '[Todo List] Edit one item from list',
+  props<Todo>()
+);

@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Store } from '@ngrx/store';
 import { map, Observable } from 'rxjs';
 import { Todo } from '../../models/todo.model';
@@ -21,6 +21,8 @@ export class TodoFormComponent implements OnInit {
   }
 
   public addTask() {
+    if (this.form.invalid) return;
+
     this.store.dispatch(
       add({
         id: Math.floor(Math.random() * 10000),
@@ -32,8 +34,8 @@ export class TodoFormComponent implements OnInit {
 
   private initForm() {
     this.form = this.fb.group({
-      title: null,
-      description: null,
+      title: [null, Validators.required],
+      description: [null, Validators.required],
     });
   }
 }
