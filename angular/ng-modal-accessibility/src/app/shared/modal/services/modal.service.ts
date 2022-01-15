@@ -17,7 +17,7 @@ export class ModalService {
     this.componentFactory = componentFactoryResolver.resolveComponentFactory(ModalComponent);
   }
 
-  public open(config: ModalConfig) {
+  public open(config: ModalConfig): ModalRef {
     const componentRef = this.createComponentRef();
 
     componentRef.instance.config = config;
@@ -25,7 +25,10 @@ export class ModalService {
     console.log('open', componentRef.instance);
     this.bodyInjectorService.stackBeforeAppRoot(componentRef);
 
-    return new ModalRef(componentRef);
+    const modalRef = new ModalRef(componentRef);
+    componentRef.instance.modalRef = modalRef;
+
+    return modalRef;
   }
 
   private createComponentRef(): ComponentRef<ModalComponent> {
