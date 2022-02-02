@@ -3,6 +3,7 @@ import { Text, TouchableOpacity, View } from 'react-native';
 
 import IntegerInput from '../../../components/IntegerInput';
 import OpacityButton from '../../../components/OpacityButton';
+import { currencyFormatter } from '../../../utils/NumberFormatter';
 
 import style from './style';
 
@@ -16,8 +17,6 @@ const Item: FC<ItemProps> = ({ title, price, description }) => {
   const [quantity, setQuantity] = useState(1);
   const [total, setTotal] = useState(price);
   const [expand, setExpand] = useState(false);
-
-  const currencyFormatter = Intl.NumberFormat('pt-BR', { style: 'currency', currency: 'BRL' });
 
   const updateQuantity = (quantity: number) => {
     setQuantity(quantity);
@@ -57,7 +56,7 @@ const Item: FC<ItemProps> = ({ title, price, description }) => {
             </View>
           </View>
 
-          <OpacityButton title="Adicionar" action={() => {}} />
+          <OpacityButton title="Adicionar ao carrinho" action={() => {}} />
         </View>
       )}
       <View style={style.divider} />
