@@ -1,0 +1,11 @@
+<h3>Courses list</h3>
+
+<div class="collection">
+  <a
+    class="collection-item"
+    *ngFor="let course of courses"
+    [routerLink]="['/', 'course', course.id]"
+  >
+    {{ course.name }}
+  </a>
+</div>
