@@ -1,9 +1,13 @@
 import 'intl';
 import 'intl/locale-data/jsonp/pt-BR';
 
-import Services from './src/views/Services';
-import Cart from './src/views/Cart';
+import StandardView from './src/components/StandardView';
+import Routes from './src/Routes';
 
 export default function App() {
-  return <Cart />;
+  return (
+    <StandardView>
+      <Routes />
+    </StandardView>
+  );
 }
