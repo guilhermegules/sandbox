@@ -1,17 +1,16 @@
 import { FC } from 'react';
 import { FlatList } from 'react-native';
 
-import Item from './Item';
 import { IService } from '../Services/models/service.model';
-import StandardView from '../../components/StandardView';
 import CartStatus from './CartStatus';
+import ListItem from '../../components/ListItem';
 
 const services: Array<IService> = [
   {
     id: 1,
     name: 'Banho',
     price: 79.9,
-    description: 'Não dê banho no seu gat0! Mas se precisar, nos damos!',
+    description: 'Não dê banho no seu gato! Mas se precisar, nos damos!',
     quantity: 1,
   },
   {
@@ -37,17 +36,22 @@ const Cart: FC = () => {
   );
 
   return (
-    <StandardView>
+    <>
       <CartStatus total={total} />
       <FlatList
         data={services}
         renderItem={({ item }) => (
-          <Item {...item} quantity={item.quantity ?? 0} title={item.name} />
+          <ListItem
+            {...item}
+            buttonLabel="Remover do carrinho"
+            quantity={item.quantity ?? 0}
+            title={item.name}
+          />
         )}
         keyExtractor={({ id }) => String(id)}
         removeClippedSubviews={false}
       />
-    </StandardView>
+    </>
   );
 };
 

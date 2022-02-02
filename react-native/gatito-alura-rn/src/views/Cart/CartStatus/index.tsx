@@ -17,7 +17,7 @@ const CartStatus: FC<CartStatusProps> = ({ total }) => {
         <Text style={style.value}>{currencyFormatter.format(total)}</Text>
       </View>
       <View style={style.button}>
-        <OpacityButton title="Concluir pedido" inverted action={() => {}} />
+        <OpacityButton label="Concluir pedido" inverted action={() => {}} />
       </View>
     </View>
   );

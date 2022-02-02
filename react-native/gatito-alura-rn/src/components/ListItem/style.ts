@@ -1,5 +1,6 @@
 import { StyleSheet } from 'react-native';
-import { colors } from '../../../variables';
+
+import { colors } from '../../variables';
 
 export default StyleSheet.create({
   information: {

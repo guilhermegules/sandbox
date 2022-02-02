@@ -4,7 +4,7 @@ import { Text, TouchableOpacity } from 'react-native';
 import style from './style';
 
 interface OpacityButtonProps {
-  title: string;
+  label: string;
   action: () => void;
   small?: boolean;
   inverted?: boolean;
@@ -12,7 +12,7 @@ interface OpacityButtonProps {
 }
 
 const OpacityButton: FC<OpacityButtonProps> = ({
-  title,
+  label,
   action,
   small = false,
   inverted = false,
@@ -22,7 +22,7 @@ const OpacityButton: FC<OpacityButtonProps> = ({
 
   return (
     <TouchableOpacity onPress={action} style={[standardStyle.button, customStyles]}>
-      <Text style={standardStyle.value}>{title}</Text>
+      <Text style={standardStyle.value}>{label}</Text>
     </TouchableOpacity>
   );
 };
