@@ -1,5 +1,7 @@
 <h3>Courses list</h3>
 
+<p>Página: {{ page }}</p>
+
 <div class="collection">
   <a
     class="collection-item"
@@ -9,3 +11,13 @@
     {{ course.name }}
   </a>
 </div>
+
+<span>
+  <button class="waves-effect waves-light btn next-button" (click)="nextPage()">
+    Próxima página
+  </button>
+
+  <button class="waves-effect waves-light btn" (click)="previousPage()">
+    Página anterior
+  </button>
+</span>
