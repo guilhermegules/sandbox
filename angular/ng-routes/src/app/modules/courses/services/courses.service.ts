@@ -18,8 +18,6 @@ export class CoursesService {
     },
   ];
 
-  constructor() {}
-
   public getCourses(): Observable<Course[]> {
     return of(this.courses);
   }

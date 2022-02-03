@@ -2,8 +2,8 @@ import { Component, OnDestroy, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Subject, switchMap, takeUntil } from 'rxjs';
 
-import { Course } from '../../models/courses.model';
-import { CoursesService } from '../../services/courses.service';
+import { Course } from '../models/courses.model';
+import { CoursesService } from '../services/courses.service';
 
 @Component({
   selector: 'app-course-details',
