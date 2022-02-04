@@ -20,6 +20,7 @@
     "no-undef": "off",
     "class-methods-use-this": "off",
     "comma-dangle": "off",
-    "implicit-arrow-linebreak": "off"
+    "implicit-arrow-linebreak": "off",
+    "function-paren-newline": "off"
   }
 }
