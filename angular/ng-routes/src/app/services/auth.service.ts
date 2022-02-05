@@ -13,6 +13,10 @@ export class AuthService {
 
   constructor(private router: Router) {}
 
+  get userAuthenticated() {
+    return this.isAuthenticated;
+  }
+
   public authorization(user: User) {
     if (user.name === 'user@email.com' && user.password === '123') {
       this.isAuthenticated = true;
