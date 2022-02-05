@@ -7,6 +7,7 @@ import { StudentsComponent } from './students.component';
 import { StudentsFormComponent } from './students-form/students-form.component';
 import { StudentsDetailsComponent } from './students-details/students-details.component';
 import { StudentsService } from './services/students.service';
+import { StudentsGuard } from './guards/students.guard';
 
 @NgModule({
   declarations: [
@@ -16,6 +17,6 @@ import { StudentsService } from './services/students.service';
   ],
   imports: [CommonModule, StudentsRoutingModule, FormsModule],
   exports: [StudentsComponent, StudentsFormComponent, StudentsDetailsComponent],
-  providers: [StudentsService],
+  providers: [StudentsService, StudentsGuard],
 })
 export class StudentsModule {}

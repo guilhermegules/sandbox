@@ -3,9 +3,7 @@ import { of } from 'rxjs';
 
 import { Student } from '../models/students.model';
 
-@Injectable({
-  providedIn: 'root',
-})
+@Injectable()
 export class StudentsService {
   private students: Array<Student> = [
     { id: 1, name: 'Student 01', email: 'student01@gmail.com' },

@@ -5,6 +5,7 @@ import { HomeComponent } from './components/home/home.component';
 import { LoginComponent } from './components/login/login.component';
 import { NotFoundComponent } from './components/not-found/not-found.component';
 import { AuthGuard } from './guards/auth.guard';
+import { CoursesGuard } from './modules/courses/guards/courses.guard';
 
 const routes: Routes = [
   {
@@ -26,6 +27,7 @@ const routes: Routes = [
     loadChildren: () =>
       import('./modules/courses/courses.module').then((m) => m.CoursesModule),
     canActivate: [AuthGuard],
+    canActivateChild: [CoursesGuard],
   },
   {
     path: 'students',

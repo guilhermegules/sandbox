@@ -3,9 +3,7 @@ import { Observable, of } from 'rxjs';
 
 import { Course } from '../models/courses.model';
 
-@Injectable({
-  providedIn: 'root',
-})
+@Injectable()
 export class CoursesService {
   private courses: Course[] = [
     {
