@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { StudentsDeactivateGuard } from './guards/students-deactivate.guard';
 
 import { StudentsGuard } from './guards/students.guard';
 import { StudentsDetailsComponent } from './students-details/students-details.component';
@@ -12,9 +13,9 @@ const routes: Routes = [
     component: StudentsComponent,
     canActivateChild: [StudentsGuard],
     children: [
-      { path: 'add', component: StudentsFormComponent },
+      { path: 'add', component: StudentsFormComponent, canDeactivate: [StudentsDeactivateGuard] },
       { path: ':id', component: StudentsDetailsComponent },
-      { path: ':id/edit', component: StudentsFormComponent },
+      { path: ':id/edit', component: StudentsFormComponent, canDeactivate: [StudentsDeactivateGuard] },
     ],
   },
 ];
