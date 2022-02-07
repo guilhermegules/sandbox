@@ -24,18 +24,16 @@ const routes: Routes = [
   },
   {
     path: 'courses',
-    loadChildren: () =>
-      import('./modules/courses/courses.module').then((m) => m.CoursesModule),
+    loadChildren: () => import('./modules/courses/courses.module').then(m => m.CoursesModule),
     canActivate: [AuthGuard],
     canActivateChild: [CoursesGuard],
+    canLoad: [AuthGuard],
   },
   {
     path: 'students',
-    loadChildren: () =>
-      import('./modules/students/students.module').then(
-        (m) => m.StudentsModule
-      ),
+    loadChildren: () => import('./modules/students/students.module').then(m => m.StudentsModule),
     canActivate: [AuthGuard],
+    canLoad: [AuthGuard],
   },
 ];
 
