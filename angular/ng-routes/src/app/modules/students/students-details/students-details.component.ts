@@ -14,25 +14,15 @@ export class StudentsDetailsComponent implements OnInit, OnDestroy {
 
   private destroyed$ = new Subject<void>();
 
-  constructor(
-    private route: ActivatedRoute,
-    private studentsService: StudentsService,
-    private router: Router
-  ) {}
+  constructor(private route: ActivatedRoute, private studentsService: StudentsService, private router: Router) {}
 
   public ngOnInit(): void {
-    this.route.params
-      .pipe(
-        switchMap((params) =>
-          this.studentsService.getStudentById(Number(params['id']))
-        ),
-        takeUntil(this.destroyed$)
-      )
-      .subscribe((student) => {
-        if (!student) return;
+    this.route.data.pipe(takeUntil(this.destroyed$)).subscribe(data => {
+      console.log(data);
+      if (!data) return;
 
-        this.student = student;
-      });
+      this.student = data['student'];
+    });
   }
 
   public ngOnDestroy(): void {

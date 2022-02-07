@@ -9,11 +9,12 @@ import { StudentsDetailsComponent } from './students-details/students-details.co
 import { StudentsService } from './services/students.service';
 import { StudentsGuard } from './guards/students.guard';
 import { StudentsDeactivateGuard } from './guards/students-deactivate.guard';
+import { StudentsDetailsResolver } from './resolver/students-details.resolver';
 
 @NgModule({
   declarations: [StudentsComponent, StudentsFormComponent, StudentsDetailsComponent],
   imports: [CommonModule, StudentsRoutingModule, FormsModule],
   exports: [StudentsComponent, StudentsFormComponent, StudentsDetailsComponent],
-  providers: [StudentsService, StudentsGuard, StudentsDeactivateGuard],
+  providers: [StudentsService, StudentsGuard, StudentsDeactivateGuard, StudentsDetailsResolver],
 })
 export class StudentsModule {}
