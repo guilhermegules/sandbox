@@ -19,4 +19,12 @@ export class CounterComponent implements OnInit {
   public addValue(): void {
     this.counterService.add(1);
   }
+
+  public subtractValue(): void {
+    this.counterService.subtract(1);
+  }
+
+  public resetValue(): void {
+    this.counterService.reset();
+  }
 }

@@ -14,4 +14,12 @@ export class CounterService {
   public add(number: number) {
     this.counter.next(this.counter.value + number);
   }
+
+  public subtract(number: number) {
+    this.counter.next(this.counter.value - number);
+  }
+
+  public reset() {
+    this.counter.next(0);
+  }
 }

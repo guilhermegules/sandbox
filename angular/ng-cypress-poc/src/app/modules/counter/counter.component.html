@@ -1,3 +1,7 @@
-<p>Counter: {{ counter$ | async }}</p>
+<p data-testid="count">Counter: {{ counter$ | async }}</p>
 
-<button (click)="addValue()">Add</button>
+<button (click)="addValue()" data-testid="increment-button">Add</button>
+<button (click)="subtractValue()" data-testid="decrement-button">
+  Subtract
+</button>
+<button (click)="resetValue()" data-testid="reset-button">Reset</button>
