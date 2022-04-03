@@ -12,6 +12,11 @@ const routes: Routes = [
     loadChildren: () =>
       import('./modules/counter/counter.module').then((m) => m.CounterModule),
   },
+  {
+    path: 'flickr',
+    loadChildren: () =>
+      import('./modules/flickr/flickr.module').then((m) => m.FlickrModule),
+  },
 ];
 
 @NgModule({
