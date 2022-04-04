@@ -13,9 +13,9 @@ const routes: Routes = [
       import('./modules/counter/counter.module').then((m) => m.CounterModule),
   },
   {
-    path: 'flickr',
+    path: 'dogs',
     loadChildren: () =>
-      import('./modules/flickr/flickr.module').then((m) => m.FlickrModule),
+      import('./modules/dogs/dogs.module').then((m) => m.DogsModule),
   },
 ];
 
