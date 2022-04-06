@@ -1,0 +1,13 @@
+<section class="dog-breed-list">
+  <ul>
+    <li
+      *ngFor="let breed of breeds$ | async"
+      [attr.data-testid]="breed"
+      (click)="onSelectBreed(breed)"
+    >
+      {{ breed }}
+    </li>
+  </ul>
+
+  <img *ngIf="dog$ | async" [src]="dog$ | async" [alt]="dog$ | async" />
+</section>
