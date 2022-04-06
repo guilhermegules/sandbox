@@ -1,11 +1,15 @@
 <h2>Dog List</h2>
 
-<button (click)="getRandomDogs()" class="random-dogs-button">
+<button
+  (click)="getRandomDogs()"
+  class="random-dogs-button"
+  data-testid="random-dogs-button"
+>
   Get more random dogs
 </button>
 
 <section class="image-grid">
   <div *ngFor="let dog of dogs$ | async; let i = index">
-    <img [src]="dog" [alt]="'dog image ' + i" />
+    <img [src]="dog" [alt]="'dog image ' + i" [attr.data-testid]="'dog-' + i" />
   </div>
 </section>

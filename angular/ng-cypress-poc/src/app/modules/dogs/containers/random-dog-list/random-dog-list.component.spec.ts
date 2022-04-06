@@ -1,3 +1,4 @@
+import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { RandomDogListComponent } from './random-dog-list.component';
@@ -8,9 +9,9 @@ describe('RandomDogListComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ RandomDogListComponent ]
-    })
-    .compileComponents();
+      declarations: [RandomDogListComponent],
+      imports: [HttpClientTestingModule],
+    }).compileComponents();
   });
 
   beforeEach(() => {
