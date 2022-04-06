@@ -7,6 +7,11 @@ interface DogResponse {
   status: string;
 }
 
+interface DogByBreedResponse {
+  message: string;
+  status: string;
+}
+
 interface BreedResponse {
   message: {
     [key: string]: string[];
@@ -20,6 +25,7 @@ interface BreedResponse {
 export class DogService {
   private readonly DOG_API = 'https://dog.ceo/api/breeds/image/random';
   private readonly DOG_API_BREEDS = 'https://dog.ceo/api/breeds/list/all';
+  private readonly DOG_API_BREED = 'https://dog.ceo/api/breed';
 
   constructor(private http: HttpClient) {}
 
@@ -29,9 +35,9 @@ export class DogService {
       .pipe(map((response) => response.message));
   }
 
-  public getOneRandomDog() {
+  public getDogByBreed(breed: string) {
     return this.http
-      .get<DogResponse>(this.DOG_API)
+      .get<DogByBreedResponse>(`${this.DOG_API_BREED}/${breed}/images/random`)
       .pipe(map((response) => response.message));
   }
 
@@ -40,13 +46,7 @@ export class DogService {
       .get<BreedResponse>(this.DOG_API_BREEDS)
       .pipe(
         map((response) =>
-          Object.keys(response.message).flatMap((breed) =>
-            response.message[breed].length
-              ? response.message[breed].map(
-                  (subBreed) => `${breed}-${subBreed}`
-                )
-              : breed
-          )
+          Object.keys(response.message).flatMap((breed) => breed)
         )
       );
   }
