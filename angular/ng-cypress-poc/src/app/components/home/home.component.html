@@ -2,6 +2,8 @@
 
 <p>Some useful sources:</p>
 
-<a href="https://testing-angular.com/">
-  Testing Angular - A guide to Robust Angular Applications
-</a>
+<ul>
+  <li *ngFor="let item of usefulLinks">
+    <a [href]="item.link">{{ item.name }}</a>
+  </li>
+</ul>
