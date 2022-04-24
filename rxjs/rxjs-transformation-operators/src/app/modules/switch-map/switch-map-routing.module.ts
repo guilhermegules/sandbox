@@ -1,10 +1,17 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
-const routes: Routes = [];
+import { SwitchMapSandboxComponent } from './components/switch-map-sandbox/switch-map-sandbox.component';
+
+const routes: Routes = [
+  {
+    path: '',
+    component: SwitchMapSandboxComponent,
+  },
+];
 
 @NgModule({
   imports: [RouterModule.forChild(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
-export class SwitchMapRoutingModule { }
+export class SwitchMapRoutingModule {}

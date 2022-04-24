@@ -25,8 +25,8 @@ const routes: Routes = [
   {
     path: 'switch-map',
     loadChildren: () =>
-      import('./modules/merge-map/merge-map.module').then(
-        (m) => m.MergeMapModule
+      import('./modules/switch-map/switch-map.module').then(
+        (m) => m.SwitchMapModule
       ),
   },
 ];
