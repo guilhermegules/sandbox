@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="./src/TimeFormatted.js" type="module" defer></script>
+    <script src="./src/HelloButton.js" type="module" defer></script>
+    <script src="./src/LiveTimer.js" type="module" defer></script>
+    <title>Web components POC</title>
+  </head>
+  <body>
+    <time-formatted
+      id="timeformatted"
+      datetime="2019-12-01"
+      year="numeric"
+      month="long"
+      day="numeric"
+      hour="numeric"
+      minute="numeric"
+      second="numeric"
+      time-zone-name="short"
+    ></time-formatted>
+
+    <br />
+
+    <button is="hello-button">Click me</button>
+
+    <button is="hello-button" disabled>Disabled</button>
+
+    <br />
+
+    <live-timer id="timer"></live-timer>
+
+    <script>
+      setInterval(
+        () => timeformatted.setAttribute("datetime", new Date()),
+        1000
+      );
+    </script>
+
+    <script>
+      timer.addEventListener("tick", (event) => console.log(event.detail));
+    </script>
+  </body>
+</html>
