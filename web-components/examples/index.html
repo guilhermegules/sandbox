@@ -7,9 +7,58 @@
     <script src="./src/TimeFormatted.js" type="module" defer></script>
     <script src="./src/HelloButton.js" type="module" defer></script>
     <script src="./src/LiveTimer.js" type="module" defer></script>
+    <script src="./src/UserCard.js" type="module" defer></script>
+    <script src="./src/CustomMenu.js" type="module" defer></script>
     <title>Web components POC</title>
   </head>
   <body>
+    <template id="menu-template">
+      <style>
+        ul {
+          margin: 0;
+          list-style: none;
+          padding-left: 20px;
+        }
+
+        ::slotted([slot="title"]) {
+          font-size: 18px;
+          font-weight: bold;
+          cursor: pointer;
+        }
+
+        ::slotted([slot="title"])::before {
+          content: "📂";
+          font-size: 14px;
+        }
+
+        .closed ::slotted([slot="title"])::before {
+          content: "📁";
+        }
+
+        .closed ul {
+          display: none;
+        }
+      </style>
+
+      <div class="menu">
+        <slot name="title"></slot>
+        <ul>
+          <slot name="item"></slot>
+        </ul>
+      </div>
+    </template>
+
+    <custom-menu>
+      <span slot="title">Candy menu</span>
+      <li slot="item">Lollipop</li>
+      <li slot="item">Fruit Toast</li>
+      <li slot="item">Cup Cake</li>
+    </custom-menu>
+
+    <hr />
+
+    <br />
+
     <time-formatted
       id="timeformatted"
       datetime="2019-12-01"
@@ -42,5 +91,14 @@
     <script>
       timer.addEventListener("tick", (event) => console.log(event.detail));
     </script>
+
+    <br />
+
+    <user-card>
+      <div>I like to have fun with Shadow Dom</div>
+      <span slot="username">Guilherme Gules</span>
+      <span slot="birthday">25.10.1999</span>
+      <div>...And play videogames</div>
+    </user-card>
   </body>
 </html>
