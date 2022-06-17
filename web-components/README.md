@@ -54,6 +54,27 @@ We could try to analyze the element content and dynamically copy-rearrange DOM n
 
 Luckily, we don’t have to. Shadow DOM supports `<slot>` elements, that are automatically filled by the content from light DOM.
 
+#### Updating slots
+
+**The browser monitors slots and updates the rendering if slotted elements are added/removed.**
+
+> On custom menu component
+
+1. At initialization:
+   1. `slotchange: title` triggers immediately, as the `slot="title"` from the light DOM gets into the corresponding slot.
+2. After 1 second:
+   1. `slotchange: item` triggers, when a new `<li slot="item">` is added
+
+### Slot API
+
+> JavaScript slot related methods
+
+JavaScript looks at the "real" DOM, without flattening. But, if the shadow tree has `{ mode: 'open' }`, then we can figure out which elements assigned to a slot and, vise-versa, the slot by the element inside it:
+
+- `node.assignedSlot` - returns the `<slot>` element that the `node` is assigned to
+- `slot.assignedNodes({ flatten: true/false })` - DOM nodes, assigned to the slot. The `flatten` option is `false` by default. If explicitly set to `true`, then it looks more deeply into the flatted DOM, return nested slots in case of nested components and the fallback content if no node is assigned.
+- `slot.assignedElements({ flatten: true/false })` - DOM elements, assigned to the slot (same as above, but only element nodes)
+
 ## Useful links
 
 - [Custom elements html spec](https://html.spec.whatwg.org/#custom-elements)
