@@ -75,6 +75,22 @@ JavaScript looks at the "real" DOM, without flattening. But, if the shadow tree 
 - `slot.assignedNodes({ flatten: true/false })` - DOM nodes, assigned to the slot. The `flatten` option is `false` by default. If explicitly set to `true`, then it looks more deeply into the flatted DOM, return nested slots in case of nested components and the fallback content if no node is assigned.
 - `slot.assignedElements({ flatten: true/false })` - DOM elements, assigned to the slot (same as above, but only element nodes)
 
+### Shadow DOM and events
+
+The idea behind shadow tree is to encapsulate internal implementation details of a component.
+
+Let’s say, a click event happens inside a shadow DOM of `<user-card>` component. But scripts in the main document have no idea about the shadow DOM internals, especially if the component comes from a 3rd-party library.
+
+So, to keep the details encapsulated, the browser re-targets the event.
+
+Events that happen in shadow DOM have the host element as the target, when caught outside of the component.
+
+**:warning: Shadow tree details are only provided for `{ mode:'open' }` trees**
+
+If the shadow tree was created with `{ mode: 'closed'}`, then the composed path starts from the host: `user-card` and upwards.
+
+That’s the similar principle as for other methods that work with shadow DOM. Internals of closed trees are completely hidden.
+
 ## Useful links
 
 - [Custom elements html spec](https://html.spec.whatwg.org/#custom-elements)

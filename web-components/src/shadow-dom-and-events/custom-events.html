@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Custom events</title>
+  </head>
+  <body>
+    <div id="outer"></div>
+
+    <script>
+      outer.attachShadow({ mode: "open" });
+
+      const inner = document.createElement("div");
+
+      outer.shadowRoot.append(inner);
+
+      /*
+        div(id=outer)
+          #shadow-dom
+            div(id=inner)
+      */
+
+      document.addEventListener("customEvent", (event) => alert(event.detail));
+
+      inner.dispatchEvent(
+        new CustomEvent("customEvent", {
+          bubbles: true,
+          composed: true,
+          detail: "composed",
+        })
+      );
+
+      outer.dispatchEvent(
+        new CustomEvent("customEvent", {
+          bubbles: true,
+          composed: false,
+          detail: "not composed",
+        })
+      );
+    </script>
+  </body>
+</html>
