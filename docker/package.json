@@ -1,16 +1,20 @@
 {
   "name": "app",
   "version": "1.0.0",
-  "description": "- `docker run 'image'` run a docker image - `docker ps` list all active Docker containers - `docker rm image` to remove the image - `docker logs 'container id'` show all the container logs - `docker stop 'container id'` stop the container - `docker run -d (detached) 'image'` run docker image detached from the terminal - `docker run -p (port) computer-port:container-port 'image'` run docker image in a specified port - `docker run -p (port) -v volume-path 'image'` run docker image and use an volume files",
+  "description": "Simple express app to learn docker and docker compose",
   "main": "index.js",
   "dependencies": {
-    "express": "^4.18.1"
+    "express": "^4.18.1",
+    "mysql": "^2.18.1"
   },
-  "devDependencies": {},
+  "devDependencies": {
+    "nodemon": "^2.0.19"
+  },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node index.js",
+    "start:dev": "nodemon index.js"
   },
   "keywords": [],
-  "author": "",
+  "author": "Guilherme Gules Moreira",
   "license": "ISC"
 }
