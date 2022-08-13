@@ -1,14 +1,15 @@
-import { Injectable } from '@nestjs/common';
-import { Repository } from 'typeorm';
+import { Inject, Injectable } from '@nestjs/common';
+import { DataSource, Repository } from 'typeorm';
 
 import { BankAccount } from './entities/bank-account.entity';
 import { CreateBankAccountDto } from './dto/create-bank-account.dto';
-import { InjectRepository } from '@nestjs/typeorm';
+import { getDataSourceToken, InjectRepository } from '@nestjs/typeorm';
 
 @Injectable()
 export class BankAccountsService {
   constructor(
     @InjectRepository(BankAccount) private repository: Repository<BankAccount>,
+    @Inject(getDataSourceToken()) private dataSource: DataSource,
   ) {}
 
   async create(createBankAccountDto: CreateBankAccountDto) {
@@ -31,15 +32,25 @@ export class BankAccountsService {
   }
 
   async transfer(from: string, to: string, amount: number) {
-    const fromAccount = await this.repository.findOneBy({
-      accountNumber: from,
-    });
-    const toAccount = await this.repository.findOneBy({ accountNumber: to });
+    const queryRunner = this.dataSource.createQueryRunner();
 
-    fromAccount.balance -= amount;
-    toAccount.balance += amount;
+    try {
+      await queryRunner.startTransaction();
 
-    this.repository.save(fromAccount);
-    this.repository.save(toAccount);
+      const fromAccount = await this.repository.findOneBy({
+        accountNumber: from,
+      });
+      const toAccount = await this.repository.findOneBy({ accountNumber: to });
+
+      fromAccount.balance -= amount;
+      toAccount.balance += amount;
+
+      this.repository.save(fromAccount);
+      this.repository.save(toAccount);
+      await queryRunner.commitTransaction();
+    } catch (error) {
+      await queryRunner.rollbackTransaction();
+      throw error;
+    }
   }
 }
