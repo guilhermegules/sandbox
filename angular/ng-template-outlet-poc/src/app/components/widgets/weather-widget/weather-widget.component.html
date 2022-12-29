@@ -1,0 +1,14 @@
+<div class="widget__header">
+  <div class="widget__title">Weather Forecast</div>
+  <div class="widget__sub-title">Current weather in your location</div>
+</div>
+<div class="widget__content">
+  <div class="widget__sky-condition">
+    {{ state.data.skyCondition === "sunny" ? "☀️" : "☁️" }}
+  </div>
+  <div class="widget__temperature">{{ state.data.temperature }}°C</div>
+</div>
+<div class="widget__actions">
+  <button (click)="action.reload()">Reload</button>
+  <button (click)="action.copy()">Copy Info</button>
+</div>
