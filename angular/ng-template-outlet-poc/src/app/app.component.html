@@ -1,2 +1,23 @@
-<app-weather-widget></app-weather-widget>
-<router-outlet></router-outlet>
+<app-weather-widget
+  [headerTemplate]="altWidgetHeaderTemplate"
+  [contentTemplate]="altWidgetContentTemplate"
+  [actionTemplate]="altWidgetActionTemplate"
+></app-weather-widget>
+
+<ng-template #altWidgetHeaderTemplate>
+  <div class="alt-header">
+    <p>Today weather</p>
+  </div>
+</ng-template>
+
+<ng-template #altWidgetContentTemplate let-state>
+  <div>
+    <span>{{ state.data.temperature }}ºC</span>
+    <span>{{ state.data.skyCondition === "sunny" ? "☀️" : "☁️" }}</span>
+    <span>{{ state.data.windSpeed }}m/s</span>
+  </div>
+</ng-template>
+
+<ng-template #altWidgetActionTemplate>
+  <app-weather-custom-action></app-weather-custom-action>
+</ng-template>

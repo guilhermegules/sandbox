@@ -1,4 +1,5 @@
-import { Component, inject, OnInit } from '@angular/core';
+import { NgTemplateOutlet } from '@angular/common';
+import { Component, inject, Injector, Input, TemplateRef } from '@angular/core';
 import { WidgetActionService } from '../widget-action.service';
 import { WidgetStateService } from '../widget-state.service';
 
@@ -8,8 +9,19 @@ import { WidgetStateService } from '../widget-state.service';
   styleUrls: ['./weather-widget.component.scss'],
   standalone: true,
   providers: [WidgetActionService, WidgetStateService],
+  imports: [NgTemplateOutlet],
 })
 export class WeatherWidgetComponent {
-  state = inject(WidgetStateService);
-  action = inject(WidgetActionService);
+  @Input()
+  public headerTemplate!: TemplateRef<any>;
+
+  @Input()
+  public contentTemplate!: TemplateRef<WidgetStateService>;
+
+  @Input()
+  public actionTemplate!: TemplateRef<any>;
+
+  public state = inject(WidgetStateService);
+  public action = inject(WidgetActionService);
+  public injector = inject(Injector);
 }

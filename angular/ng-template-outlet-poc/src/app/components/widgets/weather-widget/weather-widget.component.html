@@ -1,14 +1,31 @@
 <div class="widget__header">
-  <div class="widget__title">Weather Forecast</div>
-  <div class="widget__sub-title">Current weather in your location</div>
+  <ng-container
+    [ngTemplateOutlet]="headerTemplate || defaultWidgetHeader"
+  ></ng-container>
+  <ng-template #defaultWidgetHeader>
+    <div class="widget__title">Weather Forecast</div>
+    <div class="widget__sub-title">Current weather in your location</div>
+  </ng-template>
 </div>
 <div class="widget__content">
-  <div class="widget__sky-condition">
-    {{ state.data.skyCondition === "sunny" ? "☀️" : "☁️" }}
-  </div>
-  <div class="widget__temperature">{{ state.data.temperature }}°C</div>
+  <ng-container
+    [ngTemplateOutlet]="contentTemplate || defaultWidgetContainer"
+    [ngTemplateOutletContext]="{ $implicit: state }"
+  ></ng-container>
+  <ng-template #defaultWidgetContainer>
+    <div class="widget__sky-condition">
+      {{ state.data.skyCondition === "sunny" ? "☀️" : "☁️" }}
+    </div>
+    <div class="widget__temperature">{{ state.data.temperature }}°C</div>
+  </ng-template>
 </div>
 <div class="widget__actions">
-  <button (click)="action.reload()">Reload</button>
-  <button (click)="action.copy()">Copy Info</button>
+  <ng-container
+    [ngTemplateOutlet]="actionTemplate || defaultWidgetActions"
+    [ngTemplateOutletInjector]="injector"
+  ></ng-container>
+  <ng-template #defaultWidgetActions>
+    <button (click)="action.reload()">Reload</button>
+    <button (click)="action.copy()">Copy Info</button>
+  </ng-template>
 </div>
