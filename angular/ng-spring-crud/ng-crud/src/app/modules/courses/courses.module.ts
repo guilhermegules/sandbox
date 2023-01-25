@@ -5,9 +5,10 @@ import { AppMaterialModule } from '../../shared/modules/app-material/app-materia
 import { CategoryModule } from '../../shared/pipes/category/category.module';
 import { CoursesListComponent } from './containers/courses-list/courses-list.component';
 import { CoursesRoutingModule } from './courses-routing.module';
+import { CoursesFormComponent } from './containers/courses-form/courses-form.component';
 
 @NgModule({
-  declarations: [CoursesListComponent],
+  declarations: [CoursesListComponent, CoursesFormComponent],
   imports: [
     CommonModule,
     CoursesRoutingModule,
