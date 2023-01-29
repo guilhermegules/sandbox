@@ -1,0 +1,15 @@
+.courses-list {
+  max-height: 600px;
+  overflow: auto;
+
+  &__action {
+    flex: 0 0 75px;
+
+    &--header {
+      @extend .courses-list__action;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+  }
+}
