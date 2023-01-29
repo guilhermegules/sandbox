@@ -1,6 +1,6 @@
 import { Location } from '@angular/common';
 import { Component } from '@angular/core';
-import { FormBuilder, FormGroup } from '@angular/forms';
+import { NonNullableFormBuilder } from '@angular/forms';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { CourseCategory } from '../../enums/category.enum';
 import { CoursesService } from '../../services/courses.service';
@@ -11,20 +11,18 @@ import { CoursesService } from '../../services/courses.service';
   styleUrls: ['./courses-form.component.scss'],
 })
 export class CoursesFormComponent {
-  public form: FormGroup;
+  public form = this.fb.group({
+    name: '',
+    category: '',
+  });
   public readonly CATEGORY = CourseCategory;
 
   constructor(
-    private fb: FormBuilder,
+    private fb: NonNullableFormBuilder,
     private coursesService: CoursesService,
     private snackBar: MatSnackBar,
     private location: Location
-  ) {
-    this.form = this.fb.group({
-      name: '',
-      category: '',
-    });
-  }
+  ) {}
 
   onSubmit(): void {
     this.coursesService.save(this.form.value).subscribe({
