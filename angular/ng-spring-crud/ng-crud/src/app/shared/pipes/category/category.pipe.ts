@@ -1,5 +1,5 @@
 import { Pipe, PipeTransform } from '@angular/core';
-import { CourseCategory } from '../../enums/category.enum';
+import { CourseCategory } from '../../../modules/courses/enums/category.enum';
 import { MaterialIcon } from '../../enums/icon.enum';
 
 @Pipe({

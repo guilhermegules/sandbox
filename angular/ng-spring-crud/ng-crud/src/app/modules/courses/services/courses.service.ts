@@ -14,4 +14,8 @@ export class CoursesService {
   list(): Observable<Course[]> {
     return this.http.get<Course[]>(this.API);
   }
+
+  save(record: Course): Observable<Course> {
+    return this.http.post<Course>(this.API, record);
+  }
 }
