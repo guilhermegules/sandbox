@@ -7,6 +7,7 @@
         *ngIf="courses$ | async as courses; else loading"
         [courses]="courses"
         (onAdd)="onAdd()"
+        (onEdit)="onEdit($event)"
       ></app-courses-list>
     </div>
   </mat-card-content>

@@ -1,19 +1,22 @@
+import { ActivatedRoute } from '@angular/router';
 import { Location } from '@angular/common';
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { NonNullableFormBuilder } from '@angular/forms';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { CourseCategory } from '../../enums/category.enum';
 import { CoursesService } from '../../services/courses.service';
+import { Course } from '../../models/course';
 
 @Component({
   selector: 'app-courses-form',
   templateUrl: './courses-form.component.html',
   styleUrls: ['./courses-form.component.scss'],
 })
-export class CoursesFormComponent {
+export class CoursesFormComponent implements OnInit {
   public form = this.fb.group({
     name: '',
     category: '',
+    _id: '',
   });
   public readonly CATEGORY = CourseCategory;
 
@@ -21,8 +24,18 @@ export class CoursesFormComponent {
     private fb: NonNullableFormBuilder,
     private coursesService: CoursesService,
     private snackBar: MatSnackBar,
-    private location: Location
+    private location: Location,
+    private route: ActivatedRoute
   ) {}
+
+  ngOnInit(): void {
+    const course: Course = this.route.snapshot.data['course'];
+    this.form.patchValue({
+      category: course.category,
+      name: course.name,
+      _id: course._id,
+    });
+  }
 
   onSubmit(): void {
     this.coursesService.save(this.form.value).subscribe({
