@@ -2,8 +2,10 @@ package com.guilherme.crudspring.controller;
 
 import java.util.List;
 
+import org.apache.catalina.connector.Response;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -51,6 +53,16 @@ public class CourseController {
         courseRecord.setCategory(course.getCategory());
         var updated = this.courseRepository.save(courseRecord);
         return ResponseEntity.ok().body(updated);
+      })
+      .orElse(ResponseEntity.notFound().build());
+  }
+
+  @DeleteMapping("/{courseId}")
+  public ResponseEntity<Object> delete(@PathVariable Long courseId) {
+    return this.courseRepository.findById(courseId)
+      .map(course -> {
+        this.courseRepository.deleteById(courseId);
+        return ResponseEntity.noContent().build();
       })
       .orElse(ResponseEntity.notFound().build());
   }
