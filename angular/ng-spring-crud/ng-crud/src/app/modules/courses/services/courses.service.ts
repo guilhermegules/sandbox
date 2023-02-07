@@ -25,6 +25,10 @@ export class CoursesService {
     return this.http.get<Course>(`${this.API}/${courseId}`);
   }
 
+  delete(courseId: string): Observable<void> {
+    return this.http.delete<void>(`${this.API}/${courseId}`);
+  }
+
   private create(record: Partial<Course>): Observable<Course> {
     return this.http.post<Course>(this.API, record);
   }

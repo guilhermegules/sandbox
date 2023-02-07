@@ -16,5 +16,8 @@ export class CoursesListComponent {
   @Output()
   onEdit = new EventEmitter<Course>();
 
+  @Output()
+  onDelete = new EventEmitter<Course>();
+
   readonly DISPLAYED_COLUMNS = ['name', 'category', 'actions'];
 }
