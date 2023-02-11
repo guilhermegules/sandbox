@@ -1,17 +1,17 @@
 import { TestBed } from '@angular/core/testing';
-import { BehaviorSubject, debounceTime, first } from 'rxjs';
+import { BehaviorSubject } from 'rxjs';
 import { TestScheduler } from 'rxjs/testing';
 import { Todo } from '../models/todo.model';
 
-import { DataService } from './data.service';
+import { TodoService } from './todo.service';
 
-describe('DataService', () => {
-  let service: DataService;
+describe('TodoService', () => {
+  let service: TodoService;
   let testScheduler: TestScheduler;
 
   beforeEach(() => {
     TestBed.configureTestingModule({});
-    service = TestBed.inject(DataService);
+    service = TestBed.inject(TodoService);
     testScheduler = new TestScheduler((actual, expected) => {
       expect(actual).toEqual(expected);
     });
@@ -19,31 +19,6 @@ describe('DataService', () => {
 
   it('should be created', () => {
     expect(service).toBeTruthy();
-  });
-
-  describe('value', () => {
-    it('should emit a b and c without marbles', (done) => {
-      service.value$.subscribe((value) => {
-        expect(value).toBe('a');
-        done();
-      });
-
-      service.setValue('a');
-    });
-    it('should emit a b and c with marbles', () => {
-      testScheduler.run((helpers) => {
-        const { expectObservable, cold } = helpers;
-        const expected = '-a';
-
-        cold(expected).subscribe(() => {
-          service.setValue('a');
-        });
-
-        expectObservable(service.value$).toBe(expected, {
-          a: 'a',
-        });
-      });
-    });
   });
 
   describe('addTodo', () => {
@@ -58,7 +33,6 @@ describe('DataService', () => {
               completed: true,
               id: 1,
               title: 'First todo',
-              userId: 1,
             },
           ],
         };
@@ -67,7 +41,6 @@ describe('DataService', () => {
           completed: true,
           id: 1,
           title: 'First todo',
-          userId: 1,
         });
 
         service.todos$.subscribe((todos) => {

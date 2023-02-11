@@ -1,0 +1,17 @@
+<h2>Todos</h2>
+
+<label for="todo-title">Todo title: </label>
+<input
+  type="text"
+  [formControl]="todoTitle"
+  id="todo-title"
+  name="todo-title"
+/>
+
+<button (click)="addTodo()">Add</button>
+
+<p>Todo count: {{ todosCount$ | async }}</p>
+
+<ul>
+  <li *ngFor="let todo of todos$ | async">{{ todo.title }}</li>
+</ul>
