@@ -1,5 +1,5 @@
 import { TestBed } from '@angular/core/testing';
-import { BehaviorSubject } from 'rxjs';
+import { BehaviorSubject, of } from 'rxjs';
 import { TestScheduler } from 'rxjs/testing';
 import { Todo } from '../models/todo.model';
 
@@ -25,29 +25,91 @@ describe('TodoService', () => {
     it('should add todo on list', () => {
       testScheduler.run((helpers) => {
         const { expectObservable } = helpers;
-        const expected = '(a)';
-        const value$ = new BehaviorSubject<Todo[]>([]);
+        const expected = 'a';
         const value = {
           a: [
             {
-              completed: true,
+              completed: false,
               id: 1,
               title: 'First todo',
+            },
+            {
+              completed: false,
+              id: 2,
+              title: 'Second todo',
             },
           ],
         };
 
         service.addTodo({
-          completed: true,
+          completed: false,
           id: 1,
           title: 'First todo',
         });
 
-        service.todos$.subscribe((todos) => {
-          value$.next(todos);
+        service.addTodo({
+          completed: false,
+          id: 2,
+          title: 'Second todo',
         });
 
-        expectObservable(value$).toBe(expected, value);
+        expectObservable(service.todos$).toBe(expected, value);
+      });
+    });
+    it('should add todo on list with done', (done) => {
+      service.addTodo({ completed: true, id: 1, title: 'First todo' });
+      service.todos$.subscribe((todos) => {
+        expect(todos).toEqual([
+          { completed: true, id: 1, title: 'First todo' },
+        ]);
+        done();
+      });
+    });
+  });
+
+  describe('todosCount$', () => {
+    it('should get the count of todos when is incomplete', () => {
+      testScheduler.run((helpers) => {
+        const { expectObservable } = helpers;
+        const expected = 'a';
+        const value = {
+          a: 1,
+        };
+        const todo1 = {
+          completed: true,
+          id: 1,
+          title: 'First todo',
+        };
+        const todo2 = {
+          completed: false,
+          id: 2,
+          title: 'Second todo',
+        };
+
+        service.addTodo(todo1);
+        service.addTodo(todo2);
+
+        expectObservable(service.todosCount$).toBe(expected, value);
+      });
+    });
+    it('should get the count of todos when is incomplete with done', (done) => {
+      const todo1 = {
+        completed: true,
+        id: 1,
+        title: 'First todo',
+      };
+      const todo2 = {
+        completed: false,
+        id: 2,
+        title: 'Second todo',
+      };
+
+      service.addTodo(todo1);
+      service.addTodo(todo2);
+
+      service.todosCount$.subscribe((count) => {
+        expect(count).toBe(1);
+        done();
       });
     });
   });

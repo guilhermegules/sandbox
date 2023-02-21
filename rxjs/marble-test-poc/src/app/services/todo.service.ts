@@ -13,9 +13,9 @@ export class TodoService {
   }
 
   get todosCount$() {
-    return this.todos
-      .asObservable()
-      .pipe(map((todos) => todos.filter((todo) => !todo.completed).length));
+    return this.todos$.pipe(
+      map((todos) => todos.filter((todo) => !todo.completed).length)
+    );
   }
 
   addTodo(todo: Todo) {
