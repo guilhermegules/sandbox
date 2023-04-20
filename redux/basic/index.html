@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Redux - Basic</title>
+    <script src="./redux.min.js"></script>
+  </head>
+  <body>
+    <div>
+      <button id="increment-button">Increment</button>
+      <h1>Counter: <span id="counter-value"><span></h1>
+      <h1>Total: <span id="total-value"><span></h1>
+      <button id="unsubscribe-button">Unsubscribe</button>
+    </div>
+    
+    <script>
+      const counterElement = document.getElementById("counter-value");
+      const totalElement = document.getElementById("total-value");
+      const initialState = 0;
+      const SUM = "SUM";
+      const INCREASE = "INCREASE";
+      
+      function counter(state = initialState, action = null) {
+        switch(action.type) {
+          case INCREASE:
+            return state + 1;
+          default:
+            return state;
+        }
+      }
+
+      function sumReducer(state = initialState, action = null) {
+        switch(action.type) {
+          case SUM:
+            return state + action.payload;
+          default:
+            return state;
+        }
+      }
+
+      // Action creator
+      function increase() {
+        return { type: INCREASE };
+      }
+
+      function sum(payload) {
+        return { type: SUM, payload };
+      }
+
+      function render() {
+        counterElement.innerText = store.getState().counter;
+      }
+
+      const reducer = Redux.combineReducers({ sum: sumReducer, counter })
+      const store = Redux.createStore(reducer);
+
+      store.dispatch(sum(100));
+      totalElement.innerText = store.getState().sum;
+
+      const unsubscribe = store.subscribe(() => {
+        render();
+      });
+
+      const unsubscribeButton = document.getElementById('unsubscribe-button');
+
+      unsubscribeButton.addEventListener('click', () => {
+        unsubscribe();
+      });
+      
+      const incrementButton = document.getElementById("increment-button");
+
+      incrementButton.addEventListener("click", () => {
+        store.dispatch(increase());
+      });
+
+      render();
+    </script>
+  </body>
+</html>
