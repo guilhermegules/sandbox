@@ -2,19 +2,19 @@ import { createSlice } from "@reduxjs/toolkit";
 
 const slice = createSlice({
   name: "counter",
-  initialState: {
-    total: 0,
-  },
+  initialState: 0,
   reducers: {
-    increment: (state) => {
-      state.total++;
-    },
-    decrement: (state) => {
-      state.total--;
+    increment: (state) => state + 1,
+    decrement: (state) => state - 1,
+    sum: {
+      reducer: (state, action) => state + action.payload,
+      prepare: (payload) => {
+        return { payload, meta: "local", error: null };
+      },
     },
   },
 });
 
-export const { increment, decrement } = slice.actions;
+export const { increment, decrement, sum } = slice.actions;
 
 export default slice.reducer;
