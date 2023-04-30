@@ -9,7 +9,11 @@ const slice = createSlice({
     sum: {
       reducer: (state, action) => state + action.payload,
       prepare: (payload) => {
-        return { payload, meta: "local", error: null };
+        return {
+          payload,
+          meta: { localStorage: { key: "sum", value: payload } },
+          error: null,
+        };
       },
     },
   },

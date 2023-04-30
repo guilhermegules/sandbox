@@ -1,6 +1,6 @@
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { login } from "./store/login";
+import { autoLogin, login } from "./store/login";
 
 const Login = () => {
   const [username, setUsername] = React.useState("");
@@ -8,6 +8,10 @@ const Login = () => {
 
   const { data } = useSelector((state: any) => state.login.user);
   const dispatch = useDispatch();
+
+  React.useEffect(() => {
+    dispatch(autoLogin() as any);
+  }, [dispatch]);
 
   function handleSubmit(
     event: React.MouseEvent<HTMLButtonElement, MouseEvent>
