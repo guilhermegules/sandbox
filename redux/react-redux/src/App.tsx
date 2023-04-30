@@ -1,16 +1,19 @@
 import { useDispatch, useSelector } from "react-redux";
-import Connect from "./Connect";
+import { decrement, increment } from "./store/counter";
+import { close, open } from "./store/modal";
 
 function App() {
-  const state = useSelector<number, number>((state) => state);
+  const { counter, modal } = useSelector((state: any) => state);
   const dispatch = useDispatch();
   return (
     <div>
-      <h1>Count: {state}</h1>
-      <button onClick={() => dispatch({ type: "INCREMENT" })}>Increment</button>
-      <button onClick={() => dispatch({ type: "DECREMENT" })}>Decrement</button>
+      <h1>Count: {counter.total}</h1>
+      <button onClick={() => dispatch(increment())}>Increment</button>
+      <button onClick={() => dispatch(decrement())}>Decrement</button>
 
-      <Connect />
+      <button onClick={() => dispatch(open())}>Open</button>
+      <button onClick={() => dispatch(close())}>Close</button>
+      {modal ? <h1>Modal is open</h1> : null}
     </div>
   );
 }
