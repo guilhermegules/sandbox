@@ -1,0 +1,32 @@
+body {
+  font-family: monospace;
+  font-size: 1.2rem;
+}
+
+section {
+  display: flex;
+  justify-content: center;
+  margin-top: 12px;
+}
+
+table,
+td,
+th {
+  border: 1px solid black;
+}
+
+th {
+  text-align: left;
+}
+
+tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+}

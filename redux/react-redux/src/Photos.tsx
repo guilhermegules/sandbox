@@ -1,9 +1,9 @@
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { fetchPhotos } from "./store/photos";
+import { fetchPhotos, getDogDataWithPounds } from "./store/photos";
 
 const Photos = () => {
-  const { data } = useSelector((state: any) => state.photos);
+  const data = useSelector(getDogDataWithPounds);
   const dispatch = useDispatch();
 
   React.useEffect(() => {
@@ -15,7 +15,9 @@ const Photos = () => {
   return (
     <ul>
       {data.map((photo: any) => (
-        <li key={photo.id}>{photo.title}</li>
+        <li key={photo.id}>
+          {photo.title} | {photo.peso}
+        </li>
       ))}
     </ul>
   );
