@@ -203,3 +203,10 @@ Um repositório fica entre as regras de negócio e a camada de persistência:
 2. Ele usa a camada de persistência para gravar e recuperar os dados necessários para persistir e recuperar os objetos de negócio.
 
 Portanto, é possível até utilizar um ou mais DAOs em um repositório.
+
+## Bean Validation
+
+Bean Validation é composto por diversas anotações que devem ser adicionadas nos atributos em que desejamos realizar as validações. A @NotBlank, que indica que um atributo do tipo String não pode ser nulo e nem vazio.
+
+Existem dezenas de outras anotações que podemos utilizar em nosso projeto, para os mais diversos tipos de atributos. As principais anotações do Bean Validation na [documentação oficial da especificação](https://jakarta.ee/specifications/bean-validation/3.0/jakarta-bean-validation-spec-3.0.html#builtinconstraints).
+
