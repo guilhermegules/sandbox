@@ -17,4 +17,14 @@ public class Address {
     private String state;
     private String number;
     private String additionalData;
+
+    public Address(AddressData address) {
+        this.patio = address.patio();
+        this.neighborhood = address.neighborhood();
+        this.zip = address.zip();
+        this.city = address.city();
+        this.state = address.state();
+        this.number = address.number();
+        this.additionalData = address.additionalData();
+    }
 }
