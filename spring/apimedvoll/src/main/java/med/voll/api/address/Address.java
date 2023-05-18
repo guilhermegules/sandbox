@@ -27,4 +27,21 @@ public class Address {
         this.number = address.number();
         this.additionalData = address.additionalData();
     }
+
+    public void updateInfo(AddressData address) {
+        this.patio = address.patio() != null
+                ? address.patio() : this.patio;
+        this.neighborhood = address.neighborhood() != null
+                ? address.neighborhood() : this.neighborhood;
+        this.zip = address.zip() != null
+                ? address.zip() : this.zip;
+        this.city = address.city() != null
+                ? address.city() : this.city;
+        this.state = address.state() != null
+                ? address.state() : this.state;
+        this.number = address.number() != null
+                ? address.number() : this.number;
+        this.additionalData = address.additionalData() != null
+                ? address.additionalData() : this.additionalData;
+    }
 }

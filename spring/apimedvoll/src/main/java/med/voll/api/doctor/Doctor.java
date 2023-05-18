@@ -20,6 +20,7 @@ public class Doctor {
     private String email;
     private String crm;
     private String phone;
+    private boolean active;
 
     @Enumerated(EnumType.STRING)
     @Column(name = "specialty")
@@ -35,5 +36,24 @@ public class Doctor {
         this.doctorSpeciality = doctorData.specialty();
         this.address = new Address(doctorData.address());
         this.phone = doctorData.phone();
+        this.active = true;
+    }
+
+    public void updateInfo(UpdateDoctorData doctorData) {
+        if (doctorData.name() != null) {
+            this.name = doctorData.name();
+        }
+
+        if (doctorData.phone() != null) {
+            this.phone = doctorData.phone();
+        }
+
+        if (doctorData.address() != null) {
+            this.address.updateInfo(doctorData.address());
+        }
+    }
+
+    public void setActive(boolean active) {
+        this.active = active;
     }
 }
