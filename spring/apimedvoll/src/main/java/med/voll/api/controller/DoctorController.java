@@ -2,10 +2,12 @@ package med.voll.api.controller;
 
 import jakarta.validation.Valid;
 import med.voll.api.doctor.*;
+import org.apache.coyote.Response;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.web.PageableDefault;
+import org.springframework.http.ResponseEntity;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.*;
 
@@ -19,25 +21,29 @@ public class DoctorController {
     @PostMapping
     @Transactional
     public void create(@RequestBody @Valid CreateDoctorData body) {
+        var doctor = new Doctor(body);
         this.doctorRepository.save(new Doctor(body));
     }
 
     @GetMapping
-    public Page<ListDoctorData> getDoctors(@PageableDefault(size = 10, sort = {"name"}) Pageable pageable) {
-        return this.doctorRepository.findAllByActiveTrue(pageable).map(ListDoctorData::new);
+    public ResponseEntity<Page<ListDoctorData>> getDoctors(@PageableDefault(size = 10, sort = {"name"}) Pageable pageable) {
+        var page = this.doctorRepository.findAllByActiveTrue(pageable).map(ListDoctorData::new);
+        return ResponseEntity.ok(page);
     }
 
     @PutMapping
     @Transactional
-    public void update(@RequestBody @Valid UpdateDoctorData body) {
+    public ResponseEntity<DoctorDetail> update(@RequestBody @Valid UpdateDoctorData body) {
         var doctor = this.doctorRepository.getReferenceById(body.id());
         doctor.updateInfo(body);
+        return ResponseEntity.ok(new DoctorDetail(doctor));
     }
 
     @DeleteMapping("/{id}")
     @Transactional
-    public void delete(@PathVariable Long id) {
+    public ResponseEntity<Object> delete(@PathVariable Long id) {
         var doctor = this.doctorRepository.getReferenceById(id);
         doctor.setActive(false);
+        return ResponseEntity.noContent().build();
     }
 }
