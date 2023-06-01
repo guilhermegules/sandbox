@@ -1,8 +1,7 @@
 package med.voll.api.controller;
 
 import jakarta.validation.Valid;
-import med.voll.api.doctor.*;
-import org.apache.coyote.Response;
+import med.voll.api.domain.doctor.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -23,11 +22,18 @@ public class DoctorController {
     @Transactional
     public ResponseEntity<DoctorDetail> create(@RequestBody @Valid CreateDoctorData body, UriComponentsBuilder uriBuilder) {
         var doctor = new Doctor(body);
+
         this.doctorRepository.save(doctor);
 
         var uri = uriBuilder.path("/doctor/{id}").buildAndExpand(doctor.getId()).toUri();
 
         return ResponseEntity.created(uri).body(new DoctorDetail(doctor));
+    }
+
+    @GetMapping("/{id}")
+    public ResponseEntity<DoctorDetail> getDoctorById(@PathVariable Long id) {
+        var doctor = this.doctorRepository.getReferenceById(id);
+        return ResponseEntity.ok(new DoctorDetail(doctor));
     }
 
     @GetMapping
