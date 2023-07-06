@@ -32,6 +32,19 @@ public class TokenService {
         }
     }
 
+    public String getSubject(String jwtToken) {
+        try {
+            var algorithm = Algorithm.HMAC256(secret);
+            return JWT.require(algorithm)
+                    .withIssuer(TOKEN_ISSUER)
+                    .build()
+                    .verify(jwtToken)
+                    .getSubject();
+        } catch (JWTCreationException jwtCreationException) {
+            throw new RuntimeException("JWT token invalid or expired!");
+        }
+    }
+
     private Instant expiresAt() {
         return LocalDateTime.now().plusHours(2).toInstant(ZoneOffset.of("-03:00"));
     }

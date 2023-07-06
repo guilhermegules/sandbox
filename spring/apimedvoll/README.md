@@ -606,3 +606,93 @@ public class LogFilter implements Filter {
 ```
 
 O método doFilter é chamado pelo servidor automaticamente, sempre que esse filter tiver que ser executado, e a chamada ao método filterChain.doFilter indica que os próximos filters, caso existam outros, podem ser executados. A anotação @WebFilter, adicionada na classe, indica ao servidor em quais requisições esse filter deve ser chamado, baseando-se na URL da requisição.
+
+## Controle de acesso por url
+
+Por exemplo, suponha que em nossa aplicação tenhamos um perfil de acesso chamado de ADMIN, sendo que somente usuários com esse perfil possam excluir médicos e pacientes. Podemos indicar ao Spring Security tal configuração alterando o método securityFilterChain, na classe SecurityConfigurations, da seguinte maneira:
+
+```
+@Bean
+public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
+    return http.csrf().disable()
+        .sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS)
+        .and().authorizeHttpRequests()
+        .requestMatchers(HttpMethod.POST, "/login").permitAll()
+        .requestMatchers(HttpMethod.DELETE, "/medicos").hasRole("ADMIN")
+        .requestMatchers(HttpMethod.DELETE, "/pacientes").hasRole("ADMIN")
+        .anyRequest().authenticated()
+        .and().addFilterBefore(securityFilter, UsernamePasswordAuthenticationFilter.class)
+        .build();
+}
+```
+
+## Controle de acesso por anotações
+
+Outra maneira de restringir o acesso a determinadas funcionalidades, com base no perfil dos usuários, é com a utilização de um recurso do Spring Security conhecido como Method Security, que funciona com a utilização de anotações em métodos:
+
+```
+@GetMapping("/{id}")
+@Secured("ROLE_ADMIN")
+public ResponseEntity detalhar(@PathVariable Long id) {
+    var medico = repository.getReferenceById(id);
+    return ResponseEntity.ok(new DadosDetalhamentoMedico(medico));
+}
+```
+
+No exemplo de código anterior o método foi anotado com @Secured("ROLE_ADMIN"), para que apenas usuários com o perfil ADMIN possam disparar requisições para detalhar um médico. A anotação @Secured pode ser adicionada em métodos individuais ou mesmo na classe, que seria o equivalente a adicioná-la em todos os métodos.
+
+Atenção! Por padrão esse recurso vem desabilitado no spring Security, sendo que para o utilizar devemos adicionar a seguinte anotação na classe Securityconfigurations do projeto:
+
+`@EnableMethodSecurity(securedEnabled = true)`
+
+https://docs.spring.io/spring-security/reference/servlet/authorization/method-security.html
+
+## Tratando mais erros
+
+```java
+@RestControllerAdvice
+public class TratadorDeErros {
+
+    @ExceptionHandler(EntityNotFoundException.class)
+    public ResponseEntity tratarErro404() {
+        return ResponseEntity.notFound().build();
+    }
+
+    @ExceptionHandler(MethodArgumentNotValidException.class)
+    public ResponseEntity tratarErro400(MethodArgumentNotValidException ex) {
+        var erros = ex.getFieldErrors();
+        return ResponseEntity.badRequest().body(erros.stream().map(DadosErroValidacao::new).toList());
+    }
+
+    @ExceptionHandler(HttpMessageNotReadableException.class)
+    public ResponseEntity tratarErro400(HttpMessageNotReadableException ex) {
+        return ResponseEntity.badRequest().body(ex.getMessage());
+    }
+
+    @ExceptionHandler(BadCredentialsException.class)
+    public ResponseEntity tratarErroBadCredentials() {
+        return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body("Credenciais inválidas");
+    }
+
+    @ExceptionHandler(AuthenticationException.class)
+    public ResponseEntity tratarErroAuthentication() {
+        return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body("Falha na autenticação");
+    }
+
+    @ExceptionHandler(AccessDeniedException.class)
+    public ResponseEntity tratarErroAcessoNegado() {
+        return ResponseEntity.status(HttpStatus.FORBIDDEN).body("Acesso negado");
+    }
+
+    @ExceptionHandler(Exception.class)
+    public ResponseEntity tratarErro500(Exception ex) {
+        return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("Erro: " +ex.getLocalizedMessage());
+    }
+
+    private record DadosErroValidacao(String campo, String mensagem) {
+        public DadosErroValidacao(FieldError erro) {
+            this(erro.getField(), erro.getDefaultMessage());
+        }
+    }
+}
+```
