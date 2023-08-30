@@ -2,6 +2,7 @@ package br.com.alura;
 
 import org.apache.kafka.clients.consumer.ConsumerRecord;
 
+import java.math.BigDecimal;
 import java.util.HashMap;
 
 public class FraudDetectorService {
@@ -29,6 +30,19 @@ public class FraudDetectorService {
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
+
+        var order = record.value();
+
+        if(isFraud(order)) {
+            // Pretending that the fraud happens when the amount is >= 4500
+            System.out.println("Order is a fraud!!!");
+            return;
+        }
+
         System.out.println("Order processed");
+    }
+
+    private boolean isFraud(Order order) {
+        return order.getAmount().compareTo(new BigDecimal("4500")) >= 0;
     }
 }
