@@ -9,17 +9,19 @@ public class NewOrder {
             var orderDispatcher = new KafkaDispatcher<Order>();
             var emailDispatcher = new KafkaDispatcher<String>()
         ) {
-            var userId = UUID.randomUUID().toString();
-            var orderId = UUID.randomUUID().toString();
-            var amount = BigDecimal.valueOf(Math.random() * 5000 + 1);
+            for (int i = 0; i < 10; i++) {
+                var userId = UUID.randomUUID().toString();
+                var orderId = UUID.randomUUID().toString();
+                var amount = BigDecimal.valueOf(Math.random() * 5000 + 1);
 
-            var order = new Order(userId, orderId, amount);
+                var order = new Order(userId, orderId, amount);
 
-            var emailBody = "Thank you for your order! We are processing your order!";
-            var emailId = UUID.randomUUID().toString();
+                var emailBody = "Thank you for your order! We are processing your order!";
+                var emailId = UUID.randomUUID().toString();
 
-            orderDispatcher.send("ECOMMERCE_NEW_ORDER", userId, order);
-            emailDispatcher.send("ECOMMERCE_SEND_EMAIL", emailId, emailBody);
+                orderDispatcher.send("ECOMMERCE_NEW_ORDER", userId, order);
+                emailDispatcher.send("ECOMMERCE_SEND_EMAIL", emailId, emailBody);
+            }
         } catch (Exception exception) {
             exception.printStackTrace();
         }

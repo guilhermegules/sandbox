@@ -19,3 +19,5 @@
   - bin/kafka-consumer-groups.sh --all-groups --bootstrap-server localhost:9092 --describe
 - Update a created topic
   - bin/kafka-topics.sh --alter --bootstrap-server localhost:9092 --topic TOPIC_NAME --partitions partition_number
+
+- [Install kafka](https://www.linode.com/docs/guides/how-to-install-apache-kafka-on-ubuntu/)
