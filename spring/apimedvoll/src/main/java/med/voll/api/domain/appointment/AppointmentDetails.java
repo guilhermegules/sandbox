@@ -1,4 +1,11 @@
 package med.voll.api.domain.appointment;
 
-public record AppointmentDetails() {
+import java.time.LocalDateTime;
+
+public record AppointmentDetails(
+        Long id,
+        Long doctorId,
+        Long patientId,
+        LocalDateTime date
+) {
 }
