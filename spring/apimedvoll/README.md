@@ -696,3 +696,71 @@ public class TratadorDeErros {
     }
 }
 ```
+
+## Anotação `@JsonAlias`
+
+Pode acontecer de um campo ser enviado no JSON com um nome diferente do atributo definido na classe DTO. Por exemplo, imagine que o seguinte JSON seja enviado para a API:
+
+```json
+{
+    "produto_id" : 12,
+    "data_da_compra" : "01/01/2022"
+}
+```
+
+E a classe DTO criada para receber tais informações seja definida da seguinte maneira:
+
+```java
+public record DadosCompra(
+    Long idProduto,
+    LocalDate dataCompra
+){}
+```
+
+Se isso ocorrer, teremos problemas, pois o Spring vai instanciar um objeto do tipo DadosCompra, mas seus atributos não serão preenchidos e ficarão como null em razão de seus nomes serem diferentes dos nomes dos campos recebidos no JSON.
+
+Temos duas possíveis soluções para essa situação:
+
+1) Renomear os atributos no DTO para terem o mesmo nome dos campos no JSON;
+2) Solicitar que a aplicação cliente, que está disparando requisições para a API, altere os nomes dos campos no JSON enviado.
+
+A primeira alternativa citada anteriormente não é recomendada, pois os nomes dos campos no JSON não estão de acordo com o padrão de nomenclatura de atributos utilizado na linguagem Java.
+
+A segunda alternativa seria a mais indicada, porém, nem sempre será possível “obrigar” os clientes da API a alterarem o padrão de nomenclatura utilizado nos nomes dos campos no JSON.
+
+Para essa situação existe ainda uma terceira alternativa, na qual nenhum dos lados (cliente e API) precisam alterar os nomes dos campos/atributos. Basta, para isso, utilizar a anotação `@JsonAlias`:
+
+```java
+public record DadosCompra(
+    @JsonAlias("produto_id") Long idProduto,
+    @JsonAlias("data_da_compra") LocalDate dataCompra
+){}
+```
+
+A anotação @JsonAlias serve para mapear “apelidos” alternativos para os campos que serão recebidos do JSON, sendo possível atribuir múltiplos alias:
+
+```java
+public record DadosCompra(
+    @JsonAlias({"produto_id", "id_produto"}) Long idProduto,
+    @JsonAlias({"data_da_compra", "data_compra"}) LocalDate dataCompra
+){}
+```
+
+Dessa forma resolvemos o problema, pois o Spring, ao receber o JSON na requisição, vai procurar os campos considerando todos os alias declarados na anotação @JsonAlias.
+
+## Formatação de datas
+
+O Spring tem um padrão de formatação para campos do tipo data quando esses são mapeados em atributos do tipo `LocalDateTime`. Entretanto, é possível personalizar tal padrão para utilizar outras formatações de nossa preferência.
+
+Por exemplo, imagine que precisamos receber a data/hora da consulta no seguinte formato: dd/mm/yyyy hh:mm. Para que isso seja possível, precisamos indicar ao Spring que esse será o formato ao qual a data/hora será recebida na API, sendo que isso pode ser feito diretamente no DTO, com a utilização da anotação `@JsonFormat`:
+
+```
+@NotNull
+@Future
+@JsonFormat(pattern = "dd/MM/yyyy HH:mm")
+LocalDateTime data
+```
+
+No atributo **pattern** indicamos o padrão de formatação esperado, seguindo as regras definidas pelo padrão de datas do Java. Você pode encontrar mais detalhes [nesta página do JavaDoc](https://docs.oracle.com/javase/7/docs/api/java/text/SimpleDateFormat.html).
+
+Essa anotação também pode ser utilizada nas classes DTO que representam as informações que a API devolve, para que assim o JSON devolvido seja formatado de acordo com o pattern configurado. Além disso, ela não se restringe apenas à classe `LocalDateTime`, podendo também ser utilizada em atributos do tipo `LocalDate` e `LocalTime`.
