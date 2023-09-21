@@ -6,19 +6,24 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 import java.util.HashMap;
+import java.util.UUID;
 
 public class CreateUserService {
 
     private final Connection connection;
 
     CreateUserService() throws SQLException {
-        var url = "jdbc:sqlite:ecomerce/service-users/target/users_database.db";
+        var url = "jdbc:sqlite:service-users/target/users_database.db";
         this.connection = DriverManager.getConnection(url);
-        var createUserTable = "CREATE TABLE user ("
-                + "           id VARCHAR(200) PRIMARY KEY,"
-                + "           email VARCHAR(200)"
-                + "                               )";
-        connection.createStatement().execute(createUserTable);
+        try {
+            var createUserTable = "CREATE TABLE user ("
+                    + "           id VARCHAR(200) PRIMARY KEY,"
+                    + "           email VARCHAR(200)"
+                    + "                               )";
+            connection.createStatement().execute(createUserTable);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
     }
 
     public static void main(String[] args) {
@@ -52,8 +57,8 @@ public class CreateUserService {
     private void insertNewUser(String email) throws SQLException {
         var insertIntoUser = "INSERT INTO user (id, email) VALUES (?, ?)";
         var insert = connection.prepareStatement(insertIntoUser);
-        insert.setString(1, "id");
-        insert.setString(2, "email");
+        insert.setString(1, UUID.randomUUID().toString());
+        insert.setString(2, email);
         insert.execute();
         System.out.println("User added" + email);
     }
