@@ -10,6 +10,7 @@ Utilizamos Docker para que todos os serviços que utilizaremos fiquem disponíve
 - Tendo o docker instalado em sua máquina apenas execute: `docker-compose up -d`
 
 ### Como executar a aplicação
+
 - Acesse o container da aplicação executando: `docker exec -it codepix-service-app-1 bash`
 - Rode `go run cmd/codepix/main.go`
 
