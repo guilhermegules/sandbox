@@ -40,7 +40,7 @@ func TestNewTransaction(t *testing.T) {
 	require.Empty(t, transaction.CancelDescription)
 
 	pixKeySameAccount, err := model.NewPixKey(kind, key, account, accountId)
-
+	account.ID = accountId
 	_, err = model.NewTransaction(account, amount, pixKeySameAccount, "My description")
 	require.NotNil(t, err)
 
