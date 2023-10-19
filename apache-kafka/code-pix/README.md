@@ -92,3 +92,42 @@ gRPC:
 - Suporte a streaming
 - Design livre
 - Geração de código
+
+## Kafka
+
+- Orientado a eventos
+- Plataforma
+- Trabalha de forma distribuída
+- Banco de dados
+- Extremamente rápido
+- Não é um sistema tradicional de filas
+
+### Conceito básico
+
+Topic
+
+- Stream que tua como um banco de dados
+- Todos os dados ficam armazenados, ou seja, cada Topic tem seu local para armazenar seus dados
+- Tópico possui diversas partições
+  - Cada partição é definida por um número
+  - Você é obrigado a definir a quantidade de partições quando for criar um novo tópico
+
+## Kafka Cluster
+
+- Conjunto de Brokers
+- Cada Broker é um server
+- Cada Broker é reponsável por armazenar dados de uma partição
+- Cada partição de topico está distribuído em diferentesS brokers
+
+![Kafka Cluster](kafkacluster.png)
+![Kafka producer](kafkaproducer.png)
+![Kafka consumer](kafkaconsumer.png)
+
+### Ecossistema
+
+- Kafka Connect
+  - Connectors
+- Confluent Schema Registry
+- Rest Proxy
+- ksqlDB
+- KafkaStreams
