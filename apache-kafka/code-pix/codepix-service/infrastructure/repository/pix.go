@@ -26,7 +26,7 @@ func (r PixKeyRepositoryDb) AddAccount(account *model.Account) error {
 	return nil
 }
 
-func (r PixKeyRepositoryDb) RegisterKey(pixKey *model.PixKey) (*model.PixKey, error) {
+func (r PixKeyRepositoryDb) Register(pixKey *model.PixKey) (*model.PixKey, error) {
 	err := r.Db.Create(pixKey).Error
 	if err != nil {
 		return nil, err

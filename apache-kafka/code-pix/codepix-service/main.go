@@ -17,7 +17,6 @@ package main
 
 import (
 	"github.com/guilhermegules/code-pix/cmd"
-	"os"
 )
 
 func main() {

@@ -2,7 +2,7 @@ package grpc
 
 import (
 	"fmt"
-	"github.com/guilhermegules/code-pix/application/grpc/pb"
+	pb "github.com/guilhermegules/code-pix/application/grpc/pb"
 	"github.com/guilhermegules/code-pix/application/usecase"
 	"github.com/guilhermegules/code-pix/infrastructure/repository"
 	"github.com/jinzhu/gorm"
