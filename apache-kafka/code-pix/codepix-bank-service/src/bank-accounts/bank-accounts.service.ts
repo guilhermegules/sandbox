@@ -1,0 +1,25 @@
+import { Injectable } from '@nestjs/common';
+import { CreateBankAccountDto } from './dto/create-bank-account.dto';
+import { Repository } from 'typeorm';
+import { BankAccount } from './entities/bank-account.entity';
+import { InjectRepository } from '@nestjs/typeorm';
+
+@Injectable()
+export class BankAccountsService {
+  constructor(
+    @InjectRepository(BankAccount)
+    private readonly bankAccountRepository: Repository<BankAccount>,
+  ) {}
+
+  create(createBankAccountDto: CreateBankAccountDto) {
+    return this.bankAccountRepository.save(createBankAccountDto);
+  }
+
+  findAll() {
+    return this.bankAccountRepository.find();
+  }
+
+  findOne(id: string) {
+    return this.bankAccountRepository.findOneOrFail({ where: { id } });
+  }
+}
