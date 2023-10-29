@@ -51,16 +51,16 @@ export class TransactionsController {
     message: CreateTransactionFromAnotherBankAccountDto | ConfirmTransactionDto,
   ) {
     try {
-      // if (message.status === 'pending') {
-      //   await this.transactionsService.createFromAnotherBankAccount(
-      //     message as CreateTransactionFromAnotherBankAccountDto,
-      //   );
-      // }
-      // if (message.status === 'confirmed') {
-      //   await this.transactionsService.confirmTransaction(
-      //     message as ConfirmTransactionDto,
-      //   );
-      // }
+      if (message.status === 'pending') {
+        await this.transactionsService.createFromAnotherBankAccount(
+          message as CreateTransactionFromAnotherBankAccountDto,
+        );
+      }
+      if (message.status === 'confirmed') {
+        await this.transactionsService.confirmTransaction(
+          message as ConfirmTransactionDto,
+        );
+      }
     } catch (err) {
       console.error(err);
     }

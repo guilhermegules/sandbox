@@ -18,8 +18,8 @@ Utilizamos Docker para que todos os serviços que utilizaremos fiquem disponíve
 
 - Aplicação principal
 - Postgres
-- PgAdmin
+- PgAdmin `porta 9000`
 - Apache Kafka
 - Criador dos tópicos a serem utilizados pelo Kafka
-- Confluent control center
+- Confluent control center `porta 9021`
 - ZooKeeper

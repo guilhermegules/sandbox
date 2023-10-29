@@ -3,18 +3,37 @@ import { AppModule } from './app.module';
 import { HttpStatus, ValidationPipe } from '@nestjs/common';
 import { PixKeyGrpcUnknownErrorFilter } from './pix-keys/filters/pix-key-grpc-unknown-error-filter';
 import { PixKeyAlreadyExistsErrorFilter } from './pix-keys/filters/pix-key-already-exists-error-filter';
+import { Transport } from '@nestjs/microservices';
+import { ConfigService } from '@nestjs/config';
 
 async function bootstrap() {
   const app = await NestFactory.create(AppModule);
+
   app.useGlobalFilters(
     new PixKeyGrpcUnknownErrorFilter(),
     new PixKeyAlreadyExistsErrorFilter(),
   );
+
   app.useGlobalPipes(
     new ValidationPipe({
       errorHttpStatusCode: HttpStatus.UNPROCESSABLE_ENTITY,
     }),
   );
-  await app.listen(3000);
+
+  const configService = app.get(ConfigService);
+
+  app.connectMicroservice({
+    transport: Transport.KAFKA,
+    options: {
+      client: {
+        brokers: [configService.get('KAFKA_BROKER')],
+      },
+      consumer: {
+        groupId: configService.get('KAFKA_CONSUMER_GROUP_ID'),
+      },
+    },
+  });
+  await app.startAllMicroservices();
+  await app.listen(process.env.PORT || 3000);
 }
 bootstrap();

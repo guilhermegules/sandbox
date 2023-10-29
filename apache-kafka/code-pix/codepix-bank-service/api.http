@@ -1,6 +1,6 @@
 GET http://localhost:3000/bank-accounts
 
-@bank_acount_id = 82a7ceb1-1d50-4ceb-b88e-a7aa06d20731
+@bank_acount_id = ee751d43-a3e6-4150-a25d-a01bc07259c3
 
 ###
 GET http://localhost:3000/bank-accounts/{{bank_acount_id}}
