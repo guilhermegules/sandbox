@@ -7,6 +7,7 @@ import {
   Min,
 } from 'class-validator';
 import { PixKeyKind } from '../../pix-keys/enum/pix-key-kind.enum';
+import { TransactionStatus } from '../types/transaction-status.type';
 
 export class CreateTransactionFromAnotherBankAccountDto {
   @IsUUID()
@@ -35,5 +36,5 @@ export class CreateTransactionFromAnotherBankAccountDto {
 
   @IsString()
   @IsNotEmpty()
-  status: 'pending' | 'confirmed';
+  status: TransactionStatus;
 }

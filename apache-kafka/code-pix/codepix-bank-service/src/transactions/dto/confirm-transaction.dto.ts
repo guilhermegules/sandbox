@@ -1,4 +1,5 @@
 import { IsNotEmpty, IsString, IsUUID } from 'class-validator';
+import { TransactionStatus } from '../types/transaction-status.type';
 
 export class ConfirmTransactionDto {
   @IsUUID()
@@ -7,5 +8,5 @@ export class ConfirmTransactionDto {
 
   @IsString()
   @IsNotEmpty()
-  status: 'pending' | 'confirmed';
+  status: TransactionStatus;
 }
