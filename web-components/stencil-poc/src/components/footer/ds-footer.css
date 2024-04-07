@@ -1,0 +1,10 @@
+:host {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+}
+
+footer {
+  background-color: aqua;
+  padding: 4px;
+}
