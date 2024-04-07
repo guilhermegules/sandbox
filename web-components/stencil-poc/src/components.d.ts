@@ -6,6 +6,8 @@
  */
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
 export namespace Components {
+    interface DsContainer {
+    }
     interface DsFooter {
     }
     interface DsHeader {
@@ -13,6 +15,12 @@ export namespace Components {
     }
 }
 declare global {
+    interface HTMLDsContainerElement extends Components.DsContainer, HTMLStencilElement {
+    }
+    var HTMLDsContainerElement: {
+        prototype: HTMLDsContainerElement;
+        new (): HTMLDsContainerElement;
+    };
     interface HTMLDsFooterElement extends Components.DsFooter, HTMLStencilElement {
     }
     var HTMLDsFooterElement: {
@@ -26,17 +34,21 @@ declare global {
         new (): HTMLDsHeaderElement;
     };
     interface HTMLElementTagNameMap {
+        "ds-container": HTMLDsContainerElement;
         "ds-footer": HTMLDsFooterElement;
         "ds-header": HTMLDsHeaderElement;
     }
 }
 declare namespace LocalJSX {
+    interface DsContainer {
+    }
     interface DsFooter {
     }
     interface DsHeader {
         "dsTitle"?: string;
     }
     interface IntrinsicElements {
+        "ds-container": DsContainer;
         "ds-footer": DsFooter;
         "ds-header": DsHeader;
     }
@@ -45,6 +57,7 @@ export { LocalJSX as JSX };
 declare module "@stencil/core" {
     export namespace JSX {
         interface IntrinsicElements {
+            "ds-container": LocalJSX.DsContainer & JSXBase.HTMLAttributes<HTMLDsContainerElement>;
             "ds-footer": LocalJSX.DsFooter & JSXBase.HTMLAttributes<HTMLDsFooterElement>;
             "ds-header": LocalJSX.DsHeader & JSXBase.HTMLAttributes<HTMLDsHeaderElement>;
         }

@@ -13,6 +13,7 @@ export class DsHeader {
     return (
       <header>
         <h1>{this.dsTitle}</h1>
+        <slot name="item"></slot>
       </header>
     );
   }
