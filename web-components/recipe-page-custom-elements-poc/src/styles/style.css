@@ -1,7 +1,23 @@
+:root {
+  --white: #ffffff;
+  --black: #000000;
+  --primary-nutmeg: #854632;
+  --primary-dark-raspberry: #7b284f;
+  --secondary-rose-white: hsl(330, 100%, 98%);
+  --secondary-eggshell: hsl(30, 54%, 90%);
+  --secondary-light-grey: hsl(30, 18%, 87%);
+  --secondary-wenge-brown: hsl(30, 10%, 34%);
+  --secondary-dark-charcoal: hsl(24, 5%, 18%);
+}
+
 * {
   padding: 0;
   margin: 0;
   box-sizing: border-box;
+}
+
+body {
+  background-color: var(--white);
 }
 
 .content {
