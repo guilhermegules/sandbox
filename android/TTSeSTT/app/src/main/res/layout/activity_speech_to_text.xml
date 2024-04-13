@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.widget.LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#000000"
+    android:orientation="vertical"
+    tools:context=".SpeechToTextActivity">
+
+    <ImageView
+        android:id="@+id/imageView3"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:srcCompat="@drawable/onda" />
+
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal"
+        android:text="Reconhecimento de Voz (STT)"
+        android:textColor="#FFFFFF"
+        android:textSize="24sp" />
+
+    <TextView
+        android:id="@+id/textView4"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:gravity="center_horizontal"
+        android:text="Clique no botão 'Capturar Voz', fale o que deseja e veja o texto respectivo reconhecido na caixa azul"
+        android:textColor="#FFFFFF" />
+
+    <EditText
+        android:id="@+id/edtSTT"
+        android:layout_width="match_parent"
+        android:layout_height="104dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginTop="10dp"
+        android:background="@android:color/holo_blue_dark"
+        android:ems="10"
+        android:enabled="false"
+        android:gravity="center_vertical|center_horizontal"
+        android:inputType="textPersonName"
+        android:textColorHighlight="#000000" />
+
+    <Button
+        android:id="@+id/btnCapturar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
+        android:background="#222222"
+        android:text="CAPTURAR A VOZ!"
+        android:textColor="#BBBBBB" />
+
+    <Button
+        android:id="@+id/btnVoltarSTT"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:background="#222222"
+        android:text="Voltar à tela inicial"
+        android:textColor="#BBBBBB" />
+
+</android.widget.LinearLayout>
