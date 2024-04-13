@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.appcompat.widget.LinearLayoutCompat xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/moirasacampamento"
+    android:orientation="vertical"
+    tools:context=".MoirasAcampamentoActivity">
+
+    <TextView
+        android:id="@+id/txtMoirasAcampamento"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_weight="0.1"
+        android:background="#CB000000"
+        android:fontFamily="@font/press_start_2p"
+        android:text="Geralt decide dormir, para evitar ser encurralado por monstros durante a noite."
+        android:textColor="#FFFFFF"
+        android:textSize="14sp" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="30dp"
+        android:layout_marginRight="20dp"
+        android:layout_weight="10"
+        android:orientation="vertical">
+
+        <Button
+            android:id="@+id/btnMoirasAcampamento"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="#CB000000"
+            android:backgroundTint="#0A0808"
+            android:fontFamily="@font/press_start_2p"
+            android:text="Dormir"
+            android:textColor="#FFFFFF" />
+
+    </LinearLayout>
+
+</androidx.appcompat.widget.LinearLayoutCompat>

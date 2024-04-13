@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.appcompat.widget.LinearLayoutCompat xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/casadevidrofinalreal"
+    android:orientation="vertical"
+    tools:context=".CasaDeVidroFinalRealActivity">
+
+    <TextView
+        android:id="@+id/txtCasaDeVidroFinalReal1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_weight="0.1"
+        android:background="#CB000000"
+        android:fontFamily="@font/press_start_2p"
+        android:text="Geralt decepcionado pelas atitudes de Jakob decide partir e deixar o mesmo enfrentar o peso de suas escolhas com o espirito de sua esposa, assim deixando o seu destino selado."
+        android:textColor="#FFFFFF"
+        android:textSize="14sp" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="30dp"
+        android:layout_marginRight="20dp"
+        android:layout_weight="10"
+        android:orientation="vertical">
+
+        <Button
+            android:id="@+id/btnCasaDeVidroFinalReal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Geralt sai dali com com um senso de dever cumprido, sabendo que espirito da mulher  poderá finalmente descansar."
+            android:layout_weight="1"
+            android:background="#CB000000"
+            android:backgroundTint="#0A0808"
+            android:fontFamily="@font/press_start_2p"
+            android:gravity="center"
+            android:textColor="#FFFFFF"/>
+    </LinearLayout>
+
+</androidx.appcompat.widget.LinearLayoutCompat>

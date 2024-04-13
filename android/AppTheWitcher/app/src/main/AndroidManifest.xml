@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="br.edu.qi.appthewitcher">
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme">
+        <activity android:name=".TrissEGeraltJuntosActivity"></activity>
+        <activity android:name=".TrissSemGeraltActivity" />
+        <activity android:name=".TrissIgnoraActivity" />
+        <activity android:name=".TrissEGeraltActivity" />
+        <activity android:name=".TrissActivity" />
+        <activity android:name=".GeraltEnfrentaMoirasActivity" />
+        <activity android:name=".MoirasSemGeraltActivity" />
+        <activity android:name=".MoirasEGeraltActivity" />
+        <activity android:name=".MoirasLutaActivity" />
+        <activity android:name=".MoirasDormirFinalActivity" />
+        <activity android:name=".Pantano3Activity" />
+        <activity android:name=".MoirasAcampamentoActivity" />
+        <activity android:name=".Pantano2Activity" />
+        <activity android:name=".PantanoActivity" />
+        <activity android:name=".CasaDeVidroFinalRealActivity" />
+        <activity android:name=".CasaDeVidroFinalJakobActivity" />
+        <activity android:name=".CasaDeVidro7Activity" />
+        <activity android:name=".CasaDeVidroExplicacaoActivity" />
+        <activity android:name=".CasaActivity" />
+        <activity android:name=".CasaDeVidroFerimentoActivity" />
+        <activity android:name=".CasaDeVidro6Activity" />
+        <activity android:name=".CasaDeVidroFinalBruxaActivity" />
+        <activity android:name=".CasaDeVidroPerseguicaoActivity" />
+        <activity android:name=".CasaDeVidroLutaActivity" />
+        <activity android:name=".CasaDeVidro5Activity" />
+        <activity android:name=".CasaDeVidroProcurarActivity" />
+        <activity android:name=".CasaDeVidro4Activity" />
+        <activity android:name=".EncerramentoActivity" />
+        <activity android:name=".CasaDeVidroIgnorarActivity" />
+        <activity android:name=".VoltarParaCidadeActivity" />
+        <activity android:name=".CasaDeVidro3Activity" />
+        <activity android:name=".CasaDeVidro2Activity" />
+        <activity android:name=".CasaDeVidroActivity" />
+        <activity android:name=".PrimeiraEtapaActivity" />
+        <activity android:name=".MainActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <meta-data
+            android:name="preloaded_fonts"
+            android:resource="@array/preloaded_fonts" />
+    </application>
+
+</manifest>

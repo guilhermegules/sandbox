@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.appcompat.widget.LinearLayoutCompat xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/casadevidroignorar"
+    android:orientation="vertical"
+    tools:context=".CasaDeVidroIgnorarActivity">
+
+    <TextView
+        android:id="@+id/txtCasaDeVidroIgnorar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginRight="20dp"
+        android:background="#56030303"
+        android:fontFamily="@font/press_start_2p"
+        android:text="Geralt resolve ignorar o o que o homem diz, focando apenas em beber, porém de repende avista o seu grande e antigo amigo Zoltan."
+        android:textColor="#FFFFFF"
+        android:textSize="14sp" />
+
+    <TextView
+        android:id="@+id/txtCasaDeVidroIgnorar2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginRight="20dp"
+        android:background="#56030303"
+        android:fontFamily="@font/press_start_2p"
+        android:text="Zoltan fica animado em ver Geralt, ainda mais que o mesmo já estava embriado, ele leva Geralt de votla a cidade para que possam comemorar pelos velhos tempos, na taverna da cidade."
+        android:textColor="#FFFFFF"
+        android:textSize="14sp" />
+
+</androidx.appcompat.widget.LinearLayoutCompat>

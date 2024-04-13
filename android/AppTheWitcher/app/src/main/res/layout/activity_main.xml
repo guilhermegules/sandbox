@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.appcompat.widget.LinearLayoutCompat xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#080706"
+    android:gravity="center_horizontal"
+    android:orientation="vertical"
+    tools:context=".MainActivity">
+
+    <TextView
+        android:id="@+id/txtTitulo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:fontFamily="@font/press_start_2p"
+        android:text="The Witcher  Game"
+        android:textColor="#FFFFFF" />
+
+    <ImageView
+        android:id="@+id/imgWitcher"
+        android:layout_width="wrap_content"
+        android:layout_height="400dp"
+        android:layout_weight="1"
+        app:srcCompat="@drawable/telainicial" />
+
+    <ImageButton
+        android:id="@+id/btnJogar"
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:backgroundTint="#00FFFFFF"
+        android:scaleType="centerInside"
+        app:srcCompat="@drawable/botaojogar" />
+</androidx.appcompat.widget.LinearLayoutCompat>

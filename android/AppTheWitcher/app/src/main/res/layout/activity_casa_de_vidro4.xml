@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.appcompat.widget.LinearLayoutCompat xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/casadevidrotres"
+    android:orientation="vertical"
+    tools:context=".CasaDeVidro4Activity">
+
+    <TextView
+        android:id="@+id/txtCasaDeVidro4"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_weight="0.1"
+        android:background="#CB030303"
+        android:fontFamily="@font/press_start_2p"
+        android:text="Os dois seguem sua busca, porém geralt nota que ambos estão sendo observados. O que deve ser feito?"
+        android:textColor="#FFFFFF"
+        android:textSize="14sp" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="30dp"
+        android:layout_marginRight="20dp"
+        android:layout_weight="10"
+        android:orientation="vertical">
+
+        <Button
+            android:id="@+id/btnCasaDeVidro4Op1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="#CB000000"
+            android:backgroundTint="#0A0808"
+            android:fontFamily="@font/press_start_2p"
+            android:text="Geralt opta por ignorar os seus instintos e segue em frente, jakob nem nota o que está acontecendo."
+            android:textColor="#FFFFFF" />
+
+        <Button
+            android:id="@+id/btnCasaDeVidro4Op2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="#CB000000"
+            android:backgroundTint="#0A0808"
+            android:fontFamily="@font/press_start_2p"
+            android:text="Geralt decide parar e procurar o que pode ser que os está seguindo."
+            android:textColor="#FFFFFF" />
+
+    </LinearLayout>
+
+</androidx.appcompat.widget.LinearLayoutCompat>

@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.appcompat.widget.LinearLayoutCompat xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/encerramento"
+    android:orientation="vertical"
+    tools:context=".EncerramentoActivity">
+
+    <TextView
+        android:id="@+id/txtEncerramento"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginRight="20dp"
+        android:fontFamily="@font/press_start_2p"
+        android:gravity="center_horizontal"
+        android:text="Obrigado por jogar"
+        android:textColor="#FFFFFF" />
+
+    <TextView
+        android:id="@+id/txtEncerramento2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginRight="20dp"
+        android:fontFamily="@font/press_start_2p"
+        android:gravity="center_horizontal"
+        android:text="Que você consiga sempre seguir o seu caminho"
+        android:textColor="#FFFFFF" />
+
+    <Button
+        android:id="@+id/btnJogarNovamente"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="50dp"
+        android:layout_marginRight="20dp"
+        android:background="#B00F0D0D"
+        android:fontFamily="@font/press_start_2p"
+        android:text="Jogar Novamente"
+        android:textColor="#FFFFFF" />
+
+
+</androidx.appcompat.widget.LinearLayoutCompat>

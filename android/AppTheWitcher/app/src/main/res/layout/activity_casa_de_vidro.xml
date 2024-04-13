@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.appcompat.widget.LinearLayoutCompat xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/casadevidroum"
+    android:orientation="vertical"
+    tools:context=".CasaDeVidroActivity">
+
+    <TextView
+        android:id="@+id/txtCasaDeVidro"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_weight="0.1"
+        android:background="#CB000000"
+        android:fontFamily="@font/press_start_2p"
+        android:text="Após resover falar com o estranho, Geralt resolve conversar com o mesmo, pois simpatizou com com o seu jeito solitário, o que ele deve dizer?"
+        android:textColor="#FFFFFF"
+        android:textSize="14sp" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="30dp"
+        android:layout_marginRight="20dp"
+        android:layout_weight="10"
+        android:orientation="vertical">
+
+        <Button
+            android:id="@+id/btnCasaDeVidroPerseguir1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="#CB000000"
+            android:backgroundTint="#0A0808"
+            android:fontFamily="@font/press_start_2p"
+            android:text="Perguntar ao homem sobre sua vida."
+            android:textColor="#FFFFFF" />
+
+        <Button
+            android:id="@+id/btnCasaDeVidroProcurar2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="#CE000000"
+            android:backgroundTint="#0A0808"
+            android:fontFamily="@font/press_start_2p"
+            android:text="Ignorar a maior parte do que o homem resolve falar, focando somente em beber"
+            android:textColor="#FFFFFF" />
+
+    </LinearLayout>
+
+</androidx.appcompat.widget.LinearLayoutCompat>

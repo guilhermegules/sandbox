@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.appcompat.widget.LinearLayoutCompat xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/casadevidrodois"
+    android:orientation="vertical"
+    tools:context=".CasaDeVidro3Activity">
+
+    <TextView
+        android:id="@+id/txtCasaDeVidro3"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_weight="0.1"
+        android:background="#CB030303"
+        android:fontFamily="@font/press_start_2p"
+        android:text="Após Geralt decidir ir com Jakob floresta a dentro, ele sentiu seu medalhão sibilar, era um sinal de perigo, estava vendo a atmosfera mudar ao seu redor."
+        android:textColor="#FFFFFF"
+        android:textSize="14sp" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="30dp"
+        android:layout_marginRight="20dp"
+        android:layout_weight="10"
+        android:orientation="vertical">
+
+        <Button
+            android:id="@+id/btnCasaDeVidroOp5"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="#CB000000"
+            android:backgroundTint="#0A0808"
+            android:fontFamily="@font/press_start_2p"
+            android:text="Geralt ignora seu medalhão e continua com Jakob floresta a dentro."
+            android:textColor="#FFFFFF" />
+
+        <Button
+            android:id="@+id/btnCasaDeVidroOp6"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="#CB000000"
+            android:backgroundTint="#0A0808"
+            android:fontFamily="@font/press_start_2p"
+            android:text="Geralt tenta convencer Jakob a voltar para cidade"
+            android:textColor="#FFFFFF" />
+
+    </LinearLayout>
+
+</androidx.appcompat.widget.LinearLayoutCompat>
