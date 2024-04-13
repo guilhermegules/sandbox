@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.appcompat.widget.LinearLayoutCompat xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/geraltdevoltaacidade"
+    android:scaleY="1"
+    android:orientation="vertical"
+    tools:context=".VoltarParaCidadeActivity">
+
+    <TextView
+        android:id="@+id/txtCasaDeVidroVoltarCidadeFinal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginRight="20dp"
+        android:background="#56030303"
+        android:fontFamily="@font/press_start_2p"
+        android:text="Geralt nocauteia o jakob e o leva de volta a cidade, pois viu que provavelmente o destino dos dois seria a morte. "
+        android:textColor="#FFFFFF"
+        android:textSize="14sp" />
+
+    <TextView
+        android:id="@+id/txtResumoVoltarParaCidade1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginRight="20dp"
+        android:background="#56030303"
+        android:fontFamily="@font/press_start_2p"
+        android:text="Geralt vendo que Jakob não iria querer voltar para cidade, resolve usar o seu sinal Axii, para fazer o mesmo entrar em um estado de paralisia e assim conseguindo carregar ele de volta para cidade em segurança"
+        android:textColor="#FFFFFF" />
+
+</androidx.appcompat.widget.LinearLayoutCompat>
