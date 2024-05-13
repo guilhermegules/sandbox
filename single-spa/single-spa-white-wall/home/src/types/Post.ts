@@ -1,6 +1,6 @@
 export type PostResponse = {
-  avatar: string;
-  description: string;
-  nickName: string;
-  user: string;
+  userId: number;
+  title: string;
+  body: string;
+  id: number;
 };

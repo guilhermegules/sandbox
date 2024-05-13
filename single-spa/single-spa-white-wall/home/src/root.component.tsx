@@ -1,34 +1,33 @@
 import React from "react";
 import { MessageField, Post } from "./components";
 import "./style.css";
+import { PostResponse } from "./types/Post";
+import { useCreatePost, useListPosts } from "./services/PostService";
 
 export default function Root() {
+  const { data, isLoading } = useListPosts();
+  const { trigger } = useCreatePost();
   const [message, setMessage] = React.useState("");
-  const [posts, setPosts] = React.useState([
-    {
-      user: "guilhermegules",
-      nickName: "gules",
-      avatar:
-        "https://images.unsplash.com/photo-1491528323818-fdd1faba62cc?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80",
-      description: `Lorem, ipsum dolor sit amet consectetur adipisicing elit. Rem fuga
-      voluptatem consequatur magni mollitia aut. Eos iste sit nisi ad,
-      reiciendis obcaecati. Molestiae beatae praesentium suscipit sint?
-      Quis, provident. Asperiores!`,
-    },
-  ]);
+  const [posts, setPosts] = React.useState<PostResponse[]>([]);
 
   const onSubmitMessage = (message: string) => {
-    setPosts([
-      ...posts,
-      {
-        avatar:
-          "https://images.unsplash.com/photo-1491528323818-fdd1faba62cc?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80",
-        description: message,
-        nickName: "Guilherme Gules",
-        user: "guilhermegules",
-      },
-    ]);
+    const payload = {
+      body: message,
+      id: Math.random() * 10000,
+      title: "",
+      userId: Math.random() * 10000,
+    };
+
+    trigger(payload);
+    setPosts((prevPosts) => [payload, ...prevPosts]);
   };
+
+  React.useEffect(() => {
+    if (!data) return;
+    setPosts(data);
+  }, [data]);
+
+  if (isLoading) return <p>Loading...</p>;
 
   return (
     <section className="py-8 px-16 relative h-[100vh]">
@@ -42,7 +41,7 @@ export default function Root() {
       </div>
       <div className="grid grid-cols-1 w-full py-4 gap-4">
         {posts.map((post) => (
-          <Post post={post} />
+          <Post post={post} key={post.id} />
         ))}
       </div>
     </section>
