@@ -20,4 +20,8 @@ layoutEngine.activate();
 
 localStorage.setItem("devtools", "true");
 
-start({ urlRerouteOnly: true });
+System.import("@mfe/styleguide").then(() => {
+  // Activate the layout engine once the styleguide CSS is loaded
+  layoutEngine.activate();
+  start({ urlRerouteOnly: true });
+});

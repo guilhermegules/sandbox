@@ -51,7 +51,8 @@
       "imports": {
         "@mfe/root-config": "//localhost:9000/mfe-root-config.js",
         "@mfe/navbar": "//localhost:8500/mfe-navbar.js",
-        "@mfe/home": "//localhost:8000/mfe-home.js"
+        "@mfe/home": "//localhost:8000/mfe-home.js",
+        "@mfe/styleguide": "//localhost:8001/mfe-styleguide.js"
       }
     }
   </script>
@@ -79,6 +80,7 @@
   </noscript>
   <script>
     System.import('@mfe/root-config');
+    System.import('@mfe/styleguide');
   </script>
   <import-map-overrides-full show-when-local-storage="devtools" dev-libs></import-map-overrides-full>
 </body>
