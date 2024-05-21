@@ -101,3 +101,12 @@ try (final KafkaConsumer<String, Payment> consumer = new KafkaConsumer<>(props))
 - Consumer/Producer API component
 - Defines schema compatibility rules per topic
 - Producer API prevents incompatilble messages from being produced
+  
+## ksqlDB
+
+- A database optimized for stream processing
+- Runs on its own scalable, fault tolerant cluster adjacent to the Kafka cluster
+- command-line interface
+- REST API for application integration
+- Java Library
+- Kafka Connection integration
