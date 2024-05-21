@@ -92,3 +92,12 @@ try (final KafkaConsumer<String, Payment> consumer = new KafkaConsumer<>(props))
       }
     }
 ```
+
+## Schema Registry
+
+- Server process external to kafka brokers
+- Maintains a database of schemas
+- HA deployment option available
+- Consumer/Producer API component
+- Defines schema compatibility rules per topic
+- Producer API prevents incompatilble messages from being produced
