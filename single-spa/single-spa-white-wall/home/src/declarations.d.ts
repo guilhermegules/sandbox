@@ -37,3 +37,12 @@ declare module "*.svg" {
   const src: string;
   export default src;
 }
+
+declare module "@mfe/styleguide" {
+  const Button: React.FC<{
+    className: string;
+    children: React.ReactNode;
+    onClick: (e) => void;
+  }>;
+  export { Button };
+}

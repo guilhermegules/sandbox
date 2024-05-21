@@ -1,3 +1,5 @@
+import { Button } from "@mfe/styleguide";
+
 type MessageFieldProps = {
   onChangeMessage: (message: string) => void;
   message: string;
@@ -19,12 +21,12 @@ export const MessageField = ({
         onChange={(event) => onChangeMessage(event.target.value)}
         value={message}
       ></textarea>
-      <button
-        className="bg-blue-300 text-white p-4 ml-2 rounded"
+      <Button
+        className="bg-blue-300 text-white p-4 ml-2"
         onClick={() => onSubmitMessage(message)}
       >
         Send
-      </button>
+      </Button>
     </>
   );
 };
