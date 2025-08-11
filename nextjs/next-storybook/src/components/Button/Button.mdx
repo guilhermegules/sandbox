@@ -1,0 +1,17 @@
+import { Meta, Canvas, Story, ArgsTable } from "@storybook/blocks";
+import Button from "./Button";
+import * as ButtonStories from './Button.stories';
+
+<Meta of={ButtonStories} />
+
+# Button
+
+Description of button
+
+<ArgsTable of={Button} />
+
+## Button example
+
+<Canvas>
+  <Story of={ButtonStories.ButtonExample} />
+</Canvas>

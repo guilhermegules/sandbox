@@ -1,0 +1,39 @@
+{
+  "name": "next-storybook",
+  "version": "1.0.0",
+  "main": "index.js",
+  "author": "Guilherme Gules Moreira",
+  "license": "MIT",
+  "scripts": {
+    "start": "next start",
+    "dev": "next dev",
+    "build": "next build",
+    "dev:docs": "storybook dev -p 6006 --no-open",
+    "storybook:build": "storybook build"
+  },
+  "dependencies": {
+    "addon-screen-reader": "^1.8.6",
+    "next": "^13.4.10",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "styled-components": "^6.0.5"
+  },
+  "devDependencies": {
+    "@storybook/addon-essentials": "^7.1.1",
+    "@storybook/addon-interactions": "^7.1.1",
+    "@storybook/addon-links": "^7.1.1",
+    "@storybook/addon-mdx-gfm": "^7.1.1",
+    "@storybook/addon-onboarding": "^1.0.8",
+    "@storybook/blocks": "^7.1.1",
+    "@storybook/manager-api": "^7.2.1",
+    "@storybook/nextjs": "^7.1.1",
+    "@storybook/react": "^7.1.1",
+    "@storybook/testing-library": "^0.2.0",
+    "@storybook/theming": "^7.2.1",
+    "@types/node": "20.4.2",
+    "@types/react": "18.2.15",
+    "@types/styled-components": "^5.1.26",
+    "storybook": "^7.1.1",
+    "typescript": "5.1.6"
+  }
+}
