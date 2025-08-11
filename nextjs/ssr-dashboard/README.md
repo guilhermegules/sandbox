@@ -8,6 +8,8 @@ This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-
 - MongoDB integration
 - Ready-to-use dashboard structure
 
+![Dashboard](image.png)
+
 ## Getting Started
 
 ### 1. Install Dependencies

@@ -1,6 +1,5 @@
 "use client";
 
-import { User } from "@/types/user";
 import {
   Chart as ChartJS,
   CategoryScale,
@@ -25,7 +24,7 @@ const options = {
   responsive: true,
   plugins: {
     legend: { position: "top" as const },
-    title: { display: true, text: "Usuários e pagamentos por Mês" },
+    title: { display: true, text: "Users and payment count by month" },
   },
 };
 
@@ -46,11 +45,12 @@ function getMonthNames(
 
 const labels = getMonthNames();
 
-type UserChartProps = {
+type ChartProps = {
   users: number[];
+  payments: number[];
 };
 
-export default function UserChart({ users }: UserChartProps) {
+export default function Chart({ users, payments }: ChartProps) {
   const data = {
     labels,
     datasets: [
@@ -61,7 +61,7 @@ export default function UserChart({ users }: UserChartProps) {
       },
       {
         label: "Payments",
-        data: [],
+        data: payments,
         backgroundColor: "rgba(59, 246, 130, 0.5)",
       },
     ],
