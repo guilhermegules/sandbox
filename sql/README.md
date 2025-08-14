@@ -1,3 +1,3 @@
-# Banco de dados aplicado
+# Applied database
 
-Repositório para a disciplina de banco de dados aplicado
+Repository for database applied study
