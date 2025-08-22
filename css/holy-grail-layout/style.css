@@ -1,5 +1,10 @@
 :root {
   --background-page: #0b0d12;
+  --primary-color: #121621;
+  --text-color: #e7e9ee;
+  --secondary-color: #1e2636;
+  --panel-color: #0f1320;
+  --link-color: #8ab4ff;
 }
 
 .page {
@@ -7,7 +12,7 @@
   display: grid;
   grid-template-rows: auto 1fr auto;
   background: var(--background-page);
-  color: #e7e9ee;
+  color: var(--text-color);
   font: 16px system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
   padding: 0;
   margin: 0;
@@ -16,8 +21,8 @@
 header,
 footer {
   padding: 0 1rem clamp(1rem, 4vw, 2rem);
-  background: #121621;
-  border-block: 1px solid #1e2636;
+  background: var(--primary-color);
+  border-block: 1px solid var(--secondary-color);
 }
 
 footer {
@@ -45,8 +50,8 @@ aside.extra {
 }
 
 .panel {
-  background: #0f1320;
-  border: 1px solid #1e2636;
+  background: var(----panel-color);
+  border: 1px solid var(--secondary-color);
   border-radius: 12px;
   padding: 1rem;
 }
@@ -69,9 +74,9 @@ aside.extra {
     list-style: none;
     cursor: pointer;
     padding: 0.75rem 1rem;
-    border: 1px solid #2a3550;
+    border: 1px solid var(--secondary-color);
     border-radius: 10px;
-    background: #12182a;
+    background: var(----panel-color);
   }
 
   .sidebar summary::marker {
@@ -97,7 +102,7 @@ aside.extra {
 }
 
 a {
-  color: #8ab4ff;
+  color: var(--link-color);
   text-decoration: none;
 }
 
