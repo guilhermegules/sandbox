@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Asymmetrical Grid Gallery</title>
+    <link rel="stylesheet" href="css/global.css" />
+    <link rel="stylesheet" href="css/h1.css" />
+    <link rel="stylesheet" href="css/header.css" />
+    <link rel="stylesheet" href="css/controls.css" />
+    <link rel="stylesheet" href="css/card.css" />
+    <link rel="stylesheet" href="css/footer.css" />
+    <link rel="stylesheet" href="css/wrap.css" />
+    <link rel="stylesheet" href="css/grid.css" />
+    <link rel="stylesheet" href="css/badge.css" />
+  </head>
+  <body>
+    <div class="wrap">
+      <header>
+        <h1>
+          Asymmetrical Grid Gallery
+          <span style="opacity: 0.6; font-weight: 500"
+            >(auto-fit + minmax)</span
+          >
+        </h1>
+        <div class="controls">
+          <label for="col-width" class="sr-only">Column min width</label>
+          <select id="col-width" title="Column min width">
+            <option value="180">min 180px</option>
+            <option value="220" selected>min 220px</option>
+            <option value="260">min 260px</option>
+            <option value="320">min 320px</option>
+            <option value="440">min 440px</option>
+          </select>
+          <button id="toggle-gap" type="button">Toggle Gap</button>
+        </div>
+      </header>
+
+      <main class="grid" id="grid">
+        <article class="card">
+          <article class="media">
+            <img
+              loading="lazy"
+              src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?q=80&w=1200&auto=format&fit=crop"
+              alt="Mountains at dawn"
+            />
+            <span class="badge">Nature</span>
+          </article>
+          <div class="body">
+            <h2 class="title">Peaks at Dawn</h2>
+            <div class="meta">
+              <span>By Alex</span><span class="dot"></span
+              ><span>4 min read</span>
+            </div>
+          </div>
+        </article>
+
+        <article class="card">
+          <article class="media">
+            <img
+              loading="lazy"
+              src="https://images.unsplash.com/photo-1495567720989-cebdbdd97913?q=80&w=1200&auto=format&fit=crop"
+              alt="Tall cactus"
+            />
+            <span class="badge">Plants</span>
+          </article>
+          <div class="body">
+            <h2 class="title">Desert Vertical</h2>
+            <div class="meta">
+              <span>By Sam</span><span class="dot"></span
+              ><span>2 min read</span>
+            </div>
+          </div>
+        </article>
+
+        <article class="card">
+          <article class="media">
+            <img
+              loading="lazy"
+              src="https://images.unsplash.com/photo-1755018237411-2c3994eb9a0b?q=80&w=870&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+              alt="A man shadow"
+            />
+            <span class="badge">Daily</span>
+          </article>
+          <div class="body">
+            <h2 class="title">Morning Rituals</h2>
+            <div class="meta">
+              <span>By Lee</span><span class="dot"></span
+              ><span>6 min read</span>
+            </div>
+          </div>
+        </article>
+
+        <article class="card">
+          <article class="media">
+            <img
+              loading="lazy"
+              src="https://images.unsplash.com/photo-1460353581641-37baddab0fa2?q=80&w=1200&auto=format&fit=crop"
+              alt="City skyline"
+            />
+            <span class="badge">City</span>
+          </article>
+          <div class="body">
+            <h2 class="title">Skylines & Stories</h2>
+            <div class="meta">
+              <span>By Ren</span><span class="dot"></span
+              ><span>5 min read</span>
+            </div>
+          </div>
+        </article>
+
+        <article class="card">
+          <article class="media">
+            <img
+              loading="lazy"
+              src="https://images.unsplash.com/photo-1476610182048-b716b8518aae?q=80&w=1200&auto=format&fit=crop"
+              alt="Forest footpath"
+            />
+            <span class="badge">Travel</span>
+          </article>
+          <div class="body">
+            <h2 class="title">Misty Walk</h2>
+            <div class="meta">
+              <span>By Jo</span><span class="dot"></span><span>3 min read</span>
+            </div>
+          </div>
+        </article>
+
+        <article class="card">
+          <article class="media">
+            <img
+              loading="lazy"
+              src="https://images.unsplash.com/photo-1470770903676-69b98201ea1c?q=80&w=1200&auto=format&fit=crop"
+              alt="Ocean waves"
+            />
+            <span class="badge">Sea</span>
+          </article>
+          <div class="body">
+            <h2 class="title">Breaking Waves</h2>
+            <div class="meta">
+              <span>By Kai</span><span class="dot"></span
+              ><span>1 min read</span>
+            </div>
+          </div>
+        </article>
+
+        <article class="card">
+          <article class="media">
+            <img
+              loading="lazy"
+              src="https://images.unsplash.com/photo-1472214103451-9374bd1c798e?q=80&w=1200&auto=format&fit=crop"
+              alt="Studio desk"
+            />
+            <span class="badge">Design</span>
+          </article>
+          <div class="body">
+            <h2 class="title">Workspace Vibes</h2>
+            <div class="meta">
+              <span>By Val</span><span class="dot"></span
+              ><span>7 min read</span>
+            </div>
+          </div>
+        </article>
+
+        <article class="card">
+          <article class="media">
+            <img
+              loading="lazy"
+              src="https://images.unsplash.com/photo-1461749280684-dccba630e2f6?q=80&w=1200&auto=format&fit=crop"
+              alt="Code on screen"
+            />
+            <span class="badge">Code</span>
+          </article>
+          <div class="body">
+            <h2 class="title">Refactor Tales</h2>
+            <div class="meta">
+              <span>By Kim</span><span class="dot"></span
+              ><span>8 min read</span>
+            </div>
+          </div>
+        </article>
+
+        <article class="card">
+          <article class="media">
+            <img
+              loading="lazy"
+              src="https://images.unsplash.com/photo-1452570053594-1b985d6ea890?q=80&w=1200&auto=format&fit=crop"
+              alt="Books stack"
+            />
+            <span class="badge">Books</span>
+          </article>
+          <div class="body">
+            <h2 class="title">Reading List 2025</h2>
+            <div class="meta">
+              <span>By Pat</span><span class="dot"></span
+              ><span>9 min read</span>
+            </div>
+          </div>
+        </article>
+
+        <article class="card">
+          <article class="media">
+            <img
+              loading="lazy"
+              src="https://images.unsplash.com/photo-1500534314209-a25ddb2bd429?q=80&w=1200&auto=format&fit=crop"
+              alt="Northern lights"
+            />
+            <span class="badge">Sky</span>
+          </article>
+          <div class="body">
+            <h2 class="title">Aurora Nights</h2>
+            <div class="meta">
+              <span>By Neo</span><span class="dot"></span
+              ><span>4 min read</span>
+            </div>
+          </div>
+        </article>
+
+        <article class="card">
+          <figure class="media">
+            <img
+              loading="lazy"
+              src="https://images.unsplash.com/photo-1482192505345-5655af888cc4?q=80&w=1200&auto=format&fit=crop"
+              alt="Pasta dish"
+            />
+            <span class="badge">Food</span>
+          </figure>
+          <div class="body">
+            <h2 class="title">Carbonara Cozy</h2>
+            <div class="meta">
+              <span>By Bea</span><span class="dot"></span
+              ><span>12 min read</span>
+            </div>
+          </div>
+        </article>
+
+        <article class="card">
+          <article class="media">
+            <img
+              loading="lazy"
+              src="https://images.unsplash.com/photo-1441974231531-c6227db76b6e?q=80&w=1200&auto=format&fit=crop"
+              alt="Forest lake"
+            />
+            <span class="badge">Calm</span>
+          </article>
+          <div class="body">
+            <h2 class="title">Still Waters</h2>
+            <div class="meta">
+              <span>By Ana</span><span class="dot"></span
+              ><span>3 min read</span>
+            </div>
+          </div>
+        </article>
+      </main>
+
+      <footer>
+        Built with
+        <code>grid-template-columns: repeat(auto-fit, minmax(...))</code> and
+        naturally varying content heights.
+      </footer>
+    </div>
+
+    <script>
+      const grid = document.getElementById("grid");
+      const select = document.getElementById("col-width");
+      const toggleGap = document.getElementById("toggle-gap");
+
+      select.addEventListener("change", (e) => {
+        document.documentElement.style.setProperty(
+          "--min",
+          e.target.value + "px"
+        );
+      });
+
+      let tight = false;
+      toggleGap.addEventListener("click", () => {
+        tight = !tight;
+        document.documentElement.style.setProperty(
+          "--gap",
+          tight ? "8px" : "16px"
+        );
+      });
+    </script>
+  </body>
+</html>
