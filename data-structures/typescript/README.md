@@ -50,3 +50,45 @@ A linked list is a sequential list of nodes that hold data which point to other 
 | Remove at head   | O(1)          | O(1)          |
 | Remove at tail   | O(n)          | O(1)          |
 | Remove in middle | O(n)          | O(n)          |
+
+## Stack
+
+### What is a Stack?
+
+A stack is a one-ended linear data structure which models a real world stack by having two primary operations, namely **push** and **pop**.
+
+LIFO - Last In First Out
+
+![alt text](docs/stack.png)
+
+### When and where is a Stack used?
+
+- Used by undo mechanisms in text editors
+- Used by compiler syntax checking for matchin brackets and braces
+- Can be used to model a pile of book plates
+- Used behind the scenes to support recursion by keeping track of previous function calls
+- Can be used to do a Depth First Search (DFS) on a graph
+
+### Example - Brackets
+
+Problem: Given a string made of the following brackets: ()[]{}, determine whether the brackets properly match.
+
+- [{}] -> Valid
+- (()()) -> Valid
+- {] -> Invalid
+- [()]))() -> Invalid
+- []{}({}) -> Valid
+
+Bracket sequence:
+
+- [[{}]()]
+  - [
+  - [[
+  - [[{
+  - [[{} -> Removes {} Matched
+  - [[] -> Removes [] Matched
+  - [(
+  - [() -> Removes () Matched
+  - [] -> Removes [] Matched
+  - Check if stack is empty
+  - Structure is valid
