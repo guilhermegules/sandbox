@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sticky Overlap Sections</title>
+    <style>
+      body {
+        margin: 0;
+        font-family: sans-serif;
+      }
+
+      section {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 3rem;
+        color: white;
+        font-weight: bold;
+        width: 100%;
+      }
+
+      .sticky {
+        position: sticky;
+        top: 0; /* Effect top to bottom */
+        /* bottom: 0; Effect bottom to top, comment top property */
+      }
+
+      .one {
+        background: #ff6b6b;
+        height: 500px;
+        z-index: 3;
+      }
+
+      .two {
+        background: #4ecdc4;
+        height: 800px;
+        z-index: 2;
+      }
+
+      .three {
+        background: #1a535c;
+        height: 800px;
+        z-index: 1;
+      }
+    </style>
+  </head>
+  <body>
+    <section class="sticky one">Section 1</section>
+    <section class="sticky two">Section 2</section>
+    <section class="sticky three">Section 3</section>
+  </body>
+</html>
