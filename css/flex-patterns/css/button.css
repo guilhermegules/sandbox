@@ -1,0 +1,22 @@
+.btn {
+  appearance: none;
+  border: 1px solid var(--border);
+  background: #16202b;
+  color: var(--card-ink);
+  padding: 8px 12px;
+  border-radius: 10px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: transform 0.12s ease, box-shadow 0.12s ease;
+}
+
+.btn:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.25);
+}
+
+.btn--primary {
+  background: linear-gradient(180deg, #1f3344, #182534);
+  color: #e7f5ff;
+  border-color: #26465d;
+}
