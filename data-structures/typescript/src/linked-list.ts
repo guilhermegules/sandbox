@@ -82,6 +82,14 @@ export class LinkedList<Type> {
     return this.head?.getData()!;
   }
 
+  peekLast(): Type {
+    if (this.isEmpty()) {
+      throw new Error("Empty list");
+    }
+
+    return this.tail?.getData()!;
+  }
+
   removeFirst(): Type {
     if (this.isEmpty()) {
       throw new Error("Empty list");
