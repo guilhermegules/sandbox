@@ -1,0 +1,8 @@
+.basic-grid {
+    display: grid;
+    gap: 1rem;
+    /*better code grid-template-columns: repeat(12, 1fr);*/
+    /* better sizing, but overflows grid-template-columns: repeat(12, minmax(240px, 1fr));*/
+    /*final */
+    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+}
