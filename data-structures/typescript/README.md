@@ -192,3 +192,9 @@ While Q is not empty Do
 | Advanced removing with help from a hash table\*\* | O(log(n))      |
 | Naive contains                                    | O(n)           |
 | Contains check with help of a hash table\*\*      | O(1)           |
+
+### Turning Min PQ into Max PQ
+
+Problem: Often the standard library of most programming languages only provide a min PQ which sorts by smallest elements first.
+
+Since elements in a priority queue are comparable they implement some sort of comparable interface which we can simply negate to achieve a Max heap.
