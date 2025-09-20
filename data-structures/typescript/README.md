@@ -140,3 +140,55 @@ While Q is not empty Do
       neighbour.bisited = true
       Q.enqueue(neighbour)
 ```
+
+## Priority Queues (PQs)
+
+### What is a priority queue?
+
+- Is a abstract data type that operates similar to a normal queue except that **each element has a certain priority**.
+- The priority of the elements in the priority queue determine the order in which elements are removed from the PQ
+
+### What is a Heap?
+
+- A heap is a tree based DS that satisfies the heap invariant, also called heap property: If A is a parent node of B then Ais ordered with respect to B for all nodes A, B in the heap
+
+![alt text](./docs/heap.png)
+
+### Is this a valid heap?
+
+![alt text](./docs/invalid-heap-1.png)
+
+![alt text](./docs/valid-heap-1.png)
+
+![alt text](./docs/valid-heap-2.png)
+
+![alt text](./docs/invalid-heap-2.png)
+
+![alt text](./docs/invalid-heap-3.png)
+
+![alt text](./docs/valid-heap-3.png)
+
+### When and where is a PQ used?
+
+- Used in certain implementations of Dijkstra's Shortest Path algorithm.
+- Anytime you need dynamically fetch the "next best" or "next worst" element.
+- Used in Huffman coding (which is often used for lossless data compression).
+- Best First Search (BFS) algorithms such as A\* use PQs to continuously grab the next most promissing node.
+- Used by Miknimum Spanning Tree (MST) algorithms.
+
+### Complexity PQ with binary heap
+
+> \* O(log(n)) is because the is necessary to restore the heap invariant
+
+> \*\* Using hash table to help optimize these operations does take up linear space and also adds some overhead to the binary heap implementation
+
+| Operation                                         | Priority Queue |
+| ------------------------------------------------- | -------------- |
+| Binary Heap Construction                          | O(n)           |
+| Polling\*                                         | O(log(n))      |
+| Peeking                                           | O(1)           |
+| Adding\*                                          | O(log(n))      |
+| Naive Removing                                    | O(n)           |
+| Advanced removing with help from a hash table\*\* | O(log(n))      |
+| Naive contains                                    | O(n)           |
+| Contains check with help of a hash table\*\*      | O(1)           |
