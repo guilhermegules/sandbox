@@ -198,3 +198,18 @@ While Q is not empty Do
 Problem: Often the standard library of most programming languages only provide a min PQ which sorts by smallest elements first.
 
 Since elements in a priority queue are comparable they implement some sort of comparable interface which we can simply negate to achieve a Max heap.
+
+### Adding elements to binary heap
+
+Priority queues are usually implemented with heaps since this gives them the best time complexity
+
+The PQ is an **Abstract Data Type** hence heaps are not the only way to implement PQs. As an example. we could use an unsorted list, but this would not gibe us the best possible time complexity
+
+There are many types of heaps we could use to implement a priority queue including:
+
+- Binary Heap
+- Fibonacci Heap
+- Binomial Heap
+- Pairing Heap
+
+A **binary heap** is a **binary tree** that supports the **heap invariant**. In a binary tree every node has exactly two children.
