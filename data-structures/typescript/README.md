@@ -213,3 +213,28 @@ There are many types of heaps we could use to implement a priority queue includi
 - Pairing Heap
 
 A **binary heap** is a **binary tree** that supports the **heap invariant**. In a binary tree every node has exactly two children.
+
+### Removing elements from binary heap
+
+- poll() - remove the root node and rebalance the tree to follow the invariant
+- remove() - remove the passed node, swapping the passed node with the last node in the tree looking for the last node in the right, and rebalance the tree to follow the invariant
+- Polling - O(log(n))
+- Removing - O(n)
+
+### Removing elements from binary heap in O(log(n))
+
+The inefficiency of the removal algorithm comes from the fact that we have to perform a linear search to find out where an element is indexed at. What if instead we did a lookup using a Hashtable to find out where a node is indexed at?
+
+A hashtable provides a constant time lookup and update for a mapping from key (node value) to value (the index).
+
+**Caveat:** what if there are two or more nodes with the same value? What problems would that cause?
+
+#### Dealing with the multiple value problem:
+
+Instead of mapping one value to one position we will mape one value to multiple positions. We can maintain a **Set** or **Tree Set** of indexes for which a particular node value (key) maps to.
+
+![](./docs/index-tree.png)
+
+**Question:** If we want to remove a repeated node in our heap, which node do we remove and does it matter which one we pick?
+
+**Answer:** No it doesn't matter which node we remove as long as we satisfy the heap invariant in the end.
