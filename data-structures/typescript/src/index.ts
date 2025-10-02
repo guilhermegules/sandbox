@@ -32,3 +32,41 @@ console.log(stack.pop());
 console.log(stack.peek());
 
 console.log("----STACK END----");
+
+import { PriorityQueue } from "./priority-queue";
+
+console.log("----PRIORITY QUEUE START----");
+
+// Create a new priority queue and add elements
+const pq = new PriorityQueue<number>({});
+
+pq.add(5);
+pq.add(3);
+pq.add(4);
+pq.add(1);
+pq.add(2);
+
+console.log("Initial priority queue (min-heap order not guaranteed in print):");
+console.log(pq);
+
+console.log("Peek (should be 1):", pq.peek());
+
+console.log("Contains 3 (should be true):", pq.contains(3));
+console.log("Contains 10 (should be false):", pq.contains(10));
+
+console.log("Remove 3:");
+pq.remove(3);
+console.log("Contains 3 (should be false):", pq.contains(3));
+console.log("Peek (should be 1):", pq.peek());
+
+console.log("Pool (remove root):", pq.pool());
+console.log("Peek after pool (should be 2):", pq.peek());
+
+console.log("Size (should be 3):", pq.size());
+
+console.log("Clear queue");
+pq.clear();
+console.log("Is empty (should be true):", pq.isEmpty());
+console.log("Size (should be 0):", pq.size());
+
+console.log("----PRIORITY QUEUE END----");
