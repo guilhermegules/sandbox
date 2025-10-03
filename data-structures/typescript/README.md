@@ -238,3 +238,34 @@ Instead of mapping one value to one position we will mape one value to multiple 
 **Question:** If we want to remove a repeated node in our heap, which node do we remove and does it matter which one we pick?
 
 **Answer:** No it doesn't matter which node we remove as long as we satisfy the heap invariant in the end.
+
+## Union Find (Disjoint Set)
+
+**Union Find** is a data structure that keeps track of elements which are split into one or more disjoint sets.
+
+Its has two primary operations: **find** and **union**.
+
+### Magnets example
+
+![](./docs/union-find-magnets-example.png)
+
+### When and where is a union find used?
+
+- Kruskal's minimum spanning tree algorithm
+- Grid percolation
+- Network connectivity
+- Least common ancestor in trees
+- Image processing
+
+### Complexity
+
+| Operation          | Complexity |
+| ------------------ | ---------- |
+| Construction       | O(n)       |
+| Union              | a(n)       |
+| Find               | a(n)       |
+| Get component size | a(n)       |
+| Check if connected | a(n)       |
+| Count components   | O(1)       |
+
+> a(n) - Amortized constant time
