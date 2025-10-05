@@ -283,3 +283,18 @@ Given a graph `G = (V, E)` we want to find a **Minimum Spanning Tree** in the gr
 ![](./docs/minimum-spanning-tree-first-merge.png)
 
 ![](./docs/minimum-spanning-tree-complete.png)
+
+### Creating union find
+
+To begin using union find, first construct a bijection (a mapping) between your objects and the integers in the range (0, n).
+
+> This step is not necessary in general, but will allow us to construct an array based union find.
+
+![](./docs/union-find-creation.png)
+
+![](./docs/union-find-creation-complete.png)
+
+#### Summary
+
+- Find operation -> To **find** which component a particular elements belongs to find the root of that component by following the parent nodes until a self loop is reached (a node who's parent is itself)
+- Union operation -> To **unify** two elements find which are the root nodes of each component and if the root nodes are different make one of the root nodes be the parent of the other.
