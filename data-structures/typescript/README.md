@@ -298,3 +298,10 @@ To begin using union find, first construct a bijection (a mapping) between your 
 
 - Find operation -> To **find** which component a particular elements belongs to find the root of that component by following the parent nodes until a self loop is reached (a node who's parent is itself)
 - Union operation -> To **unify** two elements find which are the root nodes of each component and if the root nodes are different make one of the root nodes be the parent of the other.
+
+#### Remarks
+
+- In this data structure, we do not "un-union" elements. In general, this would be very inefficient to do since we would have to update all the children of a node.
+- The number of components is equal to the number of roots remaining. Also, remark that the number of root nodes never increases.
+- Our current version of Union Find does not support the nice a(n) time complexity we want.
+- Checking if H and B belong to the same group takes five hops and in the worst case can be more.
