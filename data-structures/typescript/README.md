@@ -305,3 +305,13 @@ To begin using union find, first construct a bijection (a mapping) between your 
 - The number of components is equal to the number of roots remaining. Also, remark that the number of root nodes never increases.
 - Our current version of Union Find does not support the nice a(n) time complexity we want.
 - Checking if H and B belong to the same group takes five hops and in the worst case can be more.
+
+### Path Compression Union Find
+
+![](./docs/union-find-path-compression.png)
+
+![](./docs/union-find-path-compression-1.png)
+
+![](./docs/union-find-path-compression-2.png)
+
+![](./docs/union-find-path-compression-3.png)

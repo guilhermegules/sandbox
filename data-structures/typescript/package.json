@@ -3,14 +3,18 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "start": "ts-node --project ./tsconfig.json src/index"
+    "start": "ts-node --project ./tsconfig.json src/index",
+    "test": "jest"
   },
   "keywords": [],
   "author": "Guilherme Gules Moreira",
   "license": "ISC",
   "description": "Data structures with TypeScript",
   "devDependencies": {
+    "@types/jest": "^30.0.0",
     "@types/node": "^24.3.0",
+    "jest": "^30.2.0",
+    "ts-jest": "^29.4.4",
     "ts-node": "^10.9.2",
     "tslib": "^2.8.1",
     "typescript": "^5.9.2"
