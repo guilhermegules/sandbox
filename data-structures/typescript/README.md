@@ -315,3 +315,45 @@ To begin using union find, first construct a bijection (a mapping) between your 
 ![](./docs/union-find-path-compression-2.png)
 
 ![](./docs/union-find-path-compression-3.png)
+
+## Binary Trees and Binary Search Trees (BST)
+
+A tree is an undirected graph which satistfies any of the following definitions
+
+- An acyclic (no cycles) connected graph
+- A conected graph with N nodes and N-1 edges
+- An graph in which any two vertices are connectred by exactly one path
+
+A **child** is a node extending from another node. A **parent** is the inverse of this.
+A **leaf node** is a node with no children. A subtree is a tree entirely contained in another tree.
+
+### What is a binary tree?
+
+A binary tree is a tree for which every node has at most two child nodes.
+
+### What is a Binary Search Tree?
+
+A binary search tree is a binary tree that satisfies the BST invariant: left subtree has smaller elements and right subtree has larger elements.
+
+![](./docs/bst-tree.png)
+
+### When and where are Binary Tree used?
+
+- Binary Search Trees
+  - Implementation of map and set ADTs
+  - Red Black Trees
+  - AVL Trees
+  - Splay Trees
+  - Etc...
+- Used in the implementation of binary heaps
+- Syntax trees (used by compiler and calculators)
+- Treap - a probabilistic DS (uses a randomized BST)
+
+### Complexity
+
+| Operation | Average   | Worst |
+| --------- | --------- | ----- |
+| Insert    | O(log(n)) | O(n)  |
+| Delete    | O(log(n)) | O(n)  |
+| Remove    | O(log(n)) | O(n)  |
+| Search    | O(log(n)) | O(n)  |
