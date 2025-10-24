@@ -1,0 +1,7 @@
+﻿services:
+  fizz-buzz:
+    image: fizz-buzz
+    build:
+      context: .
+      dockerfile: Dockerfile
+
