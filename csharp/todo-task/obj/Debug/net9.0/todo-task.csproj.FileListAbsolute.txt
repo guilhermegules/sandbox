@@ -1,0 +1,15 @@
+/home/guilherme.moreira/personal/csharp-playground/todo-task/bin/Debug/net9.0/todo-task
+/home/guilherme.moreira/personal/csharp-playground/todo-task/bin/Debug/net9.0/todo-task.deps.json
+/home/guilherme.moreira/personal/csharp-playground/todo-task/bin/Debug/net9.0/todo-task.runtimeconfig.json
+/home/guilherme.moreira/personal/csharp-playground/todo-task/bin/Debug/net9.0/todo-task.dll
+/home/guilherme.moreira/personal/csharp-playground/todo-task/bin/Debug/net9.0/todo-task.pdb
+/home/guilherme.moreira/personal/csharp-playground/todo-task/obj/Debug/net9.0/todo-task.GeneratedMSBuildEditorConfig.editorconfig
+/home/guilherme.moreira/personal/csharp-playground/todo-task/obj/Debug/net9.0/todo-task.AssemblyInfoInputs.cache
+/home/guilherme.moreira/personal/csharp-playground/todo-task/obj/Debug/net9.0/todo-task.AssemblyInfo.cs
+/home/guilherme.moreira/personal/csharp-playground/todo-task/obj/Debug/net9.0/todo-task.csproj.CoreCompileInputs.cache
+/home/guilherme.moreira/personal/csharp-playground/todo-task/obj/Debug/net9.0/todo-task.sourcelink.json
+/home/guilherme.moreira/personal/csharp-playground/todo-task/obj/Debug/net9.0/todo-task.dll
+/home/guilherme.moreira/personal/csharp-playground/todo-task/obj/Debug/net9.0/refint/todo-task.dll
+/home/guilherme.moreira/personal/csharp-playground/todo-task/obj/Debug/net9.0/todo-task.pdb
+/home/guilherme.moreira/personal/csharp-playground/todo-task/obj/Debug/net9.0/todo-task.genruntimeconfig.cache
+/home/guilherme.moreira/personal/csharp-playground/todo-task/obj/Debug/net9.0/ref/todo-task.dll
