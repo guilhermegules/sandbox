@@ -2,6 +2,50 @@
 
 > Implementing data structures with TypeScript
 
+## Resume
+
+| Array                                                                    | Linked List                                                             |
+| ------------------------------------------------------------------------ | ----------------------------------------------------------------------- |
+| Size of array is fixed                                                   | Size of a list is not fixed                                             |
+| Memory is allocated from stack                                           | Memory is allocated from heap                                           |
+| It is necessary to specify the number of elements during the declaration | It's not necessary to specify the number of elements during declaration |
+| It occupies less memory thant linked list                                | Occupies more memory                                                    |
+
+| Stack                                                        | Queue                                                        |
+| ------------------------------------------------------------ | ------------------------------------------------------------ |
+| Follows **LIFO** (Last In, First Out) order                  | Follows **FIFO** (First In, First Out) order                 |
+| Insertion and deletion happen at the **same end** (top)      | Insertion happens at **rear**, deletion happens at **front** |
+| Example operations: `push()`, `pop()`                        | Example operations: `enqueue()`, `dequeue()`                 |
+| Used in function calls, undo features, expression evaluation | Used in scheduling, buffering, and task management           |
+
+| Queue                                          | Deque (Double-Ended Queue)                             |
+| ---------------------------------------------- | ------------------------------------------------------ |
+| Insertion at rear and deletion at front only   | Insertion and deletion allowed at **both ends**        |
+| Supports only one type of removal and addition | More flexible — can act as both **stack and queue**    |
+| Easier to implement, simpler structure         | Slightly more complex implementation                   |
+| Examples: task scheduling, printer queue       | Examples: palindrome checking, sliding window problems |
+
+| Stack Memory                              | Heap Memory                                                   |
+| ----------------------------------------- | ------------------------------------------------------------- |
+| Memory is allocated **automatically**     | Memory is allocated **manually or dynamically**               |
+| Size is usually **limited and fixed**     | Size can grow or shrink dynamically                           |
+| Stores local variables and function calls | Stores dynamically allocated data (e.g., via `new`, `malloc`) |
+| Faster access                             | Slower access due to fragmentation and management overhead    |
+
+| Tree                                                         | Graph                                                         |
+| ------------------------------------------------------------ | ------------------------------------------------------------- |
+| A **hierarchical** structure with parent-child relationships | A **network** structure — connections can be in any direction |
+| Has **one root** and no cycles                               | Can have **multiple roots** and **cycles**                    |
+| Example: binary tree, BST, AVL tree                          | Example: social networks, road maps                           |
+| Edges are **directed from parent to child**                  | Edges can be **directed or undirected**                       |
+
+| Binary Tree                              | Binary Search Tree (BST)                         |
+| ---------------------------------------- | ------------------------------------------------ |
+| Each node has at most two children       | Each node follows: left < root < right           |
+| No specific ordering among nodes         | Maintains **sorted order**                       |
+| Used for general hierarchical structures | Used for **fast searching, insertion, deletion** |
+| Example: expression tree                 | Example: database indexing                       |
+
 ## Linked lists
 
 A linked list is a sequential list of nodes that hold data which point to other nodes also containing data.
