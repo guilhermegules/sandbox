@@ -357,3 +357,37 @@ A binary search tree is a binary tree that satisfies the BST invariant: left sub
 | Delete    | O(log(n)) | O(n)  |
 | Remove    | O(log(n)) | O(n)  |
 | Search    | O(log(n)) | O(n)  |
+
+### Adding elements to a BST
+
+Binary search tree elements must be comparable so that we can order tem inside the tree.
+
+When inserting an element we want to compare its value to the stored in the current node we're considering to decide on one of the following:
+
+- Recurse down left subtree (< case)
+- Recurse down right subtree (> case)
+- Handle finding a duplicate value (= case)
+- Create a new node (found a null leaf)
+
+### Removing elements from BST
+
+1. Find the element we wish to remove (if it exists)
+2. Replace the node we want to remove with its successor to main the invariant
+
+#### Remove phase
+
+![](./docs/bst-remove-phase.png)
+
+Case 1: Leaf node
+
+- If the node we wish to remove is a leaf node then we may do without side effect
+
+Case 2 and 3:
+
+- Either the left/right child node is a subtree
+- The successor of the node we are trying to remove in these cases will be the root node of the left/right subtree
+- It may be the case that you are removing the root node of the BST in which case its immediate child becomes the new root as you would expect
+
+Case 4:
+
+- Node to remove has both a left subtree and right subtree
