@@ -1,14 +1,5 @@
 ﻿using todo_task;
 
-enum Operation
-{
-    Add = 1,
-    Remove = 2,
-    Search = 3,
-    List = 4,
-    Exit = 0
-}
-
 class Program
 {
     static void Add(List<TodoTask> tasks, int nextId)
