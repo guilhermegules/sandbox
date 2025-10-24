@@ -1,0 +1,7 @@
+﻿services:
+  calculator:
+    image: calculator
+    build:
+      context: .
+      dockerfile: Dockerfile
+
