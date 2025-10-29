@@ -2,6 +2,50 @@
 
 > Implementing data structures with TypeScript
 
+## Resume
+
+| Array                                                                    | Linked List                                                             |
+| ------------------------------------------------------------------------ | ----------------------------------------------------------------------- |
+| Size of array is fixed                                                   | Size of a list is not fixed                                             |
+| Memory is allocated from stack                                           | Memory is allocated from heap                                           |
+| It is necessary to specify the number of elements during the declaration | It's not necessary to specify the number of elements during declaration |
+| It occupies less memory thant linked list                                | Occupies more memory                                                    |
+
+| Stack                                                        | Queue                                                        |
+| ------------------------------------------------------------ | ------------------------------------------------------------ |
+| Follows **LIFO** (Last In, First Out) order                  | Follows **FIFO** (First In, First Out) order                 |
+| Insertion and deletion happen at the **same end** (top)      | Insertion happens at **rear**, deletion happens at **front** |
+| Example operations: `push()`, `pop()`                        | Example operations: `enqueue()`, `dequeue()`                 |
+| Used in function calls, undo features, expression evaluation | Used in scheduling, buffering, and task management           |
+
+| Queue                                          | Deque (Double-Ended Queue)                             |
+| ---------------------------------------------- | ------------------------------------------------------ |
+| Insertion at rear and deletion at front only   | Insertion and deletion allowed at **both ends**        |
+| Supports only one type of removal and addition | More flexible — can act as both **stack and queue**    |
+| Easier to implement, simpler structure         | Slightly more complex implementation                   |
+| Examples: task scheduling, printer queue       | Examples: palindrome checking, sliding window problems |
+
+| Stack Memory                              | Heap Memory                                                   |
+| ----------------------------------------- | ------------------------------------------------------------- |
+| Memory is allocated **automatically**     | Memory is allocated **manually or dynamically**               |
+| Size is usually **limited and fixed**     | Size can grow or shrink dynamically                           |
+| Stores local variables and function calls | Stores dynamically allocated data (e.g., via `new`, `malloc`) |
+| Faster access                             | Slower access due to fragmentation and management overhead    |
+
+| Tree                                                         | Graph                                                         |
+| ------------------------------------------------------------ | ------------------------------------------------------------- |
+| A **hierarchical** structure with parent-child relationships | A **network** structure — connections can be in any direction |
+| Has **one root** and no cycles                               | Can have **multiple roots** and **cycles**                    |
+| Example: binary tree, BST, AVL tree                          | Example: social networks, road maps                           |
+| Edges are **directed from parent to child**                  | Edges can be **directed or undirected**                       |
+
+| Binary Tree                              | Binary Search Tree (BST)                         |
+| ---------------------------------------- | ------------------------------------------------ |
+| Each node has at most two children       | Each node follows: left < root < right           |
+| No specific ordering among nodes         | Maintains **sorted order**                       |
+| Used for general hierarchical structures | Used for **fast searching, insertion, deletion** |
+| Example: expression tree                 | Example: database indexing                       |
+
 ## Linked lists
 
 A linked list is a sequential list of nodes that hold data which point to other nodes also containing data.
@@ -357,6 +401,40 @@ A binary search tree is a binary tree that satisfies the BST invariant: left sub
 | Delete    | O(log(n)) | O(n)  |
 | Remove    | O(log(n)) | O(n)  |
 | Search    | O(log(n)) | O(n)  |
+
+### Adding elements to a BST
+
+Binary search tree elements must be comparable so that we can order tem inside the tree.
+
+When inserting an element we want to compare its value to the stored in the current node we're considering to decide on one of the following:
+
+- Recurse down left subtree (< case)
+- Recurse down right subtree (> case)
+- Handle finding a duplicate value (= case)
+- Create a new node (found a null leaf)
+
+### Removing elements from BST
+
+1. Find the element we wish to remove (if it exists)
+2. Replace the node we want to remove with its successor to main the invariant
+
+#### Remove phase
+
+![](./docs/bst-remove-phase.png)
+
+Case 1: Leaf node
+
+- If the node we wish to remove is a leaf node then we may do without side effect
+
+Case 2 and 3:
+
+- Either the left/right child node is a subtree
+- The successor of the node we are trying to remove in these cases will be the root node of the left/right subtree
+- It may be the case that you are removing the root node of the BST in which case its immediate child becomes the new root as you would expect
+
+Case 4:
+
+- Node to remove has both a left subtree and right subtree
 
 ### Tree Traversals
 
