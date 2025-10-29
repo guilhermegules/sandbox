@@ -357,3 +357,12 @@ A binary search tree is a binary tree that satisfies the BST invariant: left sub
 | Delete    | O(log(n)) | O(n)  |
 | Remove    | O(log(n)) | O(n)  |
 | Search    | O(log(n)) | O(n)  |
+
+### Tree Traversals
+
+- Preorder -> Preorder prints before the recursive calls
+- Inorder -> Inorder prints between the recursive calls
+- Postorder -> Postorder prints after the recursive calls
+- Level order traversal -> In a level order traversal we want to print the nodes as they appear one layer at time.
+  - Breadth First Search (BFS)
+  - To do a BFS we will need to maintain a queue of the nodes left to explore
