@@ -1,6 +1,9 @@
 #!/bin/bash
 
 LOG_DIR="./"
+PROCESSED_FILES_DIR="./processed-logs"
+
+mkdir -p ${PROCESSED_FILES_DIR}
 
 echo "Checking files in the directory $LOG_DIR"
 
@@ -25,10 +28,10 @@ find $LOG_DIR -name "*.log" -print0 | while IFS= read -r -d '' file; do
 	lines=$(wc -l < "${file}.unique")
 	filename=$(basename "${file}.unique")
 
-	echo "File: ${filename}" >> "log_stats.txt"
-	echo "Lines: ${lines}" >> "log_stats.txt"
-	echo "Words: ${words}" >> "log_stats.txt"
-	echo "---------------------------------------" >> "log_stats.txt"
+	echo "File: ${filename}" >> "${PROCESSED_FILES_DIR}/log_stats_$(date +%F).txt"
+	echo "Lines: ${lines}" >> "${PROCESSED_FILES_DIR}/log_stats_$(date +%F).txt"
+	echo "Words: ${words}" >> "${PROCESSED_FILES_DIR}/log_stats_$(date +%F).txt"
+	echo "---------------------------------------" >> "${PROCESSED_FILES_DIR}/log_stats_$(date +%F).txt"
 
 	echo "$file processed."
 done
