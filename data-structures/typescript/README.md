@@ -2,6 +2,8 @@
 
 > Implementing data structures with TypeScript
 
+- [Data Structures From William Fiset](https://github.com/williamfiset/DEPRECATED-data-structures/tree/master)
+
 ## Resume
 
 | Array                                                                    | Linked List                                                             |
