@@ -2,8 +2,10 @@
 
 LOG_DIR="./"
 PROCESSED_FILES_DIR="./processed-logs"
+TEMP_DIR="./logs-temp"
 
 mkdir -p ${PROCESSED_FILES_DIR}
+mkdir -p ${TEMP_DIR}
 
 echo "Checking files in the directory $LOG_DIR"
 
@@ -31,7 +33,7 @@ find $LOG_DIR -name "*.log" -print0 | while IFS= read -r -d '' file; do
   echo "File: ${filename}" >>"${PROCESSED_FILES_DIR}/log_stats_$(date +%F).txt"
   echo "Lines: ${lines}" >>"${PROCESSED_FILES_DIR}/log_stats_$(date +%F).txt"
   echo "Words: ${words}" >>"${PROCESSED_FILES_DIR}/log_stats_$(date +%F).txt"
-  echo "---------------------------------------" >>"${PROCESSED_FILES_DIR}/log_stats_$(date +%F).txt"
+  echo "---------------------------------------" >> "${PROCESSED_FILES_DIR}/log_stats_$(date +%F).txt"
 
   if [[ "$filename" == *frontend* ]]; then
     sed 's/^/[FRONTEND] /' "${file}.unique" >>"${PROCESSED_FILES_DIR}/combined_log_$(date +%F).log"
@@ -45,3 +47,11 @@ find $LOG_DIR -name "*.log" -print0 | while IFS= read -r -d '' file; do
 done
 
 sort -k2 "${PROCESSED_FILES_DIR}/combined_log_$(date +%F).log" -o "${PROCESSED_FILES_DIR}/combined_log_$(date +%F).log"
+
+mv "${PROCESSED_FILES_DIR}/combined_log_$(date +%F).log" "${TEMP_DIR}/"
+mv "${PROCESSED_FILES_DIR}/log_stats_$(date +%F).txt" "${TEMP_DIR}/"
+
+tar -czf "${PROCESSED_FILES_DIR}/logs-$(date +%F).tar.gz" -C "$TEMP_DIR" .
+
+rm -r "$TEMP_DIR"
+
