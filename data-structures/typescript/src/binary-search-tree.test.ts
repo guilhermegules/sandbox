@@ -7,8 +7,6 @@ describe("BinarySearchTree", () => {
     bst = new BinarySearchTree<number>();
   });
 
-  // --- BASIC OPERATIONS ---
-
   test("should start empty", () => {
     expect(bst.isEmpty()).toBe(true);
     expect(bst.size()).toBe(0);
@@ -80,8 +78,6 @@ describe("BinarySearchTree", () => {
     expect(bst.remove(99)).toBe(false);
   });
 
-  // --- HEIGHT TESTS ---
-
   test("should compute correct height", () => {
     expect(bst.height()).toBe(0);
 
@@ -96,8 +92,6 @@ describe("BinarySearchTree", () => {
     bst.add(1);
     expect(bst.height()).toBe(4);
   });
-
-  // --- TRAVERSALS ---
 
   describe("Tree Traversals", () => {
     beforeEach(() => {

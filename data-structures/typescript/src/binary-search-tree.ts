@@ -42,12 +42,12 @@ export class BinarySearchTree<T> {
   private _add(node: Node<T> | null, elem: T): Node<T> {
     if (node === null) {
       node = new Node(null, null, elem);
-    }
-
-    if (this.compare(elem, node.data) < 0) {
-      node.left = this._add(node.left, elem);
     } else {
-      node.right = this._add(node.right, elem);
+      if (this.compare(elem, node.data) < 0) {
+        node.left = this._add(node.left, elem);
+      } else {
+        node.right = this._add(node.right, elem);
+      }
     }
 
     return node;
