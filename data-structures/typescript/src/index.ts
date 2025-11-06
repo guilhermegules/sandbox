@@ -1,6 +1,7 @@
 import { Stack } from "./stack";
 import { CustomArray } from "./array";
 import "./strings";
+import { H, Person } from "./hash-function";
 
 console.log("----ARRAY START----");
 const customArray = new CustomArray<number>(10);
@@ -70,3 +71,12 @@ console.log("Is empty (should be true):", pq.isEmpty());
 console.log("Size (should be 0):", pq.size());
 
 console.log("----PRIORITY QUEUE END----");
+
+console.log("----HASH FUNCTION START----");
+
+console.log(H(new Person("William", 21, "M")));
+console.log(H(new Person("Kate", 19, "F")));
+console.log(H(new Person("Bob", 33, "M")));
+console.log(H(new Person("Rose", 26, "F")));
+
+console.log("----HASH FUNCTION END----");
