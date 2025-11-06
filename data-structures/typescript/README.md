@@ -446,3 +446,49 @@ Case 4:
 - Level order traversal -> In a level order traversal we want to print the nodes as they appear one layer at time.
   - Breadth First Search (BFS)
   - To do a BFS we will need to maintain a queue of the nodes left to explore
+
+## Hash tables
+
+A hash table (HT) is a data structure that provides a mapping from keys to values using a technique called hashing.
+
+We refer to these as key-value pairs Keys must be unique, but values can be repeated
+
+### What is a Hash table?
+
+HTs are often used to track item frequencies. For instance, counting hte number of times a word appears in a given text.
+
+The key-value pairs you can place in a HT can be of any type not just strings and numbers, but also objects! However, the keys needs to be **hashable**.
+
+To be able to understand how a mapping is constructed between key-value pairs we first need to talk about hash functions.
+
+A hash `function H(x)` is a function that maps a key "x" to a whole number in a fixed range.
+
+For example, H`(x) = (x ** 2 - 6 * x + 9) mod 10` maps all integer keys to a range [0, 9]
+
+```
+Examples
+
+H(4) = (16 - 24 + 9) mod 10 = 1
+h(-7) = (49 + 42 + 9) mode 10 = 0
+```
+
+We can also define hash functions for arbitrary object such as strings, lists, tuples, multi data objects, etc...
+
+For a string s let `H(s)` be a hash function defined where `ASCII(x)` returns the ASCII value of the character x
+
+```
+function H(s):
+  sum := 0
+  for char in s:
+    sum = sum + ASCII(char)
+  return sum mod 50
+
+H("BB") = (66 + 66) mod 50 = 32
+```
+
+### Properties of Hash functions
+
+If `H(x) = H(y)` then objects x and y might be equal, but if `H(x) != H(y)` then x and y are certainly not equal
+
+Q: How can we use this yo our advantage to speedup comparisons?
+A: This means that instead of comparing x and y directly a smarter approach is to first compare their hash values, and only if the hash values match do we need to explicitly compare x and y
