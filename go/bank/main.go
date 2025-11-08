@@ -9,14 +9,22 @@ type CheckingAccount struct {
 	balance float64
 }
 
-func main() {
-	fmt.Println(CheckingAccount{holder: "Guilherme", branch: 1, account: 1, balance: 1000})
-	fmt.Println(CheckingAccount{"João", 231, 333, 200})
+func (c *CheckingAccount) Withdraw(withdrawValue float64) string {
+	canWithdraw := withdrawValue > 0 && withdrawValue <= c.balance
 
-	var account *CheckingAccount
-	account = new(CheckingAccount)
-	account.holder = "João da silva"
-	account.balance = 122.22
+	if canWithdraw {
+		c.balance -= withdrawValue
+		return "Withdraw made with success"
+	}
+
+	return "Balance insufficient"
+}
+
+func main() {
+	account := CheckingAccount{holder: "Guilherme", branch: 1, account: 1, balance: 1000}
+
+	fmt.Println(account.Withdraw(2000))
+	fmt.Println(account.Withdraw(100))
+	fmt.Println(account.Withdraw(-100))
 	fmt.Println(account)
-	fmt.Println(*account)
 }
