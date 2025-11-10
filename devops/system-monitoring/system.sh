@@ -29,10 +29,19 @@ function disk_monitor() {
 	du -sh /home/guilherme.moreira >> $LOG_DIR/disk-monitoring.txt
 }
 
+function hardware_monitor() {
+	echo "$(date)" >> $LOG_DIR/hardware-monitoring.txt
+	free -h | grep Mem | awk '{print "RAM mem. Total: " $2 ", Usage: " $3 ", Free: " $4}' >> $LOG_DIR/hardware-monitoring.txt
+	top -bn1 | grep "Cpu(s)" | sed "s/.*, *\([0-9.]*\)%* id.*/\1/" | awk '{print "CPU usage: " 100 - $1 "%"}' >> $LOG_DIR/hardware-monitoring.txt
+	echo "I/O operations" >> $LOG_DIR/hardware-monitoring.txt
+	iostat | grep -E "Device|^nvme|^sdb|^sdc" | awk '{print $1, $2, $3, $4}' >> $LOG_DIR/hardware-monitoring.txt
+}
+
 function main() {
 	logs_monitor
 	network_monitor
 	disk_monitor
+	hardware_monitor
 }
 
 main
