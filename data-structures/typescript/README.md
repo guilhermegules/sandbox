@@ -492,3 +492,36 @@ If `H(x) = H(y)` then objects x and y might be equal, but if `H(x) != H(y)` then
 
 Q: How can we use this yo our advantage to speedup comparisons?
 A: This means that instead of comparing x and y directly a smarter approach is to first compare their hash values, and only if the hash values match do we need to explicitly compare x and y
+
+Q: What makes a key of type T hashable?
+A: Since we are going to use hash functions in the implementation of our hash table we need our hash functions to be deterministic. To enforce this behavior, we demand that the **keys used in our hash table are immutable** data types. Hence, if a key of type T is immutable, and we have a hash function H(k) defined for all keys k of type T then we say a key of type T is hashable
+
+### How does a hash table work?
+
+Ideally we would like to have a very fast insertion, lookup and removal time for the data we are placing within our hash table.
+
+Remarkably, we can achieve all this in O(1)\* time using a hash function as a way to index into a hash table.
+
+\* The constant time behavior attributed to hash tables is only true if you have a good uniform hash function.
+
+Q: What do we do if there is a hash collision?
+For example, users with ranks 2 and 8 hash to the same value!!
+
+```
+H(2) = 2 * 2 + 3 mod 10 = 7 = 8 * 8 + 3 mode 10 = H(8)
+```
+
+A: We use one of many hash collision resolution techniques to handle this, the two most popular ones are **separate chaining** and **open addressing**.
+
+- Separated Chaining deals with hash collisions by maintaining a data structure (usually a linked list) to hold all the different values which hashed to a particular value.
+- Open addressing deals with hash collisions by finding another place within the hash table for the object to go by offsetting it from the position to which is hashed to.
+
+### Complexity
+
+| Operation | Average | Worst |
+| --------- | ------- | ----- |
+| Insert    | O(1)\*  | O(n)  |
+| Remove    | O(1)\*  | O(n)  |
+| Search    | O(1)\*  | O(n)  |
+
+\* The constant time behavior attributed to hash tables is only true if you have a good uniform hash function.
