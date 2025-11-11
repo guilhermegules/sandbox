@@ -525,3 +525,16 @@ A: We use one of many hash collision resolution techniques to handle this, the t
 | Search    | O(1)\*  | O(n)  |
 
 \* The constant time behavior attributed to hash tables is only true if you have a good uniform hash function.
+
+### What is separate Chaining?
+
+Separate Chaining is one of many strategies to deal with hash collisions by maintaining a data structure (usually a linked list) to hold all the different values which hashed to a particular value.
+
+### FAQs
+
+- **Q:** How do I maintain O(1) insertion and lookup time complexity once my Hash table gets really full and I have a long linked list chains?
+- **A:** Once the HT contains a lot of elements you should create a new HT with a larger capacity and rehash all the items inside the old HT and disperse them throughout the new HT at different locations.
+- **Q:** How do i remove key value pairs from my HT?
+- **A:** Apply the same procedure as doing a lookup for a key, but this time instead of returning the value associated with the key remove the node in the linked list data structure.
+- **Q:** Can i use another data structure to model the bucket behavior required for the separate chaining method?
+- **A:** Of course! Common data structures used instead of a linked list include: arrays, binary trees, self balancing trees, etc... You can even go with a hybrid approach like Java's HashMap. However, note that some of these are much more memory intensive and complex to implement than a simple linked list which why they may be less popular.
