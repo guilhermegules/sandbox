@@ -538,3 +538,75 @@ Separate Chaining is one of many strategies to deal with hash collisions by main
 - **A:** Apply the same procedure as doing a lookup for a key, but this time instead of returning the value associated with the key remove the node in the linked list data structure.
 - **Q:** Can i use another data structure to model the bucket behavior required for the separate chaining method?
 - **A:** Of course! Common data structures used instead of a linked list include: arrays, binary trees, self balancing trees, etc... You can even go with a hybrid approach like Java's HashMap. However, note that some of these are much more memory intensive and complex to implement than a simple linked list which why they may be less popular.
+
+### Open Addressing Basics
+
+The goal of the hash table is to construct a mapping from keys to values.
+
+Keys must be hashable and we need a hash function that converts keys to whole numbers.
+
+We use the hash function defined on our key set to index into an array (the hash table).
+
+Hash functions are not perfect, therefore sometimes keys k1, k2 (k1 != k2) hast to the same value. When this happens we have a hash collision.
+
+**Open addressing** is a way to solve this issue.
+
+When using open addressing as a collision resolution technique the key-value pairs are stored in the table itself as opposed to a data structure in separate chaining
+
+This means we need to care a great deal about the size of our hash table and how many elements are currently in the table
+
+```
+LoadFactor = items in table / size of table
+```
+
+![](./docs/load-factor.png)
+
+The **O(1)** constant time behavior attributed to hash tables assumes the load factor (_alpha_) is kept below a certain fixed value, This means once _alpha_ > **threshold** we need to grow the table size (ideally exponentially)
+
+### Open addressing main idea
+
+When we want to insert a key-value pair into the hash table we hash the key and obtain an original position for where this key-value pair belongs.
+
+If the position our key hashed to is occupied we try another position in the hash table by offsetting the current position subject to a **probing sequence P(x)**. We keep doing this until an unoccupied slot is found.
+
+There are an infinite amount of probing sequences you can come up with, here are a few:
+
+```
+# Linear probing:
+P(x) = ax + b where a, b are constants
+
+# Quadratic probing:
+P(x) = ax2 + bx + c, where a, b, c are constants
+
+# Double hashing:
+P(k,x) = x * H2(k), where H2(k) is a secondary hash function
+
+# Pseudo random number generator:
+P(k,x) = x*RNG(H(k), x), where RNG is a random number generator function seeded with H(k)
+```
+
+General insertion method for open addressing on a table of size N goes as follows:
+
+```
+x := 1
+keyHash := H(k)
+index := keyHash
+
+while table[index] != null:
+  index = (keyHash + P(k, x)) mod N
+  x = x + 1
+
+insert(k, v) at table[index]
+```
+
+Where H(k) is the hash for the key k and P(k, x) is the probing function
+
+### Chaos with cycles
+
+Most randomly selected probing sequences modulo N will produce a cycle shorter than table size.
+
+This becomes problematic when you are trying to insert a key-value pair and all the buckets on the cycle are occupied because you will get stuck in an infinite loop!
+
+Q: So that is concerning, how do we handle probing functions which produce cycles shorter than the table size?
+A: In general the consensus is the we don't handle this issue, instead we avoid it altogether by restricting our domain of probing functions to those which produce a cycle of exactly length N\*
+_\*There are a few exceptions with special properties that can produce shorter cycles._
