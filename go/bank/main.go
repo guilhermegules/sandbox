@@ -1,30 +1,22 @@
 package main
 
-import "fmt"
-
-type CheckingAccount struct {
-	holder  string
-	branch  int
-	account int
-	balance float64
-}
-
-func (c *CheckingAccount) Withdraw(withdrawValue float64) string {
-	canWithdraw := withdrawValue > 0 && withdrawValue <= c.balance
-
-	if canWithdraw {
-		c.balance -= withdrawValue
-		return "Withdraw made with success"
-	}
-
-	return "Balance insufficient"
-}
+import (
+	"bank/m/accounts"
+	"fmt"
+)
 
 func main() {
-	account := CheckingAccount{holder: "Guilherme", branch: 1, account: 1, balance: 1000}
+	account := accounts.CheckingAccount{Holder: "Guilherme", Branch: 1, Account: 1, Balance: 1000}
+	account2 := accounts.CheckingAccount{Holder: "John", Branch: 1, Account: 1, Balance: 2000}
 
 	fmt.Println(account.Withdraw(2000))
 	fmt.Println(account.Withdraw(100))
 	fmt.Println(account.Withdraw(-100))
 	fmt.Println(account)
+	fmt.Println(account.Deposit(100))
+	fmt.Println(account.Deposit(200))
+	fmt.Println(account.Transfer(200, &account2))
+	fmt.Println(account.Transfer(-200, &account2))
+	fmt.Println(account)
+	fmt.Println(account2)
 }
