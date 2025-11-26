@@ -610,3 +610,55 @@ This becomes problematic when you are trying to insert a key-value pair and all 
 Q: So that is concerning, how do we handle probing functions which produce cycles shorter than the table size?
 A: In general the consensus is the we don't handle this issue, instead we avoid it altogether by restricting our domain of probing functions to those which produce a cycle of exactly length N\*
 _\*There are a few exceptions with special properties that can produce shorter cycles._
+
+### Quadratic probing
+
+General insertion method for open addressing on a table of size N goes as follows:
+
+```
+x := 1
+keyHash := H(k) mod N
+index := keyHash
+
+while table[index] != null:
+  index = (keyHash + P(k,x)) mod N
+  x = x + 1
+
+insert (k, v) at table[index]
+
+Where H(k) is the hash for the key k and P(k,x) is the probing function
+```
+
+#### What is a Quadratic probing or QP?
+
+QP is a probing method which probes according to a quadratic formula, specifically:
+
+P(x) = ax² + bx + c
+
+Where a, b, c are constants and a != 0 (otherwise wa have linear probing)
+
+Not all quadratic functions are viable because they are unable to produce a cycle of order N. We will need some way to handle this.
+
+![](./docs/chaos-quadratic-probing.png)
+
+Q: So how do we pick a probing function we can work with?
+
+A: There are numerous ways, but three of the most popular approaches are:
+
+1. Let P(x) = x², keep the table size a prime number > 3 and also keep α <= 1/2
+2. Let P(x) = (x² + x) / 2 and keep the table size a power of two
+3. Let P(x) = (-1ˣ) \* x² and keep the table size a prime N Where N === 3 mode 4
+
+### Inserting with QP
+
+![](./docs/inserting-with-qp.png)
+
+```
+operations:
+
+insert(k1, v1) = 6
+insert(k2, v2) = 5
+insert(k3, v3) = 5 // collision, probing 3 times to go to the key 0
+insert(k4, v4) = 2 // we need to resize our table because of the threshold and reorder the hash table
+insert(k3, v5) = 5 // update the k3 value
+```
