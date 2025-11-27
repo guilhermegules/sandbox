@@ -1,17 +1,19 @@
 package accounts
 
+import "bank/m/clients"
+
 type CheckingAccount struct {
-	Holder  string
+	Holder  clients.Holder
 	Branch  int
 	Account int
-	Balance float64
+	balance float64
 }
 
 func (c *CheckingAccount) Withdraw(withdrawValue float64) string {
-	canWithdraw := withdrawValue > 0 && withdrawValue <= c.Balance
+	canWithdraw := withdrawValue > 0 && withdrawValue <= c.balance
 
 	if canWithdraw {
-		c.Balance -= withdrawValue
+		c.balance -= withdrawValue
 		return "Withdraw made with success"
 	}
 
@@ -20,19 +22,23 @@ func (c *CheckingAccount) Withdraw(withdrawValue float64) string {
 
 func (c *CheckingAccount) Deposit(depositValue float64) (string, float64) {
 	if depositValue > 0 {
-		c.Balance += depositValue
-		return "Deposit successfully", c.Balance
+		c.balance += depositValue
+		return "Deposit successfully", c.balance
 	}
 
-	return "Deposit value is lower than zero", c.Balance
+	return "Deposit value is lower than zero", c.balance
 }
 
 func (c *CheckingAccount) Transfer(transferValue float64, destinationAccount *CheckingAccount) bool {
-	if transferValue < c.Balance && transferValue > 0 {
-		c.Balance -= transferValue
+	if transferValue < c.balance && transferValue > 0 {
+		c.balance -= transferValue
 		destinationAccount.Deposit(transferValue)
 		return true
 	}
 
 	return false
+}
+
+func (c *CheckingAccount) GetBalance() float64 {
+	return c.balance
 }
