@@ -662,3 +662,21 @@ insert(k3, v3) = 5 // collision, probing 3 times to go to the key 0
 insert(k4, v4) = 2 // we need to resize our table because of the threshold and reorder the hash table
 insert(k3, v5) = 5 // update the k3 value
 ```
+
+### What is Double Hashing?
+
+DH is a probing method which probes to a constant multiple of another hash function
+
+```
+P(k, x) = x * H
+```
+
+### Constructing H2(k)
+
+Suppose the key k has type T
+
+Whenever we want to use double hashing as a collision resolution method we need to fabricate a new function H2(k) that knows how to hash keys of type T.
+
+There are many known high quality hash functions for these fundamental data types. Hence, we can use and combine them to construct our function H2(k)
+
+Frequently the hash functions selected to compose H2(k) are picked from a pool of hash functions called universal hash functions which generally operate on one fundamental data type.
