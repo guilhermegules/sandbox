@@ -680,3 +680,55 @@ Whenever we want to use double hashing as a collision resolution method we need 
 There are many known high quality hash functions for these fundamental data types. Hence, we can use and combine them to construct our function H2(k)
 
 Frequently the hash functions selected to compose H2(k) are picked from a pool of hash functions called universal hash functions which generally operate on one fundamental data type.
+
+## Fenwick Tree - Binary indexed tree
+
+A Fenwick tree (also called binary indexed tree) is a data structure that supports sum range queries as well as setting values in a static array and getting the value of the prefix sum up some index efficiently.
+
+### Complexity
+
+| Operation      | Complexity |
+| -------------- | ---------- |
+| Construction   | O(n)       |
+| Point update   | O(log(n))  |
+| Range sum      | O(log(n))  |
+| Range update   | O(log(n))  |
+| Adding index   | N/A        |
+| Removing index | N/A        |
+
+### Range queries
+
+Unlike a regular array, in a Fenwick tree a specific cell is responsible for other cells as well.
+
+The position of the least significant bit (LSB) determines the range of responsibility that cell has to the cells bellow itself.
+
+### Range Query algorithm
+
+To do a range query from [i, j] both inclusive a Fenwick tree of size N:
+
+```
+function prefixSum(i):
+  sum := 0
+  while i != 0:
+    sum = sum + tree[i]
+    i = i - LSB(i)
+  return sum;
+
+function rangeQuery(i, j):
+  return prefixSum(j) - prefixSum(i)
+```
+
+Where LSB returns the value of the least significant bit
+
+### Point update algorithm
+
+To update the cell at index i in the a fenwick tree of size N:
+
+```
+function add(i, x):
+  while i < N:
+    tree[i] = tree[i] + x
+    i = i + LSB(i)
+```
+
+where LSB returns the value of the least significant bit
