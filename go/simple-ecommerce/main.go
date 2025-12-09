@@ -9,7 +9,7 @@ import (
 )
 
 func connectDb() *sql.DB {
-	connection := "user=admin dbname=go_ecommerce password=admin host=db sslmode=disable"
+	connection := "user=admin dbname=ecommerce password=admin host=localhost sslmode=disable"
 	db, err := sql.Open("postgres", connection)
 
 	if err != nil {
@@ -20,6 +20,7 @@ func connectDb() *sql.DB {
 }
 
 type Product struct {
+	Id          int
 	Name        string
 	Description string
 	Price       float64
@@ -29,17 +30,43 @@ type Product struct {
 var templates = template.Must(template.ParseGlob("templates/*.html"))
 
 func main() {
-	db := connectDb()
-	defer db.Close()
+
 	http.HandleFunc("/", index)
 	http.ListenAndServe(":8000", nil)
 }
 
 func index(w http.ResponseWriter, r *http.Request) {
-	products := []Product{
-		{Name: "T shirt", Description: "Blue", Price: 39, Quantity: 5},
-		{"Snicker", "Comfortable", 199, 3},
-		{"Headphone", "Good", 89, 2},
+	db := connectDb()
+
+	allProducts, err := db.Query("SELECT * FROM products")
+
+	if err != nil {
+		panic(err.Error())
 	}
+
+	p := Product{}
+	products := []Product{}
+
+	for allProducts.Next() {
+		var id, quantity int
+		var name, description string
+		var price float64
+
+		err = allProducts.Scan(&id, &name, &description, &price, &quantity)
+
+		if err != nil {
+			panic(err.Error())
+		}
+
+		p.Name = name
+		p.Description = description
+		p.Price = price
+		p.Quantity = quantity
+
+		products = append(products, p)
+	}
+
 	templates.ExecuteTemplate(w, "index", products)
+
+	defer db.Close()
 }
