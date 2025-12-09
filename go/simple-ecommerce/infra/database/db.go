@@ -1,4 +1,4 @@
-package db
+package database
 
 import (
 	"database/sql"
@@ -6,8 +6,8 @@ import (
 	_ "github.com/lib/pq"
 )
 
-func connectDb() *sql.DB {
-	connection := "user=admin dbname=ecommerce password=admin host=localhost sslmode=disable"
+func ConnectDb() *sql.DB {
+	connection := "user=admin dbname=go_ecommerce password=admin host=db sslmode=disable"
 	db, err := sql.Open("postgres", connection)
 
 	if err != nil {
