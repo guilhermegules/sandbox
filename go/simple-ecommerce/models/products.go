@@ -1,6 +1,8 @@
 package models
 
 import (
+	"strconv"
+
 	"simple.ecommerce/m/infra/database"
 )
 
@@ -15,7 +17,7 @@ type Product struct {
 func GetAllProducts() []Product {
 	db := database.ConnectDb()
 
-	allProducts, err := db.Query("SELECT * FROM products")
+	allProducts, err := db.Query("SELECT * FROM products ORDER BY id")
 
 	if err != nil {
 		panic(err.Error())
@@ -72,5 +74,53 @@ func DeleteProduct(productId int) {
 	}
 
 	delete.Exec(productId)
+	defer db.Close()
+}
+
+func GetProduct(productId int) Product {
+	db := database.ConnectDb()
+
+	product, err := db.Query("SELECT * FROM products WHERE id = $1", strconv.Itoa(productId))
+
+	if err != nil {
+		panic(err.Error())
+	}
+
+	productEntity := Product{}
+
+	for product.Next() {
+		var id, quantity int
+		var name, description string
+		var price float64
+
+		err = product.Scan(&id, &name, &description, &price, &quantity)
+
+		if err != nil {
+			panic(err.Error())
+		}
+
+		productEntity.Id = id
+		productEntity.Quantity = quantity
+		productEntity.Name = name
+		productEntity.Description = description
+		productEntity.Price = price
+	}
+
+	defer db.Close()
+
+	return productEntity
+}
+
+func UpdateProduct(id int, name string, description string, price float64, quantity int) {
+	db := database.ConnectDb()
+
+	update, err := db.Prepare("UPDATE products SET name=$1, description=$2, price=$3, quantity=$4 WHERE id = $5")
+
+	if err != nil {
+		panic(err.Error())
+	}
+
+	update.Exec(name, description, price, quantity, id)
+
 	defer db.Close()
 }
