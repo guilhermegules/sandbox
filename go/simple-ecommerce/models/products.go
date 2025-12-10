@@ -5,6 +5,7 @@ import (
 )
 
 type Product struct {
+	Id          int
 	Name        string
 	Description string
 	Price       float64
@@ -38,6 +39,7 @@ func GetAllProducts() []Product {
 		product.Description = description
 		product.Price = price
 		product.Quantity = quantity
+		product.Id = id
 
 		products = append(products, product)
 	}
@@ -57,5 +59,18 @@ func CreateProduct(name string, description string, price float64, quantity int)
 	}
 
 	insert.Exec(name, description, price, quantity)
+	defer db.Close()
+}
+
+func DeleteProduct(productId int) {
+	db := database.ConnectDb()
+
+	delete, err := db.Prepare("DELETE FROM products WHERE id = $1")
+
+	if err != nil {
+		panic(err.Error())
+	}
+
+	delete.Exec(productId)
 	defer db.Close()
 }
