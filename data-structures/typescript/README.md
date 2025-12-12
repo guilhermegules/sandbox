@@ -683,7 +683,7 @@ Frequently the hash functions selected to compose H2(k) are picked from a pool o
 
 ## Fenwick Tree - Binary indexed tree
 
-A Fenwick tree (also called binary indexed tree) is a data structure that supports sum range queries as well as setting values in a static array and getting the value of the prefix sum up some index efficiently.
+The Fenwick Tree (FT), also called the Binary Indexed Tree (BIT) is an efficient data structure for performing range/point queries/updates. We currently have two flavors of Fenwick trees which support summation queries/updates. In general, you can modify FTs to [support any invertible function](https://www.quora.com/What-are-the-advantage-of-binary-indexed-tree-BIT-or-fenwick-tree-over-segment-tree) not just summation. More specific operations such as min/max queries can be done with a FT but require you to maintain additional information.
 
 ### Complexity
 
@@ -732,3 +732,44 @@ function add(i, x):
 ```
 
 where LSB returns the value of the least significant bit
+
+### Naive Construction
+
+Let A be an array of values. For each element in A at index i do a point update on the Fenwick tree with a value of A[i]. There are n elements and each point update takes O(log(n)) for a total of O(nlog(n)).
+
+### Linear Construction
+
+Input values we wish to turn into a legitimate Fenwick tree.
+
+Idea: add the value in the current cell to the immediate cell that is responsible for us. This resembles what we did for point updates but only one cell at time.
+
+This will make the "cascading" effect in range queries possible by propagating the value in each cell throughout the tree.
+
+Let i be the current index
+
+The immediate cell above us is at position j given by:
+
+j := i + LSB(i)
+
+Where LSB is the Least Significant Bit of i
+
+```
+i = 2 = 00102
+j = 00102 + 00102 = 01002 = 4
+```
+
+### Construction Algorithm
+
+```
+function construct(values):
+  N := length(values)
+
+  # Close the values array since we're doing in place operations
+  tree = deepCopy(values)
+  for i = 1, 2, 3, ...N:
+    k := i + LSB(i)
+    if j < n:
+      tree[j] = tree[j] + tree[i]
+
+  return tree
+```
