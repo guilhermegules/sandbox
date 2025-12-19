@@ -773,3 +773,54 @@ function construct(values):
 
   return tree
 ```
+
+## Suffix Arrays
+
+### What is a suffix?
+
+A suffix is a substring at the end of a string of characters.
+
+### What is a Suffix Array?
+
+A suffix array is an which contains all the sorted suffixes of a string.
+
+The actual suffix array ios a the array of sorted indices.
+
+### The longest common prefix (LCP) array
+
+#### What is a LCP array?
+
+Lets find the LCP array of the string "ABABBAB"
+
+| Sorted index | LCP value | Suffix  |
+| ------------ | --------- | ------- |
+| 5            | O         | AB      |
+| 0            | 2         | ABABBAB |
+| 2            | 2         | ABBAB   |
+| 6            | O         | B       |
+| 4            | 1         | BAB     |
+| 1            | 3         | BABBAB  |
+| 3            | 1         | BBAB    |
+
+The LCP array is an array in which every index tracks how many characters two sorted adjacent suffixes have in common.
+
+By convention, LCP[0] is undefined, but for most purposes it's fine to set it to zero.
+
+### Finding Unique Substrings
+
+The problem of finding/counting all the unique substrings of a string is a commonplace problem in computer science.
+
+The naive algorithm generates all substrings and places them in a set resulting in a O(n2) algorithm.
+
+A better approach is to use the LCP array. This provides not only a quick but also a space efficient solution.
+
+Suppose we wish to find all the unique substring of "AZAZA"
+
+All n(n + 1) / 2 substrings:
+
+A, AZ, AZA, AZAZ, AZAZA, Z, ZA, ZAZ, ZAZA, **A, AZ, AZA, Z, ZA, A**
+
+Number of unique: 9
+
+LCP: 0, 1, 3, 0, 2
+Sorted suffixes: A, AZA, AZAZA, ZA, ZAZA
