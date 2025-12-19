@@ -1,0 +1,6 @@
+﻿services:
+  not-quite-lisp:
+    image: not-quite-lisp
+    build:
+      context: .
+      dockerfile: Dockerfile

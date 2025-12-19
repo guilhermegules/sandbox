@@ -1,0 +1,14 @@
+{
+  "name": "i-was-told-there-would-be-no-math",
+  "version": "1.0.0",
+  "description": "advent of code 2015",
+  "main": "index.ts",
+  "scripts": {
+    "start": "ts-node index.ts"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "ts-node": "^10.9.2"
+  }
+}
