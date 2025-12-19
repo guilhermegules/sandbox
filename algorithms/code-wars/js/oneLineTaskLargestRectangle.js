@@ -1,0 +1,1 @@
+const rectanglePair= p => [p/=4, p];
