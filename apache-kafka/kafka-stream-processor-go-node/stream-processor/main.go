@@ -1,9 +1,9 @@
 package main
 
 import (
-	producer "stream-processor/usecase/producer"
+	processor "stream-processor/usecase/processor"
 )
 
 func main() {
-	producer.OrderProducer()
+	processor.OrderProcessor()
 }

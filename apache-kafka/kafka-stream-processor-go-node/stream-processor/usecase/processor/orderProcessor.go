@@ -12,10 +12,14 @@ import (
 	"github.com/segmentio/kafka-go"
 )
 
-func OrderProducer() {
+func OrderProcessor() {
 	broker := infra.GetEnv("KAFKA_BROKER", "localhost:9092")
 
 	outputTopic := "orders.enriched"
+
+	reader := consumer.OrderReader()
+
+	defer reader.Close()
 
 	writer := &kafka.Writer{
 		Addr:         kafka.TCP(broker),
@@ -25,13 +29,21 @@ func OrderProducer() {
 		Async:        false,
 	}
 
+	defer writer.Close()
+
 	log.Println("🚀 Go Stream Processor started")
+	log.Println("📥 Consuming from: orders")
 	log.Printf("📤 Producing to: %s", outputTopic)
 
 	ctx := context.Background()
 
 	for {
-		msg := consumer.OrderConsumer()
+		msg, err := reader.ReadMessage(ctx)
+		if err != nil {
+			log.Println("⚠️ transient read error:", err)
+			time.Sleep(2 * time.Second)
+			continue
+		}
 
 		var order domain.Order
 		if err := json.Unmarshal(msg.Value, &order); err != nil {

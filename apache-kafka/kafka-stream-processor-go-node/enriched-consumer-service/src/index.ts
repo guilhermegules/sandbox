@@ -1,39 +1,10 @@
-import { kafka } from "./kafka";
+import { startConsumer } from "./infra/consumer";
+import { enrichedOrderConsumer } from "./usecase/enriched-order-consumer";
 
 async function start() {
-  const consumer = kafka.consumer({
-    "group.id": process.env["KAFKA_GROUP_ID"],
-    "enable.auto.commit": true,
-  });
-
-  await consumer.connect();
-
-  await consumer.subscribe({
-    topic: "orders.enriched",
-  });
-
+  await startConsumer();
   console.log("📥 Enriched Order Consumer running...");
-
-  await consumer.run({
-    eachMessage: async ({ topic, partition, message }) => {
-      if (!message.value) return;
-
-      const raw = message.value.toString();
-
-      try {
-        const enrichedOrder = JSON.parse(raw);
-
-        console.log("✅ Enriched order received:", {
-          topic,
-          partition,
-          key: message.key?.toString(),
-          value: enrichedOrder,
-        });
-      } catch (err) {
-        console.error("❌ Invalid message:", err, raw);
-      }
-    },
-  });
+  await enrichedOrderConsumer();
 }
 
 start().catch((err) => {

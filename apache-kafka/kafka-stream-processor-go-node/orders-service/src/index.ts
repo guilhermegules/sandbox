@@ -1,9 +1,12 @@
 import express from "express";
-import { kafka } from "./infra/kafka.js";
+
 import type { Order } from "./domain/Order.js";
 import { sendOrder } from "./usecase/send-order.usecase.js";
+import { connectProducer, disconnectProducer } from "./infra/producer.js";
 
-const producer = kafka.producer();
+if (!process.env["KAFKA_ORDER_TOPIC"]) {
+  throw new Error("KAFKA_ORDER_TOPIC is required");
+}
 
 const app = express();
 
@@ -18,10 +21,15 @@ app.post("/orders", async (req, res) => {
 });
 
 async function main() {
-  await producer.connect();
+  await connectProducer();
   app.listen(process.env["PORT"], () =>
     console.log(`orders-service started on port ${process.env["PORT"]}`)
   );
 }
+
+process.on("SIGINT", async () => {
+  await disconnectProducer();
+  process.exit(0);
+});
 
 main();
