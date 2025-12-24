@@ -1,33 +1,30 @@
+import { OrderStatusChangedEvent } from "@/domain/order/order-status-changed-event";
+import { ORDER_EVENTS_CHANNEL } from "@/infra/redis/channels";
+import { redisPublisher } from "@/infra/redis/redis";
 import { getUserFromCookie } from "@/utils/cookies";
 import { EventEmitter } from "stream";
 
 export const orderEvents = new EventEmitter();
 
-export function simulateOrder(req: Request) {
-  const statuses = [
-    "CREATED",
-    "PAID",
-    "PROCESSING",
-    "SHIPPED",
-    "DELIVERED",
-  ] as const;
-
-  let index = 0;
-
+export async function sendOrder(
+  req: Request
+): Promise<OrderStatusChangedEvent> {
   const user = getUserFromCookie(req);
 
-  const interval = setInterval(() => {
-    orderEvents.emit("order-status", {
-      orderId: crypto.randomUUID(),
-      status: statuses[index],
-      timestamp: new Date().toISOString(),
-      userId: user?.id,
-    });
+  if (!user) {
+    throw new Error("No user on session");
+  }
 
-    index++;
+  const event: OrderStatusChangedEvent = {
+    orderId: crypto.randomUUID(),
+    userId: user?.id,
+    status: "SHIPPED",
+    timestamp: new Date().toISOString(),
+  };
 
-    if (index >= statuses.length) {
-      clearInterval(interval);
-    }
-  }, 2000);
+  console.log(event);
+
+  await redisPublisher.publish(ORDER_EVENTS_CHANNEL, JSON.stringify(event));
+
+  return event;
 }

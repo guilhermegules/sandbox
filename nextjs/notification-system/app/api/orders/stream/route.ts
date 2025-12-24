@@ -1,4 +1,6 @@
 import { OrderStatusChangedEvent } from "@/domain/order/order-status-changed-event";
+import { ORDER_EVENTS_CHANNEL } from "@/infra/redis/channels";
+import { redisSubscriber } from "@/infra/redis/redis";
 import { orderEvents } from "@/services/order-producer-service";
 import { getUserFromCookie } from "@/utils/cookies";
 
@@ -14,27 +16,34 @@ export async function GET(req: Request) {
   }
 
   const stream = new ReadableStream({
-    start(controller) {
+    async start(controller) {
       controller.enqueue(
         encoder.encode(`event: connected\n` + `data: "connected"\n\n`)
       );
 
-      const handler = (event: OrderStatusChangedEvent) => {
-        console.log(event);
+      await redisSubscriber.subscribe(ORDER_EVENTS_CHANNEL);
+
+      const handler = (channel: string, message: string) => {
+        console.log(message);
+
+        if (channel !== ORDER_EVENTS_CHANNEL) return;
+
+        const event = JSON.parse(message);
 
         if (event.userId !== user.id) return;
 
         controller.enqueue(
-          encoder.encode(
-            `event: order-status\n` + `data: ${JSON.stringify(event)}\n\n`
-          )
+          encoder.encode(`event: order-status\n` + `data: ${message}\n\n`)
         );
       };
 
       orderEvents.on("order-status", handler);
+      redisSubscriber.on("message", handler);
 
       req.signal.addEventListener("abort", () => {
         orderEvents.off("order-status", handler);
+        redisSubscriber.off("message", handler);
+        redisSubscriber.unsubscribe(ORDER_EVENTS_CHANNEL);
         controller.close();
       });
     },

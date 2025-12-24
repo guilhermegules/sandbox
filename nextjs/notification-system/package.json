@@ -6,9 +6,11 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "eslint"
+    "lint": "eslint",
+    "worker:order": "npx tsx infra/jobs/order/order-worker.ts"
   },
   "dependencies": {
+    "ioredis": "^5.8.2",
     "jsonwebtoken": "^9.0.3",
     "next": "16.1.1",
     "react": "19.2.3",
