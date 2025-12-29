@@ -1,0 +1,23 @@
+@baseUrl = http://localhost:3000
+@cookie = auth_token=mock-jwt-user-1
+
+###
+# Mock authentication (set cookie)
+POST {{baseUrl}}/api/auth
+Content-Type: application/json
+
+{
+  "userId": "user-1"
+}
+
+###
+# Create a new order (enqueue background job)
+POST {{baseUrl}}/api/orders
+Cookie: {{cookie}}
+
+###
+# Open SSE stream (keep connection open)
+GET {{baseUrl}}/api/orders/stream
+Accept: text/event-stream
+Cache-Control: no-cache
+Cookie: {{cookie}}

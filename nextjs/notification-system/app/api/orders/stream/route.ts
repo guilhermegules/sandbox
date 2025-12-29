@@ -1,4 +1,5 @@
 import { OrderStatusChangedEvent } from "@/domain/order/order-status-changed-event";
+import { logger } from "@/infra/logs/logger";
 import { ORDER_EVENTS_CHANNEL } from "@/infra/redis/channels";
 import { redisSubscriber } from "@/infra/redis/redis";
 import { orderEvents } from "@/services/order-producer-service";
@@ -24,7 +25,7 @@ export async function GET(req: Request) {
       await redisSubscriber.subscribe(ORDER_EVENTS_CHANNEL);
 
       const handler = (channel: string, message: string) => {
-        console.log(message);
+        logger.debug(message);
 
         if (channel !== ORDER_EVENTS_CHANNEL) return;
 

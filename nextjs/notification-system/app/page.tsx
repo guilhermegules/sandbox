@@ -37,8 +37,8 @@ export default function Page() {
       <h1>📦 Order Status (SSE)</h1>
 
       <ul>
-        {events.map((event) => (
-          <li key={event.orderId}>
+        {events.map((event, index) => (
+          <li key={`${event.orderId}-${index}`}>
             <strong>{event.status}</strong> – {event.orderId}: {event.timestamp}
           </li>
         ))}

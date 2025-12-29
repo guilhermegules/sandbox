@@ -1,4 +1,5 @@
 import { OrderStatusChangedEvent } from "@/domain/order/order-status-changed-event";
+import { logger } from "@/infra/logs/logger";
 import { ORDER_EVENTS_CHANNEL } from "@/infra/redis/channels";
 import { redisPublisher } from "@/infra/redis/redis";
 import { getUserFromCookie } from "@/utils/cookies";
@@ -22,7 +23,7 @@ export async function sendOrder(
     timestamp: new Date().toISOString(),
   };
 
-  console.log(event);
+  logger.debug(event);
 
   await redisPublisher.publish(ORDER_EVENTS_CHANNEL, JSON.stringify(event));
 

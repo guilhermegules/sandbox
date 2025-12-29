@@ -4,6 +4,7 @@ import { Worker } from "bullmq";
 import { OrderStatusChangedEvent } from "@/domain/order/order-status-changed-event";
 import { redisConnection, redisPublisher } from "@/infra/redis/redis";
 import { ORDER_EVENTS_CHANNEL } from "@/infra/redis/channels";
+import { logger } from "@/infra/logs/logger";
 
 const statuses: OrderStatus[] = [
   "CREATED",
@@ -17,9 +18,10 @@ new Worker(
   ORDER_STATUS_QUEUE,
   async (job) => {
     const { orderId, userId } = job.data as OrderStatusChangedEvent;
+    logger.info("Start order working");
 
     for (const status of statuses) {
-      await new Promise((resolve) => setTimeout(resolve, 2000));
+      logger.debug(`processing order ${orderId} with status ${status}`);
 
       await redisPublisher.publish(
         ORDER_EVENTS_CHANNEL,
