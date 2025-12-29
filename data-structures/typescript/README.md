@@ -824,3 +824,25 @@ Number of unique: 9
 
 LCP: 0, 1, 3, 0, 2
 Sorted suffixes: A, AZA, AZAZA, ZA, ZAZA
+
+## Balanced Binary Search Tree (BBST)
+
+A Balanced Binary Search Tree is a self-balancing binary search tree. This type of tree will adjust itself in order to maintain a low (logarithmic) height allowing for faster operations such as insertions and deletions.
+
+### Complexity
+
+| Operation | Average   | Worst     |
+| --------- | --------- | --------- |
+| Insert    | O(log(n)) | O(log(n)) |
+| Delete    | O(log(n)) | O(log(n)) |
+| Remove    | O(log(n)) | O(log(n)) |
+| Search    | O(log(n)) | O(log(n)) |
+
+### Tree rotations
+
+![](./docs/tree-rotations.png)
+
+- **Q**: Why are you allowed to change the structure of a tree like this?
+- **Short answer**: In the left tree we know that `D < B < E < A < C` and this remains true for the right subtree, so we didn't break the BST invariant and, therefore, this is a valid transformation
+- **Long answer**: Recall that all BBSTs are BSTs so the BST invariant holds. This means that for every node `n`, `n.left < n` and `n < n.right`. _Note: The above assumes we only have unique values, otherwise we'd have to consider the case where n.left <= n and n <= n.right_.
+  It does not matter what the structure of the tree looks; all we care about is the BST invariant holds. This means we can shuffle/transform/rotate the values and nodes in the tree as we please as long as the BST invariant remains satisfied.
