@@ -846,3 +846,19 @@ A Balanced Binary Search Tree is a self-balancing binary search tree. This type 
 - **Short answer**: In the left tree we know that `D < B < E < A < C` and this remains true for the right subtree, so we didn't break the BST invariant and, therefore, this is a valid transformation
 - **Long answer**: Recall that all BBSTs are BSTs so the BST invariant holds. This means that for every node `n`, `n.left < n` and `n < n.right`. _Note: The above assumes we only have unique values, otherwise we'd have to consider the case where n.left <= n and n <= n.right_.
   It does not matter what the structure of the tree looks; all we care about is the BST invariant holds. This means we can shuffle/transform/rotate the values and nodes in the tree as we please as long as the BST invariant remains satisfied.
+
+### AVL Tree introduction
+
+An AVL tree is one of many types of BBSTs which allow for logarithmic (O(log(n))) insertion, deletion, and search operations
+
+In fact, it was the first type of BBST to be discovered. Soon after, many other types of BBSTs started to emerge the 2-3 tree, the AA tree, the scapegoat tree, and its main rival, the red-black tree
+
+#### AVL Tree invariant
+
+The property which keeps an AVL tree balanced is called the Balanced Factor (BF).
+
+`BF(node) = H(node.right) - H(node.left)`
+
+where H(x) is the height of node x. Recall that H(x) is calculated as the number of edges between x and the furthest leaf.
+
+The invariant in the AVL which forces it to remain balanced is the requirement that the balance factor is always either -1, 0 or +1.
