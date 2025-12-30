@@ -862,3 +862,49 @@ The property which keeps an AVL tree balanced is called the Balanced Factor (BF)
 where H(x) is the height of node x. Recall that H(x) is calculated as the number of edges between x and the furthest leaf.
 
 The invariant in the AVL which forces it to remain balanced is the requirement that the balance factor is always either -1, 0 or +1.
+
+## Indexed priority queue
+
+Create a bidirectional mapping between you N keys and the domain (0, N) using a bidirectional hashtable
+
+### Reason for mapping
+
+Why are we mapping keys to indexes in the domain?
+
+Typically priority queues are implemented as heaps under the hood which internally use arrays which we want to facilitate indexing into.
+
+> Note: often the keys themselves are integers in the range 0, N to there is no need for the mapping, but it's handy to be able to support any type of key.
+
+### IPQ ADT Interface
+
+if k is the key we want to update first get the key's index: `ki = map[k]`, then use ki with the IPQ
+
+```
+delete(ki)
+valueOf(ki)
+contains(ki)
+peekMinKeyIndex()
+pollMinKeyIndex()
+peekMinValue()
+pollMinValue()
+insert(ki, value)
+update(ki, value)
+decreaseKey(ki, value)
+increaseKey(ki, value)
+```
+
+### IPQ as a binary heap
+
+| Operation              | IBH PQ    |
+| ---------------------- | --------- |
+| delete(ki)             | O(log(n)) |
+| valueOf(ki)            | O(1)      |
+| contains(ki)           | O(1)      |
+| peekMinKeyIndex()      | O(1)      |
+| pollMinKeyIndex()      | O(log(n)) |
+| peekMinValue()         | O(1)      |
+| pollMinValue()         | O(log(n)) |
+| insert(ki, value)      | O(log(n)) |
+| update(ki, value)      | O(log(n)) |
+| decreaseKey(ki, value) | O(log(n)) |
+| increaseKey(ki, value) | O(log(n)) |
