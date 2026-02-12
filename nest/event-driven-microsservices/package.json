@@ -6,9 +6,11 @@
   "scripts": {
     "start:orders": "npm run start:dev --workspace=apps/orders",
     "start:inventory": "npm run start:dev --workspace=apps/inventory",
-    "start:all": "concurrently \"npm run start:orders\" \"npm run start:inventory\"",
+    "start:gateway": "npm run start:dev --workspace=apps/gateway",
+    "start:all": "concurrently \"npm run start:orders\" \"npm run start:inventory\" \"npm run start:gateway\"",
     "build:orders": "nest build apps/orders",
-    "build:inventory": "nest build apps/inventory"
+    "build:inventory": "nest build apps/inventory",
+    "build:gateway": "nest build apps/gateway"
 
   },
   "keywords": [],
