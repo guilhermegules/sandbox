@@ -1,0 +1,27 @@
+{
+  "name": "event-driven-microsservices",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start:orders": "npm run start:dev --workspace=apps/orders",
+    "start:inventory": "npm run start:dev --workspace=apps/inventory",
+    "start:all": "concurrently \"npm run start:orders\" \"npm run start:inventory\"",
+    "build:orders": "nest build apps/orders",
+    "build:inventory": "nest build apps/inventory"
+
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "private": true,
+  "workspaces": [
+    "apps/*",
+    "libs/*"
+  ],
+  "devDependencies": {
+    "typescript": "^5.9.3",
+    "concurrently": "^8.2.1"
+  }
+}
