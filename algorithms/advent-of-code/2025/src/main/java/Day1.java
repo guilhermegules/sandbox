@@ -1,5 +1,6 @@
 import java.io.BufferedReader;
 import java.io.IOException;
+import java.io.InputStream;
 import java.io.InputStreamReader;
 
 public class Day1 {
@@ -7,23 +8,18 @@ public class Day1 {
     private int dial = 50;
 
     public void solution() throws IOException {
-        final var inputStream = getClass()
-                .getClassLoader()
-                .getResourceAsStream("day1-data.txt");
-
-
-        if (inputStream == null) {
-            throw new IllegalArgumentException("File not found!");
-        }
+        final var inputStream = getInputStream();
 
         try (final var reader = new BufferedReader(new InputStreamReader(inputStream))) {
-            var line = "";
-            while ((line = reader.readLine()) != null) {
-                final var direction = line.charAt(0);
-                final var rotation = Integer.parseInt(line.substring(1));
+            reader.lines()
+                    .map(String::trim)
+                    .filter(s -> !s.isEmpty())
+                    .forEach(line -> {
+                        char direction = line.charAt(0);
+                        int rotation = Integer.parseInt(line.substring(1));
 
-                checkEachClick(rotation, direction);
-            }
+                        checkEachClick(rotation, direction);
+                    });
         }
 
         System.out.println("Password: " + zeroCount);
@@ -41,5 +37,17 @@ public class Day1 {
                 zeroCount++;
             }
         }
+    }
+
+    private InputStream getInputStream() {
+        final var inputStream = getClass()
+                .getClassLoader()
+                .getResourceAsStream("day1-data.txt");
+
+        if (inputStream == null) {
+            throw new IllegalArgumentException("File not found!");
+        }
+
+        return inputStream;
     }
 }
