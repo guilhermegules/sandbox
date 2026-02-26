@@ -228,17 +228,14 @@ Content-Type: application/json
 {
   "productId": "123",
   "quantity": 5,
-  "customerId": "cust-456"
 }
 ```
 
 **Response:**
 ```json
 {
-  "orderId": "order-789",
-  "productId": "123",
-  "quantity": 5,
-  "status": "pending"
+ "success": true, 
+ "message": "Order created"
 }
 ```
 
