@@ -1,6 +1,7 @@
-import { Controller, Get, Inject } from '@nestjs/common';
+import { Controller, Inject } from '@nestjs/common';
 import { ClientProxy, MessagePattern } from '@nestjs/microservices';
 import { lastValueFrom } from 'rxjs';
+import type { OrderCreatedEvent } from "@common/events"
 
 @Controller()
 export class AppController {
@@ -10,7 +11,7 @@ export class AppController {
   ) {}
 
   @MessagePattern({ cmd: 'create-order' })
-  async createOrder(data: { productId: string; quantity: number }) {
+  async createOrder(data: OrderCreatedEvent) {
     const inventoryResponse = await lastValueFrom(
       this.inventoryClient.send(
         { cmd: 'check-stock' },

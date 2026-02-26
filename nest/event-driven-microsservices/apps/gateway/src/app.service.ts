@@ -1,5 +1,6 @@
 import { Inject, Injectable } from '@nestjs/common';
 import { ClientProxy } from '@nestjs/microservices';
+import type { OrderCreatedEvent } from "@common/events";
 
 @Injectable()
 export class AppService {
@@ -8,7 +9,7 @@ export class AppService {
     private readonly ordersClient: ClientProxy,
   ) { }
 
-  createOrder(body: any) {
+  createOrder(body: OrderCreatedEvent) {
     return this.ordersClient.send(
       { cmd: 'create-order' },
       body,
