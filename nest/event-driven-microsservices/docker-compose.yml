@@ -1,0 +1,52 @@
+services:
+  redis:
+    image: redis:7-alpine
+    container_name: edms-redis
+    ports:
+      - "6379:6379"
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  inventory:
+    build:
+      context: .
+      dockerfile: ./apps/inventory/Dockerfile
+    container_name: inventory
+    environment:
+      - NODE_ENV=production
+      - REDIS_HOST=redis
+      - REDIS_PORT=6379
+    ports:
+      - "3000:3000"
+    depends_on:
+      - redis
+
+  orders:
+    build:
+      context: .
+      dockerfile: ./apps/orders/Dockerfile
+    container_name: orders
+    environment:
+      - NODE_ENV=production
+      - REDIS_HOST=redis
+      - REDIS_PORT=6379
+    ports:
+      - "3001:3001"
+    depends_on:
+      - redis
+
+  gateway:
+    build:
+      context: .
+      dockerfile: ./apps/gateway/Dockerfile
+    container_name: gateway
+    environment:
+      - NODE_ENV=production
+    ports:
+      - "3002:3002"
+    depends_on:
+      - inventory
+      - orders
