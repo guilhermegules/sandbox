@@ -2,6 +2,8 @@
 
 Repository to store my implementations of algorithms
 
+![](./dsa.png)
+
 ## Sweep line
 
 Sweep line simulates moving a line across a coordinate system and processing events in sorted order.
