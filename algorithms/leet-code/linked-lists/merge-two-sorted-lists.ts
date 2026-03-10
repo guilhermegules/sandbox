@@ -1,4 +1,4 @@
-import { ListNode } from "./list-node";
+import { ListNode } from "./list-node.ts";
 
 function mergeTwoLists(list1: ListNode | null, list2: ListNode | null): ListNode | null {
     const mergedList = new ListNode(0);

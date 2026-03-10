@@ -1,4 +1,4 @@
-import { ListNode } from './list-node';
+import { ListNode } from './list-node.ts';
 
 function deleteDuplicates(head: ListNode | null): ListNode | null {
     let current: ListNode | null = head;
