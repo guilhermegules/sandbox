@@ -9,23 +9,21 @@
 export class RateLimiter {
     private requests = new Map<string, number[]>();
 
-    constructor(private limit: number = 5, private msWindow = 10000) { }
+    constructor(private limit = 5, private ms = 10000) { }
 
-    allow(userId: string) {
-        const timestamp = Date.now();
+    allow(userId: string): boolean {
+        const now = Date.now();
 
         if (!this.requests.has(userId)) {
             this.requests.set(userId, []);
         }
 
-        const requestsByUser = this.requests.get(userId)!
-        const validRequests = requestsByUser.filter((r) => timestamp - r < this.msWindow);
+        const requestsByUser = this.requests.get(userId) ?? [];
+        const validRequests = requestsByUser.filter(req => req - now < this.ms);
 
-        if (validRequests.length >= this.limit) {
-            return false;
-        }
+        if (validRequests.length >= this.limit) return false;
 
-        validRequests.push(timestamp);
+        validRequests.push(now);
         this.requests.set(userId, validRequests);
         return true;
     }
