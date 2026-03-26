@@ -1,0 +1,19 @@
+{
+  "name": "ts",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "rate-limiter": "tsx src/RateLimiter",
+    "test": "vitest"
+  },
+  "keywords": [],
+  "author": "Guilherme Gules Moreira",
+  "license": "ISC",
+  "type": "module",
+  "devDependencies": {
+    "tsx": "^4.21.0",
+    "typescript": "^6.0.2",
+    "vitest": "^4.1.1"
+  }
+}
