@@ -4,13 +4,11 @@ Personal repository for studying DevOps concepts, Linux system administration, B
 
 ## Repository Structure
 
-| Directory | Description |
-|-----------|-------------|
-| [`scripts/`](scripts/) | Bash scripting exercises, Linux command references, and automation scripts |
-| [`kubernetes/`](kubernetes/) | Kubernetes core concepts, architecture, and object documentation |
-| [`linux/`](linux/) | Curated Linux learning resources and roadmaps |
-| [`network/`](network/) | Networking fundamentals, OSI model layers, and hands-on activities |
-| [`logs/`](logs/) | Log samples, monitoring scripts, and configuration files |
+| Directory                    | Description                                                                                                               |
+| ---------------------------- | ------------------------------------------------------------------------------------------------------------------------- |
+| [`kubernetes/`](kubernetes/) | Kubernetes core concepts, architecture, and object documentation                                                          |
+| [`linux/`](linux/)           | Curated Linux learning resources and roadmaps, Bash scripting exercises, Linux command references, and automation scripts |
+| [`network/`](network/)       | Networking fundamentals, OSI model layers, and hands-on activities                                                        |
 
 ## Topics Covered
 
