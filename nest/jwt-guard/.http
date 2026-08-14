@@ -1,0 +1,44 @@
+@baseUrl = http://localhost:3000
+@access_token = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxIiwiZW1haWwiOiJ1c2VyQHRlc3QuY29tIiwicm9sZSI6ImFkbWluIiwiaWF0IjoxNzY4OTUzNzA3LCJleHAiOjE3Njg5NTM4Mjd9.rvmidxaiOCrjTI4OsOr6laY8XqS2T17QmcZj6MVYTuM
+@user_token = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIyIiwiZW1haWwiOiJ1c2VyQHRlc3QyLmNvbSIsInJvbGUiOiJ1c2VyIiwiaWF0IjoxNzY4OTUzNzI3LCJleHAiOjE3Njg5NTM4NDd9.E1423Tg70NXL7k045cnhF5ExMyHtx6yELamL7eFvgFQ
+
+### =========================
+### AUTH - LOGIN
+### =========================
+POST {{baseUrl}}/auth/login
+Content-Type: application/json
+
+{
+    "email": "user@test2.com"
+}
+
+### =========================
+### USERS - WITHOUT TOKEN (401)
+### =========================
+GET {{baseUrl}}/users
+
+
+### =========================
+### USERS - WITH VALID TOKEN (ADMIN)
+### =========================
+# Run the login request above
+# Copy the access_token from the response
+# Paste it into the variable at the top
+
+GET {{baseUrl}}/users
+Authorization: Bearer {{access_token}}
+
+
+### =========================
+### USERS - INVALID TOKEN (401)
+### =========================
+GET {{baseUrl}}/users
+Authorization: Bearer invalid.token.here
+
+
+### =========================
+### USERS - FORBIDDEN (WRONG ROLE)
+### =========================
+# Simulates a token with role "user" instead of "admin"
+GET {{baseUrl}}/users
+Authorization: Bearer {{user_token}}
