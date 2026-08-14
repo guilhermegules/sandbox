@@ -1,0 +1,40 @@
+:root {
+  --bg: #0b0c10;
+  --card: #111317;
+  --card-ink: #e7edf1;
+  --muted: #9aa7b2;
+  --accent: #4cc9f0;
+  --border: #22262d;
+  --radius: 16px;
+}
+
+html,
+body {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  background: radial-gradient(
+      1200px 600px at 10% -10%,
+      #15202b 0%,
+      var(--bg) 40%
+    ),
+    var(--bg);
+  color: var(--card-ink);
+  font: 16px/1.5 ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto,
+    Ubuntu, Cantarell, Noto Sans, "Helvetica Neue", Arial, "Apple Color Emoji",
+    "Segoe UI Emoji";
+}
+
+.page {
+  padding: 32px clamp(16px, 3vw, 40px);
+  max-width: 1400px;
+  margin: 0 auto;
+  scroll-behavior: smooth;
+}
+
+h1 {
+  font-size: clamp(24px, 3vw, 32px);
+  margin: 0 0 16px;
+}

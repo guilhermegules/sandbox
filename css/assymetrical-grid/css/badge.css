@@ -1,0 +1,18 @@
+.badge {
+  position: absolute;
+  right: 12px;
+  bottom: 12px;
+  background: rgba(12, 18, 24, 0.65);
+  color: var(--text);
+  border: 1px solid #233040;
+  border-radius: 999px;
+  padding: 4px 10px;
+  font-size: 12px;
+  backdrop-filter: blur(6px);
+}
+
+.badge:hover {
+  background: rgba(31, 35, 38, 0.65);
+  border: 1px solid #2f3339;
+  cursor: pointer;
+}

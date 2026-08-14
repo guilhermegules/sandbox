@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Holy Grail Layout — CSS Grid</title>
+    <link rel="stylesheet" type="text/css" href="style.css" media="screen" />
+  </head>
+
+  <body class="page">
+    <header>
+      <h1>Holy Grail — CSS Grid</h1>
+    </header>
+
+    <main>
+      <details class="panel sidebar" open>
+        <summary>Navigation</summary>
+        <div class="sidebar-inner">
+          <nav aria-label="Primary">
+            <ul>
+              <li><a href="#">Dashboard</a></li>
+              <li><a href="#">Articles</a></li>
+              <li><a href="#">Tags</a></li>
+              <li><a href="#">Settings</a></li>
+            </ul>
+          </nav>
+        </div>
+      </details>
+
+      <article class="panel content">
+        <h2>Content</h2>
+        <p>
+          This center column expands with <code>minmax(0, 1fr)</code> to avoid
+          overflow and ensure the footer sticks to the bottom when content is
+          short.
+        </p>
+        <p>
+          Resize the window: on ≤900px the left sidebar collapses into a summary
+          toggle; on 901px - 1200px the right aside drops below for a comfy
+          2-column reading flow.
+        </p>
+        <p>
+          Add more paragraphs here to watch the layout stretch while the footer
+          stays pinned to the bottom of the viewport (thanks to
+          <code>min-height: 100dvh</code> and the page grid).
+        </p>
+      </article>
+
+      <aside class="panel extra" aria-label="Complementary">
+        <h3>Right Aside</h3>
+        <p>Use for ads, related posts.</p>
+      </aside>
+    </main>
+
+    <footer>
+      <small
+        >© 2025 Guilherme Gules Moreira • Sticky footer via page grid</small
+      >
+    </footer>
+  </body>
+</html>

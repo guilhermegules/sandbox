@@ -1,0 +1,19 @@
+{
+  "name": "sass-project",
+  "version": "1.0.0",
+  "description": "Project to learn more about SCSS",
+  "main": "index.js",
+  "scripts": {
+    "sass:build": "sass scss/style.scss:css/style.css",
+    "sass:watch": "sass --watch scss/style.scss:css/style.css"
+  },
+  "keywords": [
+    "CSS",
+    "SCSS"
+  ],
+  "author": "Guilherme Gules Moreira",
+  "license": "ISC",
+  "devDependencies": {
+    "sass": "^1.34.1"
+  }
+}

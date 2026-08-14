@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Flex Pattern Equal-Height Cards with Sticky Headers</title>
+    <link rel="stylesheet" href="css/global.css" />
+    <link rel="stylesheet" href="css/card.css" />
+    <link rel="stylesheet" href="css/button.css" />
+  </head>
+  <body>
+    <main class="page">
+      <h1>Equal-height Flex Cards with Sticky Headers</h1>
+      <p class="lead">
+        Cards stretch to the tallest in each flex row. Headers stick inside each
+        card while only the content area scrolls.
+      </p>
+
+      <section class="cards" aria-label="card grid">
+        <article class="card" aria-labelledby="card-1-title">
+          <header class="card__header">
+            <span class="card__badge">Project</span>
+            <div class="card__title" id="card-1-title">Quarterly Report</div>
+          </header>
+          <div class="card__content" tabindex="0">
+            <p class="muted">Scroll me — the header stays put.</p>
+            <p>
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent
+              vitae urna sem. Cras vitae ornare nulla. Pellentesque euismod,
+              nibh at feugiat fermentum, arcu lacus tristique lectus, eget
+              suscipit lacus erat in metus.
+            </p>
+            <p>
+              Vivamus tristique velit id neque accumsan, ut viverra augue
+              convallis. Vestibulum efficitur ullamcorper turpis, eget hendrerit
+              sem bibendum vitae. Integer vitae mattis lectus. Sed a neque ut
+              odio pharetra mattis.
+            </p>
+            <p>
+              Morbi fermentum nisl a arcu tincidunt, vitae imperdiet nibh
+              aliquet. Cras in facilisis arcu, non mattis orci. Etiam id mauris
+              sit amet nibh rhoncus ornare. Pellentesque a ex vitae nibh
+              pulvinar lacinia.
+            </p>
+            <p>
+              Phasellus lacinia quam ac mi pulvinar, et fringilla dui blandit.
+              Suspendisse potenti. Sed at mauris augue. Maecenas varius, ligula
+              a volutpat commodo, urna est ultricies urna, quis interdum augue
+              sem vitae lacus.
+            </p>
+            <p>
+              Curabitur id arcu sit amet massa lacinia auctor. Integer dictum mi
+              at ipsum ultrices dictum. Nulla facilisi. Suspendisse potenti.
+              Integer id lorem nec orci rhoncus iaculis.
+            </p>
+            <p>
+              Curabitur id arcu sit amet massa lacinia auctor. Integer dictum mi
+              at ipsum ultrices dictum. Nulla facilisi. Suspendisse potenti.
+              Integer id lorem nec orci rhoncus iaculis.
+            </p>
+            <p>
+              Curabitur id arcu sit amet massa lacinia auctor. Integer dictum mi
+              at ipsum ultrices dictum. Nulla facilisi. Suspendisse potenti.
+              Integer id lorem nec orci rhoncus iaculis.
+            </p>
+            <p>
+              Curabitur id arcu sit amet massa lacinia auctor. Integer dictum mi
+              at ipsum ultrices dictum. Nulla facilisi. Suspendisse potenti.
+              Integer id lorem nec orci rhoncus iaculis.
+            </p>
+            <p>
+              Curabitur id arcu sit amet massa lacinia auctor. Integer dictum mi
+              at ipsum ultrices dictum. Nulla facilisi. Suspendisse potenti.
+              Integer id lorem nec orci rhoncus iaculis.
+            </p>
+          </div>
+          <footer class="card__footer">
+            <button class="btn">Share</button>
+            <button class="btn btn--primary">Open</button>
+          </footer>
+        </article>
+
+        <article class="card" aria-labelledby="card-2-title">
+          <header class="card__header">
+            <span class="card__badge">Team</span>
+            <div class="card__title" id="card-2-title">Design Backlog</div>
+          </header>
+          <div class="card__content" tabindex="0">
+            <p class="muted">
+              Shorter content—equal height is preserved per row.
+            </p>
+            <p>
+              Aliquam sit amet urna in nisi efficitur ultricies. Fusce pretium,
+              elit non volutpat pretium, arcu augue cursus nulla, a malesuada
+              est nisl sed lorem.
+            </p>
+            <p>Phasellus vitae justo id libero facilisis accumsan.</p>
+          </div>
+          <footer class="card__footer">
+            <button class="btn">Comment</button>
+            <button class="btn btn--primary">View</button>
+          </footer>
+        </article>
+
+        <article class="card" aria-labelledby="card-3-title">
+          <header class="card__header">
+            <span class="card__badge">Docs</span>
+            <div class="card__title" id="card-3-title">API Changelog</div>
+          </header>
+          <div class="card__content" tabindex="0">
+            <p class="muted">
+              Lots of content to prove the scroll area works independently.
+            </p>
+            <p>
+              0.10.0 – Breaking: Reworked authentication flow with device grants
+              and PKCE. Added <code>/v2/session</code> endpoints and deprecated
+              legacy tokens.
+            </p>
+            <p>
+              0.9.4 – Fix: Rate limiting bug under bursty traffic. Perf
+              improvements for list endpoints with keyset pagination.
+            </p>
+            <p>
+              0.9.0 – Feature: Webhooks retries with exponential backoff,
+              dead-letter queue, and dashboard visibility.
+            </p>
+            <p>
+              0.8.3 – Security: Rotating HMAC secrets and audit log tamper
+              detection.
+            </p>
+            <p>
+              0.8.0 – Feature: Bulk import with background processing and
+              progress SSE.
+            </p>
+            <p>
+              0.7.2 – Fix: Edge-case 500s on multipart uploads. Improved
+              validation errors.
+            </p>
+            <p>0.7.0 – Feature: Fine-grained API keys with scopes.</p>
+            <p>0.6.0 – Feature: Idempotent POST semantics.</p>
+            <p>0.5.x – Various fixes and documentation updates.</p>
+            <p>0.4.x – Added sandbox environment and mock server.</p>
+            <p>0.3.x – Early preview.</p>
+            <p>0.2.x – Internal builds.</p>
+            <p>0.1.x – Prototype.</p>
+            <p>0.0.x – Init.</p>
+            <p>End of file.</p>
+          </div>
+          <footer class="card__footer">
+            <button class="btn">Copy</button>
+            <button class="btn btn--primary">Details</button>
+          </footer>
+        </article>
+
+        <article class="card" aria-labelledby="card-4-title">
+          <header class="card__header">
+            <span class="card__badge">Docs</span>
+            <div class="card__title" id="card-4-title">
+              API Changelog (Extra)
+            </div>
+          </header>
+          <div class="card__content" tabindex="0">
+            <p class="muted">
+              Lots of content to prove the scroll area works independently.
+            </p>
+            <p>
+              0.10.0 – Breaking: Reworked authentication flow with device grants
+              and PKCE. Added <code>/v2/session</code> endpoints and deprecated
+              legacy tokens.
+            </p>
+            <p>
+              0.9.4 – Fix: Rate limiting bug under bursty traffic. Perf
+              improvements for list endpoints with keyset pagination.
+            </p>
+            <p>
+              0.9.0 – Feature: Webhooks retries with exponential backoff,
+              dead-letter queue, and dashboard visibility.
+            </p>
+            <p>
+              0.8.3 – Security: Rotating HMAC secrets and audit log tamper
+              detection.
+            </p>
+            <p>
+              0.8.0 – Feature: Bulk import with background processing and
+              progress SSE.
+            </p>
+            <p>
+              0.7.2 – Fix: Edge-case 500s on multipart uploads. Improved
+              validation errors.
+            </p>
+            <p>0.7.0 – Feature: Fine-grained API keys with scopes.</p>
+            <p>0.6.0 – Feature: Idempotent POST semantics.</p>
+            <p>0.5.x – Various fixes and documentation updates.</p>
+            <p>0.4.x – Added sandbox environment and mock server.</p>
+            <p>0.3.x – Early preview.</p>
+            <p>0.2.x – Internal builds.</p>
+            <p>0.1.x – Prototype.</p>
+            <p>0.0.x – Init.</p>
+            <p>End of file.</p>
+          </div>
+          <footer class="card__footer">
+            <button class="btn">Copy</button>
+            <button class="btn btn--primary">Details</button>
+          </footer>
+        </article>
+      </section>
+
+      <p class="lead" style="margin-top: 24px">
+        How it works: the card is a <code>display:flex</code> column. The middle
+        <code>.card__content</code> flexes and becomes the scroll container
+        (<code>overflow:auto</code>), so the header can be
+        <code>position:sticky; top:0</code>. The outer grid uses a flex row with
+        <code>align-items:stretch</code> so cards match height per row.
+      </p>
+    </main>
+  </body>
+</html>

@@ -1,0 +1,35 @@
+@use "sass:math";
+
+$paragraph-number: 1;
+
+.contact {
+  @include flx(justify-content, center);
+  align-items: center;
+  flex-wrap: wrap;
+  @extend %double-margin-top;
+  margin-left: auto;
+  margin-right: auto;
+  width: 90%;
+
+  &__figure {
+    width: 50%;
+  }
+
+  &__img {
+    width: 100%;
+  }
+
+  &__info {
+    width: 40%;
+    text-align: center;
+    font-family: Arial, Helvetica, sans-serif;
+  }
+
+  @while $paragraph-number < 5 {
+    &__p-#{$paragraph-number} {
+      @include font-size-handler(math.div(40px, $paragraph-number));
+      padding-top: 5px * $paragraph-number;
+    }
+    $paragraph-number: $paragraph-number + 1;
+  }
+}

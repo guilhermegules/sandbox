@@ -1,0 +1,27 @@
+.controls {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.controls button,
+.controls select {
+  background: var(--control-background);
+  color: var(--text);
+  border: 1px solid var(--control-border);
+  border-radius: 12px;
+  padding: 8px 12px;
+  font: inherit;
+  cursor: pointer;
+  transition: transform 0.15s ease, border-color 0.2s ease, background 0.2s ease;
+}
+
+.controls button:hover,
+.controls select:hover {
+  border-color: var(--control-border-hover);
+}
+
+.controls button:active {
+  transform: translateY(1px);
+}

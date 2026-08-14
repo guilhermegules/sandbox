@@ -1,0 +1,19 @@
+.navigation__link {
+  margin-right: 0;
+}
+
+.navigation__link {
+  color: #808080;
+  text-decoration: none;
+  margin-right: 1.25rem;
+  text-transform: lowercase;
+}
+
+.navigation__link:hover {
+  text-decoration: underline;
+}
+
+.navigation__link.active {
+  color: #333333;
+  font-weight: bold;
+}

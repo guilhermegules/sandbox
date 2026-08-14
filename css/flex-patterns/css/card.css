@@ -1,0 +1,124 @@
+/* --- Flex container: equal-height cards per row --- */
+.cards {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  align-items: stretch; /* makes all cards in the same row equal height */
+}
+
+/* --- Card --- */
+.card {
+  flex: 1 1 320px; /* grows evenly, wraps at ~320px */
+  min-width: 280px;
+  display: flex;
+  flex-direction: column;
+  background: linear-gradient(
+      180deg,
+      rgba(255, 255, 255, 0.02),
+      rgba(255, 255, 255, 0)
+    )
+    var(--card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  overflow: hidden; /* clips sticky header shadow */
+  box-shadow: 0 2px 30px rgba(0, 0, 0, 0.25),
+    inset 0 1px 0 rgba(255, 255, 255, 0.02);
+}
+
+/* --- Sticky header INSIDE the card --- */
+.card__header {
+  position: sticky; /* sticks relative to the card's scrolling area below */
+  top: 0;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 14px 16px;
+  background: linear-gradient(180deg, rgba(0, 0, 0, 0.25), rgba(0, 0, 0, 0)),
+    var(--card);
+  backdrop-filter: blur(6px);
+  border-bottom: 1px solid var(--border);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.25);
+}
+
+.card__title {
+  font-weight: 700;
+  letter-spacing: 0.2px;
+}
+
+.card__badge {
+  font-size: 12px;
+  padding: 4px 8px;
+  border-radius: 999px;
+  background: #1a2330;
+  color: var(--accent);
+  border: 1px solid #1f2a38;
+}
+
+/* Scrollable content area */
+.card__content {
+  /* This area grows to fill remaining height and becomes the scroll container */
+  flex: 1 1 auto;
+  overflow: auto;
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  /* nice scroll behavior */
+  scroll-behavior: smooth;
+  overscroll-behavior: contain;
+  /* subtle scroll-shadows via background-attachment trick */
+  background: linear-gradient(var(--card), var(--card)) padding-box,
+    linear-gradient(
+        180deg,
+        rgba(0, 0, 0, 0.45),
+        rgba(0, 0, 0, 0) 30% 70%,
+        rgba(0, 0, 0, 0.45)
+      )
+      border-box;
+  border: 1px solid transparent; /* enables the border-box gradient */
+  /* max-height: 80vh; /* Only for demostration, uncomment if want scroll */
+}
+
+.card__content > p {
+  margin: 0;
+  color: var(--card-ink);
+}
+
+.muted {
+  color: var(--muted);
+}
+
+/* Footer pinned to the bottom of the card  */
+.card__footer {
+  border-top: 1px solid var(--border);
+  padding: 12px 16px;
+  display: flex;
+  gap: 8px;
+  justify-content: flex-end;
+  background: linear-gradient(0deg, rgba(0, 0, 0, 0.25), rgba(0, 0, 0, 0)),
+    var(--card);
+  bottom: 0;
+  position: sticky;
+}
+
+/* Demo heights to show scrolling */
+.cards {
+  min-height: 60vh;
+}
+
+p.lead {
+  margin: 0 0 24px;
+  color: var(--muted);
+}
+
+/* Mobile tweaks */
+@media (max-width: 720px) {
+  .cards {
+    gap: 12px;
+  }
+
+  .card {
+    flex-basis: 100%;
+  }
+}
