@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="./immer.umd.production.min.js"></script>
+    <script src="./redux.min.js"></script>
+    <title>Challenge</title>
+  </head>
+  <body>
+    <div>
+      <h1>Nome: <span id="student"></span></h1>
+      <h2>Email: <span id="email"></span></h2>
+      <p>Time remaining of classes: <span id="time-remaining"></span></p>
+      <p>All classes completed: <span id="classes-completed"></span></p>
+    </div>
+    <script>
+      // Student
+      const INCREMENT_TIME = "student/INCREMENT_TIME";
+      const DECREASE_TIME = "student/DECREASE_TIME";
+      const CHANGE_EMAIL = "student/CHANGE_EMAIL(email)";
+
+      const initialStudentState = {
+        name: "Guilherme",
+        email: "guilherme@email.com",
+        daysRemaining: 120,
+      };
+
+      const incrementTime = () => ({ type: INCREMENT_TIME });
+      const decreaseTime = () => ({ type: DECREASE_TIME });
+      const changeEmail = (payload) => ({ type: CHANGE_EMAIL, payload });
+
+      const student = immer.produce((state, action) => {
+        switch (action.type) {
+          case INCREMENT_TIME:
+            state.daysRemaining += 1;
+            break;
+          case DECREASE_TIME:
+            state.daysRemaining -= 1;
+            break;
+          case CHANGE_EMAIL:
+            state.email = action.payload;
+            break;
+        }
+      }, initialStudentState);
+
+      // Classes
+      const COMPLETE_CLASS = "class/COMPLETE_CLASS(id)";
+      const COMPLETE_COURSE = "class/COMPLETE_COURSE";
+      const RESET_COURSE = "class/RESET_COURSE";
+
+      const initialClassValue = [
+        {
+          id: 1,
+          name: "Design",
+          completed: true,
+        },
+        {
+          id: 2,
+          name: "HTML",
+          completed: false,
+        },
+        {
+          id: 3,
+          name: "CSS",
+          completed: false,
+        },
+        {
+          id: 4,
+          name: "JavaScript",
+          completed: false,
+        },
+      ];
+
+      const completeClass = (id) => ({ type: COMPLETE_CLASS, payload: id });
+      const completeCourse = () => ({ type: COMPLETE_COURSE });
+      const resetCourse = () => ({ type: RESET_COURSE });
+
+      const classes = immer.produce((state, action) => {
+        switch (action.type) {
+          case COMPLETE_CLASS:
+            const classToComplete = state.find((c) => c.id === action.payload);
+            if (classToComplete) {
+              classToComplete.completed = true;
+            }
+            break;
+          case COMPLETE_COURSE:
+            state.forEach((c) => (c.completed = true));
+            break;
+          case RESET_COURSE:
+            state.forEach((c) => (c.completed = false));
+            break;
+        }
+      }, initialClassValue);
+
+      const reducer = Redux.combineReducers({ student, classes });
+      const store = Redux.createStore(
+        reducer,
+        window.__REDUX_DEVTOOLS_EXTENSION__ &&
+          window.__REDUX_DEVTOOLS_EXTENSION__()
+      );
+
+      const render = () => {
+        const studentElement = document.getElementById("student");
+        const emailElement = document.getElementById("email");
+        const timeRemainingElement = document.getElementById("time-remaining");
+        const classesCompletedElement =
+          document.getElementById("classes-completed");
+
+        const { student, classes } = store.getState();
+
+        studentElement.innerText = student.name;
+        emailElement.innerText = student.email;
+        timeRemainingElement.innerText = student.daysRemaining;
+        classesCompletedElement.innerText = classes.filter(
+          (c) => c.completed
+        ).length;
+      };
+
+      render();
+
+      store.subscribe(() => render());
+
+      store.dispatch(incrementTime());
+      store.dispatch(decreaseTime());
+      store.dispatch(changeEmail("newemail@email.com"));
+
+      store.dispatch(completeClass(2));
+      store.dispatch(completeCourse());
+      store.dispatch(resetCourse());
+    </script>
+  </body>
+</html>
