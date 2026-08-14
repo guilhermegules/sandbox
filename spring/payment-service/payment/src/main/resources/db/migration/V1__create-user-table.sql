@@ -1,0 +1,8 @@
+CREATE TABLE IF NOT EXISTS payment_user (
+  id UUID NOT NULL PRIMARY KEY DEFAULT gen_random_uuid(),
+  document VARCHAR(11) NOT NULL UNIQUE,
+  full_name VARCHAR(150) NOT NULL,
+  email VARCHAR(150) NOT NULL UNIQUE,
+  password VARCHAR(48) NOT NULL,
+  type VARCHAR(50) NOT NULL
+);
