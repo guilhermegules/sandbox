@@ -1,0 +1,87 @@
+@baseUrl = http://localhost:3001
+@contentType = application/json
+
+# Health Check
+GET {{baseUrl}}/health
+
+###
+
+# Create short URL
+POST {{baseUrl}}/urls
+Content-Type: {{contentType}}
+
+{
+  "url": "https://google.com"
+}
+
+###
+
+# Create short URL with custom code
+POST {{baseUrl}}/urls
+Content-Type: {{contentType}}
+
+{
+  "url": "https://google.com",
+  "custom_code": "gsearch"
+}
+
+###
+
+# Create short URL with expiration
+POST {{baseUrl}}/urls
+Content-Type: {{contentType}}
+
+{
+  "url": "https://google.com",
+  "expires_at": "2026-12-31T23:59:59Z"
+}
+
+###
+
+# Get URL by ID
+GET {{baseUrl}}/urls/b06ce084-b302-42f0-b995-b0a4f7393f7c
+
+###
+
+# Update URL
+PATCH {{baseUrl}}/urls/b06ce084-b302-42f0-b995-b0a4f7393f7c
+Content-Type: {{contentType}}
+
+{
+  "url": "https://updated-url.com"
+}
+
+###
+
+# Update URL with new expiration
+PATCH {{baseUrl}}/urls/b06ce084-b302-42f0-b995-b0a4f7393f7c
+Content-Type: {{contentType}}
+
+{
+  "expires_at": "2027-01-15T00:00:00Z"
+}
+
+###
+
+# Delete URL
+DELETE {{baseUrl}}/urls/b06ce084-b302-42f0-b995-b0a4f7393f7c
+
+###
+
+# List URLs (paginated)
+GET {{baseUrl}}/urls?page=1&per_page=10
+
+###
+
+# Redirect by short code (increments click count)
+GET {{baseUrl}}/custom_code
+
+###
+
+# Get URL stats
+GET {{baseUrl}}/urls/b06ce084-b302-42f0-b995-b0a4f7393f7c/stats
+
+###
+
+# Get QR code
+GET {{baseUrl}}/urls/b06ce084-b302-42f0-b995-b0a4f7393f7c/qr

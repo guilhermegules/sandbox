@@ -1,0 +1,1 @@
+export const isPastDate = (date: Date): boolean => date < new Date();

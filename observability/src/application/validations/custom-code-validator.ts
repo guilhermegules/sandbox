@@ -1,0 +1,1 @@
+export const customCodeValidator = (code: string): boolean => code.length <= 16;
