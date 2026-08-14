@@ -1,0 +1,7 @@
+﻿services:
+  collections:
+    image: collections
+    build:
+      context: .
+      dockerfile: Dockerfile
+

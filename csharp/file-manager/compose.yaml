@@ -1,0 +1,7 @@
+﻿services:
+  file-manager:
+    image: file-manager
+    build:
+      context: .
+      dockerfile: Dockerfile
+

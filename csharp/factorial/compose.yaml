@@ -1,0 +1,7 @@
+﻿services:
+  factorial:
+    image: factorial
+    build:
+      context: .
+      dockerfile: Dockerfile
+
