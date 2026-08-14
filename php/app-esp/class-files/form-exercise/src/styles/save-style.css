@@ -1,0 +1,29 @@
+h1 {
+  margin: 30px;
+  text-align: center;
+}
+
+.user-card {
+  background-color: #fff8dc;
+  padding: 15px;
+  width: 450px;
+  border-radius: 15px;
+  margin-bottom: 15px;
+}
+
+.user-card h2 {
+  border-bottom: 1px solid #000;
+}
+
+.user-card-row {
+  margin: 15px;
+}
+
+.user-card-row p {
+  margin-top: 10px;
+}
+
+.card-container {
+  display: flex;
+  justify-content: center;
+}

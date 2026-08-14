@@ -1,0 +1,29 @@
+h1 {
+  margin: 15px;
+  text-align: center;
+}
+
+.row {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  padding: 0 15px 15px 15px;
+}
+
+.form-container {
+  margin-bottom: 120px;
+  display: flex;
+  justify-content: center;
+}
+
+.card {
+  background-color: #cfc0ab;
+  border: 1px solid #deb887;
+  padding: 15px;
+}
+
+input[type="submit"] {
+  height: 30px;
+  width: 100px;
+  margin-left: 15px;
+}

@@ -1,0 +1,12 @@
+<b>Nome:</b> Fulano de tal 
+<b>E-mail:</b> fulano@de.tal 
+<b>Telefone:</b> 18 9981616166 
+<b>RG:</b> 987098890-00 
+----
+
+<b>Nome:</b> Fulano da Silva Sauro 
+<b>E-mail:</b> fulano@sauro.com 
+<b>Telefone:</b> 19987655677 
+<b>RG:</b> 09098890-9 
+----
+
