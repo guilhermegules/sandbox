@@ -1,0 +1,24 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: nodejs-poc-deployment
+  labels:
+    app: nodejs-poc
+    part: k8s-part2
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: nodejs-poc
+  template:
+    metadata:
+      labels:
+        app: nodejs-poc
+        part: k8s-part2
+    spec:
+      containers:
+      - name: nodejs-poc
+        image: nodejs-k8s-poc:v1
+        imagePullPolicy: Never
+        ports:
+        - containerPort: 8080

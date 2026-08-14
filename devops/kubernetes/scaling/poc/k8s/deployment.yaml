@@ -1,0 +1,24 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: nodejs-scaling-poc
+  labels:
+    app: nodejs-scaling-poc
+    part: k8s-part3
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: nodejs-scaling-poc
+  template:
+    metadata:
+      labels:
+        app: nodejs-scaling-poc
+        part: k8s-part3
+    spec:
+      containers:
+      - name: nodejs-app
+        image: nodejs-k8s-scaling:v1
+        imagePullPolicy: Never
+        ports:
+        - containerPort: 8080

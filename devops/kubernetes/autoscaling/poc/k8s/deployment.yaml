@@ -1,0 +1,29 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: nodejs-hpa-poc
+  labels:
+    app: nodejs-hpa-poc
+    part: k8s-part4
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: nodejs-hpa-poc
+  template:
+    metadata:
+      labels:
+        app: nodejs-hpa-poc
+        part: k8s-part4
+    spec:
+      containers:
+      - name: nodejs-app
+        image: nodejs-k8s-hpa:v1
+        imagePullPolicy: Never
+        ports:
+        - containerPort: 8080
+        resources:
+          requests:
+            cpu: "200m"
+          limits:
+            cpu: "500m"
