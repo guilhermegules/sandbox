@@ -1,0 +1,14 @@
+/home/guilherme/workspace/not-quite-lisp/bin/Debug/net9.0/not-quite-lisp
+/home/guilherme/workspace/not-quite-lisp/bin/Debug/net9.0/not-quite-lisp.deps.json
+/home/guilherme/workspace/not-quite-lisp/bin/Debug/net9.0/not-quite-lisp.runtimeconfig.json
+/home/guilherme/workspace/not-quite-lisp/bin/Debug/net9.0/not-quite-lisp.dll
+/home/guilherme/workspace/not-quite-lisp/bin/Debug/net9.0/not-quite-lisp.pdb
+/home/guilherme/workspace/not-quite-lisp/obj/Debug/net9.0/not-quite-lisp.GeneratedMSBuildEditorConfig.editorconfig
+/home/guilherme/workspace/not-quite-lisp/obj/Debug/net9.0/not-quite-lisp.AssemblyInfoInputs.cache
+/home/guilherme/workspace/not-quite-lisp/obj/Debug/net9.0/not-quite-lisp.AssemblyInfo.cs
+/home/guilherme/workspace/not-quite-lisp/obj/Debug/net9.0/not-quite-lisp.csproj.CoreCompileInputs.cache
+/home/guilherme/workspace/not-quite-lisp/obj/Debug/net9.0/not-quite-lisp.dll
+/home/guilherme/workspace/not-quite-lisp/obj/Debug/net9.0/refint/not-quite-lisp.dll
+/home/guilherme/workspace/not-quite-lisp/obj/Debug/net9.0/not-quite-lisp.pdb
+/home/guilherme/workspace/not-quite-lisp/obj/Debug/net9.0/not-quite-lisp.genruntimeconfig.cache
+/home/guilherme/workspace/not-quite-lisp/obj/Debug/net9.0/ref/not-quite-lisp.dll

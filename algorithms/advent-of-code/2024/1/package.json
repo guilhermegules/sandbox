@@ -1,0 +1,16 @@
+{
+  "name": "1",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "keywords": [
+    "Node",
+    "Advent of code"
+  ],
+  "author": "Guilherme Gules Moreira",
+  "license": "ISC",
+  "description": "Project day 1 from advent of code 2024",
+  "type": "module"
+}
