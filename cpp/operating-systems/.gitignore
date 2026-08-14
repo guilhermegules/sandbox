@@ -1,0 +1,13 @@
+*
+
+!.vscode
+!*.c
+!.gitignore
+!*.json
+!*.md
+!fork
+!figure-search
+!merge-sort
+!multiply-matrix
+!exercises-book
+!shared-memory
