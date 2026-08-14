@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.appcompat.widget.LinearLayoutCompat xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/aard"
+    android:orientation="vertical"
+    tools:context=".CasaDeVidroLutaActivity">
+
+    <TextView
+        android:id="@+id/txtCasaDeVidroLuta"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_weight="0.1"
+        android:background="#CB000000"
+        android:fontFamily="@font/press_start_2p"
+        android:text="Geralt resolve lutar com a bruxa usando seu sinal Aard, para deixa-la assustada ou enfraquecida"
+        android:textColor="#FFFFFF"
+        android:textSize="14sp" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="30dp"
+        android:layout_marginRight="20dp"
+        android:layout_weight="10"
+        android:orientation="vertical">
+
+        <Button
+            android:id="@+id/btnCasaDeVidroLutarOp1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="#CB000000"
+            android:backgroundTint="#0A0808"
+            android:fontFamily="@font/press_start_2p"
+            android:text="Contente em afastar a bruxa Geralt vai embora."
+            android:textColor="#FFFFFF" />
+
+        <Button
+            android:id="@+id/btnCasaDeVidroLutarOp2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="#CE000000"
+            android:backgroundTint="#0A0808"
+            android:fontFamily="@font/press_start_2p"
+            android:text="Geralt Resolve perseguir a Bruxa."
+            android:textColor="#FFFFFF" />
+    </LinearLayout>
+
+</androidx.appcompat.widget.LinearLayoutCompat>

@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.appcompat.widget.LinearLayoutCompat xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/casadevidrofinal"
+    android:orientation="vertical"
+    tools:context=".CasaDeVidro7Activity">
+
+    <TextView
+        android:id="@+id/txtCasaDeVidro7"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_weight="0.1"
+        android:background="#CB000000"
+        android:fontFamily="@font/press_start_2p"
+        android:text="O que vem a seguir é a declaração do que era um espirito amargurado, o espirito da mulher de Jakob estava presa nesse mundo por conta do mesmo. que era um marido abusivo e quando ela se apaixonou por outro homem um homem que a tratou bem enquanto Jskob apenas a tratava mal. Quanddo eles descobriu que o coração de sua amada não o pertencia resolveu matar o amado dela em sua frente, e essa desilução a fez morrer e ficar presa no mundo dos vivos."
+        android:textColor="#FFFFFF"
+        android:textSize="14sp" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="30dp"
+        android:layout_marginRight="20dp"
+        android:layout_weight="10"
+        android:orientation="vertical">
+
+        <Button
+            android:id="@+id/btnCasaDeVidro7Op1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="#CB000000"
+            android:backgroundTint="#0A0808"
+            android:fontFamily="@font/press_start_2p"
+            android:text="Geralt acredita no espírito, e deixa Jakob em suas mãos."
+            android:textColor="#FFFFFF" />
+
+        <Button
+            android:id="@+id/btnCasaDeVidro7Op2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="#CB000000"
+            android:backgroundTint="#0A0808"
+            android:fontFamily="@font/press_start_2p"
+            android:text="Geralt não acredita no espirito e leva JAkob embora dali."
+            android:textColor="#FFFFFF" />
+    </LinearLayout>
+
+</androidx.appcompat.widget.LinearLayoutCompat>

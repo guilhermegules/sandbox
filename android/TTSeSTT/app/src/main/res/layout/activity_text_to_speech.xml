@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.widget.LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#000000"
+    android:orientation="vertical"
+    tools:context=".TextToSpeechActivity">
+
+    <ImageView
+        android:id="@+id/imageView2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:srcCompat="@drawable/onda" />
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal"
+        android:text="Narração de Texto (TTS)"
+        android:textColor="#FFFFFF"
+        android:textSize="24sp" />
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:gravity="center_horizontal"
+        android:text="Digite na caixa azul abaixo o texto a ser narrado pela aplicação:"
+        android:textColor="#FFFFFF" />
+
+    <EditText
+        android:id="@+id/edtTTS"
+        android:layout_width="match_parent"
+        android:layout_height="104dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginTop="10dp"
+        android:background="@android:color/holo_blue_dark"
+        android:ems="10"
+        android:gravity="center_vertical|center_horizontal"
+        android:inputType="textPersonName" />
+
+    <Button
+        android:id="@+id/btnNarrar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
+        android:background="#222222"
+        android:text="NARRAR!"
+        android:textColor="#BBBBBB" />
+
+    <Button
+        android:id="@+id/btnVoltarTTS"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:background="#222222"
+        android:text="Voltar à tela inicial"
+        android:textColor="#BBBBBB" />
+</android.widget.LinearLayout>

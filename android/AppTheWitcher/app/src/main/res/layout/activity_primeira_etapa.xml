@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.appcompat.widget.LinearLayoutCompat xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/primeiraopcao"
+    android:orientation="vertical"
+    tools:context=".PrimeiraEtapaActivity">
+
+    <TextView
+        android:id="@+id/txtHistoria1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_weight="0.1"
+        android:background="#CB000000"
+        android:fontFamily="@font/press_start_2p"
+        android:text="Durante uma de suas visitas em Velen Geralt resolve explorar os aredores em busca de conseguir um contrato, durante essas buscas ele encontra um homem bebendo, oque ele deve fazer? "
+        android:textColor="#FFFFFF"
+        android:textSize="14sp" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="30dp"
+        android:layout_marginRight="20dp"
+        android:layout_weight="10"
+        android:orientation="vertical">
+
+        <Button
+            android:id="@+id/btnQ1Op1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="#CB000000"
+            android:backgroundTint="#0A0808"
+            android:fontFamily="@font/press_start_2p"
+            android:text="Perguntar ao homem, o que ele faz a essa hora da noite sozinho."
+            android:textColor="#FFFFFF" />
+
+        <Button
+            android:id="@+id/btnQ1Op2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="#CB000000"
+            android:backgroundTint="#0A0808"
+            android:fontFamily="@font/press_start_2p"
+            android:text="Passar reto pelo homem, indo em direção ao pantano retorcido"
+            android:textColor="#FFFFFF" />
+
+        <Button
+            android:id="@+id/btnQ1Op3"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="#CB000000"
+            android:backgroundTint="#0A0808"
+            android:fontFamily="@font/press_start_2p"
+            android:text="Voltar a cidade de  Novigrad"
+            android:textColor="#FFFFFF" />
+    </LinearLayout>
+
+</androidx.appcompat.widget.LinearLayoutCompat>

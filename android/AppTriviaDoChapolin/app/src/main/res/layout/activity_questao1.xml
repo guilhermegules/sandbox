@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.appcompat.widget.LinearLayoutCompat xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".Questao1Activity">
+
+    <ImageView
+        android:id="@+id/imgQuestao3"
+        android:layout_width="wrap_content"
+        android:layout_height="350dp"
+        android:scaleType="fitXY"
+        app:srcCompat="@drawable/pedras" />
+
+    <TextView
+        android:id="@+id/txtQuestao3"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="25dp"
+        android:gravity="center_horizontal"
+        android:text="Isso não são pedras, são?"
+        android:textColor="#000000" />
+
+    <Button
+        android:id="@+id/btnQ1Op1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:text="Aerolitos" />
+
+    <Button
+        android:id="@+id/btnQ1Op2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Meteôritos" />
+
+</androidx.appcompat.widget.LinearLayoutCompat>
