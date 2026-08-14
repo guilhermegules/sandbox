@@ -1,0 +1,20 @@
+{
+  "name": "graphql-hello-world",
+  "version": "1.0.0",
+  "description": "Hello world app with GraphQL",
+  "main": "index.js",
+  "scripts": {
+    "start": "node src/index.js"
+  },
+  "keywords": [
+    "GraphQL",
+    "Node.js"
+  ],
+  "author": "Guilherme Gules",
+  "license": "ISC",
+  "dependencies": {
+    "apollo-server-express": "^2.14.2",
+    "express": "^4.17.1",
+    "graphql": "^15.0.0"
+  }
+}
