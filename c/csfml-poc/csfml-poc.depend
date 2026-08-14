@@ -1,0 +1,6 @@
+# depslib dependency file v1.0
+1636421746 source:/home/guilhermegules/workspaces/dev/prog-c/csfml-poc/main.c
+	<stdlib.h>
+	<SFML/Graphics.h>
+	<SFML/Window.h>
+
