@@ -1,0 +1,43 @@
+### Create order – basic example
+POST http://localhost:3000/orders
+Content-Type: application/json
+
+{
+  "id": "order-001",
+  "value": 100
+}
+
+###
+
+### Create order – higher value
+POST http://localhost:3000/orders
+Content-Type: application/json
+
+{
+  "id": "order-002",
+  "value": 450.75
+}
+
+###
+
+### Create order – edge case (zero value)
+POST http://localhost:3000/orders
+Content-Type: application/json
+
+{
+  "id": "order-003",
+  "value": 0
+}
+
+###
+
+### Create order – large payload
+POST http://localhost:3000/orders
+Content-Type: application/json
+
+{
+  "id": "order-004",
+  "value": 9999.99,
+  "currency": "BRL",
+  "customerId": "cust-123"
+}
