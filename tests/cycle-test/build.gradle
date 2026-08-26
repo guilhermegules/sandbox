@@ -1,9 +1,16 @@
 plugins {
     id 'java'
+    id 'application'
 }
 
 group = 'org.example'
 version = '1.0-SNAPSHOT'
+
+application {
+    mainClass = project.hasProperty('mainClass')
+            ? project.property('mainClass')
+            : 'cycle.test.DependencyCycleExample'
+}
 
 repositories {
     mavenCentral()
