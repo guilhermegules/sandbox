@@ -12,6 +12,11 @@ application {
             : 'cycle.test.DependencyCycleExample'
 }
 
+tasks.withType(JavaCompile).configureEach {
+    options.release = 8
+    options.compilerArgs << '-Xlint:-options'
+}
+
 repositories {
     mavenCentral()
 }
