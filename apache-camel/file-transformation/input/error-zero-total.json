@@ -1,0 +1,13 @@
+{
+  "orderId": "ORD-006",
+  "customer": "Pedro Lima",
+  "items": [
+    {
+      "name": "Webcam HD",
+      "qty": 1,
+      "price": 320.00
+    }
+  ],
+  "total": 0,
+  "currency": "BRL"
+}

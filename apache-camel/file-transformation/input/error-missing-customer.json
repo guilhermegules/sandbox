@@ -1,0 +1,13 @@
+{
+  "orderId": "ORD-004",
+  "customer": "",
+  "items": [
+    {
+      "name": "Mouse Gamer",
+      "qty": 2,
+      "price": 180.00
+    }
+  ],
+  "total": 360.00,
+  "currency": "BRL"
+}

@@ -1,0 +1,13 @@
+{
+  "orderId": "ORD-002",
+  "customer": "Maria Santos",
+  "items": [
+    {
+      "name": "Teclado Mecânico",
+      "qty": 1,
+      "price": 450.00
+    }
+  ],
+  "total": 450.00,
+  "currency": "BRL"
+}

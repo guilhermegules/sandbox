@@ -1,0 +1,19 @@
+{
+  "orderId": "ORD-001",
+  "customer": "João Silva",
+  "email": "joao.silva@email.com",
+  "items": [
+    {
+      "name": "Notebook Dell XPS 15",
+      "qty": 1,
+      "price": 8500.00
+    },
+    {
+      "name": "Mouse Wireless Logitech MX",
+      "qty": 2,
+      "price": 350.00
+    }
+  ],
+  "total": 9200.00,
+  "currency": "BRL"
+}
