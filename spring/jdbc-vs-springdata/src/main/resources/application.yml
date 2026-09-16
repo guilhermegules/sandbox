@@ -1,0 +1,25 @@
+spring:
+  datasource:
+    url: jdbc:postgresql://localhost:5432/comparison
+    username: app
+    password: secret
+    hikari:
+      maximum-pool-size: 10
+  sql:
+    init:
+      mode: always
+      schema-locations: classpath:schema.sql
+  jpa:
+    hibernate:
+      ddl-auto: none
+    open-in-view: false
+    properties:
+      hibernate:
+        jdbc:
+          batch_size: 50
+
+app:
+  seed:
+    batch-size: 500
+    # number of seed rows inserted when the table is empty
+    target-count: 2000
