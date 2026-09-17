@@ -1,0 +1,15 @@
+[project]
+name = "vector-databases"
+version = "0.1.0"
+description = "Learn open-source vector databases by comparing Qdrant, pgvector, and Weaviate"
+requires-python = ">=3.11"
+dependencies = [
+    "numpy>=1.26",
+    "qdrant-client>=1.9",
+    "pgvector>=0.3",
+    "psycopg[binary]>=3.1",
+    "weaviate-client>=1.0",
+]
+
+[tool.uv]
+# Local project: keep the virtualenv inside the folder.
