@@ -15,12 +15,6 @@ import com.example.jdbcvsjpa.repository.JdbcProductRepository;
 import com.example.jdbcvsjpa.repository.JpaProductRepository;
 import com.example.jdbcvsjpa.repository.ProductOperations;
 
-/**
- * Informal latency benchmark. Not a substitute for JMH/JMH-style micro
- * benchmarks: it exercises the full controller -> service -> repository stack
- * in-process and reports wall-clock averages. Use it to spot broad differences,
- * then verify with a proper profiler/load tool.
- */
 @RestController
 @RequestMapping("/api/benchmark")
 public class BenchmarkController {

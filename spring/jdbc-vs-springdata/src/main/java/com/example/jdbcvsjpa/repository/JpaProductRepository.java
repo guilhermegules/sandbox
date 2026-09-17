@@ -9,12 +9,6 @@ import com.example.jdbcvsjpa.domain.Product;
 import com.example.jdbcvsjpa.domain.ProductPayload;
 import com.example.jdbcvsjpa.domain.ProductView;
 
-/**
- * Spring Data JPA data access. It satisfies the same
- * {@link ProductOperations} contract as {@link JdbcProductRepository} but every
- * method delegates to the derived {@link ProductDataRepository} - no SQL by
- * hand, Hibernate generates it.
- */
 @Repository
 public class JpaProductRepository implements ProductOperations {
 

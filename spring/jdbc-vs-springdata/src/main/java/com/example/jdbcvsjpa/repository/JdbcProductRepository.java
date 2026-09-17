@@ -12,11 +12,6 @@ import org.springframework.stereotype.Repository;
 import com.example.jdbcvsjpa.domain.ProductPayload;
 import com.example.jdbcvsjpa.domain.ProductView;
 
-/**
- * Plain JDBC data access built on Spring's {@link JdbcTemplate}. Every SQL
- * statement is written by hand, including insert/update/delete. This is the
- * comparison point against {@link ProductDataRepository} (Spring Data JPA).
- */
 @Repository
 public class JdbcProductRepository implements ProductOperations {
 

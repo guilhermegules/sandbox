@@ -10,11 +10,6 @@ import org.springframework.boot.CommandLineRunner;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Component;
 
-/**
- * Seeds the table on startup when it is empty. Uses batched plain JDBC inserts
- * (via JdbcTemplate) purely because that is the fastest way to populate data -
- * the seeding path is not part of the JDBC-vs-JPA comparison.
- */
 @Component
 public class SeedDataRunner implements CommandLineRunner {
 

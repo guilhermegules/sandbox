@@ -21,10 +21,6 @@ import com.example.jdbcvsjpa.repository.JdbcProductRepository;
 import com.example.jdbcvsjpa.repository.JpaProductRepository;
 import com.example.jdbcvsjpa.repository.ProductOperations;
 
-/**
- * The same REST API is exposed under /api/jdbc/... and /api/jpa/... so the two
- * persistence approaches can be compared side by side.
- */
 @RestController
 @RequestMapping("/api/{impl}")
 public class ProductController {
