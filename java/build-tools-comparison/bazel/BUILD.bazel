@@ -1,0 +1,33 @@
+load("@rules_java//java:defs.bzl", "java_binary", "java_library", "java_test")
+
+package(default_visibility = ["//visibility:public"])
+
+java_library(
+    name = "greeter",
+    srcs = ["src/main/java/com/example/buildtools/Greeter.java"],
+    deps = ["@maven//:org_apache_commons_commons_lang3"],
+)
+
+java_binary(
+    name = "main",
+    srcs = ["src/main/java/com/example/buildtools/Main.java"],
+    main_class = "com.example.buildtools.Main",
+    deps = [":greeter"],
+)
+
+java_test(
+    name = "greeter-test",
+    size = "small",
+    srcs = ["src/test/java/com/example/buildtools/GreeterTest.java"],
+    test_class = "com.example.buildtools.GreeterTest",
+    use_testrunner = False,
+    main_class = "org.junit.platform.console.ConsoleLauncher",
+    args = ["execute", "--select-class", "com.example.buildtools.GreeterTest"],
+    deps = [
+        ":greeter",
+        "@maven//:org_junit_jupiter_junit_jupiter_api",
+        "@maven//:org_junit_jupiter_junit_jupiter_engine",
+        "@maven//:org_junit_platform_junit_platform_console",
+        "@maven//:org_junit_platform_junit_platform_launcher",
+    ],
+)

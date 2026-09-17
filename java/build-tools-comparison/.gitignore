@@ -1,0 +1,10 @@
+# Maven
+maven/target/
+
+# Gradle
+gradle/.gradle/
+gradle/build/
+
+# Bazel (symlinks + sandbox output)
+bazel/bazel-*
+bazel/.cache/
