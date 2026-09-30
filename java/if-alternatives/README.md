@@ -1,36 +1,33 @@
 # IF Alternatives
 
-Fourteen ways to write a decision, side by side. Every technique is a small runnable demo, and the
-tests double as the catalog of each technique's failure mode.
+Fourteen ways to write a decision, side by side. Each technique is a small runnable demo on its own
+domain, and the tests double as the catalogue of each technique's failure mode.
 
-> **Disclaimer**
-> Think carefully before applying these techniques, like there is no tomorrow.
+> **Scope**
+> These are alternatives, not a ranking. Most decisions are correctly written as a plain `if`, and
+> the point of the exercise is knowing when a different technique earns its extra cost. Each entry
+> below records what the technique buys and what it costs, so the choice can be made deliberately.
 >
-> Branches, `if`s and decisions are all the same thing. This is not "never write a simple `if` again
-> and use reflection all the time". Some problems justify different techniques, some don't. Always ask
-> whether the cost and complexity of the solution is worth it - there is no right or wrong, only
-> tradeoffs.
->
-> [The Anti-IF Campaign](https://francescocirillo.com/products/the-anti-if-campaign)
+> Inspired by [The Anti-IF Campaign](https://francescocirillo.com/products/the-anti-if-campaign).
 
 ## Why this exists
 
-There are many ways to handle a decision, from the simple `if` in the code to a generic service with
-an admin UI backed by a database. And there are many ways to *express* a decision, rooted in
-different schools of thought:
+A decision can be expressed in many ways, from an `if` inside a method to a rule service backed by a
+database and an admin UI. Those options fall into three broad schools of thought:
 
-| School             | Style                                                    | Where the decision lives |
-| ------------------ | -------------------------------------------------------- | ----------------------- |
-| **Procedural**     | C-style, steps in order                                   | In the method body       |
-| **Object Oriented**| DDD, pure objects, [Elegant Objects](https://www.yegor256.com/) | In the objects      |
-| **Generic**        | generic data structures, dynamic techniques              | In data / metadata      |
+| School               | Style                                                          | Where the decision lives |
+| -------------------- | -------------------------------------------------------------- | ------------------------ |
+| **Procedural**       | C-style, steps in order                                         | In the method body        |
+| **Object Oriented**  | DDD, pure objects, [Elegant Objects](https://www.yegor256.com/) | In the objects            |
+| **Generic**          | Generic data structures, dynamic techniques                      | In data / metadata        |
 
-The tradeoffs run from **compile time and type systems** to **runtime and dynamic programming**. Some
-of that choice is taste and preference. IMHO the type system and the compiler are worth more,
-because they reduce the amount of test you need to do and shorten the feedback loop.
+The differences run from compile-time type checking to runtime dispatch. Much of the choice is
+taste. A common weighting in practice is to favour the compiler, because types move some verification
+from the test suite to the build and shorten the feedback loop — but the tradeoff is real in both
+directions, and hot paths and frequently changing rules tend to favour different ends of it.
 
-Every technique below moves a decision somewhere specific. Knowing *where* it moved, and *what you
-gave up* to move it, is the point of the exercise.
+Each technique below moves a decision somewhere specific. Tracking *where* it moved, and *what was
+given up* to move it, is what the comparison is for.
 
 ## Build
 
@@ -59,64 +56,69 @@ src/test/java/...          # one test class per category, nested per technique
 
 ## The 14 techniques
 
-Each demo is self-contained with its own small domain, so the comparison is about the *technique*,
-not about the problem. The link column is the file to read.
+Every demo uses its own small domain, so the comparison stays about the *technique* rather than the
+problem. The last column is the file to read.
 
 ### Basic Branches
 
-| # | Technique | PROS | CONS | Demo |
-| - | --------- | ---- | ---- | ---- |
-| 1 | **IFs** | Fast, simple to do | Harder to understand, more verbose | [`IfExample`](src/main/java/com/example/ifalternatives/basic/IfExample.java) |
-| 2 | **Switch** | Easier to understand, more compact than ifs | Requires ifs in some scenarios | [`SwitchExample`](src/main/java/com/example/ifalternatives/basic/SwitchExample.java) |
-| 3 | **SCM branches** (git/svn/hg) | Might be the only solution (lack of BC) | Harder to maintain, a bit obscure | [`ScmBranchExample`](src/main/java/com/example/ifalternatives/basic/ScmBranchExample.java) |
+| # | Technique                    | Pros                                                          | Cons                                                            | Demo                                                                                    |
+| - | ---------------------------- | ------------------------------------------------------------- | --------------------------------------------------------------- | --------------------------------------------------------------------------------------- |
+| 1 | **IFs**                      | Fast, nothing to learn, always available                       | Every new rule edits the same method; nesting and reading grow | [`IfExample`](src/main/java/com/example/ifalternatives/basic/IfExample.java)               |
+| 2 | **Switch**                   | More compact than ifs; cases read as a table; can be exhaustive | Dispatches on one value, so ranges still need an if             | [`SwitchExample`](src/main/java/com/example/ifalternatives/basic/SwitchExample.java)     |
+| 3 | **SCM branches** (git/svn/hg) | Sometimes the only option (no BC, no shared deployable)        | Both versions are never compiled together; the merge is the cost | [`ScmBranchExample`](src/main/java/com/example/ifalternatives/basic/ScmBranchExample.java) |
 
-`IfExample` is the baseline: one method, one branch per business rule. Adding a zone means editing
-that method, and reading the behavior means reading all of it.
+**1. IFs** is the baseline: one method, one branch per business rule. Adding a zone means editing
+that method, and understanding the behaviour means reading all of it.
 
-`SwitchExample` shows why technique 2 does not replace technique 1. The severity switch is exhaustive
-and needs no `default`, but `slaBand()` has to stay a chain of ifs: **a switch dispatches on a single
-value, and `minutes <= 15` is not a switch case.**
+**2. Switch** shows why technique 2 does not replace technique 1. The severity switch is exhaustive
+and needs no `default`, but `slaBand()` remains a chain of ifs — a switch dispatches on a single
+value, and `minutes <= 15` is not a switch case. The `MEDIUM` case also nests a second switch,
+which is the shape a decision on two values takes.
 
-`ScmBranchExample` is the one you cannot express in Java at all. On a real project you build `V1` on
-`main` and `V2` on `feature/fix-coupon-order`, one artifact per branch, and the merge is where it
-hurts. The demo builds the JVM equivalent - two engines plus a `-D` flag - because that is the only
-way to have both versions compiled in one process. The real workflow:
+**3. SCM branches** cannot be expressed in Java at all. In a real project, V1 is built on `main` and
+V2 on `feature/fix-coupon-order`, each branch produces its own artifact, and the merge is where it
+hurts — nothing in the build checks that V2 still honours V1's contract. The demo builds the JVM
+equivalent: two engines plus a `-D` flag, which is the only way to have both versions compiled in a
+single process. The real workflow:
 
 ```bash
 git switch -c feature/fix-coupon-order
 # ... edit, commit
-mvn compile exec:java          # main:     total=274.56
+mvn compile exec:java          # main:  total=274.56
 mvn compile exec:java -Difalternatives.branch=feature/fix-coupon-order   # total=247.10
 git switch main && git merge feature/fix-coupon-order    # <- the cost
 ```
 
 ### Generic Options
 
-| # | Technique | PROS | CONS | Demo |
-| - | --------- | ---- | ---- | ---- |
-| 4 | **Enums** | Concise, type system | Breaks type system (runtime eval) - sucks with serialization, DB loads | [`EnumExample`](src/main/java/com/example/ifalternatives/generic/EnumExample.java) |
-| 5 | **Maps** | Elegant, compact, concise | Slower, breaks type system (runtime eval) | [`MapExample`](src/main/java/com/example/ifalternatives/generic/MapExample.java) |
-| 6 | **Properties** | Generic code | Depends on disk, doesn't work well for embedded jars | [`PropertiesExample`](src/main/java/com/example/ifalternatives/generic/PropertiesExample.java) |
-| 7 | **Reflection** | Generic | Slower, obscure, complex | [`ReflectionExample`](src/main/java/com/example/ifalternatives/generic/ReflectionExample.java) |
-| 8 | **Annotations** | Declarative, generic - has ifs but the code won't grow | More complexity - cache, runtime only | [`AnnotationExample`](src/main/java/com/example/ifalternatives/generic/AnnotationExample.java) |
-| 9 | **Math** | Fast, CPU effective, no ifs, less code | Can get less obvious if complex | [`MathExample`](src/main/java/com/example/ifalternatives/generic/MathExample.java) |
+The decision moves into data or metadata. Concision improves; compile-time verification of the
+branch generally does not.
 
-**4. Enums** - each constant carries its own rule through an abstract method per constant:
+| # | Technique    | Pros                                                    | Cons                                                                          | Demo                                                                                       |
+| - | ------------ | ------------------------------------------------------- | ----------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------ |
+| 4 | **Enums**    | Concise; the type system knows the whole set            | Resolved at runtime by `valueOf(name)`; the name is the persistence format    | [`EnumExample`](src/main/java/com/example/ifalternatives/generic/EnumExample.java)           |
+| 5 | **Maps**     | Compact; adding a rule is adding an entry              | Hash lookup instead of a jump table; keys are unvalidated objects             | [`MapExample`](src/main/java/com/example/ifalternatives/generic/MapExample.java)             |
+| 6 | **Properties** | Rules change without a deploy                        | Depends on the disk; a bundled resource is immutable inside a jar              | [`PropertiesExample`](src/main/java/com/example/ifalternatives/generic/PropertiesExample.java) |
+| 7 | **Reflection** | One call site can drive any number of loaded rules    | Slower and harder to read; a method rename compiles and fails at runtime       | [`ReflectionExample`](src/main/java/com/example/ifalternatives/generic/ReflectionExample.java) |
+| 8 | **Annotations** | Declarative; dispatch code stops growing            | Needs a scan plus a cache; an unannotated class is skipped silently            | [`AnnotationExample`](src/main/java/com/example/ifalternatives/generic/AnnotationExample.java) |
+| 9 | **Math**     | Fast; no ifs; the least code of the fourteen           | Stops being obvious quickly, and mistakes surface at runtime                   | [`MathExample`](src/main/java/com/example/ifalternatives/generic/MathExample.java)           |
+
+**4. Enums** — each constant carries its own rule through an abstract method per constant:
 
 ```java
 enum Payment {
-    CARD { BigDecimal fee() { return new BigDecimal("0.00"); } BigDecimal maxAmount() { return new BigDecimal("5000.00"); } },
+    CARD   { BigDecimal fee() { return new BigDecimal("0.00"); } BigDecimal maxAmount() { return new BigDecimal("5000.00"); } },
     PAYPAL { BigDecimal fee() { return new BigDecimal("2.90"); } BigDecimal maxAmount() { return new BigDecimal("2000.00"); } };
     abstract BigDecimal fee();
     abstract BigDecimal maxAmount();
 }
 ```
 
-The con is not theoretical and it is not about the *code* - it is about the data. `valueOf(name)` is
-the persistence format, so a constant renamed from `DEBIT_CARD` to `CARD` makes every row already in
-the database fail at runtime. The demo loads a stored `DEBIT_CARD` row and lets it explode.
+The cost here is not in the code but in the data. `valueOf(name)` is the persistence format, so a
+constant renamed from `DEBIT_CARD` to `CARD` makes every stored row fail at runtime. The demo loads a
+`DEBIT_CARD` row and lets it throw. Reordering constants is the same hazard without the rename.
 
-**5. Maps** - the decision is a lookup, and the miss is the interesting part:
+**5. Maps** — the decision becomes a lookup, and the miss is the interesting part:
 
 ```java
 static Optional<BigDecimal> discountFor(String couponCode) {
@@ -125,15 +127,16 @@ static Optional<BigDecimal> discountFor(String couponCode) {
 }
 ```
 
-`"WELCOME1O"` (letter O) is a perfectly valid key that matches nothing, and the compiler is silent.
-The key type could be an enum - then you are back to technique 4, with a map's dispatch cost.
+`"WELCOME1O"` (letter O) is a valid key that matches nothing, and the compiler is silent. Typing the
+key as an enum would restore the check, at which point this is technique 4 with a map's lookup cost.
 
-**6. Properties** - the rules move out of the code, which is the point, and into a file, which is
-the cost. A resource inside a jar is immutable, so a library that ships `limits.properties` cannot be
-tuned by its consumers; the only escape hatch is an external file. And a misspelled key is not an
-error, it is a `null` and a `BigDecimal` constructor that throws three frames later.
+**6. Properties** — the rules leave the code, which is the point, and land in a file, which is the
+cost. A resource inside a jar is immutable, so a library shipping `limits.properties` cannot be
+tuned by its consumers; the only escape hatch is an external file. A misspelled key is not an error
+either — it is a `null`, which becomes a zero when a default is supplied and an exception three
+frames later when one is not.
 
-**7. Reflection** - the branch is a method name in a `String`:
+**7. Reflection** — the branch is a method name in a `String`:
 
 ```java
 static BigDecimal apply(String policyName, BigDecimal total) throws ReflectiveOperationException {
@@ -141,32 +144,33 @@ static BigDecimal apply(String policyName, BigDecimal total) throws ReflectiveOp
 }
 ```
 
-The demo runs a config containing `full-discount` - the name a method has *after* a kebab-case
+The demo runs a config containing `full-discount`, the name a method has *after* a kebab-case
 refactor. It compiles, it deploys, and it throws `NoSuchMethodException` on the first call. The
-`CACHE` is not premature optimization, it is the price of admission.
+`CACHE` exists because scanning `getDeclaredMethods()` on every call is expensive. The same dynamic
+call site also accepts a wrong argument type, failing as `IllegalArgumentException` at invoke time.
 
-**8. Annotations** - the rule is declared on a class and discovered once into a registry, so the
-dispatch code stops growing. Two cons show up in the demo: a class that forgets the annotation is
+**8. Annotations** — the rule is declared on a class and discovered once into a registry, so the
+dispatch code stops growing. Two costs show up in the demo: a class missing the annotation is
 skipped *silently* (no compiler can catch a runtime-only mistake), and the scan needs a cache. The
-variant worth knowing is an **annotation processor**, which does the same job at build time when the
-compiler can still fail on a bad rule.
+related variant is an **annotation processor**, which does the same discovery at build time, when
+the compiler can still fail on a bad rule.
 
-**9. Math** - no ifs at all. `Math.max(0, Math.min(3, points / 1000 - 1))` is a clamp. The moment it
-stops being obvious it stops being reviewable: `surchargeFor` indexes an array by
-`Integer.numberOfTrailingZeros(mask)`, and a new flag with no table entry fails with an
-`ArrayIndexOutOfBoundsException` instead of a compile error.
+**9. Math** — no ifs at all. `Math.max(0, Math.min(3, points / 1000 - 1))` is a clamp, and it reads
+as one. The limit appears where the expression stops being obvious: `surchargeFor` indexes an array
+by `Integer.numberOfTrailingZeros(mask)`, and a new flag with no table entry fails with
+`ArrayIndexOutOfBoundsException` rather than a compile error.
 
 ### Elegant Options
 
-Loose some performance.
+Readability is prioritised here; throughput and allocation are not the goal.
 
-| # | Technique | PROS | CONS | Demo |
-| - | --------- | ---- | ---- | ---- |
-| 10 | **IF Objects** | Concise, good code readability | Uses more memory (more objects) | [`IfObjectExample`](src/main/java/com/example/ifalternatives/elegant/IfObjectExample.java) |
-| 11 | **Functional** (predicates, suppliers, functions) | Greater reuse: granular functions, functional style | More complex, still has ifs | [`FunctionalExample`](src/main/java/com/example/ifalternatives/elegant/FunctionalExample.java) |
-| 12 | **Composable Decorators** (Elegant Objects) | Elegant pure OOP style | More memory usage, a bit more complex | [`DecoratorExample`](src/main/java/com/example/ifalternatives/elegant/DecoratorExample.java) |
+| # | Technique                                  | Pros                                                  | Cons                                                     | Demo                                                                                            |
+| - | ------------------------------------------ | ----------------------------------------------------- | -------------------------------------------------------- | ----------------------------------------------------------------------------------------------- |
+| 10 | **IF Objects**                             | Call site reads as a table; conditions reusable        | One object per condition per call                        | [`IfObjectExample`](src/main/java/com/example/ifalternatives/elegant/IfObjectExample.java)       |
+| 11 | **Functional** (predicates, functions)     | Granular, testable pieces; composable                 | More complex; the branches move into the JDK             | [`FunctionalExample`](src/main/java/com/example/ifalternatives/elegant/FunctionalExample.java)   |
+| 12 | **Composable Decorators** (Elegant Objects) | Pure OO; wrappers compose with any other wrapper      | One object per wrapper; assembly order is invisible       | [`DecoratorExample`](src/main/java/com/example/ifalternatives/elegant/DecoratorExample.java)     |
 
-**10. IF Objects** - every condition becomes a named object and the decision becomes a list:
+**10. IF Objects** — every condition becomes a named object and the decision becomes a list:
 
 ```java
 private static final List<Route> ROUTES = List.of(
@@ -183,17 +187,17 @@ static String routeOf(Applicant applicant) {
 }
 ```
 
-The `if` is still there - it just is not inline anymore. What you gained is real: the conditions are
-a readable table, each one is unit testable alone, and `priorityOf` reuses the same five objects for a
-second decision. What you spent is one object per condition per call.
+The `if` is still present — it is just no longer inline. What this adds is real: the conditions
+become a readable table, each is unit testable on its own, and `priorityOf` reuses the same five
+objects for a second decision. What it costs is one object per condition per call.
 
-**11. Functional** - the same shape built from `Predicate`/`Function`/`Supplier`, which adds lazy
-evaluation (`orElseGet` only builds the fallback when nothing matched) and composition
-(`TAX.andThen(ROUND_DOWN)`). The con is that the ifs moved into the JDK: `Stream.filter`,
-`Optional.orElse` and `Function.andThen` are all branches you did not write, and a stream plus a
-lambda per rule is slower than the `if` it replaced.
+**11. Functional** — the same shape built from `Predicate`/`Function`/`Supplier`, which adds lazy
+evaluation (`orElseGet` builds the fallback only when nothing matched) and composition
+(`TAX.andThen(ROUND_DOWN)`). The cost is that the branches move into the JDK: `Stream.filter`,
+`Optional.orElse` and `Function.andThen` are all branches not written here, and a stream plus a
+lambda per rule is slower than the `if` it replaces.
 
-**12. Composable Decorators** - each rule wraps the previous one, and the assembly order *is* the
+**12. Composable Decorators** — each rule wraps the previous one, so the assembly order *is* the
 decision:
 
 ```java
@@ -201,19 +205,19 @@ new Discount(new ShippingFee(subtotal, FEE), DISCOUNT)   // 210.33
 new ShippingFee(new Discount(subtotal, DISCOUNT), FEE)   // 210.82
 ```
 
-Same cart, same rules, different total - because the fee is additive and the discount multiplies. The
-type system cannot see that difference; only the reader of the composition can.
+Same cart, same rules, different total, because the fee is additive and the discount multiplies.
+The type system cannot express that difference; only the reader of the composition can.
 
 ### Polymorphism + Type System
 
-Use the language and proper OO design.
+Here the decision is carried by the data, and the language enforces it.
 
-| # | Technique | PROS | CONS | Demo |
-| - | --------- | ---- | ---- | ---- |
-| 13 | **Reflection and InstanceOf** | More elegant | A bit more complex, breaks the type system - `instanceOf` is resolved at runtime | [`InstanceOfExample`](src/main/java/com/example/ifalternatives/polymorphism/InstanceOfExample.java) |
-| 14 | **Type System + Polymorphism** | Best solution, simple, OO, fast, elegant | Has the ifs (factory - no way to avoid it) | [`PolymorphismExample`](src/main/java/com/example/ifalternatives/polymorphism/PolymorphismExample.java) |
+| # | Technique                      | Pros                                                             | Cons                                                                | Demo                                                                                                     |
+| - | ------------------------------ | ---------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------ |
+| 13 | **Reflection and InstanceOf**  | More structured than a name lookup; the data stays typed         | More complex; `instanceof` is resolved at runtime                   | [`InstanceOfExample`](src/main/java/com/example/ifalternatives/polymorphism/InstanceOfExample.java)       |
+| 14 | **Type System + Polymorphism** | Simple, OO, fast; consumers hold no branch; `sealed` closes the set | The factory still branches — the outside world is a string | [`PolymorphismExample`](src/main/java/com/example/ifalternatives/polymorphism/PolymorphismExample.java) |
 
-**13. Reflection and InstanceOf** - dispatch on the runtime type with `instanceof` patterns, then the
+**13. Reflection and InstanceOf** — dispatch on the runtime type with `instanceof` patterns, then the
 same decision as a switch with record patterns:
 
 ```java
@@ -227,12 +231,12 @@ static String routeWithPattern(Notification notification) {
 }
 ```
 
-The con is the `default`. The hierarchy in this demo is deliberately **not** sealed, so
+The cost is the `default`. The hierarchy in this demo is deliberately **not** sealed, so
 `InstanceOfExample.Unknown` exists, compiles, deploys, and quietly becomes `"unsupported"` in both
-dispatch styles. Nothing failed at build time.
+dispatch styles. Nothing failed at build time — which is the difference from technique 14.
 
-**14. Type System + Polymorphism** - the best row in the table. Each subtype carries its own rule, so
-the consumers have no branch at all, and `sealed` makes the set of subtypes a closed universe:
+**14. Type System + Polymorphism** — each subtype carries its own rule, so consumers have no branch
+at all, and `sealed` makes the set of subtypes a closed universe:
 
 ```java
 sealed interface Shipping { ... }
@@ -248,9 +252,9 @@ record International() implements Shipping {
 }
 ```
 
-Add a `Drone` record and every non-exhaustive switch in the codebase stops compiling - that is the
-whole difference from technique 13. The one branch you cannot avoid is the factory, because the
-outside world is a string in the database and not a type:
+Adding a `Drone` record makes every non-exhaustive switch in the codebase stop compiling, which is
+the whole difference from technique 13. One branch remains unavoidable, because the outside world
+arrives as a string in the database rather than a type:
 
 ```java
 static Shipping of(String carrier) {
@@ -263,13 +267,13 @@ static Shipping of(String carrier) {
 }
 ```
 
-Keep it in one small, obvious place, fail fast on the unknown, and every other decision lives with the
-data it describes.
+The practical guidance is to keep that translation in one small, obvious place and fail fast on the
+unknown value, leaving every other decision with the data it describes.
 
-## Performance freedom (the Elegant Options)
+## Performance cost of the Elegant Options
 
-Techniques 10-12 deliberately trade CPU and memory for readability, and that is a legitimate choice -
-but it should be a choice, not an accident.
+Techniques 10-12 trade CPU and memory for readability. That is a reasonable choice when it is made
+deliberately.
 
 | You spend            | On                                            | You buy                       |
 | -------------------- | --------------------------------------------- | ----------------------------- |
@@ -278,67 +282,67 @@ but it should be a choice, not an accident.
 | Object per wrapper   | One more indirection per decorator            | Order-independent assembly    |
 | Reflection / runtime | Class metadata scan, `Method.invoke`          | A rule engine in a few lines  |
 
-Reach for these when the decision logic is the thing you keep changing and the path is not the hot
-path. Keep technique 1 or 9 when it is 30 million requests a second and the branch is the code.
+These tend to fit decisions that change often and are not on the hot path. Techniques 1 and 9 remain
+reasonable when throughput is the dominant constraint and the branch is straightforward.
 
 ## Tradeoffs checklist
 
-Before choosing, walk these. The list is deliberately the uncomfortable half of the decision.
+Worth walking before choosing. The questions are the uncomfortable half of the decision.
 
 **Null and corner cases**
-- Ignore it, add more ifs, push it to the consumer, or fix it in a decorator?
+- Resolve it here, add more ifs, push it to the consumer, or handle it in a decorator?
 - Empty object / `Optional` / monad, or plain `null`?
-- Can you recover from it, and what does recovery cost?
+- Is it recoverable, and what does recovery cost?
 
 **Fail fast vs fail safe**
-- Crash or panic?
+- Crash or degrade?
 - Fail fast (throw, stop, alert) vs fail safe (default, degrade, retry)?
-- Is an exception an *error* or an *exception*? Checked or unchecked?
+- Is the condition an *error* or an *exception*? Checked or unchecked?
 - One exception type for everything, or several? Which ones, and why?
 
 **What are you going to do with it?**
 - Rate of change: daily, weekly, monthly, quarterly, yearly?
-- Who changes it: a developer, or ops, or a customer through an admin UI?
-- Why does it change - and can the change be additive?
+- Who changes it: a developer, ops, or a customer through an admin UI?
+- Why does it change, and can the change be additive?
 
 **Controlled vs growing complexity**
-- Does the code grow as you gain conditions?
-- How many places do you need to touch to add one?
+- Does the code grow as conditions are added?
+- How many places need touching to add one?
 
 **Optimizations**
 - RPC or batch?
-- Cache, eager or lazy, on demand?
-- Does this decision belong on the client, the server, or the BFF?
+- Cache — eager or lazy, on demand?
+- Does the decision belong on the client, the server, or the BFF?
 
 **School of thought**
-- OOP, FP, generic, compile-time vs dynamic?
+- OOP, FP, generic; compile-time or dynamic?
 - What does the team prefer, and why?
-- Is the team preference about the language or about the last project that hurt them?
+- Is that preference about the language, or about the last project that went badly?
 
-A useful default while you are still deciding: **compile-time over runtime, type system over string
-keys, fail fast over silent defaults** - unless one of the questions above answers back.
+A reasonable starting point while still deciding: **compile-time over runtime, type system over
+string keys, fail fast over silent defaults** — unless an answer above argues otherwise.
 
 ## Tests
 
 One test class per category, one nested class per technique, 51 tests total. They assert the decision
-each technique makes **and** the failure mode its PROS/CONS claim:
+each technique makes **and** the failure mode its cons describe:
 
-| Technique | The edge case under test |
-| --------- | ------------------------ |
-| Ifs       | unknown zone fails fast with `IllegalArgumentException` |
-| Switch    | `slaBand` ranges still need an if |
-| SCM       | branch flag selects the engine; unknown branch fails fast |
-| Enums     | a constant renamed in code breaks the persisted row |
-| Maps      | typo key and `null` are both silent runtime misses |
-| Properties| missing resource returns empty, not null; an override layered on the defaults keeps the untouched keys |
-| Reflection| renamed method throws `NoSuchMethodException`; wrong argument throws `IllegalArgumentException` |
-| Annotations | the unannotated class is skipped without a warning |
-| Math      | unmapped flag bit throws `ArrayIndexOutOfBoundsException` |
-| IF objects| earlier conditions outrank later ones |
-| Functional| `frozen` outranks overdrawn, dormant and vip |
-| Decorators| assembly order changes the total |
-| InstanceOf| an unhandled subtype falls through `default` |
-| Polymorphism | unknown carrier fails fast; customs only above the threshold |
+| Technique   | The edge case under test                                                             |
+| ----------- | ------------------------------------------------------------------------------------ |
+| Ifs         | Unknown zone fails fast with `IllegalArgumentException`                              |
+| Switch      | `slaBand` ranges still need an if                                                    |
+| SCM         | Branch flag selects the engine; an unknown branch fails fast                          |
+| Enums       | A constant renamed in code breaks the persisted row                                  |
+| Maps        | A typo key and `null` are both silent runtime misses                                 |
+| Properties  | A missing resource returns empty rather than null; an override keeps untouched keys  |
+| Reflection  | A renamed method throws `NoSuchMethodException`; a wrong argument throws `IllegalArgumentException` |
+| Annotations | The unannotated class is skipped without a warning                                   |
+| Math        | An unmapped flag bit throws `ArrayIndexOutOfBoundsException`                         |
+| IF objects  | Earlier conditions outrank later ones                                                |
+| Functional  | `frozen` outranks overdrawn, dormant and vip                                         |
+| Decorators  | Assembly order changes the total                                                     |
+| InstanceOf  | An unhandled subtype falls through `default`                                         |
+| Polymorphism | An unknown carrier fails fast; customs applies only above the threshold              |
 
 ## Links
 
