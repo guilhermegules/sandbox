@@ -1,0 +1,16 @@
+/home/ggm/workspace/sandbox/java/tax-system/src/main/java/com/taxengine/domain/model/Money.java
+/home/ggm/workspace/sandbox/java/tax-system/src/main/java/com/taxengine/domain/model/Product.java
+/home/ggm/workspace/sandbox/java/tax-system/src/main/java/com/taxengine/domain/model/State.java
+/home/ggm/workspace/sandbox/java/tax-system/src/main/java/com/taxengine/domain/model/TaxCalculationRequest.java
+/home/ggm/workspace/sandbox/java/tax-system/src/main/java/com/taxengine/domain/model/TaxCategory.java
+/home/ggm/workspace/sandbox/java/tax-system/src/main/java/com/taxengine/domain/model/TaxLineItem.java
+/home/ggm/workspace/sandbox/java/tax-system/src/main/java/com/taxengine/domain/model/TaxLineItemResult.java
+/home/ggm/workspace/sandbox/java/tax-system/src/main/java/com/taxengine/domain/model/TaxSummaryResult.java
+/home/ggm/workspace/sandbox/java/tax-system/src/main/java/com/taxengine/domain/rule/ExemptionRule.java
+/home/ggm/workspace/sandbox/java/tax-system/src/main/java/com/taxengine/domain/rule/StandardRateRule.java
+/home/ggm/workspace/sandbox/java/tax-system/src/main/java/com/taxengine/domain/rule/TaxRule.java
+/home/ggm/workspace/sandbox/java/tax-system/src/main/java/com/taxengine/domain/rule/ThresholdRule.java
+/home/ggm/workspace/sandbox/java/tax-system/src/main/java/com/taxengine/engine/DefaultTaxCalculator.java
+/home/ggm/workspace/sandbox/java/tax-system/src/main/java/com/taxengine/engine/TaxCalculator.java
+/home/ggm/workspace/sandbox/java/tax-system/src/main/java/com/taxengine/repository/InMemoryTaxRuleRepository.java
+/home/ggm/workspace/sandbox/java/tax-system/src/main/java/com/taxengine/repository/TaxRuleRepository.java
