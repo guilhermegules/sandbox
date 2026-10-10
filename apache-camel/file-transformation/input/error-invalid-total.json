@@ -1,0 +1,13 @@
+{
+  "orderId": "ORD-005",
+  "customer": "Ana Costa",
+  "items": [
+    {
+      "name": "Cabo HDMI",
+      "qty": 3,
+      "price": 45.00
+    }
+  ],
+  "total": -135.00,
+  "currency": "BRL"
+}

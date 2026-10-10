@@ -1,0 +1,51 @@
+# Three open-source vector search engines, side by side.
+#
+#   docker compose up -d
+#   docker compose down        (keep data) / docker compose down -v (wipe data)
+#
+# Each service exposes its API on localhost. The Python scripts connect to
+# these ports directly.
+#
+#   qdrant    http://localhost:6333   (REST) / 6334 (gRPC)
+#   postgres  postgresql://vector:vector@localhost:5432/vectordb
+#   weaviate  http://localhost:8080   (REST) / 50051 (gRPC)
+services:
+  qdrant:
+    image: qdrant/qdrant:latest
+    ports:
+      - "6333:6333"
+      - "6334:6334"
+    volumes:
+      - qdrant_data:/qdrant/storage
+
+  postgres:
+    image: pgvector/pgvector:pg17
+    environment:
+      POSTGRES_USER: vector
+      POSTGRES_PASSWORD: vector
+      POSTGRES_DB: vectordb
+    ports:
+      - "5432:5432"
+    volumes:
+      - pg_data:/var/lib/postgresql/data
+
+  weaviate:
+    image: semitechnologies/weaviate:latest
+    environment:
+      AUTHENTICATION_ANONYMOUS_ACCESS_ENABLED: "true"
+      PERSISTENCE_DATA_PATH: "/var/lib/weaviate"
+      # No vectorizer: we compute embeddings ourselves in embed.py.
+      DEFAULT_VECTORIZER_MODULE: "none"
+      ENABLE_MODULES: ""
+      CLUSTER_HOSTNAME: "node1"
+      QUERY_DEFAULTS_LIMIT: 25
+    ports:
+      - "8080:8080"
+      - "50051:50051"
+    volumes:
+      - weaviate_data:/var/lib/weaviate
+
+volumes:
+  qdrant_data:
+  pg_data:
+  weaviate_data:

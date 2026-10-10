@@ -1,0 +1,13 @@
+{
+  "orderId": "",
+  "customer": "Carlos Oliveira",
+  "items": [
+    {
+      "name": "Monitor LG 27\"",
+      "qty": 1,
+      "price": 2800.00
+    }
+  ],
+  "total": 2800.00,
+  "currency": "BRL"
+}

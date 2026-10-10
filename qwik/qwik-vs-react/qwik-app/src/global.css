@@ -1,0 +1,118 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif;
+  color: #1f2430;
+  background: #f5f6fa;
+}
+
+.app {
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 16px;
+}
+
+.nav {
+  display: flex;
+  gap: 8px;
+  padding: 12px;
+  background: #1f2430;
+  border-radius: 8px;
+}
+
+.nav a {
+  color: #cfd6e6;
+  text-decoration: none;
+  padding: 6px 12px;
+  border-radius: 6px;
+}
+
+.main {
+  padding: 16px 0;
+}
+
+.card {
+  margin: 16px 0;
+  padding: 16px;
+  background: #fff;
+  border: 1px solid #dfe3ec;
+  border-radius: 8px;
+}
+
+.count {
+  font-size: 2rem;
+  font-weight: 700;
+  margin: 0;
+}
+
+.row {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+
+button {
+  padding: 6px 12px;
+  border: 1px solid #cfd6e6;
+  border-radius: 6px;
+  background: #fff;
+  cursor: pointer;
+}
+
+button:hover {
+  background: #eef1f8;
+}
+
+input[type='text'],
+input:not([type]) {
+  padding: 6px 8px;
+  border: 1px solid #cfd6e6;
+  border-radius: 6px;
+  flex: 1;
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+}
+
+.todos li {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  padding: 8px;
+  background: #fff;
+  border: 1px solid #dfe3ec;
+  border-radius: 6px;
+  margin-bottom: 6px;
+}
+
+.todos .done {
+  text-decoration: line-through;
+  color: #777;
+}
+
+.empty {
+  color: #777;
+  font-style: italic;
+}
+
+.posts li {
+  padding: 10px 12px;
+  background: #fff;
+  border: 1px solid #dfe3ec;
+  border-radius: 6px;
+  margin-bottom: 8px;
+}
+
+.posts h3 {
+  margin: 0 0 4px;
+}
+
+.posts p {
+  margin: 0;
+  color: #555;
+}

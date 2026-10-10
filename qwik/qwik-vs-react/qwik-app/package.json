@@ -1,0 +1,28 @@
+{
+  "name": "qwik-app",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite --mode ssr",
+    "start": "vite --mode ssr",
+    "build": "qwik build",
+    "build.client": "vite build",
+    "build.preview": "vite build --ssr src/entry.preview.tsx",
+    "build.server": "qwik check-client src dist && vite build -c adapters/node-server/vite.config.ts",
+    "build.types": "tsc --noEmit",
+    "preview": "qwik build preview && vite preview",
+    "serve": "node server/entry.node-server"
+  },
+  "dependencies": {
+    "@builder.io/qwik": "^1.20.0",
+    "@builder.io/qwik-city": "^1.20.0"
+  },
+  "devDependencies": {
+    "@types/node": "^24.10.1",
+    "ignore": "^7.0.9",
+    "typescript": "~5.9.3",
+    "vite": "^7.3.6",
+    "vite-tsconfig-paths": "^6.1.1"
+  }
+}

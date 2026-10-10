@@ -1,0 +1,33 @@
+plugins {
+    id 'java'
+    id 'application'
+}
+
+group = 'org.example'
+version = '1.0-SNAPSHOT'
+
+application {
+    mainClass = project.hasProperty('mainClass')
+            ? project.property('mainClass')
+            : 'cycle.test.DependencyCycleExample'
+}
+
+tasks.withType(JavaCompile).configureEach {
+    options.release = 8
+    options.compilerArgs << '-Xlint:-options'
+}
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    implementation 'jdepend:jdepend:2.9.1'
+    implementation 'com.tngtech.archunit:archunit:1.5.0'
+    testImplementation 'org.junit.jupiter:junit-jupiter:5.10.2'
+    testRuntimeOnly 'org.junit.platform:junit-platform-launcher:1.10.2'
+}
+
+test {
+    useJUnitPlatform()
+}
