@@ -1,0 +1,18 @@
+{
+  "name": "bundler-compare-gulp",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "gulp dev",
+    "build": "gulp build"
+  },
+  "dependencies": {
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1"
+  },
+  "devDependencies": {
+    "clean-css": "^5.3.3",
+    "gulp": "^5.0.0"
+  }
+}
