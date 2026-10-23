@@ -1,0 +1,24 @@
+{
+  "name": "npm-showcase",
+  "version": "1.0.0",
+  "description": "Showcase project using npm (v10+)",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "start": "node src/index.js",
+    "test": "node --test"
+  },
+  "dependencies": {
+    "lodash": "^4.17.21"
+  },
+  "devDependencies": {
+    "prettier": "^3.3.3"
+  },
+  "overrides": {
+    "semver": "^7.6.3"
+  },
+  "engines": {
+    "node": ">=18.0.0",
+    "npm": ">=10.0.0"
+  }
+}

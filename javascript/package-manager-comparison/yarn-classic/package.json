@@ -1,0 +1,20 @@
+{
+  "name": "yarn-classic-showcase",
+  "version": "1.0.0",
+  "description": "Showcase project using Yarn Classic (v1.22.x)",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "start": "node src/index.js",
+    "test": "node --test"
+  },
+  "dependencies": {
+    "lodash": "^4.17.21"
+  },
+  "devDependencies": {
+    "prettier": "^3.3.3"
+  },
+  "resolutions": {
+    "semver": "^7.6.3"
+  }
+}
