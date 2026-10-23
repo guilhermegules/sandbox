@@ -1,0 +1,60 @@
+{
+  "name": "bundlers-comparison",
+  "version": "1.0.0",
+  "description": "Comprehensive comparison project for Vite, esbuild, Rspack, Rsbuild, Turbopack, and Webpack",
+  "private": true,
+  "type": "module",
+  "workspaces": [
+    "vite",
+    "esbuild",
+    "rspack",
+    "rsbuild",
+    "turbopack",
+    "webpack",
+    "gulp"
+  ],
+  "scripts": {
+    "install:all": "npm install --workspaces",
+    "build:all": "npm run build --workspaces",
+    "dev:vite": "npm --workspace=bundler-compare-vite run dev",
+    "dev:esbuild": "npm --workspace=bundler-compare-esbuild run dev",
+    "dev:rspack": "npm --workspace=bundler-compare-rspack run dev",
+    "dev:rsbuild": "npm --workspace=bundler-compare-rsbuild run dev",
+    "dev:turbopack": "npm --workspace=bundler-compare-turbopack run dev",
+    "dev:webpack": "npm --workspace=bundler-compare-webpack run dev",
+    "dev:gulp": "npm --workspace=bundler-compare-gulp run dev",
+    "build:vite": "npm --workspace=bundler-compare-vite run build",
+    "build:esbuild": "npm --workspace=bundler-compare-esbuild run build",
+    "build:rspack": "npm --workspace=bundler-compare-rspack run build",
+    "build:rsbuild": "npm --workspace=bundler-compare-rsbuild run build",
+    "build:turbopack": "npm --workspace=bundler-compare-turbopack run build",
+    "build:webpack": "npm --workspace=bundler-compare-webpack run build",
+    "build:gulp": "npm --workspace=bundler-compare-gulp run build",
+    "benchmark": "node scripts/benchmark.mjs",
+    "generate:modules": "node scripts/generate-modules.mjs",
+    "report": "node scripts/generate-report.mjs"
+  },
+  "overrides": {
+    "react": "$react",
+    "react-dom": "$react-dom"
+  },
+  "dependencies": {
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1"
+  },
+  "keywords": [
+    "vite",
+    "esbuild",
+    "rspack",
+    "rsbuild",
+    "turbopack",
+    "webpack",
+    "bundler-benchmark",
+    "performance"
+  ],
+  "author": "Guilherme Gules Moreira",
+  "license": "MIT",
+  "devDependencies": {
+    "gulp": "^5.0.1"
+  }
+}
