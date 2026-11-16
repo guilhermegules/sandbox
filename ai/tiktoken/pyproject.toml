@@ -1,0 +1,30 @@
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "token-inspector"
+version = "0.1.0"
+description = "Token Inspector CLI & Pre-flight Observability Suite"
+readme = "README.md"
+requires-python = ">=3.10"
+dependencies = [
+    "tiktoken",
+    "pydantic>=2.0",
+    "fastapi",
+    "uvicorn",
+    "httpx",
+    "rich",
+    "click",
+    "pyyaml",
+]
+
+[project.scripts]
+token-inspector = "token_inspector.cli.main:cli"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+pythonpath = ["src", "."]
+testpaths = ["tests"]
