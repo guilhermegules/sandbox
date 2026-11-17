@@ -1,0 +1,35 @@
+[project]
+name = "token-inspector"
+version = "0.1.0"
+description = "Token Inspector CLI & Pre-flight Observability Suite"
+authors = [{name = "Guilherme Gules Moreira", email = "guilhermegules@gmail.com"}]
+readme = "README.md"
+requires-python = ">=3.11"
+dependencies = [
+    "tiktoken (>=0.14.0,<0.15.0)",
+    "pydantic (>=2.0,<3.0)",
+    "fastapi (>=0.163.0,<0.164.0)",
+    "uvicorn (>=0.54.0,<0.55.0)",
+    "httpx (>=0.28.0,<0.29.0)",
+    "rich (>=15.0.0,<16.0.0)",
+    "click (>=8.1.0,<9.0.0)",
+    "pyyaml (>=6.0.0,<7.0.0)",
+]
+
+[project.scripts]
+token-inspector = "token_inspector.cli.main:cli"
+
+[tool.poetry]
+packages = [{include = "token_inspector", from = "src"}]
+
+[tool.poetry.group.dev.dependencies]
+pytest = "^9.0.0"
+anyio = "^4.0.0"
+
+[build-system]
+requires = ["poetry-core>=2.0.0"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.pytest.ini_options]
+pythonpath = ["src", "."]
+testpaths = ["tests"]

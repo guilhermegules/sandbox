@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Token Inspector - LLM Observability & Token Metrics</title>
+  <link rel="stylesheet" href="/_inspector/static/app.css">
+</head>
+<body class="dark-theme">
+  <div class="app-container">
+    <header class="app-header" role="banner">
+      <div class="brand">
+        <span class="logo-icon">🔍</span>
+        <h1>Token Inspector</h1>
+        <span class="status-badge live" id="connection-status">● Live SSE</span>
+      </div>
+      <div class="header-actions">
+        <input type="text" id="model-filter" placeholder="Filter by model (e.g. gpt-4o)..." aria-label="Filter models">
+        <button id="btn-refresh" class="btn btn-secondary">Refresh</button>
+      </div>
+    </header>
+
+    <div class="app-body">
+      <nav class="app-nav" role="navigation" aria-label="Main Navigation">
+        <button class="nav-tab active" data-tab="timeline">Timeline</button>
+        <button class="nav-tab" data-tab="visualizer">Token Visualizer</button>
+        <button class="nav-tab" data-tab="budget">Budget Simulator</button>
+        <button class="nav-tab" data-tab="benchmark">Format Benchmark</button>
+      </nav>
+
+      <main class="app-main" role="main">
+        <!-- View 1: Timeline -->
+        <section id="view-timeline" class="view-panel active">
+          <div class="panel-header">
+            <h2>Captured Requests Timeline</h2>
+            <div class="meta-counter" id="total-count">Total: 0 requests</div>
+          </div>
+          <div class="table-responsive">
+            <table class="data-table" id="requests-table">
+              <thead>
+                <tr>
+                  <th>Request ID</th>
+                  <th>Timestamp</th>
+                  <th>Model</th>
+                  <th>Tokens (Prompt / Comp)</th>
+                  <th>Cost (USD)</th>
+                  <th>Latency</th>
+                  <th>Actions</th>
+                </tr>
+              </thead>
+              <tbody id="requests-tbody">
+                <tr class="empty-row"><td colspan="7">Waiting for incoming API requests...</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </section>
+
+        <!-- View 2: Token Visualizer -->
+        <section id="view-visualizer" class="view-panel">
+          <div class="panel-header">
+            <h2>Token Boundary Visualizer</h2>
+            <div class="controls-row">
+              <select id="vis-model-select">
+                <option value="gpt-4o">gpt-4o (o200k_base)</option>
+                <option value="gpt-4-turbo">gpt-4-turbo (cl100k_base)</option>
+                <option value="gpt-3.5-turbo">gpt-3.5-turbo (cl100k_base)</option>
+              </select>
+            </div>
+          </div>
+          <div class="input-card">
+            <textarea id="vis-input-text" placeholder="Enter prompt text to visualize subword and token boundaries..."></textarea>
+          </div>
+          <div class="chips-container" id="token-chips-display">
+            <!-- Token chips rendered here -->
+          </div>
+        </section>
+
+        <!-- View 3: Budget Simulator -->
+        <section id="view-budget" class="view-panel">
+          <div class="panel-header">
+            <h2>Context Budget Simulator</h2>
+          </div>
+          <div class="budget-form">
+            <div class="form-row">
+              <label for="budget-ceiling">Max Tokens Ceiling:</label>
+              <input type="number" id="budget-ceiling" value="1000" min="10">
+              <button id="btn-run-budget" class="btn btn-primary">Simulate Truncation</button>
+            </div>
+            <textarea id="budget-payload" rows="8" placeholder='[{"role": "system", "content": "..."}, {"role": "user", "content": "..."}]'></textarea>
+          </div>
+          <div id="budget-diff-output" class="diff-card"></div>
+        </section>
+
+        <!-- View 4: Format Benchmark -->
+        <section id="view-benchmark" class="view-panel">
+          <div class="panel-header">
+            <h2>Format Serialization Benchmark</h2>
+          </div>
+          <div class="bench-form">
+            <textarea id="bench-json-input" rows="8" placeholder='Enter JSON array or object to benchmark formats...'></textarea>
+            <button id="btn-run-bench" class="btn btn-primary">Run Benchmark</button>
+          </div>
+          <div id="bench-results-output" class="bench-results"></div>
+        </section>
+      </main>
+
+      <aside class="app-aside" role="complementary" aria-label="Request Details Inspector">
+        <div class="aside-header">
+          <h3>Request Inspector</h3>
+          <button id="btn-close-aside" class="btn-icon" aria-label="Close details">✕</button>
+        </div>
+        <div class="aside-content" id="aside-detail-pane">
+          <div class="placeholder-msg">Select a request from the timeline to inspect full token boundaries and payload breakdown.</div>
+        </div>
+      </aside>
+    </div>
+  </div>
+
+  <script type="module" src="/_inspector/static/app.js"></script>
+</body>
+</html>
