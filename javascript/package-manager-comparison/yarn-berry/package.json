@@ -1,0 +1,21 @@
+{
+  "name": "yarn-berry-showcase",
+  "version": "1.0.0",
+  "description": "Showcase project using Yarn Modern (Berry v4+)",
+  "private": true,
+  "packageManager": "yarn@4.4.1",
+  "type": "module",
+  "scripts": {
+    "start": "node src/index.js",
+    "test": "node --test"
+  },
+  "dependencies": {
+    "lodash": "^4.17.21"
+  },
+  "devDependencies": {
+    "prettier": "^3.3.3"
+  },
+  "resolutions": {
+    "semver": "^7.6.3"
+  }
+}

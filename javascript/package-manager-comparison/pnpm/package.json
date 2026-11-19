@@ -1,0 +1,28 @@
+{
+  "name": "pnpm-showcase",
+  "version": "1.0.0",
+  "description": "Showcase project using pnpm (v9 - v11+)",
+  "private": true,
+  "packageManager": "pnpm@9.12.3",
+  "type": "module",
+  "scripts": {
+    "start": "node src/index.js",
+    "test": "node --test"
+  },
+  "dependencies": {
+    "lodash": "^4.17.21"
+  },
+  "devDependencies": {
+    "prettier": "^3.3.3"
+  },
+  "pnpm": {
+    "overrides": {
+      "semver": "^7.6.3"
+    },
+    "peerDependencyRules": {
+      "ignoreMissing": [
+        "react"
+      ]
+    }
+  }
+}

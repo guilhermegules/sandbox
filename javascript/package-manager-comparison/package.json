@@ -1,0 +1,29 @@
+{
+  "name": "package-manager-comparison",
+  "version": "1.0.0",
+  "description": "Comprehensive comparison between npm, Yarn Classic (v1), Yarn Modern (Berry v4+), and pnpm",
+  "main": "src/index.js",
+  "type": "module",
+  "scripts": {
+    "start": "node src/index.js",
+    "compare": "node src/index.js compare",
+    "cheatsheet": "node src/index.js cheatsheet",
+    "architecture": "node src/index.js architecture",
+    "phantom-demo": "node src/phantom-demo.js",
+    "advisor": "node src/advisor.js",
+    "benchmark": "node src/benchmark-sim.js"
+  },
+  "keywords": [
+    "npm",
+    "yarn",
+    "yarn-classic",
+    "yarn-berry",
+    "pnpm",
+    "package-managers",
+    "comparison",
+    "javascript",
+    "node"
+  ],
+  "author": "Guilherme",
+  "license": "MIT"
+}
